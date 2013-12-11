@@ -10,12 +10,20 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate>
+@interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate> {
+    NSTimer *timer;
+}
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+@property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, weak) IBOutlet UILabel *warningText;
+@property (nonatomic, weak) IBOutlet UILabel *timerCountLabel;
+
+- (void)updateCounter:(NSTimer *)theTimer;
+- (void)countdownTimer;
+- (IBAction)startCounter;
 
 @end

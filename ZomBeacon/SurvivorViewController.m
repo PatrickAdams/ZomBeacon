@@ -14,6 +14,8 @@
 
 @implementation SurvivorViewController {
     BOOL isInfected;
+    int minutes, seconds;
+    int secondsLeft;
 }
 
 - (void)viewDidLoad
@@ -24,6 +26,33 @@
     self.locationManager.delegate = self;
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
+}
+
+- (IBAction)startCounter
+{
+    secondsLeft = 600;
+    [self countdownTimer];
+}
+
+- (void)updateCounter:(NSTimer *)theTimer
+{
+    if(secondsLeft > 0 )
+    {
+        secondsLeft -- ;
+        minutes = (secondsLeft % 3600) / 60;
+        seconds = (secondsLeft %3600) % 60;
+        self.myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+    }
+    else
+    {
+        secondsLeft = 600;
+    }
+}
+
+-(void)countdownTimer
+{
+    secondsLeft = minutes = seconds = 0;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
