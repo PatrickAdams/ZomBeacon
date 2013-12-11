@@ -1,4 +1,0 @@
-ZomBeacon
-=========
-
-ZomBeacon project repository
