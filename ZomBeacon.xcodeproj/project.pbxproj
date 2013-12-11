@@ -18,13 +18,12 @@
 		E751E4A41858BF15004E8874 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4A31858BF15004E8874 /* XCTest.framework */; };
 		E751E4A51858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4A61858BF16004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
-		E751E4AE1858BF16004E8874 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E751E4AC1858BF16004E8874 /* InfoPlist.strings */; };
-		E751E4B01858BF16004E8874 /* ZomBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4AF1858BF16004E8874 /* ZomBeaconTests.m */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
 		E77BFFBF1858F7CD002871A6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFBE1858F7CD002871A6 /* MainViewController.m */; };
 		E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC11858F825002871A6 /* InfectedViewController.m */; };
 		E77BFFC51858F832002871A6 /* SurvivorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC41858F832002871A6 /* SurvivorViewController.m */; };
+		E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7916AD5185905B400FC1741 /* Main_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +51,6 @@
 		E751E49C1858BF15004E8874 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E751E4A21858BF15004E8874 /* ZomBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZomBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4A31858BF15004E8874 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		E751E4AB1858BF16004E8874 /* ZomBeaconTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZomBeaconTests-Info.plist"; sourceTree = "<group>"; };
-		E751E4AD1858BF16004E8874 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E751E4AF1858BF16004E8874 /* ZomBeaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZomBeaconTests.m; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E77BFFBD1858F7CD002871A6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -63,6 +59,7 @@
 		E77BFFC11858F825002871A6 /* InfectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfectedViewController.m; sourceTree = "<group>"; };
 		E77BFFC31858F832002871A6 /* SurvivorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurvivorViewController.h; sourceTree = "<group>"; };
 		E77BFFC41858F832002871A6 /* SurvivorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurvivorViewController.m; sourceTree = "<group>"; };
+		E7916AD5185905B400FC1741 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				E751E48A1858BF15004E8874 /* ZomBeacon */,
-				E751E4A91858BF16004E8874 /* ZomBeaconTests */,
 				E751E4831858BF15004E8874 /* Frameworks */,
 				E751E4821858BF15004E8874 /* Products */,
 			);
@@ -129,6 +125,7 @@
 				E751E4931858BF15004E8874 /* AppDelegate.h */,
 				E751E4941858BF15004E8874 /* AppDelegate.m */,
 				E751E4961858BF15004E8874 /* Main.storyboard */,
+				E7916AD5185905B400FC1741 /* Main_iPad.storyboard */,
 				E77BFFBD1858F7CD002871A6 /* MainViewController.h */,
 				E77BFFBE1858F7CD002871A6 /* MainViewController.m */,
 				E77BFFC01858F825002871A6 /* InfectedViewController.h */,
@@ -148,24 +145,6 @@
 				E751E48D1858BF15004E8874 /* InfoPlist.strings */,
 				E751E4901858BF15004E8874 /* main.m */,
 				E751E4921858BF15004E8874 /* ZomBeacon-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E751E4A91858BF16004E8874 /* ZomBeaconTests */ = {
-			isa = PBXGroup;
-			children = (
-				E751E4AF1858BF16004E8874 /* ZomBeaconTests.m */,
-				E751E4AA1858BF16004E8874 /* Supporting Files */,
-			);
-			path = ZomBeaconTests;
-			sourceTree = "<group>";
-		};
-		E751E4AA1858BF16004E8874 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E751E4AB1858BF16004E8874 /* ZomBeaconTests-Info.plist */,
-				E751E4AC1858BF16004E8874 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E751E49D1858BF15004E8874 /* Images.xcassets in Resources */,
+				E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
 			);
@@ -256,7 +236,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E751E4AE1858BF16004E8874 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +258,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E751E4B01858BF16004E8874 /* ZomBeaconTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +286,6 @@
 				E751E4971858BF15004E8874 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E751E4AC1858BF16004E8874 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E751E4AD1858BF16004E8874 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -401,7 +371,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/ZomBeacon-Prefix.pch";
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -414,7 +386,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/ZomBeacon-Prefix.pch";
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
