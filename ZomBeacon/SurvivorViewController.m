@@ -56,7 +56,7 @@
     CLBeacon *beacon = [[CLBeacon alloc] init];
     beacon = [beacons lastObject];
     
-    if (beacon.proximity == CLProximityNear) {
+    if (beacon.proximity == CLProximityNear) { //Change to (beacon.proximity == CLProximityFar) whenever testing outside
         self.warningText.alpha = 1.0f;
     } else {
         self.warningText.alpha = 0.0f;
