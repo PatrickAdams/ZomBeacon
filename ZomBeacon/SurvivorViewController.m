@@ -92,9 +92,15 @@
     }
     
     if (beacon.proximity == CLProximityImmediate && isInfected == NO) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *storyboard;
+        if(IS_IPAD) {
+            storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+        } else {
+            storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        }
+        
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
-        [self.navigationController pushViewController:vc animated:NO];
+        [self presentModalViewController:vc animated:YES];
         isInfected = YES;
     }
 }

@@ -20,7 +20,6 @@
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, weak) IBOutlet UILabel *warningText;
-@property (nonatomic, weak) IBOutlet UILabel *timerCountLabel;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;

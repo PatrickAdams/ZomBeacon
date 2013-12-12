@@ -46,7 +46,7 @@
         <!--Infected View Controller-->
         <scene sceneID="rWl-qE-Oji">
             <objects>
-                <viewController id="WSR-Ds-yNc" customClass="InfectedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="infected" id="WSR-Ds-yNc" customClass="InfectedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TdW-6R-T4x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -108,11 +108,30 @@
                                     <segue destination="vXZ-lx-hvc" kind="modal" id="zmD-he-Phb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ROZ-Am-DHe">
+                                <rect key="frame" x="99" y="358" width="123" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Start Timer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startCounter" destination="SOP-YH-psb" eventType="touchUpInside" id="6Ma-ML-iJq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qoS-JI-eJu">
+                                <rect key="frame" x="65" y="390" width="190" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="66"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hqh-gY-YiN"/>
                     <connections>
+                        <outlet property="myCounterLabel" destination="qoS-JI-eJu" id="zO1-wf-L4S"/>
                         <outlet property="warningText" destination="3tu-nT-2Jd" id="G5p-Yc-8Wo"/>
                     </connections>
                 </viewController>
@@ -145,6 +164,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Nbv-3x-1Tu"/>
+        <segue reference="zmD-he-Phb"/>
     </inferredMetricsTieBreakers>
 </document>
