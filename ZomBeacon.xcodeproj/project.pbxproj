@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7446987185B81F5007F6817 /* survivor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E7446986185B81F5007F6817 /* survivor.jpg */; };
+		E7446989185B822D007F6817 /* infected.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E7446988185B822D007F6817 /* infected.jpg */; };
+		E7446991185B8B76007F6817 /* infected_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446990185B8B76007F6817 /* infected_btn.png */; };
+		E7446993185B8B95007F6817 /* survivor_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446992185B8B95007F6817 /* survivor_btn.png */; };
+		E7446995185B8D35007F6817 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446994185B8D35007F6817 /* app_icon.png */; };
+		E7446997185B8E44007F6817 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446996185B8E44007F6817 /* blank_splash.png */; };
+		E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446998185B8ED9007F6817 /* blank_splash_ipad.png */; };
+		E744699B185B9F9A007F6817 /* survivor_btn_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E744699A185B9F9A007F6817 /* survivor_btn_large.png */; };
+		E74469A1185BA302007F6817 /* infected_btn_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A0185BA302007F6817 /* infected_btn_large.png */; };
+		E74469A3185BA513007F6817 /* survivor_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A2185BA513007F6817 /* survivor_ipad.png */; };
+		E74469A5185BA5DD007F6817 /* infected_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A4185BA5DD007F6817 /* infected_ipad.png */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
 		E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
@@ -14,7 +25,6 @@
 		E751E4911858BF15004E8874 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4901858BF15004E8874 /* main.m */; };
 		E751E4951858BF15004E8874 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4941858BF15004E8874 /* AppDelegate.m */; };
 		E751E4981858BF15004E8874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E751E4961858BF15004E8874 /* Main.storyboard */; };
-		E751E49D1858BF15004E8874 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E751E49C1858BF15004E8874 /* Images.xcassets */; };
 		E751E4A41858BF15004E8874 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4A31858BF15004E8874 /* XCTest.framework */; };
 		E751E4A51858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4A61858BF16004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
@@ -37,6 +47,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E7446986185B81F5007F6817 /* survivor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = survivor.jpg; sourceTree = "<group>"; };
+		E7446988185B822D007F6817 /* infected.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = infected.jpg; sourceTree = "<group>"; };
+		E7446990185B8B76007F6817 /* infected_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_btn.png; sourceTree = "<group>"; };
+		E7446992185B8B95007F6817 /* survivor_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survivor_btn.png; sourceTree = "<group>"; };
+		E7446994185B8D35007F6817 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
+		E7446996185B8E44007F6817 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
+		E7446998185B8ED9007F6817 /* blank_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash_ipad.png; sourceTree = "<group>"; };
+		E744699A185B9F9A007F6817 /* survivor_btn_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survivor_btn_large.png; sourceTree = "<group>"; };
+		E74469A0185BA302007F6817 /* infected_btn_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_btn_large.png; sourceTree = "<group>"; };
+		E74469A2185BA513007F6817 /* survivor_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survivor_ipad.png; sourceTree = "<group>"; };
+		E74469A4185BA5DD007F6817 /* infected_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_ipad.png; sourceTree = "<group>"; };
 		E751E4811858BF15004E8874 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,7 +69,6 @@
 		E751E4931858BF15004E8874 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E751E4941858BF15004E8874 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E751E4971858BF15004E8874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E751E49C1858BF15004E8874 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E751E4A21858BF15004E8874 /* ZomBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZomBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4A31858BF15004E8874 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -88,6 +108,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7446985185B81E9007F6817 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E7446988185B822D007F6817 /* infected.jpg */,
+				E74469A4185BA5DD007F6817 /* infected_ipad.png */,
+				E7446986185B81F5007F6817 /* survivor.jpg */,
+				E74469A2185BA513007F6817 /* survivor_ipad.png */,
+				E7446990185B8B76007F6817 /* infected_btn.png */,
+				E74469A0185BA302007F6817 /* infected_btn_large.png */,
+				E7446992185B8B95007F6817 /* survivor_btn.png */,
+				E744699A185B9F9A007F6817 /* survivor_btn_large.png */,
+				E7446994185B8D35007F6817 /* app_icon.png */,
+				E7446996185B8E44007F6817 /* blank_splash.png */,
+				E7446998185B8ED9007F6817 /* blank_splash_ipad.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		E751E4781858BF15004E8874 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +170,6 @@
 				E77BFFC11858F825002871A6 /* InfectedViewController.m */,
 				E77BFFC31858F832002871A6 /* SurvivorViewController.h */,
 				E77BFFC41858F832002871A6 /* SurvivorViewController.m */,
-				E751E49C1858BF15004E8874 /* Images.xcassets */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
 			);
 			path = ZomBeacon;
@@ -141,6 +178,7 @@
 		E751E48B1858BF15004E8874 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E7446985185B81E9007F6817 /* Images */,
 				E751E48C1858BF15004E8874 /* ZomBeacon-Info.plist */,
 				E751E48D1858BF15004E8874 /* InfoPlist.strings */,
 				E751E4901858BF15004E8874 /* main.m */,
@@ -225,10 +263,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E751E49D1858BF15004E8874 /* Images.xcassets in Resources */,
+				E74469A1185BA302007F6817 /* infected_btn_large.png in Resources */,
+				E74469A3185BA513007F6817 /* survivor_ipad.png in Resources */,
+				E744699B185B9F9A007F6817 /* survivor_btn_large.png in Resources */,
+				E7446991185B8B76007F6817 /* infected_btn.png in Resources */,
+				E7446995185B8D35007F6817 /* app_icon.png in Resources */,
+				E74469A5185BA5DD007F6817 /* infected_ipad.png in Resources */,
 				E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */,
+				E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */,
+				E7446989185B822D007F6817 /* infected.jpg in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
+				E7446993185B8B95007F6817 /* survivor_btn.png in Resources */,
+				E7446997185B8E44007F6817 /* blank_splash.png in Resources */,
+				E7446987185B81F5007F6817 /* survivor.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,8 +414,6 @@
 		E751E4B41858BF16004E8874 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/ZomBeacon-Prefix.pch";
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
@@ -381,8 +427,6 @@
 		E751E4B51858BF16004E8874 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/ZomBeacon-Prefix.pch";
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";

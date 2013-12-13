@@ -7,6 +7,7 @@
 //
 
 #import "SurvivorViewController.h"
+#import "InfectedViewController.h"
 
 @interface SurvivorViewController ()
 
@@ -99,8 +100,9 @@
             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         }
         
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
+        InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
         [self presentModalViewController:vc animated:YES];
+        vc.infectedLabel.text = @"YOU ARE NOW INFECTED";
         isInfected = YES;
     }
 }
