@@ -18,6 +18,7 @@
 		E74469A1185BA302007F6817 /* infected_btn_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A0185BA302007F6817 /* infected_btn_large.png */; };
 		E74469A3185BA513007F6817 /* survivor_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A2185BA513007F6817 /* survivor_ipad.png */; };
 		E74469A5185BA5DD007F6817 /* infected_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A4185BA5DD007F6817 /* infected_ipad.png */; };
+		E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A6185BB2A8007F6817 /* Default-568h@2x.png */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
 		E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
@@ -58,6 +59,7 @@
 		E74469A0185BA302007F6817 /* infected_btn_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_btn_large.png; sourceTree = "<group>"; };
 		E74469A2185BA513007F6817 /* survivor_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survivor_ipad.png; sourceTree = "<group>"; };
 		E74469A4185BA5DD007F6817 /* infected_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_ipad.png; sourceTree = "<group>"; };
+		E74469A6185BB2A8007F6817 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E751E4811858BF15004E8874 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +131,7 @@
 		E751E4781858BF15004E8874 = {
 			isa = PBXGroup;
 			children = (
+				E74469A6185BB2A8007F6817 /* Default-568h@2x.png */,
 				E751E48A1858BF15004E8874 /* ZomBeacon */,
 				E751E4831858BF15004E8874 /* Frameworks */,
 				E751E4821858BF15004E8874 /* Products */,
@@ -271,6 +274,7 @@
 				E74469A5185BA5DD007F6817 /* infected_ipad.png in Resources */,
 				E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */,
 				E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */,
+				E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */,
 				E7446989185B822D007F6817 /* infected.jpg in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
