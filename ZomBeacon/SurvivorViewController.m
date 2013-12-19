@@ -99,6 +99,8 @@
     if (beacon.proximity == CLProximityNear) //Change to (beacon.proximity == CLProximityFar) whenever testing outside
     {
         self.warningText.alpha = 1.0f;
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     }
     else
     {
@@ -117,11 +119,16 @@
             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         }
         
+        
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
         [self presentModalViewController:vc animated:YES];
         vc.infectedLabel.text = @"YOU ARE NOW INFECTED";
         isInfected = YES;
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
 }
 
 - (void)didReceiveMemoryWarning

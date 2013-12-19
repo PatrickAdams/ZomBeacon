@@ -44,6 +44,10 @@
 		E78107E61860CB5700B19DB9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E51860CB5700B19DB9 /* StoreKit.framework */; };
 		E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */; };
 		E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7916AD5185905B400FC1741 /* Main_iPad.storyboard */; };
+		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
+		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
+		E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */; };
+		E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B78186370F500C5A45D /* backgroundBig@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +104,10 @@
 		E78107E51860CB5700B19DB9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E7916AD5185905B400FC1741 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
+		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
+		E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundSmall@2x.png"; sourceTree = "<group>"; };
+		E7E01B78186370F500C5A45D /* backgroundBig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundBig@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */,
 				E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */,
 				E78107E61860CB5700B19DB9 /* StoreKit.framework in Frameworks */,
 				E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */,
@@ -140,6 +149,9 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E7E01B78186370F500C5A45D /* backgroundBig@2x.png */,
+				E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */,
+				E7E01B74186370DB00C5A45D /* dotImage@2x.png */,
 				E7446988185B822D007F6817 /* infected.jpg */,
 				E74469A4185BA5DD007F6817 /* infected_ipad.png */,
 				E7446986185B81F5007F6817 /* survivor.jpg */,
@@ -177,6 +189,7 @@
 		E751E4831858BF15004E8874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */,
 				E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */,
 				E78107E51860CB5700B19DB9 /* StoreKit.framework */,
 				E78107E31860CB4E00B19DB9 /* Security.framework */,
@@ -303,11 +316,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E74469A1185BA302007F6817 /* infected_btn_large.png in Resources */,
+				E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */,
 				E74469A3185BA513007F6817 /* survivor_ipad.png in Resources */,
 				E744699B185B9F9A007F6817 /* survivor_btn_large.png in Resources */,
 				E7446991185B8B76007F6817 /* infected_btn.png in Resources */,
 				E7446995185B8D35007F6817 /* app_icon.png in Resources */,
 				E74469A5185BA5DD007F6817 /* infected_ipad.png in Resources */,
+				E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */,
 				E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */,
 				E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */,
 				E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */,
@@ -317,6 +332,7 @@
 				E7446993185B8B95007F6817 /* survivor_btn.png in Resources */,
 				E7446997185B8E44007F6817 /* blank_splash.png in Resources */,
 				E7446987185B81F5007F6817 /* survivor.jpg in Resources */,
+				E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,8 +476,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/ZomBeacon-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/EstimoteSDK/Headers",
+				);
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/EstimoteSDK,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -477,8 +502,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/ZomBeacon-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/EstimoteSDK/Headers",
+				);
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/EstimoteSDK,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
