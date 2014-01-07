@@ -43,6 +43,8 @@
 		E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E31860CB4E00B19DB9 /* Security.framework */; };
 		E78107E61860CB5700B19DB9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E51860CB5700B19DB9 /* StoreKit.framework */; };
 		E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */; };
+		E786C236187B356000347413 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C235187B356000347413 /* LoginViewController.m */; };
+		E786C239187B466900347413 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C238187B466900347413 /* SignUpViewController.m */; };
 		E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7916AD5185905B400FC1741 /* Main_iPad.storyboard */; };
 		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
@@ -103,6 +105,10 @@
 		E78107E31860CB4E00B19DB9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E78107E51860CB5700B19DB9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E786C234187B356000347413 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		E786C235187B356000347413 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		E786C237187B466900347413 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		E786C238187B466900347413 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		E7916AD5185905B400FC1741 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
@@ -222,6 +228,10 @@
 				E77BFFC11858F825002871A6 /* InfectedViewController.m */,
 				E77BFFC31858F832002871A6 /* SurvivorViewController.h */,
 				E77BFFC41858F832002871A6 /* SurvivorViewController.m */,
+				E786C234187B356000347413 /* LoginViewController.h */,
+				E786C235187B356000347413 /* LoginViewController.m */,
+				E786C237187B466900347413 /* SignUpViewController.h */,
+				E786C238187B466900347413 /* SignUpViewController.m */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
 			);
 			path = ZomBeacon;
@@ -352,8 +362,10 @@
 			files = (
 				E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */,
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
+				E786C236187B356000347413 /* LoginViewController.m in Sources */,
 				E77BFFC51858F832002871A6 /* SurvivorViewController.m in Sources */,
 				E751E4911858BF15004E8874 /* main.m in Sources */,
+				E786C239187B466900347413 /* SignUpViewController.m in Sources */,
 				E77BFFBF1858F7CD002871A6 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

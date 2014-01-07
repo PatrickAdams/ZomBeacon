@@ -39,10 +39,10 @@
     
     if (randomNumber > 0 && randomNumber < 75 ) {
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
-        [self presentModalViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
     } else {
         SurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"survivor"];
-        [self presentModalViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 

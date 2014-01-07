@@ -121,7 +121,7 @@
         
         
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
-        [self presentModalViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
         vc.infectedLabel.text = @"YOU ARE NOW INFECTED";
         isInfected = YES;
     }
