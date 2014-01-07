@@ -28,7 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"pickateam"];
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        //Stay on login screen
+    }
 }
 
 -(IBAction)logInUser {

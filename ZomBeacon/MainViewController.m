@@ -21,6 +21,11 @@
     [super viewDidLoad];
 }
 
+- (IBAction)logUserOut {
+    [PFUser logOut];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)selectRandomTeam
 {
     int randomNumber = [self getRandomNumberBetween:1 to:100];
