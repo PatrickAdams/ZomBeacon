@@ -19,6 +19,7 @@
 		E74469A3185BA513007F6817 /* survivor_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A2185BA513007F6817 /* survivor_ipad.png */; };
 		E74469A5185BA5DD007F6817 /* infected_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A4185BA5DD007F6817 /* infected_ipad.png */; };
 		E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A6185BB2A8007F6817 /* Default-568h@2x.png */; };
+		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
 		E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
@@ -26,9 +27,6 @@
 		E751E4911858BF15004E8874 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4901858BF15004E8874 /* main.m */; };
 		E751E4951858BF15004E8874 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4941858BF15004E8874 /* AppDelegate.m */; };
 		E751E4981858BF15004E8874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E751E4961858BF15004E8874 /* Main.storyboard */; };
-		E751E4A41858BF15004E8874 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4A31858BF15004E8874 /* XCTest.framework */; };
-		E751E4A51858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
-		E751E4A61858BF16004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
 		E77BFFBF1858F7CD002871A6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFBE1858F7CD002871A6 /* MainViewController.m */; };
@@ -52,16 +50,6 @@
 		E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B78186370F500C5A45D /* backgroundBig@2x.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E751E4A71858BF16004E8874 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E751E4791858BF15004E8874 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E751E4801858BF15004E8874;
-			remoteInfo = ZomBeacon;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		E7446986185B81F5007F6817 /* survivor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = survivor.jpg; sourceTree = "<group>"; };
 		E7446988185B822D007F6817 /* infected.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = infected.jpg; sourceTree = "<group>"; };
@@ -75,6 +63,7 @@
 		E74469A2185BA513007F6817 /* survivor_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survivor_ipad.png; sourceTree = "<group>"; };
 		E74469A4185BA5DD007F6817 /* infected_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_ipad.png; sourceTree = "<group>"; };
 		E74469A6185BB2A8007F6817 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E751E4811858BF15004E8874 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,7 +75,6 @@
 		E751E4931858BF15004E8874 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E751E4941858BF15004E8874 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E751E4971858BF15004E8874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E751E4A21858BF15004E8874 /* ZomBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZomBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4A31858BF15004E8874 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -121,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */,
 				E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */,
 				E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */,
 				E78107E61860CB5700B19DB9 /* StoreKit.framework in Frameworks */,
@@ -136,16 +125,6 @@
 				E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */,
 				E78107D81860CAD700B19DB9 /* Parse.framework in Frameworks */,
 				E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E751E49F1858BF15004E8874 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E751E4A41858BF15004E8874 /* XCTest.framework in Frameworks */,
-				E751E4A61858BF16004E8874 /* UIKit.framework in Frameworks */,
-				E751E4A51858BF15004E8874 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				E751E4811858BF15004E8874 /* ZomBeacon.app */,
-				E751E4A21858BF15004E8874 /* ZomBeaconTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +173,7 @@
 		E751E4831858BF15004E8874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7496A68187DF40F003E4B8A /* MapKit.framework */,
 				E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */,
 				E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */,
 				E78107E51860CB5700B19DB9 /* StoreKit.framework */,
@@ -269,24 +248,6 @@
 			productReference = E751E4811858BF15004E8874 /* ZomBeacon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E751E4A11858BF15004E8874 /* ZomBeaconTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E751E4B61858BF16004E8874 /* Build configuration list for PBXNativeTarget "ZomBeaconTests" */;
-			buildPhases = (
-				E751E49E1858BF15004E8874 /* Sources */,
-				E751E49F1858BF15004E8874 /* Frameworks */,
-				E751E4A01858BF15004E8874 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E751E4A81858BF16004E8874 /* PBXTargetDependency */,
-			);
-			name = ZomBeaconTests;
-			productName = ZomBeaconTests;
-			productReference = E751E4A21858BF15004E8874 /* ZomBeaconTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -295,11 +256,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Patrick Adams";
-				TargetAttributes = {
-					E751E4A11858BF15004E8874 = {
-						TestTargetID = E751E4801858BF15004E8874;
-					};
-				};
 			};
 			buildConfigurationList = E751E47C1858BF15004E8874 /* Build configuration list for PBXProject "ZomBeacon" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -315,7 +271,6 @@
 			projectRoot = "";
 			targets = (
 				E751E4801858BF15004E8874 /* ZomBeacon */,
-				E751E4A11858BF15004E8874 /* ZomBeaconTests */,
 			);
 		};
 /* End PBXProject section */
@@ -346,13 +301,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E751E4A01858BF15004E8874 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -370,22 +318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E751E49E1858BF15004E8874 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E751E4A81858BF16004E8874 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E751E4801858BF15004E8874 /* ZomBeacon */;
-			targetProxy = E751E4A71858BF16004E8874 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E751E48D1858BF15004E8874 /* InfoPlist.strings */ = {
@@ -531,48 +464,6 @@
 			};
 			name = Release;
 		};
-		E751E4B71858BF16004E8874 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZomBeacon.app/ZomBeacon";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZomBeacon/ZomBeacon-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ZomBeaconTests/ZomBeaconTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		E751E4B81858BF16004E8874 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZomBeacon.app/ZomBeacon";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZomBeacon/ZomBeacon-Prefix.pch";
-				INFOPLIST_FILE = "ZomBeaconTests/ZomBeaconTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,15 +481,6 @@
 			buildConfigurations = (
 				E751E4B41858BF16004E8874 /* Debug */,
 				E751E4B51858BF16004E8874 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E751E4B61858BF16004E8874 /* Build configuration list for PBXNativeTarget "ZomBeaconTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E751E4B71858BF16004E8874 /* Debug */,
-				E751E4B81858BF16004E8874 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
