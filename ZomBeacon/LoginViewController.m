@@ -47,6 +47,12 @@
     [PFUser logInWithUsernameInBackground:username password:password
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
+                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
+                                                                                            message:@"You are now logged in."
+                                                                                           delegate:nil
+                                                                                  cancelButtonTitle:@"OK"
+                                                                                  otherButtonTitles:nil];
+                                            [alert show];
                                             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                                             MainViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"pickateam"];
                                             [self presentViewController:vc animated:YES completion:nil];
