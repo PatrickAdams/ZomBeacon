@@ -256,6 +256,18 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Patrick Adams";
+				TargetAttributes = {
+					E751E4801858BF15004E8874 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = E751E47C1858BF15004E8874 /* Build configuration list for PBXProject "ZomBeacon" */;
 			compatibilityVersion = "Xcode 3.2";

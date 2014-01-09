@@ -25,6 +25,7 @@
     
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
+    [self.locationManager startUpdatingLocation];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;

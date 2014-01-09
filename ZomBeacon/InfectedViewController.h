@@ -16,6 +16,7 @@
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UILabel *infectedLabel;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 

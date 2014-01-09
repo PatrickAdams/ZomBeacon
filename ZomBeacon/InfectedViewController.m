@@ -22,6 +22,7 @@
 
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
+    [self.locationManager startUpdatingLocation];
 }
 
 //Method that initializes the device as a beacon and gives it a proximity UUID
