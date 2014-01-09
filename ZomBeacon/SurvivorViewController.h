@@ -10,8 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <AudioToolbox/AudioServices.h>
+#import <MapKit/MapKit.h>
+#import "InfectedViewController.h"
 
-@interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate> {
+@interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
+{
     NSTimer *timer;
 }
 
@@ -21,6 +24,7 @@
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, weak) IBOutlet UILabel *warningText;
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "InfectedViewController.h"
+#import "SurvivorViewController.h"
 
 @interface MainViewController : UIViewController
 

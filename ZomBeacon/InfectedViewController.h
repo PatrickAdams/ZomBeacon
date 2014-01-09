@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <MapKit/MapKit.h>
 
-@interface InfectedViewController : UIViewController <CBPeripheralManagerDelegate>
+@interface InfectedViewController : UIViewController <CBPeripheralManagerDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 @property (nonatomic, weak) IBOutlet UILabel *infectedLabel;
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
 @end

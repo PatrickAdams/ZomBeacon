@@ -7,8 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "InfectedViewController.h"
-#import "SurvivorViewController.h"
 
 @interface MainViewController ()
 
@@ -19,18 +17,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
 }
 
-- (IBAction)logUserOut {
+//Method that logs the user out with the Parse framework
+- (IBAction)logUserOut
+{
     [PFUser logOut];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
+//Method that selects a random team for the user
 - (IBAction)selectRandomTeam
 {
     int randomNumber = [self getRandomNumberBetween:1 to:100];
-    
-    NSLog(@"%d", randomNumber);
     
     UIStoryboard *storyboard;
     if(IS_IPAD)
@@ -42,17 +42,21 @@
         storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     }
     
-    if (randomNumber > 0 && randomNumber < 75 ) {
+    if (randomNumber > 0 && randomNumber < 75 )
+    {
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
-        [self presentViewController:vc animated:YES completion:nil];
-    } else {
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
         SurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"survivor"];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
--(int)getRandomNumberBetween:(int)from to:(int)to {
-    
+//Method that chooses a random number
+-(int)getRandomNumberBetween:(int)from to:(int)to
+{
     return (int)from + arc4random() % (to-from+1);
 }
 

@@ -7,7 +7,6 @@
 //
 
 #import "SurvivorViewController.h"
-#import "InfectedViewController.h"
 
 @interface SurvivorViewController ()
 
@@ -23,19 +22,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.warningText.alpha = 0.0f;
+    
+    self.mapView.showsUserLocation = YES;
+    self.mapView.delegate = self;
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 }
 
+//Method that tracks user location changes
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = self.mapView.userLocation.coordinate;
+    mapRegion.span.latitudeDelta = 0.005;
+    mapRegion.span.longitudeDelta = 0.005;
+    
+    [self.mapView setRegion:mapRegion animated: YES];
+}
+
+//Method to start a countdown timer
 - (IBAction)startCounter
 {
     secondsLeft = 600;
     [self countdownTimer];
 }
 
+//Method that refreshes and updates the countdown timer
 - (void)updateCounter:(NSTimer *)theTimer
 {
     if(secondsLeft > 0 )
@@ -51,17 +66,20 @@
     }
 }
 
+//Method that does the setup for the countdown timer
 - (void)countdownTimer
 {
     secondsLeft = minutes = seconds = 0;
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
+//Beacon ranging setup
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
 {
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
+//Initializes the beacon region
 - (void)initRegion
 {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
@@ -91,6 +109,7 @@
     }
 }
 
+
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     CLBeacon *beacon = [[CLBeacon alloc] init];
@@ -101,10 +120,6 @@
         self.warningText.alpha = 1.0f;
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-    }
-    else
-    {
-        self.warningText.alpha = 0.0f;
     }
     
     if (beacon.proximity == CLProximityImmediate && isInfected == NO)
@@ -119,9 +134,8 @@
             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         }
         
-        
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self.navigationController pushViewController:vc animated:YES];
         vc.infectedLabel.text = @"YOU ARE NOW INFECTED";
         isInfected = YES;
     }

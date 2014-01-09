@@ -7,7 +7,6 @@
 //
 
 #import "SignUpViewController.h"
-#import <Parse/Parse.h>
 
 @interface SignUpViewController ()
 
@@ -15,22 +14,14 @@
 
 @implementation SignUpViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
-- (IBAction)signUpNewUser {
+//User sign up method using the Parse framework
+- (IBAction)signUpNewUser
+{
     PFUser *user = [PFUser user];
     user.username = self.usernameField.text;
     user.password = self.passwordField.text;
@@ -40,8 +31,10 @@
     user[@"name"] = self.nameField.text;
     user[@"bio"] = self.bioField.text;
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    {
+        if (!error)
+        {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!"
                                                             message:@"You have successfully signed up."
                                                            delegate:nil
@@ -49,7 +42,9 @@
                                                   otherButtonTitles:nil];
             [alert show];
             [self.navigationController popViewControllerAnimated:YES];
-        } else {
+        }
+        else
+        {
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"%@", errorString);
         }
