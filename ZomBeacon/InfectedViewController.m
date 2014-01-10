@@ -17,12 +17,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
+    
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+
+    [super viewDidLoad];
     [self initBeacon];
     [self transmitBeacon];
-
-    self.mapView.showsUserLocation = YES;
-    self.mapView.delegate = self;
-    [self.locationManager startUpdatingLocation];
 }
 
 //Method that initializes the device as a beacon and gives it a proximity UUID
@@ -53,16 +57,15 @@
 }
 
 //Method that tracks user location changes
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     MKCoordinateRegion mapRegion;
-    mapRegion.center = self.mapView.userLocation.coordinate;
+    mapRegion.center = newLocation.coordinate;
     mapRegion.span.latitudeDelta = 0.005;
     mapRegion.span.longitudeDelta = 0.005;
     
-    [self.mapView setRegion:mapRegion animated: YES];
+    [self.mapView setRegion:mapRegion animated:YES];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

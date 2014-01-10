@@ -23,25 +23,24 @@
 {
     [super viewDidLoad];
     
-    self.mapView.showsUserLocation = YES;
-    self.mapView.delegate = self;
-    [self.locationManager startUpdatingLocation];
-    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
+
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
+    
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
 }
 
-//Method that tracks user location changes
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     MKCoordinateRegion mapRegion;
-    mapRegion.center = self.mapView.userLocation.coordinate;
+    mapRegion.center = newLocation.coordinate;
     mapRegion.span.latitudeDelta = 0.005;
     mapRegion.span.longitudeDelta = 0.005;
     
-    [self.mapView setRegion:mapRegion animated: YES];
+    [self.mapView setRegion:mapRegion animated:YES];
 }
 
 //Method to start a countdown timer
@@ -118,7 +117,7 @@
     
     if (beacon.proximity == CLProximityNear) //Change to (beacon.proximity == CLProximityFar) whenever testing outside
     {
-        self.warningText.alpha = 1.0f;
+        self.warningText.hidden = NO;
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
         AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     }

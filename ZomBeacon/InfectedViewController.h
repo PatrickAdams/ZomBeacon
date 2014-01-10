@@ -11,7 +11,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <MapKit/MapKit.h>
 
-@interface InfectedViewController : UIViewController <CBPeripheralManagerDelegate, MKMapViewDelegate>
+@interface InfectedViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;

@@ -12,6 +12,7 @@
 #import <AudioToolbox/AudioServices.h>
 #import <MapKit/MapKit.h>
 #import "InfectedViewController.h"
+#import <Parse/Parse.h>
 
 @interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
