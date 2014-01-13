@@ -31,6 +31,30 @@
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
     
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+    
+    PFUser *user = [PFUser currentUser];
+    
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        if (!error) {
+            NSLog(@"%f, %f", geoPoint.latitude, geoPoint.longitude);
+            PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:geoPoint.latitude longitude:geoPoint.longitude];
+            [user setObject:point forKey:@"location"];
+            [user saveInBackground];
+        }
+    }];
+    
+    if (user[@"location"]) {
+        PFGeoPoint *userGeoPoint = user[@"location"];
+        PFQuery *query = [PFQuery queryWithClassName:@"User"];
+        query.limit = 30;
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.05];
+        NSArray *placeObjects = [query findObjects];
+        
+        NSLog(@"%lu", (unsigned long)placeObjects.count);
+
+    } else {
+        NSLog(@"No location found reload");
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
