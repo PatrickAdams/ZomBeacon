@@ -45,12 +45,12 @@
     
     if (user[@"location"]) {
         PFGeoPoint *userGeoPoint = user[@"location"];
-        PFQuery *query = [PFQuery queryWithClassName:@"User"];
+        PFQuery *query = [PFUser query];
         query.limit = 30;
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.05];
-        NSArray *placeObjects = [query findObjects];
+        NSArray *userLocations = [query findObjects];
         
-        NSLog(@"%lu", (unsigned long)placeObjects.count);
+        NSLog(@"%@", userLocations.description);
 
     } else {
         NSLog(@"No location found reload");
