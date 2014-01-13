@@ -34,23 +34,28 @@
     
     PFUser *user = [PFUser currentUser];
     
-    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-        if (!error) {
-            NSLog(@"%f, %f", geoPoint.latitude, geoPoint.longitude);
-            PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:geoPoint.latitude longitude:geoPoint.longitude];
-            [user setObject:point forKey:@"location"];
-            [user saveInBackground];
-        }
-    }];
+//    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+//        if (!error) {
+//            PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:geoPoint.latitude longitude:geoPoint.longitude];
+//            [user setObject:point forKey:@"location"];
+//            [user setObject:@"survivor" forKey:@"status"];
+//            [user saveInBackground];
+//        }
+//    }];
     
     if (user[@"location"]) {
         PFGeoPoint *userGeoPoint = user[@"location"];
         PFQuery *query = [PFUser query];
         query.limit = 30;
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.05];
-        NSArray *userLocations = [query findObjects];
+        NSArray *nearbyUsers = [query findObjects];
         
-        NSLog(@"%@", userLocations.description);
+        for (int i = 0; i < nearbyUsers.count ; i++) {
+            PFGeoPoint *geoPointsForNearbyUsers = nearbyUsers[i][@"location"];
+            NSString *nameOfNearbyUsers = nearbyUsers[i][@"name"];
+            NSLog(@"Username: %@, Latitude: %f, Longitude: %f", nameOfNearbyUsers, geoPointsForNearbyUsers.latitude, geoPointsForNearbyUsers.longitude);
+        }
+
 
     } else {
         NSLog(@"No location found reload");
