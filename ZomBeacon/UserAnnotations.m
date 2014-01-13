@@ -10,14 +10,29 @@
 
 @implementation UserAnnotations
 
-@synthesize title, coordinate;
-
-- (id)initWithTitle:(NSString *)ttl andCoordinate:(CLLocationCoordinate2D)c2d {
-    
+- (id)initWithTitle:(NSString *)ttl andCoordinate:(CLLocationCoordinate2D)c2d andImage:(UIImage *)img
+{
 	self = [super init];
-	title = ttl;
-	coordinate = c2d;
+    if (self)
+    {
+        _title = ttl;
+        _coordinate = c2d;
+        _image = img;
+    }
+	
 	return self;
+}
+
+- (MKAnnotationView *)annotationView
+{
+    MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:self reuseIdentifier:@"CustomAnnotation"];
+    
+    annotationView.enabled = YES;
+    annotationView.canShowCallout = YES;
+    annotationView.image = _image;
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    return annotationView;
 }
 
 @end

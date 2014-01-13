@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <MapKit/MapKit.h>
+#import <Parse/Parse.h>
 
 @interface InfectedViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 

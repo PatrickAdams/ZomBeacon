@@ -27,6 +27,11 @@
     [super viewDidLoad];
     [self initBeacon];
     [self transmitBeacon];
+    
+    PFUser *user = [PFUser currentUser];
+    
+    [user setObject:@"zombie" forKey:@"status"];
+    [user saveInBackground];
 }
 
 //Method that initializes the device as a beacon and gives it a proximity UUID
@@ -61,8 +66,8 @@
 {
     MKCoordinateRegion mapRegion;
     mapRegion.center = newLocation.coordinate;
-    mapRegion.span.latitudeDelta = 0.005;
-    mapRegion.span.longitudeDelta = 0.005;
+    mapRegion.span.latitudeDelta = 0.002;
+    mapRegion.span.longitudeDelta = 0.002;
     
     [self.mapView setRegion:mapRegion animated:YES];
 }
