@@ -7,6 +7,7 @@
 //
 
 #import "SurvivorViewController.h"
+#import "UserAnnotations.h"
 
 @interface SurvivorViewController ()
 
@@ -54,6 +55,15 @@
             PFGeoPoint *geoPointsForNearbyUsers = nearbyUsers[i][@"location"];
             NSString *nameOfNearbyUsers = nearbyUsers[i][@"name"];
             NSLog(@"Username: %@, Latitude: %f, Longitude: %f", nameOfNearbyUsers, geoPointsForNearbyUsers.latitude, geoPointsForNearbyUsers.longitude);
+            
+            // Set some coordinates for our position (Buckingham Palace!)
+            CLLocationCoordinate2D location;
+            location.latitude = (double) geoPointsForNearbyUsers.latitude;
+            location.longitude = (double) geoPointsForNearbyUsers.longitude;
+            
+            // Add the annotation to our map view
+            UserAnnotations *newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location];
+            [self.mapView addAnnotation:newAnnotation];
         }
 
 
