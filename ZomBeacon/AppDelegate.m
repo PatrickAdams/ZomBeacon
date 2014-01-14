@@ -18,6 +18,9 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    //TestFlight analytics
+    [TestFlight takeOff:@"5b141d23-4474-4887-b544-9d01461fe8f0"];
+    
     return YES;
 }
 							

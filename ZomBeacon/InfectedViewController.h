@@ -11,6 +11,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
+#import "UserAnnotations.h"
 
 @interface InfectedViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 

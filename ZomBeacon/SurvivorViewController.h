@@ -13,6 +13,7 @@
 #import <MapKit/MapKit.h>
 #import "InfectedViewController.h"
 #import <Parse/Parse.h>
+#import "UserAnnotations.h"
 
 @interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {

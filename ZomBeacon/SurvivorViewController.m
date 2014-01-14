@@ -7,7 +7,6 @@
 //
 
 #import "SurvivorViewController.h"
-#import "UserAnnotations.h"
 
 @interface SurvivorViewController ()
 
@@ -45,6 +44,8 @@
     [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
 }
 
+#pragma mark - Parse: Nearby User Querying with Custom Annotations
+
 - (void)queryNearbyUsers
 {
     PFUser *user = [PFUser currentUser];
@@ -81,6 +82,7 @@
                 newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"bad"]];
             }
             
+            [self.mapView removeAnnotation:newAnnotation];
             [self.mapView addAnnotation:newAnnotation];
         }
     }
@@ -114,6 +116,8 @@
     }
 }
 
+#pragma mark - Location and Beacon Management
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     MKCoordinateRegion mapRegion;
@@ -122,36 +126,6 @@
     mapRegion.span.longitudeDelta = 0.002;
     
     [self.mapView setRegion:mapRegion animated:YES];
-}
-
-//Method to start a countdown timer
-- (IBAction)startCounter
-{
-    secondsLeft = 600;
-    [self countdownTimer];
-}
-
-//Method that refreshes and updates the countdown timer
-- (void)updateCounter:(NSTimer *)theTimer
-{
-    if(secondsLeft > 0 )
-    {
-        secondsLeft -- ;
-        minutes = (secondsLeft % 3600) / 60;
-        seconds = (secondsLeft %3600) % 60;
-        self.myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
-    }
-    else
-    {
-        secondsLeft = 600;
-    }
-}
-
-//Method that does the setup for the countdown timer
-- (void)countdownTimer
-{
-    secondsLeft = minutes = seconds = 0;
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
 //Beacon ranging setup
@@ -190,7 +164,6 @@
     }
 }
 
-
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     CLBeacon *beacon = [[CLBeacon alloc] init];
@@ -220,6 +193,38 @@
         vc.infectedLabel.text = @"YOU ARE NOW INFECTED";
         isInfected = YES;
     }
+}
+
+#pragma mark - Time Counter Management
+
+//Method to start a countdown timer
+- (IBAction)startCounter
+{
+    secondsLeft = 600;
+    [self countdownTimer];
+}
+
+//Method that refreshes and updates the countdown timer
+- (void)updateCounter:(NSTimer *)theTimer
+{
+    if(secondsLeft > 0 )
+    {
+        secondsLeft -- ;
+        minutes = (secondsLeft % 3600) / 60;
+        seconds = (secondsLeft %3600) % 60;
+        self.myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+    }
+    else
+    {
+        secondsLeft = 600;
+    }
+}
+
+//Method that does the setup for the countdown timer
+- (void)countdownTimer
+{
+    secondsLeft = minutes = seconds = 0;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

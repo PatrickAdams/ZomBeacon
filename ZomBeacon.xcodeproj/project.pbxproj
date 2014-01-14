@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E7446987185B81F5007F6817 /* survivor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E7446986185B81F5007F6817 /* survivor.jpg */; };
-		E7446989185B822D007F6817 /* infected.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E7446988185B822D007F6817 /* infected.jpg */; };
 		E7446991185B8B76007F6817 /* infected_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446990185B8B76007F6817 /* infected_btn.png */; };
 		E7446993185B8B95007F6817 /* survivor_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446992185B8B95007F6817 /* survivor_btn.png */; };
 		E7446995185B8D35007F6817 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446994185B8D35007F6817 /* app_icon.png */; };
@@ -16,8 +14,6 @@
 		E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446998185B8ED9007F6817 /* blank_splash_ipad.png */; };
 		E744699B185B9F9A007F6817 /* survivor_btn_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E744699A185B9F9A007F6817 /* survivor_btn_large.png */; };
 		E74469A1185BA302007F6817 /* infected_btn_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A0185BA302007F6817 /* infected_btn_large.png */; };
-		E74469A3185BA513007F6817 /* survivor_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A2185BA513007F6817 /* survivor_ipad.png */; };
-		E74469A5185BA5DD007F6817 /* infected_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A4185BA5DD007F6817 /* infected_ipad.png */; };
 		E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A6185BB2A8007F6817 /* Default-568h@2x.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
@@ -27,6 +23,8 @@
 		E751E4911858BF15004E8874 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4901858BF15004E8874 /* main.m */; };
 		E751E4951858BF15004E8874 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4941858BF15004E8874 /* AppDelegate.m */; };
 		E751E4981858BF15004E8874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E751E4961858BF15004E8874 /* Main.storyboard */; };
+		E76AD8181885A1A0007C014C /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E76AD8121885A1A0007C014C /* libTestFlight.a */; };
+		E76AD81C1885A1F1007C014C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E76AD81B1885A1F1007C014C /* libz.dylib */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
 		E77BFFBF1858F7CD002871A6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFBE1858F7CD002871A6 /* MainViewController.m */; };
@@ -39,7 +37,6 @@
 		E78107E01860CB3F00B19DB9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107DF1860CB3F00B19DB9 /* MobileCoreServices.framework */; };
 		E78107E21860CB4500B19DB9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E11860CB4500B19DB9 /* QuartzCore.framework */; };
 		E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E31860CB4E00B19DB9 /* Security.framework */; };
-		E78107E61860CB5700B19DB9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E51860CB5700B19DB9 /* StoreKit.framework */; };
 		E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */; };
 		E786C236187B356000347413 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C235187B356000347413 /* LoginViewController.m */; };
 		E786C239187B466900347413 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C238187B466900347413 /* SignUpViewController.m */; };
@@ -54,8 +51,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E7446986185B81F5007F6817 /* survivor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = survivor.jpg; sourceTree = "<group>"; };
-		E7446988185B822D007F6817 /* infected.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = infected.jpg; sourceTree = "<group>"; };
 		E7446990185B8B76007F6817 /* infected_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_btn.png; sourceTree = "<group>"; };
 		E7446992185B8B95007F6817 /* survivor_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survivor_btn.png; sourceTree = "<group>"; };
 		E7446994185B8D35007F6817 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
@@ -63,8 +58,6 @@
 		E7446998185B8ED9007F6817 /* blank_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash_ipad.png; sourceTree = "<group>"; };
 		E744699A185B9F9A007F6817 /* survivor_btn_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survivor_btn_large.png; sourceTree = "<group>"; };
 		E74469A0185BA302007F6817 /* infected_btn_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_btn_large.png; sourceTree = "<group>"; };
-		E74469A2185BA513007F6817 /* survivor_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survivor_ipad.png; sourceTree = "<group>"; };
-		E74469A4185BA5DD007F6817 /* infected_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = infected_ipad.png; sourceTree = "<group>"; };
 		E74469A6185BB2A8007F6817 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E751E4811858BF15004E8874 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +72,11 @@
 		E751E4941858BF15004E8874 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E751E4971858BF15004E8874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E751E4A31858BF15004E8874 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E76AD8121885A1A0007C014C /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		E76AD8151885A1A0007C014C /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		E76AD8161885A1A0007C014C /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		E76AD8171885A1A0007C014C /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		E76AD81B1885A1F1007C014C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E77BFFBD1858F7CD002871A6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		E78107DF1860CB3F00B19DB9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E78107E11860CB4500B19DB9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E78107E31860CB4E00B19DB9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		E78107E51860CB5700B19DB9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E786C234187B356000347413 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E786C235187B356000347413 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -116,10 +113,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E76AD81C1885A1F1007C014C /* libz.dylib in Frameworks */,
 				E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */,
 				E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */,
 				E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */,
-				E78107E61860CB5700B19DB9 /* StoreKit.framework in Frameworks */,
+				E76AD8181885A1A0007C014C /* libTestFlight.a in Frameworks */,
 				E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */,
 				E78107E21860CB4500B19DB9 /* QuartzCore.framework in Frameworks */,
 				E78107E01860CB3F00B19DB9 /* MobileCoreServices.framework in Frameworks */,
@@ -146,10 +144,6 @@
 				E7E01B78186370F500C5A45D /* backgroundBig@2x.png */,
 				E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */,
 				E7E01B74186370DB00C5A45D /* dotImage@2x.png */,
-				E7446988185B822D007F6817 /* infected.jpg */,
-				E74469A4185BA5DD007F6817 /* infected_ipad.png */,
-				E7446986185B81F5007F6817 /* survivor.jpg */,
-				E74469A2185BA513007F6817 /* survivor_ipad.png */,
 				E7446990185B8B76007F6817 /* infected_btn.png */,
 				E74469A0185BA302007F6817 /* infected_btn_large.png */,
 				E7446992185B8B95007F6817 /* survivor_btn.png */,
@@ -182,14 +176,12 @@
 		E751E4831858BF15004E8874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E76AD8111885A1A0007C014C /* TestFlightSDK2 */,
 				E7496A68187DF40F003E4B8A /* MapKit.framework */,
-				E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */,
 				E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */,
-				E78107E51860CB5700B19DB9 /* StoreKit.framework */,
 				E78107E31860CB4E00B19DB9 /* Security.framework */,
 				E78107E11860CB4500B19DB9 /* QuartzCore.framework */,
 				E78107DF1860CB3F00B19DB9 /* MobileCoreServices.framework */,
-				E78107DD1860CB3300B19DB9 /* libz.1.1.3.dylib */,
 				E78107DB1860CB1800B19DB9 /* CFNetwork.framework */,
 				E78107D91860CB1300B19DB9 /* AudioToolbox.framework */,
 				E78107D71860CAD700B19DB9 /* Parse.framework */,
@@ -199,6 +191,9 @@
 				E751E4861858BF15004E8874 /* CoreGraphics.framework */,
 				E751E4881858BF15004E8874 /* UIKit.framework */,
 				E751E4A31858BF15004E8874 /* XCTest.framework */,
+				E78107DD1860CB3300B19DB9 /* libz.1.1.3.dylib */,
+				E76AD81B1885A1F1007C014C /* libz.dylib */,
+				E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -239,6 +234,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E76AD8111885A1A0007C014C /* TestFlightSDK2 */ = {
+			isa = PBXGroup;
+			children = (
+				E76AD8121885A1A0007C014C /* libTestFlight.a */,
+				E76AD8151885A1A0007C014C /* TestFlight+AsyncLogging.h */,
+				E76AD8161885A1A0007C014C /* TestFlight+ManualSessions.h */,
+				E76AD8171885A1A0007C014C /* TestFlight.h */,
+			);
+			name = TestFlightSDK2;
+			path = ZomBeacon/TestFlightSDK2;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,9 +276,13 @@
 				ORGANIZATIONNAME = "Patrick Adams";
 				TargetAttributes = {
 					E751E4801858BF15004E8874 = {
+						DevelopmentTeam = FYS5RKBMKU;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
 							};
 							com.apple.iOS = {
 								enabled = 1;
@@ -305,22 +316,18 @@
 			files = (
 				E74469A1185BA302007F6817 /* infected_btn_large.png in Resources */,
 				E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */,
-				E74469A3185BA513007F6817 /* survivor_ipad.png in Resources */,
 				E744699B185B9F9A007F6817 /* survivor_btn_large.png in Resources */,
 				E7446991185B8B76007F6817 /* infected_btn.png in Resources */,
 				E7446995185B8D35007F6817 /* app_icon.png in Resources */,
-				E74469A5185BA5DD007F6817 /* infected_ipad.png in Resources */,
 				E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */,
 				E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */,
 				E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */,
 				E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */,
-				E7446989185B822D007F6817 /* infected.jpg in Resources */,
 				E7B34B0618846E7A00B6750F /* bad.png in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
 				E7446993185B8B95007F6817 /* survivor_btn.png in Resources */,
 				E7446997185B8E44007F6817 /* blank_splash.png in Resources */,
-				E7446987185B81F5007F6817 /* survivor.jpg in Resources */,
 				E7B34B0818846E8200B6750F /* good.png in Resources */,
 				E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */,
 			);
@@ -383,7 +390,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -401,6 +409,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "C1677625-FA59-43CD-A4E7-91D9E1F3D7D9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -422,6 +431,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -433,6 +443,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "C1677625-FA59-43CD-A4E7-91D9E1F3D7D9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -441,6 +452,8 @@
 		E751E4B41858BF16004E8874 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon,
@@ -457,8 +470,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/EstimoteSDK,
+					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/TestFlightSDK2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E2E17CFC-6ED8-4E01-A66C-6BA241B1D80F";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -467,6 +482,8 @@
 		E751E4B51858BF16004E8874 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon,
@@ -483,8 +500,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/EstimoteSDK,
+					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/TestFlightSDK2,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E2E17CFC-6ED8-4E01-A66C-6BA241B1D80F";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
