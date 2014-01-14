@@ -27,21 +27,23 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+
     [self.locationManager startUpdatingLocation];
 
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
-    
-    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
-    
-    PFUser *user = [PFUser currentUser];
-    
-    [user setObject:@"survivor" forKey:@"status"];
-    [user saveInBackground];
 
     [self queryNearbyUsers];
     
-    [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    PFUser *user = [PFUser currentUser];
+    [user setObject:@"survivor" forKey:@"status"];
+    [user saveInBackground];
+    
+    [self queryNearbyUsers];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -70,19 +72,19 @@
             location.latitude = (double) geoPointsForNearbyUsers.latitude;
             location.longitude = (double) geoPointsForNearbyUsers.longitude;
             
-            // Add the annotation to our map view
+            // First remove all annotations to refresh the status of them
             UserAnnotations *newAnnotation;
+            [self.mapView removeAnnotations:self.mapView.annotations];
             
             if ([statusOfNearbyUsers isEqualToString:@"survivor"])
             {
-                newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"good"]];
+                newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"blue"]];
             }
-            else
+            else if ([statusOfNearbyUsers isEqualToString:@"zombie"])
             {
-                newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"bad"]];
+                newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"red"]];
             }
             
-            [self.mapView removeAnnotation:newAnnotation];
             [self.mapView addAnnotation:newAnnotation];
         }
     }
@@ -125,7 +127,7 @@
     mapRegion.span.latitudeDelta = 0.002;
     mapRegion.span.longitudeDelta = 0.002;
     
-    [self.mapView setRegion:mapRegion animated:YES];
+    [self.mapView setRegion:mapRegion animated:NO];
 }
 
 //Beacon ranging setup
