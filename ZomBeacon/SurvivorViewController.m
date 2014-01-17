@@ -23,31 +23,36 @@
 {
     [super viewDidLoad];
     
+    //MapView stuff
     self.mapView.delegate = self;
+    [self.locationManager startUpdatingLocation];
     
+    //Beacon stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-
-    [self.locationManager startUpdatingLocation];
-
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 
+    //Parse stuff
     [self queryNearbyUsers];
-    
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
     PFUser *user = [PFUser currentUser];
     [user setObject:@"survivor" forKey:@"status"];
     [user saveInBackground];
     
     [self queryNearbyUsers];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    
+    //Zoom to user location once
+    [self zoomToUserLocation:self.mapView.userLocation];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
 
+//Queries all nearby users and adds them to the mapView
 - (void)queryNearbyUsers
 {
     PFUser *user = [PFUser currentUser];
@@ -65,7 +70,6 @@
             PFGeoPoint *geoPointsForNearbyUsers = nearbyUsers[i][@"location"];
             NSString *nameOfNearbyUsers = nearbyUsers[i][@"name"];
             NSString *statusOfNearbyUsers = nearbyUsers[i][@"status"];
-            NSLog(@"Username: %@, Latitude: %f, Longitude: %f", nameOfNearbyUsers, geoPointsForNearbyUsers.latitude, geoPointsForNearbyUsers.longitude);
             
             // Set some coordinates for our position
             CLLocationCoordinate2D location;
@@ -94,6 +98,7 @@
     }
 }
 
+//Adds annotations to the mapView
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[UserAnnotations class]])
@@ -118,17 +123,22 @@
     }
 }
 
-#pragma mark - Location and Beacon Management
+#pragma mark - Location Management
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+//Method to zoom to the user location
+- (void)zoomToUserLocation:(MKUserLocation *)userLocation
 {
-    MKCoordinateRegion mapRegion;
-    mapRegion.center = newLocation.coordinate;
-    mapRegion.span.latitudeDelta = 0.002;
-    mapRegion.span.longitudeDelta = 0.002;
+    if (!userLocation)
+        return;
     
-    [self.mapView setRegion:mapRegion animated:NO];
+    MKCoordinateRegion region;
+    region.center = userLocation.location.coordinate;
+    region.span = MKCoordinateSpanMake(0.005, 0.005); //Zoom distance
+    region = [self.mapView regionThatFits:region];
+    [self.mapView setRegion:region animated:YES];
 }
+
+#pragma mark - Beacon Management
 
 //Beacon ranging setup
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
@@ -229,8 +239,11 @@
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
+#pragma mark - Closing Methods
+
 - (void)viewWillDisappear:(BOOL)animated {
     [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    [self.peripheralManager stopAdvertising];
 }
 
 - (void)didReceiveMemoryWarning
