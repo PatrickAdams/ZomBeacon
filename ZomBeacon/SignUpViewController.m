@@ -22,33 +22,46 @@
 //User sign up method using the Parse framework
 - (IBAction)signUpNewUser
 {
-    PFUser *user = [PFUser user];
-    user.username = self.usernameField.text;
-    user.password = self.passwordField.text;
-    user.email = self.emailField.text;
-    
-    // other fields can be set just like with PFObject
-    user[@"name"] = self.nameField.text;
-    user[@"bio"] = self.bioField.text;
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-    {
-        if (!error)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!"
-                                                            message:@"You have successfully signed up."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-        else
-        {
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@", errorString);
-        }
-    }];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        
+        PFUser *user = [PFUser user];
+        user.username = self.usernameField.text;
+        user.password = self.passwordField.text;
+        user.email = self.emailField.text;
+        
+        // other fields can be set just like with PFObject
+        user[@"name"] = self.nameField.text;
+        user[@"bio"] = self.bioField.text;
+        
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+         {
+             if (!error)
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!"
+                                                                 message:@"You have successfully signed up."
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil];
+                 [alert show];
+                 
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 });
+                 
+                 [self.navigationController popViewControllerAnimated:YES];
+             }
+             else
+             {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 });
+                 
+                 NSString *errorString = [error userInfo][@"error"];
+                 NSLog(@"%@", errorString);
+             }
+         }];
+    });
 }
 
 - (void)didReceiveMemoryWarning

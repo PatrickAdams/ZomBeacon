@@ -32,9 +32,15 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.usernameField.text = @"";
+    self.passwordField.text = @"";
+}
+
 //Method to log in the user using the Parse framework
--(IBAction)logInUser {
-    
+-(IBAction)logInUser
+{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         NSString *username = self.usernameField.text;
@@ -72,7 +78,6 @@
              }
          }];
     });
-    
 }
 
 - (void)didReceiveMemoryWarning
