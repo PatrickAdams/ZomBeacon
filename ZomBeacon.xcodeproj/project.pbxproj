@@ -12,6 +12,7 @@
 		E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446998185B8ED9007F6817 /* blank_splash_ipad.png */; };
 		E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A6185BB2A8007F6817 /* Default-568h@2x.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
+		E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
 		E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		E7446998185B8ED9007F6817 /* blank_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash_ipad.png; sourceTree = "<group>"; };
 		E74469A6185BB2A8007F6817 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E74E2D0918898FC60080D5A3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		E751E4811858BF15004E8874 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,6 +152,15 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		E74E2D0C18898FCA0080D5A3 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E74E2D0918898FC60080D5A3 /* MBProgressHUD.h */,
+				E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		E751E4781858BF15004E8874 = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +231,7 @@
 		E751E48B1858BF15004E8874 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E74E2D0C18898FCA0080D5A3 /* MBProgressHUD */,
 				E7446985185B81E9007F6817 /* Images */,
 				E751E48C1858BF15004E8874 /* ZomBeacon-Info.plist */,
 				E751E48D1858BF15004E8874 /* InfoPlist.strings */,
@@ -336,6 +349,7 @@
 				E7B34B021884605200B6750F /* UserAnnotations.m in Sources */,
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,
+				E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */,
 				E77BFFC51858F832002871A6 /* SurvivorViewController.m in Sources */,
 				E751E4911858BF15004E8874 /* main.m in Sources */,
 				E786C239187B466900347413 /* SignUpViewController.m in Sources */,

@@ -35,29 +35,44 @@
 //Method to log in the user using the Parse framework
 -(IBAction)logInUser {
     
-    NSString *username = self.usernameField.text;
-    NSString *password = self.passwordField.text;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        NSString *username = self.usernameField.text;
+        NSString *password = self.passwordField.text;
+        
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error)
+         {
+             if (user)
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
+                                                                 message:@"You are now logged in."
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil];
+                 [alert show];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 });
+                 
+                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                 MainViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"pickateam"];
+                 [self.navigationController pushViewController:vc animated:YES];
+                 
+             } else {
+                 
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login credentials are incorrect."
+                                                                 message:@"Please try again."
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil];
+                 [alert show];
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 });
+             }
+         }];
+    });
     
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error)
-    {
-        if (user)
-        {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            MainViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"pickateam"];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
-                                                            message:@"You are now logged in."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            
-        } else {
-            self.statusText.textColor = [UIColor redColor];
-            self.statusText.text = @"USER DOES NOT EXIST!";
-        }
-    }];
 }
 
 - (void)didReceiveMemoryWarning

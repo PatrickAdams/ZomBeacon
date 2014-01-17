@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "MainViewController.h"
+#import "MBProgressHUD.h"
 
 @interface LoginViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UITextField *usernameField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordField;
-@property (nonatomic, weak) IBOutlet UILabel *statusText;
 
 -(IBAction)logInUser;
 
