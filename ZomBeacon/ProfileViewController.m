@@ -17,7 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    PFUser *user = [PFUser currentUser];
+    self.userName.text = user.username;
+    self.realName.text = user[@"name"];
+    self.emailAddress.text = user.email;
+    self.shortBio.text = user[@"bio"];
 }
 
 - (void)didReceiveMemoryWarning

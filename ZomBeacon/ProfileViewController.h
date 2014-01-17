@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "MBProgressHUD.h"
 
 @interface ProfileViewController : UIViewController
+
+@property (nonatomic, weak) IBOutlet UILabel *userName;
+@property (nonatomic, weak) IBOutlet UILabel *realName;
+@property (nonatomic, weak) IBOutlet UILabel *emailAddress;
+@property (nonatomic, weak) IBOutlet UILabel *shortBio;
+@property (nonatomic, weak) IBOutlet UIImageView *profileImage;
 
 @end
