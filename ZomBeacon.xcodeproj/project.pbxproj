@@ -13,6 +13,7 @@
 		E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A6185BB2A8007F6817 /* Default-568h@2x.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */; };
+		E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0E188996C30080D5A3 /* ProfileViewController.m */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
 		E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
@@ -41,7 +42,6 @@
 		E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */; };
 		E786C236187B356000347413 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C235187B356000347413 /* LoginViewController.m */; };
 		E786C239187B466900347413 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C238187B466900347413 /* SignUpViewController.m */; };
-		E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7916AD5185905B400FC1741 /* Main_iPad.storyboard */; };
 		E7B34B021884605200B6750F /* UserAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B34B011884605200B6750F /* UserAnnotations.m */; };
 		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
@@ -57,6 +57,8 @@
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E74E2D0918898FC60080D5A3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		E74E2D0D188996C30080D5A3 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		E74E2D0E188996C30080D5A3 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		E751E4811858BF15004E8874 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,7 +100,6 @@
 		E786C235187B356000347413 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E786C237187B466900347413 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		E786C238187B466900347413 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		E7916AD5185905B400FC1741 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		E7B34B001884605200B6750F /* UserAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAnnotations.h; sourceTree = "<group>"; };
 		E7B34B011884605200B6750F /* UserAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAnnotations.m; sourceTree = "<group>"; };
 		E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
@@ -210,7 +211,6 @@
 				E751E4931858BF15004E8874 /* AppDelegate.h */,
 				E751E4941858BF15004E8874 /* AppDelegate.m */,
 				E751E4961858BF15004E8874 /* Main.storyboard */,
-				E7916AD5185905B400FC1741 /* Main_iPad.storyboard */,
 				E77BFFBD1858F7CD002871A6 /* MainViewController.h */,
 				E77BFFBE1858F7CD002871A6 /* MainViewController.m */,
 				E77BFFC31858F832002871A6 /* SurvivorViewController.h */,
@@ -221,6 +221,8 @@
 				E786C235187B356000347413 /* LoginViewController.m */,
 				E786C237187B466900347413 /* SignUpViewController.h */,
 				E786C238187B466900347413 /* SignUpViewController.m */,
+				E74E2D0D188996C30080D5A3 /* ProfileViewController.h */,
+				E74E2D0E188996C30080D5A3 /* ProfileViewController.m */,
 				E7B34B001884605200B6750F /* UserAnnotations.h */,
 				E7B34B011884605200B6750F /* UserAnnotations.m */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
@@ -326,7 +328,6 @@
 				E7446995185B8D35007F6817 /* app_icon.png in Resources */,
 				E76AD8241885AA89007C014C /* red@2x.png in Resources */,
 				E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */,
-				E7916AD6185905B400FC1741 /* Main_iPad.storyboard in Resources */,
 				E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */,
 				E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */,
 				E76AD81F1885AA26007C014C /* blue.png in Resources */,
@@ -349,6 +350,7 @@
 				E7B34B021884605200B6750F /* UserAnnotations.m in Sources */,
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,
+				E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */,
 				E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */,
 				E77BFFC51858F832002871A6 /* SurvivorViewController.m in Sources */,
 				E751E4911858BF15004E8874 /* main.m in Sources */,

@@ -48,15 +48,7 @@
 {
     int randomNumber = [self getRandomNumberBetween:1 to:100];
     
-    UIStoryboard *storyboard;
-    if(IS_IPAD)
-    {
-        storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
-    }
-    else
-    {
-        storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    }
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if (randomNumber > 0 && randomNumber < 75 )
     {

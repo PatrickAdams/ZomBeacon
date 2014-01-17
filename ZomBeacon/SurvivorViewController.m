@@ -190,15 +190,7 @@
     
     if (beacon.proximity == CLProximityImmediate && isInfected == NO)
     {
-        UIStoryboard *storyboard;
-        if(IS_IPAD)
-        {
-            storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
-        }
-        else
-        {
-            storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        }
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
         [self.navigationController pushViewController:vc animated:YES];
