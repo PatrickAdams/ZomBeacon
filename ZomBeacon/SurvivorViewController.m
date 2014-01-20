@@ -57,6 +57,14 @@
 {
     PFUser *user = [PFUser currentUser];
     
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        if (!error) {
+            PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:geoPoint.latitude longitude:geoPoint.longitude];
+            [user setObject:point forKey:@"location"];
+            [user saveInBackground];
+        }
+    }];
+    
     if (user[@"location"])
     {
         PFGeoPoint *userGeoPoint = user[@"location"];

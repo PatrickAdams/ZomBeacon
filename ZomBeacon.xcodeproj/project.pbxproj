@@ -43,6 +43,7 @@
 		E786C236187B356000347413 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C235187B356000347413 /* LoginViewController.m */; };
 		E786C239187B466900347413 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C238187B466900347413 /* SignUpViewController.m */; };
 		E7B34B021884605200B6750F /* UserAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B34B011884605200B6750F /* UserAnnotations.m */; };
+		E7CC9865188DABDB005C39A6 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E7CC9864188DABDB005C39A6 /* user.png */; };
 		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
 		E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */; };
@@ -102,6 +103,7 @@
 		E786C238187B466900347413 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		E7B34B001884605200B6750F /* UserAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAnnotations.h; sourceTree = "<group>"; };
 		E7B34B011884605200B6750F /* UserAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAnnotations.m; sourceTree = "<group>"; };
+		E7CC9864188DABDB005C39A6 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
 		E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundSmall@2x.png"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E7CC9864188DABDB005C39A6 /* user.png */,
 				E76AD81D1885AA26007C014C /* blue.png */,
 				E76AD81E1885AA26007C014C /* red.png */,
 				E76AD8211885AA89007C014C /* blue@2x.png */,
@@ -327,6 +330,7 @@
 				E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */,
 				E7446995185B8D35007F6817 /* app_icon.png in Resources */,
 				E76AD8241885AA89007C014C /* red@2x.png in Resources */,
+				E7CC9865188DABDB005C39A6 /* user.png in Resources */,
 				E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */,
 				E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */,
 				E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */,

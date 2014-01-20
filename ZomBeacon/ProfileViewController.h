@@ -10,12 +10,19 @@
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+{
+    NSMutableArray *allImages;
+}
 
 @property (nonatomic, weak) IBOutlet UILabel *userName;
 @property (nonatomic, weak) IBOutlet UILabel *realName;
 @property (nonatomic, weak) IBOutlet UILabel *emailAddress;
 @property (nonatomic, weak) IBOutlet UILabel *shortBio;
-@property (nonatomic, weak) IBOutlet UIImageView *profileImage;
+@property (nonatomic, weak) IBOutlet PFImageView *profileImage;
+
+- (IBAction)cameraButtonTapped:(id)sender;
+- (void)uploadImage:(NSData *)imageData;
+- (void)refreshImage;
 
 @end
