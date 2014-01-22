@@ -4,48 +4,36 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller - ZomBeacon-->
+        <!--Game View Controller - ZomBeacon-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="pickateam" extendedLayoutIncludesOpaqueBars="YES" id="vXZ-lx-hvc" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pickateam" extendedLayoutIncludesOpaqueBars="YES" id="vXZ-lx-hvc" customClass="GameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eIJ-KB-bZP">
-                                <rect key="frame" x="86" y="240" width="149" height="50"/>
+                                <rect key="frame" x="109" y="257" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Random"/>
                                 <connections>
                                     <action selector="selectRandomTeam" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oeq-pp-NTO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Msx-VA-ns5">
-                                <rect key="frame" x="105" y="349" width="110" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <state key="normal" title="Log Out">
-                                    <color key="titleColor" red="0.42581562950000001" green="0.25466537410000001" blue="0.69567340349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logUserOut" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0Br-jN-way"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jjJ-0W-ev9">
-                                <rect key="frame" x="86" y="97" width="149" height="50"/>
+                                <rect key="frame" x="104" y="111" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Survivors"/>
                                 <connections>
                                     <segue destination="SOP-YH-psb" kind="push" id="HKt-7B-zpS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kms-34-svA">
-                                <rect key="frame" x="86" y="169" width="149" height="50"/>
+                                <rect key="frame" x="109" y="183" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Zombies">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -66,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631" y="197"/>
+            <point key="canvasLocation" x="2141" y="197"/>
         </scene>
         <!--Infected View Controller - Zombie-->
         <scene sceneID="rWl-qE-Oji">
@@ -108,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5s-0A-vdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103" y="526"/>
+            <point key="canvasLocation" x="2613" y="526"/>
         </scene>
         <!--Login View Controller - ZomBeacon-->
         <scene sceneID="xO3-Hg-agc">
@@ -391,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtG-G3-AZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631" y="-496"/>
+            <point key="canvasLocation" x="2143" y="-500"/>
         </scene>
         <!--Survivor View Controller - Survivor-->
         <scene sceneID="DX5-Vd-ZQZ">
@@ -459,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z1B-V7-arh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103" y="-168"/>
+            <point key="canvasLocation" x="2613" y="-168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oov-NE-C0P">
@@ -480,25 +468,70 @@
             </objects>
             <point key="canvasLocation" x="359" y="201"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="avj-V7-H2f">
+        <!--Main Menu View Controller-->
+        <scene sceneID="pFc-Rc-3MZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nm3-Vi-AbI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainmenu" id="NGH-f2-ute" customClass="MainMenuViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ncy-Yl-BE7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vr0-vd-YDs">
+                                <rect key="frame" x="66" y="88" width="189" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Play Game Now">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="push" id="JYu-cb-BDO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c7L-Wf-cGo">
+                                <rect key="frame" x="132" y="278" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.42581562950000001" green="0.25466537410000001" blue="0.69567340349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logUserOut" destination="NGH-f2-ute" eventType="touchUpInside" id="sYh-Td-egc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J0F-7N-lF8">
+                                <rect key="frame" x="59" y="171" width="202" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Create Private Game">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LPh-lr-fUw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yk7-oS-TCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1715" y="197"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7o5-wC-7dx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mg7-eI-ZAD" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="25T-a8-gay"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="y1v-2B-Gqi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0jn-sD-Mcf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="8pr-tk-lLm"/>
+                        <segue destination="NGH-f2-ute" kind="relationship" relationship="rootViewController" id="Hiy-XA-NFh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B7u-V0-18b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCO-Y9-hqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1239" y="197"/>
+            <point key="canvasLocation" x="1249" y="197"/>
         </scene>
     </scenes>
     <resources>

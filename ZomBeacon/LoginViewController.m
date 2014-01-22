@@ -23,7 +23,7 @@
     if (currentUser)
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        MainViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"pickateam"];
+        GameViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else
@@ -61,7 +61,7 @@
                  });
                  
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                 MainViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"pickateam"];
+                 GameViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
                  [self.navigationController pushViewController:vc animated:YES];
                  
              } else {

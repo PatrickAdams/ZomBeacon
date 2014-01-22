@@ -1,36 +1,29 @@
 //
-//  MainViewController.m
+//  GameViewController.m
 //  ZomBeacon
 //
-//  Created by Patrick Adams on 12/11/13.
-//  Copyright (c) 2013 Patrick Adams. All rights reserved.
+//  Created by Patrick Adams on 1/22/14.
+//  Copyright (c) 2014 Patrick Adams. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "GameViewController.h"
 
-@interface MainViewController ()
+@interface GameViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation GameViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.hidesBackButton = YES;
+    //    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     PFUser *user = [PFUser currentUser];
     [user setObject:@"" forKey:@"status"];
     [user saveInBackground];
-}
-
-//Method that logs the user out with the Parse framework
-- (IBAction)logUserOut
-{
-    [PFUser logOut];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //Method that selects a random team for the user
