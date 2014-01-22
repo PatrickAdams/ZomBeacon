@@ -57,44 +57,51 @@
 {
     PFUser *user = [PFUser currentUser];
     
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
+    [user setObject:point forKey:@"location"];
+    [user saveInBackground];
+
+    
     if (user[@"location"])
     {
         PFGeoPoint *userGeoPoint = user[@"location"];
         PFQuery *query = [PFUser query];
-        query.limit = 30;
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.05];
-        NSArray *nearbyUsers = [query findObjects];
-        
-        for (int i = 0; i < nearbyUsers.count ; i++)
-        {
-            PFGeoPoint *geoPointsForNearbyUsers = nearbyUsers[i][@"location"];
-            NSString *nameOfNearbyUsers = nearbyUsers[i][@"name"];
-            NSString *statusOfNearbyUsers = nearbyUsers[i][@"status"];
-            
-            // Set some coordinates for our position
-            CLLocationCoordinate2D location;
-            location.latitude = (double) geoPointsForNearbyUsers.latitude;
-            location.longitude = (double) geoPointsForNearbyUsers.longitude;
-            
-            // First remove all annotations to refresh the status of them
-            UserAnnotations *newAnnotation;
-            [self.mapView removeAnnotations:self.mapView.annotations];
-            
-            if ([statusOfNearbyUsers isEqualToString:@"survivor"])
-            {
-                newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"blue"]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+            if (!error) {
+                
+                for (int i = 0; i < users.count ; i++)
+                {
+                    PFGeoPoint *geoPointsForNearbyUsers = users[i][@"location"];
+                    NSString *nameOfNearbyUsers = users[i][@"name"];
+                    NSString *statusOfNearbyUsers = users[i][@"status"];
+                    
+                    // Set some coordinates for our position
+                    CLLocationCoordinate2D location;
+                    location.latitude = (double) geoPointsForNearbyUsers.latitude;
+                    location.longitude = (double) geoPointsForNearbyUsers.longitude;
+                    
+                    // First remove all annotations to refresh the status of them
+                    UserAnnotations *newAnnotation;
+                    [self.mapView removeAnnotations:self.mapView.annotations];
+                    
+                    if ([statusOfNearbyUsers isEqualToString:@"survivor"])
+                    {
+                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"blue"]];
+                    }
+                    else if ([statusOfNearbyUsers isEqualToString:@"zombie"])
+                    {
+                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"red"]];
+                    }
+                    
+                    [self.mapView addAnnotation:newAnnotation];
+                }
             }
-            else if ([statusOfNearbyUsers isEqualToString:@"zombie"])
+            else
             {
-                newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"red"]];
+                NSLog(@"No location found reload");
             }
-            
-            [self.mapView addAnnotation:newAnnotation];
-        }
-    }
-    else
-    {
-        NSLog(@"No location found reload");
+        }];
     }
 }
 

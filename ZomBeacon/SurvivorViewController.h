@@ -14,6 +14,7 @@
 #import "InfectedViewController.h"
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
+#import "ProfileViewController.h"
 
 @interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
@@ -27,6 +28,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, weak) IBOutlet UILabel *warningText;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) NSString *userName;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;

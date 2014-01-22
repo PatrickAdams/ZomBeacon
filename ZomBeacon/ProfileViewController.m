@@ -142,9 +142,11 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    PFFile *file = [[query getFirstObject] objectForKey:@"imageFile"];
-    self.profileImage.file = file;
-    [self.profileImage loadInBackground];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        PFFile *file = object[@"imageFile"];
+        self.profileImage.file = file;
+        [self.profileImage loadInBackground];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

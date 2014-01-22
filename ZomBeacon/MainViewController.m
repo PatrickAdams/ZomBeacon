@@ -18,16 +18,6 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    
-    PFUser *user = [PFUser currentUser];
-    
-    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-        if (!error) {
-            PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:geoPoint.latitude longitude:geoPoint.longitude];
-            [user setObject:point forKey:@"location"];
-            [user saveInBackground];
-        }
-    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

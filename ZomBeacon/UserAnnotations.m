@@ -30,8 +30,7 @@
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     annotationView.image = _image;
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
+        
     return annotationView;
 }
 
