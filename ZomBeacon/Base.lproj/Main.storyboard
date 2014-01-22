@@ -44,13 +44,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93478260869565222" green="0.93478260869565222" blue="0.93478260869565222" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ZomBeacon" id="COj-Ms-deU">
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="75V-7l-qPA">
-                            <connections>
-                                <segue destination="KmB-En-GMb" kind="push" id="0tU-b5-ClA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ZomBeacon" id="COj-Ms-deU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -379,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtG-G3-AZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="-500"/>
+            <point key="canvasLocation" x="2143" y="809"/>
         </scene>
         <!--Survivor View Controller - Survivor-->
         <scene sceneID="DX5-Vd-ZQZ">
@@ -477,10 +471,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vr0-vd-YDs">
-                                <rect key="frame" x="66" y="88" width="189" height="30"/>
+                                <rect key="frame" x="54" y="83" width="213" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Play Game Now">
+                                <state key="normal" title="Play Game Now (Test)">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -523,16 +517,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LPh-lr-fUw"/>
+                    <navigationItem key="navigationItem" id="LPh-lr-fUw">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="Dzc-p5-2Og">
+                            <connections>
+                                <segue destination="KmB-En-GMb" kind="push" id="6Se-rH-jMa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yk7-oS-TCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1667" y="197"/>
         </scene>
-        <!--View Controller - Create A Game-->
+        <!--Create View Controller - Create A Game-->
         <scene sceneID="gGr-zk-AS0">
             <objects>
-                <viewController id="jIF-Br-8W4" sceneMemberID="viewController">
+                <viewController id="jIF-Br-8W4" customClass="CreateViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ap-xW-4Dg">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -599,15 +599,20 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Create A Game" id="cdw-MK-pBg"/>
+                    <connections>
+                        <outlet property="dateTimeTextField" destination="Lg3-2F-wSI" id="r8g-Wu-XXS"/>
+                        <outlet property="gameNameTextField" destination="Wyy-rq-oJm" id="dM8-f8-3fR"/>
+                        <outlet property="locationTextField" destination="Wj7-ke-zpr" id="tD0-h1-i82"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4R-qf-eGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1225" y="883"/>
         </scene>
-        <!--View Controller-->
+        <!--Created View Controller-->
         <scene sceneID="DQ2-lX-tNm">
             <objects>
-                <viewController id="o9z-do-yd5" sceneMemberID="viewController">
+                <viewController id="o9z-do-yd5" customClass="CreatedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h8m-qu-NO8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -693,10 +698,10 @@
             </objects>
             <point key="canvasLocation" x="1667" y="883"/>
         </scene>
-        <!--View Controller - Join A Game-->
+        <!--Join View Controller - Join A Game-->
         <scene sceneID="cj4-m3-8kG">
             <objects>
-                <viewController id="mtJ-S4-uvy" sceneMemberID="viewController">
+                <viewController id="mtJ-S4-uvy" customClass="JoinViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jEt-VU-2vh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -719,6 +724,9 @@
                                 <state key="normal" title="Join">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="biA-0h-TG7" kind="push" id="UZv-77-9Bu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -727,7 +735,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxa-a3-A6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="-500"/>
+            <point key="canvasLocation" x="1225" y="-500"/>
+        </scene>
+        <!--Joined View Controller - Game Name-->
+        <scene sceneID="KxG-yq-DNG">
+            <objects>
+                <viewController id="biA-0h-TG7" customClass="JoinedViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Djv-Ga-hcu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vso-gr-PwC">
+                                <rect key="frame" x="144" y="398" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="push" id="9H5-Y3-Rca"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="eDJ-hm-au1">
+                                <rect key="frame" x="20" y="206" width="280" height="156"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3C8-vS-qa5">
+                                <rect key="frame" x="20" y="167" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created By:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HOV-io-3jG">
+                                <rect key="frame" x="20" y="88" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time &amp; Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZL1-Ts-E1y">
+                                <rect key="frame" x="20" y="129" width="141" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SBO-EN-hLc">
+                                <rect key="frame" x="119" y="88" width="181" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RsT-CZ-V4c">
+                                <rect key="frame" x="169" y="129" width="131" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T5J-rt-Qsc">
+                                <rect key="frame" x="100" y="167" width="200" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Game Name" id="tf4-p9-TrQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Top-Mv-Xod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1666" y="-499"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7o5-wC-7dx">
@@ -760,4 +835,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="9H5-Y3-Rca"/>
+    </inferredMetricsTieBreakers>
 </document>

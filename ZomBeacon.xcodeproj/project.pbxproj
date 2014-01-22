@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		E73F95741890428300CC7C14 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95731890428300CC7C14 /* GameViewController.m */; };
 		E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95761890430900CC7C14 /* MainMenuViewController.m */; };
+		E73F957A189060E400CC7C14 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F9579189060E400CC7C14 /* CreateViewController.m */; };
+		E73F957D189062FB00CC7C14 /* CreatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F957C189062FB00CC7C14 /* CreatedViewController.m */; };
+		E73F95801890631800CC7C14 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F957F1890631800CC7C14 /* JoinViewController.m */; };
+		E73F95831890633200CC7C14 /* JoinedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95821890633200CC7C14 /* JoinedViewController.m */; };
 		E7446995185B8D35007F6817 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446994185B8D35007F6817 /* app_icon.png */; };
 		E7446997185B8E44007F6817 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446996185B8E44007F6817 /* blank_splash.png */; };
 		E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446998185B8ED9007F6817 /* blank_splash_ipad.png */; };
@@ -56,6 +60,14 @@
 		E73F95731890428300CC7C14 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		E73F95751890430900CC7C14 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		E73F95761890430900CC7C14 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		E73F9578189060E400CC7C14 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
+		E73F9579189060E400CC7C14 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
+		E73F957B189062FB00CC7C14 /* CreatedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatedViewController.h; sourceTree = "<group>"; };
+		E73F957C189062FB00CC7C14 /* CreatedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatedViewController.m; sourceTree = "<group>"; };
+		E73F957E1890631800CC7C14 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
+		E73F957F1890631800CC7C14 /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
+		E73F95811890633200CC7C14 /* JoinedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinedViewController.h; sourceTree = "<group>"; };
+		E73F95821890633200CC7C14 /* JoinedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinedViewController.m; sourceTree = "<group>"; };
 		E7446994185B8D35007F6817 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
 		E7446996185B8E44007F6817 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
 		E7446998185B8ED9007F6817 /* blank_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash_ipad.png; sourceTree = "<group>"; };
@@ -214,11 +226,19 @@
 		E751E48A1858BF15004E8874 /* ZomBeacon */ = {
 			isa = PBXGroup;
 			children = (
-				E751E4931858BF15004E8874 /* AppDelegate.h */,
 				E751E4941858BF15004E8874 /* AppDelegate.m */,
+				E751E4931858BF15004E8874 /* AppDelegate.h */,
 				E751E4961858BF15004E8874 /* Main.storyboard */,
 				E73F95751890430900CC7C14 /* MainMenuViewController.h */,
 				E73F95761890430900CC7C14 /* MainMenuViewController.m */,
+				E73F9578189060E400CC7C14 /* CreateViewController.h */,
+				E73F9579189060E400CC7C14 /* CreateViewController.m */,
+				E73F957B189062FB00CC7C14 /* CreatedViewController.h */,
+				E73F957C189062FB00CC7C14 /* CreatedViewController.m */,
+				E73F957E1890631800CC7C14 /* JoinViewController.h */,
+				E73F957F1890631800CC7C14 /* JoinViewController.m */,
+				E73F95811890633200CC7C14 /* JoinedViewController.h */,
+				E73F95821890633200CC7C14 /* JoinedViewController.m */,
 				E73F95721890428300CC7C14 /* GameViewController.h */,
 				E73F95731890428300CC7C14 /* GameViewController.m */,
 				E77BFFC31858F832002871A6 /* SurvivorViewController.h */,
@@ -355,14 +375,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E73F95801890631800CC7C14 /* JoinViewController.m in Sources */,
 				E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */,
 				E73F95741890428300CC7C14 /* GameViewController.m in Sources */,
+				E73F957D189062FB00CC7C14 /* CreatedViewController.m in Sources */,
 				E7B34B021884605200B6750F /* UserAnnotations.m in Sources */,
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
+				E73F95831890633200CC7C14 /* JoinedViewController.m in Sources */,
 				E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,
 				E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */,
 				E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */,
+				E73F957A189060E400CC7C14 /* CreateViewController.m in Sources */,
 				E77BFFC51858F832002871A6 /* SurvivorViewController.m in Sources */,
 				E751E4911858BF15004E8874 /* main.m in Sources */,
 				E786C239187B466900347413 /* SignUpViewController.m in Sources */,
