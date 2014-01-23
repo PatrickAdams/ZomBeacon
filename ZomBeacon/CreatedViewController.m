@@ -14,19 +14,16 @@
 
 @implementation CreatedViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    self.navigationItem.hidesBackButton = YES;
+	
+    self.gameNameLabel.text = self.gameNameString;
+    self.createdByLabel.text = self.createdByString;
+    self.dateTimeLabel.text = self.dateTimeString;
+    self.locationLabel.text = self.locationString;
+    self.inviteCodeLabel.text = self.inviteCodeString;
 }
 
 - (void)didReceiveMemoryWarning
