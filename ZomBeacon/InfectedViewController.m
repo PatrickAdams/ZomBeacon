@@ -43,6 +43,7 @@
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -60,7 +61,7 @@
     {
         PFGeoPoint *userGeoPoint = user[@"location"];
         PFQuery *query = [PFUser query];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.05];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 
@@ -134,9 +135,14 @@
     
     MKCoordinateRegion region;
     region.center = userLocation.location.coordinate;
-    region.span = MKCoordinateSpanMake(0.005, 0.005); //Zoom distance
+    region.span = MKCoordinateSpanMake(0.002, 0.002); //Zoom distance
     region = [self.mapView regionThatFits:region];
-    [self.mapView setRegion:region animated:YES];
+    [self.mapView setRegion:region animated:NO];
+}
+
+- (IBAction)trackMyOrientation
+{
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading];
 }
 
 #pragma mark - Beacon Management

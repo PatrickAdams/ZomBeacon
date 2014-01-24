@@ -22,4 +22,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *infectedLabel;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
+- (IBAction)trackMyOrientation;
+
 @end

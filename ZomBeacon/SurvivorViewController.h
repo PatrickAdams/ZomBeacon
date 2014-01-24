@@ -33,5 +33,6 @@
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;
 - (IBAction)startCounter;
+- (IBAction)trackMyOrientation;
 
 @end

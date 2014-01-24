@@ -20,6 +20,12 @@
     self.navigationItem.hidesBackButton = YES;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    PFUser *user = [PFUser currentUser];
+    [user setObject:@"" forKey:@"status"];
+    [user saveInBackground];
+}
+
 //Method that logs the user out with the Parse framework
 - (IBAction)logUserOut
 {

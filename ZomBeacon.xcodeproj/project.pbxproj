@@ -226,8 +226,8 @@
 		E751E48A1858BF15004E8874 /* ZomBeacon */ = {
 			isa = PBXGroup;
 			children = (
-				E751E4941858BF15004E8874 /* AppDelegate.m */,
 				E751E4931858BF15004E8874 /* AppDelegate.h */,
+				E751E4941858BF15004E8874 /* AppDelegate.m */,
 				E751E4961858BF15004E8874 /* Main.storyboard */,
 				E73F95751890430900CC7C14 /* MainMenuViewController.h */,
 				E73F95761890430900CC7C14 /* MainMenuViewController.m */,
