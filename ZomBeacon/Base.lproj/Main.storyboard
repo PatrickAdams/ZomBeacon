@@ -364,7 +364,6 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="N3j-28-q2H">
                                         <rect key="frame" x="0.0" y="282" width="320" height="287"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </scrollView>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>

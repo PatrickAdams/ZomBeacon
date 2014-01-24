@@ -29,12 +29,12 @@
     [query whereKey:@"hostUser" equalTo:[PFUser currentUser]];
     NSArray *privateGames = [query findObjects];
     for (int i = 0; i < privateGames.count; i++) {
-        CGRect r = CGRectMake(0, 0, 320, 30);
+        CGRect r = CGRectMake(10, 0, 300, 30);
         r.origin.y = i * r.size.height + 3 * i;
         UIButton *button = [[UIButton alloc] initWithFrame:r];
-        [button setTitle:@"GAME" forState:UIControlStateNormal];
-        button.titleLabel.textColor = [UIColor blackColor];
-        button.backgroundColor = [UIColor redColor];
+        [button setTitle:[NSString stringWithFormat:@"NAME: %@",[privateGames objectAtIndex:i][@"gameName"]] forState:UIControlStateNormal];
+        button.titleLabel.textColor = [UIColor whiteColor];
+        button.backgroundColor = [UIColor darkGrayColor];
         [self.scrollView addSubview:button];
         self.scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(button.frame));
     }
