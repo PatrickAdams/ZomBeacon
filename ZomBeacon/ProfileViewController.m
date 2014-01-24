@@ -25,6 +25,7 @@
     self.emailAddress.text = user.email;
     self.shortBio.text = user[@"bio"];
     
+    //Adds a button for each game you've created
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
     [query whereKey:@"hostUser" equalTo:[PFUser currentUser]];
     NSArray *privateGames = [query findObjects];
