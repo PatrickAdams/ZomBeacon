@@ -361,6 +361,11 @@
                                             <action selector="cameraButtonTapped:" destination="KmB-En-GMb" eventType="touchUpInside" id="G6u-2h-OiK"/>
                                         </connections>
                                     </button>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="N3j-28-q2H">
+                                        <rect key="frame" x="0.0" y="282" width="320" height="287"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </scrollView>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
@@ -377,13 +382,14 @@
                         <outlet property="emailAddress" destination="XMA-Kl-ezl" id="XMk-vk-f4s"/>
                         <outlet property="profileImage" destination="2SJ-cw-AIr" id="O1R-cC-uue"/>
                         <outlet property="realName" destination="wxg-On-vvH" id="RGj-yk-FlY"/>
+                        <outlet property="scrollView" destination="N3j-28-q2H" id="pHK-0m-9Zn"/>
                         <outlet property="shortBio" destination="CyK-dn-C95" id="jht-eJ-TE7"/>
                         <outlet property="userName" destination="X3k-J4-VCs" id="aGj-hv-YiM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtG-G3-AZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="809"/>
+            <point key="canvasLocation" x="2143" y="883"/>
         </scene>
         <!--Survivor View Controller - Survivor-->
         <scene sceneID="DX5-Vd-ZQZ">

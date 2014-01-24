@@ -24,6 +24,20 @@
     self.realName.text = user[@"name"];
     self.emailAddress.text = user.email;
     self.shortBio.text = user[@"bio"];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+    [query whereKey:@"hostUser" equalTo:[PFUser currentUser]];
+    NSArray *privateGames = [query findObjects];
+    for (int i = 0; i < privateGames.count; i++) {
+        CGRect r = CGRectMake(0, 0, 320, 30);
+        r.origin.y = i * r.size.height + 3 * i;
+        UIButton *button = [[UIButton alloc] initWithFrame:r];
+        [button setTitle:@"GAME" forState:UIControlStateNormal];
+        button.titleLabel.textColor = [UIColor blackColor];
+        button.backgroundColor = [UIColor redColor];
+        [self.scrollView addSubview:button];
+        self.scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(button.frame));
+    }
 }
 
 - (void)cameraButtonTapped:(id)sender

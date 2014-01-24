@@ -20,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *emailAddress;
 @property (nonatomic, weak) IBOutlet UILabel *shortBio;
 @property (nonatomic, weak) IBOutlet PFImageView *profileImage;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)cameraButtonTapped:(id)sender;
 - (void)uploadImage:(NSData *)imageData;
