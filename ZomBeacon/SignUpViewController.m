@@ -56,9 +56,6 @@
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
-                 
-                 NSString *errorString = [error userInfo][@"error"];
-                 NSLog(@"%@", errorString);
              }
          }];
     });

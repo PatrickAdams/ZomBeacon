@@ -79,8 +79,6 @@
                     NSString *nameOfNearbyUser = users[i][@"name"];
                     NSString *statusOfNearbyUser = users[i][@"status"];
                     
-                    NSLog(@"%@", nameOfNearbyUser);
-                    
                     // Set some coordinates for our position
                     CLLocationCoordinate2D location;
                     location.latitude = (double) geoPointsForNearbyUser.latitude;
@@ -97,10 +95,6 @@
                     
                     [self.mapView addAnnotation:newAnnotation];
                 }
-            }
-            else
-            {
-                NSLog(@"No location found reload");
             }
         }];
     }
@@ -137,7 +131,9 @@
 - (void)zoomToUserLocation:(MKUserLocation *)userLocation
 {
     if (!userLocation)
+    {
         return;
+    }
     
     MKCoordinateRegion region;
     region.center = userLocation.location.coordinate;

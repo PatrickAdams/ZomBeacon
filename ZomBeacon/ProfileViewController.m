@@ -103,15 +103,7 @@
                         if (!error) {
                             [self refreshImage];
                         }
-                        else{
-                            // Log details of the failure
-                            NSLog(@"Error: %@ %@", error, [error userInfo]);
-                        }
                     }];
-                }
-                else{
-                    // Log details of the failure
-                    NSLog(@"Error: %@ %@", error, [error userInfo]);
                 }
             }];
         });
@@ -138,10 +130,6 @@
                                 
                                 if (!error) {
                                     [self refreshImage];
-                                }
-                                else{
-                                    // Log details of the failure
-                                    NSLog(@"Error: %@ %@", error, [error userInfo]);
                                 }
                             }];
                         }
