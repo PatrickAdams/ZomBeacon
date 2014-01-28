@@ -23,6 +23,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     PFUser *user = [PFUser currentUser];
     [user setObject:@"" forKey:@"status"];
+    [user setObject:[NSNull null] forKey:@"location"];
     [user saveInBackground];
 }
 

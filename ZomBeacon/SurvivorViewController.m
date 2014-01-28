@@ -37,14 +37,14 @@
     [self queryNearbyUsers];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
+- (void)viewDidAppear:(BOOL)animated
+{
     PFUser *user = [PFUser currentUser];
     [user setObject:@"survivor" forKey:@"status"];
     [user saveInBackground];
     
     [self queryNearbyUsers];
-    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
@@ -59,7 +59,7 @@
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
     [user setObject:point forKey:@"location"];
     [user saveInBackground];
-    
+
     if (user[@"location"])
     {
         PFGeoPoint *userGeoPoint = user[@"location"];
@@ -68,28 +68,31 @@
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 
-                for (int i = 0; i < users.count ; i++)
+                // First remove all annotations to refresh the status of them
+                UserAnnotations *newAnnotation;
+                [self.mapView removeAnnotations:self.mapView.annotations];
+                
+                //Start at int = 1 so that the query doesn't include yourself
+                for (int i = 1; i < users.count ; i++)
                 {
-                    PFGeoPoint *geoPointsForNearbyUsers = users[i][@"location"];
-                    NSString *nameOfNearbyUsers = users[i][@"name"];
-                    NSString *statusOfNearbyUsers = users[i][@"status"];
+                    PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
+                    NSString *nameOfNearbyUser = users[i][@"name"];
+                    NSString *statusOfNearbyUser = users[i][@"status"];
+                    
+                    NSLog(@"%@", nameOfNearbyUser);
                     
                     // Set some coordinates for our position
                     CLLocationCoordinate2D location;
-                    location.latitude = (double) geoPointsForNearbyUsers.latitude;
-                    location.longitude = (double) geoPointsForNearbyUsers.longitude;
+                    location.latitude = (double) geoPointsForNearbyUser.latitude;
+                    location.longitude = (double) geoPointsForNearbyUser.longitude;
                     
-                    // First remove all annotations to refresh the status of them
-                    UserAnnotations *newAnnotation;
-                    [self.mapView removeAnnotations:self.mapView.annotations];
-                    
-                    if ([statusOfNearbyUsers isEqualToString:@"survivor"])
+                    if ([statusOfNearbyUser isEqualToString:@"survivor"])
                     {
-                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"blue"]];
+                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"blue"]];
                     }
-                    else if ([statusOfNearbyUsers isEqualToString:@"zombie"])
+                    else if ([statusOfNearbyUser isEqualToString:@"zombie"])
                     {
-                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUsers andCoordinate:location andImage:[UIImage imageNamed:@"red"]];
+                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"red"]];
                     }
                     
                     [self.mapView addAnnotation:newAnnotation];
@@ -193,9 +196,9 @@
     
     if (beacon.proximity == CLProximityNear) //Change to (beacon.proximity == CLProximityFar) whenever testing outside
     {
-        self.warningText.hidden = NO;
-        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+//        self.warningText.hidden = NO;
+//        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+//        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
     }
     
     if (beacon.proximity == CLProximityImmediate && isInfected == NO)

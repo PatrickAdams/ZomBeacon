@@ -23,9 +23,33 @@
     
     [PFImageView class];
     
+    // create and start to sync the manager with the Proximity Kit backend
+    self.proximityKitManager = [PKManager managerWithDelegate:self];
+    [self.proximityKitManager start];
+    
     return YES;
 }
-							
+
+- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
+{
+    // present local notification
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"You've entered the game region!";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
+{
+    // present local notification
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"You are out of bounds, return or you will be disqualified.";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -34,9 +58,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    PFUser *user = [PFUser currentUser];
-    [user setObject:@"" forKey:@"status"];
-    [user saveInBackground];
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

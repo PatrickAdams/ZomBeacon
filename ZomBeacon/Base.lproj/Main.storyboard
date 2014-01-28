@@ -85,9 +85,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" red="0.42581562950000001" green="0.25466537410000001" blue="0.69567340349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Orient">
+                                <state key="normal" title="Track">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="trackMyOrientation" destination="WSR-Ds-yNc" eventType="touchUpInside" id="glW-lD-5cr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

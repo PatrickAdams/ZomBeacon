@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "TestFlight.h"
+#import <ProximityKit/ProximityKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PKManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property PKManager *proximityKitManager;
 
 @end
