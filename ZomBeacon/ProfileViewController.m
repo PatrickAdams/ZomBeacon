@@ -24,16 +24,20 @@
     self.realName.text = user[@"name"];
     self.emailAddress.text = user.email;
     self.shortBio.text = user[@"bio"];
+    [self.currentGameButton setTitle:[NSString stringWithFormat:@"Current Game: %@", user[@"currentGame"]] forState:UIControlStateNormal];
+    
     
     //Adds a button for each game you've created
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
     [query whereKey:@"hostUser" equalTo:[PFUser currentUser]];
     NSArray *privateGames = [query findObjects];
-    for (int i = 0; i < privateGames.count; i++) {
+    for (int i = 0; i < privateGames.count; i++)
+    {
+        PFObject *privateGame = [privateGames objectAtIndex:i];
         CGRect r = CGRectMake(10, 0, 300, 30);
         r.origin.y = i * r.size.height + 3 * i;
         UIButton *button = [[UIButton alloc] initWithFrame:r];
-        [button setTitle:[NSString stringWithFormat:@"NAME: %@",[privateGames objectAtIndex:i][@"gameName"]] forState:UIControlStateNormal];
+        [button setTitle:[NSString stringWithFormat:@"Code: %@", privateGame.objectId] forState:UIControlStateNormal];
         button.titleLabel.textColor = [UIColor whiteColor];
         button.backgroundColor = [UIColor darkGrayColor];
         [self.scrollView addSubview:button];

@@ -17,7 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    self.dateTimeLabel.text = self.dateTimeLabelString;
+    self.locationLabel.text = self.locationLabelString;
 }
 
 - (void)didReceiveMemoryWarning

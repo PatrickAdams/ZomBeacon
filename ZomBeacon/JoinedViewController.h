@@ -10,4 +10,13 @@
 
 @interface JoinedViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UILabel *hostUserLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dateTimeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *locationLabel;
+
+@property (nonatomic, weak) NSString *hostUserLabelString;
+@property (nonatomic, weak) NSString *dateTimeLabelString;
+@property (nonatomic, weak) NSString *locationLabelString;
+
+
 @end

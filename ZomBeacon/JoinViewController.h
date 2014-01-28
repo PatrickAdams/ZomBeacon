@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "JoinedViewController.h"
 
 @interface JoinViewController : UIViewController
+
+@property (nonatomic, weak) IBOutlet UITextField *joinGameField;
+
+- (IBAction)joinGame;
 
 @end
