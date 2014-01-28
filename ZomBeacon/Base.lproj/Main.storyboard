@@ -512,13 +512,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vr0-vd-YDs">
-                                <rect key="frame" x="54" y="83" width="213" height="39"/>
+                                <rect key="frame" x="75" y="83" width="172" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Play Game Now (Test)">
+                                <state key="normal" title="Play Public Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="startPublicGame" destination="NGH-f2-ute" eventType="touchUpInside" id="Ywe-k8-IJC"/>
                                     <segue destination="vXZ-lx-hvc" kind="push" id="JYu-cb-BDO"/>
                                 </connections>
                             </button>
@@ -534,10 +535,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J0F-7N-lF8">
-                                <rect key="frame" x="86" y="155" width="149" height="39"/>
+                                <rect key="frame" x="61" y="155" width="202" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Create A Game">
+                                <state key="normal" title="Create Private Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -545,10 +546,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g4z-Gj-hMp">
-                                <rect key="frame" x="91" y="233" width="139" height="30"/>
+                                <rect key="frame" x="72" y="228" width="178" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Join A Game">
+                                <state key="normal" title="Join Private Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -911,6 +912,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kx5-jM-uCj"/>
-        <segue reference="9H5-Y3-Rca"/>
+        <segue reference="JYu-cb-BDO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,6 +27,13 @@
     [user saveInBackground];
 }
 
+- (IBAction)startPublicGame
+{
+    PFUser *user = [PFUser currentUser];
+    [user setObject:@"" forKey:@"currentGame"];
+    [user saveInBackground];
+}
+
 //Method that logs the user out with the Parse framework
 - (IBAction)logUserOut
 {

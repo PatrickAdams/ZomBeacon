@@ -12,5 +12,6 @@
 @interface MainMenuViewController : UIViewController
 
 - (IBAction)logUserOut;
+- (IBAction)startPublicGame;
 
 @end
