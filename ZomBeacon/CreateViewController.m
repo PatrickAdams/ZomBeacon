@@ -38,7 +38,7 @@
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D touchMapCoordinate =
     [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
-    
+    [self.mapView removeAnnotation:self.droppedPin];
     self.droppedPin = [[UserAnnotations alloc] init];
     self.droppedPin.coordinate = touchMapCoordinate;
     [self.mapView addAnnotation:self.droppedPin];
@@ -61,7 +61,10 @@
     vc.gameNameString = privateGame[@"gameName"];
     vc.createdByString = user.username;
     vc.dateTimeString = privateGame[@"dateTime"];
-    vc.gameLocationCoord = self.droppedPin.coordinate;
+    
+    CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+    vc.gameLocationCoord = gameLocationCoords;
+
     vc.inviteCodeString = privateGame.objectId;
     
     [self.navigationController pushViewController:vc animated:YES];

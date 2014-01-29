@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreBluetooth/CoreBluetooth.h>
-#import "LoginViewController.h"
 
-@interface BlueToothViewController : UIViewController <CBCentralManagerDelegate>
-
-@property (nonatomic, strong) CBCentralManager *centralManager;
+@interface BlueToothViewController : UIViewController
 
 @end

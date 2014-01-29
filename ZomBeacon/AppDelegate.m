@@ -27,6 +27,10 @@
     self.proximityKitManager = [PKManager managerWithDelegate:self];
     [self.proximityKitManager start];
     
+    //Bluetooth 
+    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    [self centralManagerDidUpdateState:self.centralManager];
+    
     return YES;
 }
 
@@ -48,6 +52,20 @@
     notification.soundName = UILocalNotificationDefaultSoundName;
     
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central
+{
+    if (central.state == CBCentralManagerStatePoweredOff)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        BlueToothViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"bluetooth"];
+        [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
+    }
+    
+    if (central.state == CBCentralManagerStatePoweredOn) {
+        [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -27,7 +27,6 @@
     self.createdByLabel.text = self.createdByString;
     self.dateTimeLabel.text = self.dateTimeString;
     self.inviteCodeLabel.text = self.inviteCodeString;
-    self.gameLocationCoord = self.droppedPin.coordinate;
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     [annotation setCoordinate:self.gameLocationCoord];

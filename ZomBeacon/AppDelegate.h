@@ -10,10 +10,13 @@
 #import <Parse/Parse.h>
 #import "TestFlight.h"
 #import <ProximityKit/ProximityKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import "BlueToothViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, PKManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PKManagerDelegate, CBCentralManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property PKManager *proximityKitManager;
+@property (nonatomic, strong) CBCentralManager *centralManager;
 
 @end
