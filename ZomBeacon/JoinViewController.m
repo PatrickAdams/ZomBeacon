@@ -37,7 +37,10 @@
     {
         PFObject *privateGame = [privateGames objectAtIndex:0];
         vc.dateTimeLabelString = privateGame[@"dateTime"];
-        vc.locationLabelString = privateGame[@"location"];
+        vc.gameNameLabelString = privateGame[@"gameName"];
+        PFGeoPoint *gameLocation = privateGame[@"location"];
+        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+        vc.gameLocationCoord = gameLocationCoords;
     }
     
     [self.navigationController pushViewController:vc animated:YES];

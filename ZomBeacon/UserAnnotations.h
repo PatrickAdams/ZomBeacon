@@ -13,7 +13,7 @@
 @interface UserAnnotations : NSObject <MKAnnotation>
 
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) UIButton *infoButton;
 
