@@ -49,6 +49,7 @@
 		E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */; };
 		E786C236187B356000347413 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C235187B356000347413 /* LoginViewController.m */; };
 		E786C239187B466900347413 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E786C238187B466900347413 /* SignUpViewController.m */; };
+		E78FA8A31899853500ABBF8D /* BlueToothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FA8A21899853500ABBF8D /* BlueToothViewController.m */; };
 		E7B34B021884605200B6750F /* UserAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B34B011884605200B6750F /* UserAnnotations.m */; };
 		E7CC9865188DABDB005C39A6 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E7CC9864188DABDB005C39A6 /* user.png */; };
 		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
@@ -120,6 +121,8 @@
 		E786C235187B356000347413 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E786C237187B466900347413 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		E786C238187B466900347413 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		E78FA8A11899853500ABBF8D /* BlueToothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueToothViewController.h; sourceTree = "<group>"; };
+		E78FA8A21899853500ABBF8D /* BlueToothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueToothViewController.m; sourceTree = "<group>"; };
 		E7B34B001884605200B6750F /* UserAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAnnotations.h; sourceTree = "<group>"; };
 		E7B34B011884605200B6750F /* UserAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAnnotations.m; sourceTree = "<group>"; };
 		E7CC9864188DABDB005C39A6 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
@@ -235,8 +238,16 @@
 				E751E4931858BF15004E8874 /* AppDelegate.h */,
 				E751E4941858BF15004E8874 /* AppDelegate.m */,
 				E751E4961858BF15004E8874 /* Main.storyboard */,
+				E78FA8A11899853500ABBF8D /* BlueToothViewController.h */,
+				E78FA8A21899853500ABBF8D /* BlueToothViewController.m */,
+				E786C234187B356000347413 /* LoginViewController.h */,
+				E786C235187B356000347413 /* LoginViewController.m */,
+				E786C237187B466900347413 /* SignUpViewController.h */,
+				E786C238187B466900347413 /* SignUpViewController.m */,
 				E73F95751890430900CC7C14 /* MainMenuViewController.h */,
 				E73F95761890430900CC7C14 /* MainMenuViewController.m */,
+				E74E2D0D188996C30080D5A3 /* ProfileViewController.h */,
+				E74E2D0E188996C30080D5A3 /* ProfileViewController.m */,
 				E73F9578189060E400CC7C14 /* CreateViewController.h */,
 				E73F9579189060E400CC7C14 /* CreateViewController.m */,
 				E73F957B189062FB00CC7C14 /* CreatedViewController.h */,
@@ -251,12 +262,6 @@
 				E77BFFC41858F832002871A6 /* SurvivorViewController.m */,
 				E77BFFC01858F825002871A6 /* InfectedViewController.h */,
 				E77BFFC11858F825002871A6 /* InfectedViewController.m */,
-				E786C234187B356000347413 /* LoginViewController.h */,
-				E786C235187B356000347413 /* LoginViewController.m */,
-				E786C237187B466900347413 /* SignUpViewController.h */,
-				E786C238187B466900347413 /* SignUpViewController.m */,
-				E74E2D0D188996C30080D5A3 /* ProfileViewController.h */,
-				E74E2D0E188996C30080D5A3 /* ProfileViewController.m */,
 				E7B34B001884605200B6750F /* UserAnnotations.h */,
 				E7B34B011884605200B6750F /* UserAnnotations.m */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
@@ -392,6 +397,7 @@
 				E73F95831890633200CC7C14 /* JoinedViewController.m in Sources */,
 				E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,
+				E78FA8A31899853500ABBF8D /* BlueToothViewController.m in Sources */,
 				E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */,
 				E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */,
 				E73F957A189060E400CC7C14 /* CreateViewController.m in Sources */,

@@ -16,20 +16,18 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	
+    self.navigationItem.hidesBackButton = YES;
+    
     //Checks to make sure a user is logged in, if so, it skips the login screen
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser)
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         GameViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self.navigationController pushViewController:vc animated:NO];
     }
-    else
-    {
-        //Stay on login screen
-    }
+    
+    [super viewDidLoad];
 }
 
 - (void)viewWillAppear:(BOOL)animated

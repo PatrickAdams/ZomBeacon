@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="XMD-kC-vLU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fHt-aQ-LAD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="3221" y="542"/>
         </scene>
-        <!--Login View Controller - ZomBeacon-->
+        <!--Login View Controller - Login-->
         <scene sceneID="xO3-Hg-agc">
             <objects>
-                <viewController id="C6C-zQ-YDX" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="C6C-zQ-YDX" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9RI-9X-rc8">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -174,7 +174,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="ZomBeacon" id="i7k-Yp-XQU"/>
+                    <navigationItem key="navigationItem" title="Login" id="i7k-Yp-XQU"/>
                     <connections>
                         <outlet property="passwordField" destination="cuF-zX-qaM" id="0yi-T4-ZB8"/>
                         <outlet property="usernameField" destination="fOF-p3-1lT" id="gq9-Rw-1CU"/>
@@ -482,6 +482,30 @@
             </objects>
             <point key="canvasLocation" x="3221" y="-148"/>
         </scene>
+        <!--Blue Tooth View Controller-->
+        <scene sceneID="W5M-pC-seI">
+            <objects>
+                <viewController storyboardIdentifier="bluetooth" id="3us-iS-5cs" customClass="BlueToothViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vwh-YA-Irs">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enable Bluetooth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SPF-RB-ntA">
+                                <rect key="frame" x="66" y="203" width="188" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="E6U-Wu-t8W"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9k-NR-Hiz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-147" y="197"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="oov-NE-C0P">
             <objects>
@@ -502,7 +526,7 @@
             </objects>
             <point key="canvasLocation" x="319" y="201"/>
         </scene>
-        <!--Main Menu View Controller-->
+        <!--Main Menu View Controller - Main-->
         <scene sceneID="pFc-Rc-3MZ">
             <objects>
                 <viewController storyboardIdentifier="mainmenu" id="NGH-f2-ute" customClass="MainMenuViewController" sceneMemberID="viewController">
@@ -559,7 +583,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="LPh-lr-fUw">
+                    <navigationItem key="navigationItem" title="Main" id="LPh-lr-fUw">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="Dzc-p5-2Og">
                             <connections>
                                 <segue destination="KmB-En-GMb" kind="push" id="6Se-rH-jMa"/>
@@ -908,6 +932,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7o5-wC-7dx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCO-Y9-hqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mg7-eI-ZAD" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
@@ -925,9 +950,28 @@
                         <segue destination="NGH-f2-ute" kind="relationship" relationship="rootViewController" id="Hiy-XA-NFh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HCO-Y9-hqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1225" y="197"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fz6-oF-qjq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fHt-aQ-LAD" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3w5-gq-r6s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3us-iS-5cs" kind="relationship" relationship="rootViewController" id="0oZ-j9-gMb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xq2-46-3Um" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-585" y="197"/>
         </scene>
     </scenes>
     <resources>
@@ -939,7 +983,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kx5-jM-uCj"/>
-        <segue reference="9H5-Y3-Rca"/>
+        <segue reference="Hiy-XA-NFh"/>
+        <segue reference="JYu-cb-BDO"/>
     </inferredMetricsTieBreakers>
 </document>
