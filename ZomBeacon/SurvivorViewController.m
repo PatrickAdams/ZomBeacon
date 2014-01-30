@@ -23,15 +23,7 @@
 {
     [super viewDidLoad];
     
-    //MapView stuff
     self.mapView.delegate = self;
-    [self.locationManager startUpdatingLocation];
-    
-    //Beacon stuff
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [self initRegion];
-    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 
     //Parse stuff
     [self queryNearbyUsers];
@@ -46,8 +38,15 @@
     [self queryNearbyUsers];
     [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
-    //Zoom to user location once
+    //MapView stuff
+    [self.locationManager startUpdatingLocation];
     [self zoomToUserLocation:self.mapView.userLocation];
+    
+    //Beacon stuff
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self initRegion];
+    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations

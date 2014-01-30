@@ -23,9 +23,9 @@
     
     [PFImageView class];
     
-    // create and start to sync the manager with the Proximity Kit backend
-    self.proximityKitManager = [PKManager managerWithDelegate:self];
-    [self.proximityKitManager start];
+//    // create and start to sync the manager with the Proximity Kit backend
+//    self.proximityKitManager = [PKManager managerWithDelegate:self];
+//    [self.proximityKitManager start];
     
     //Bluetooth 
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];

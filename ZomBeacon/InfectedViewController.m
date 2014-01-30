@@ -20,13 +20,6 @@
     
     //MapView stuff
     self.mapView.delegate = self;
-    [self.locationManager startUpdatingLocation];
-    
-    //Beacon stuff
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [self initBeacon];
-    [self transmitBeacon];
     
     //Parse stuff
     [self queryNearbyUsers];
@@ -38,8 +31,16 @@
     [user setObject:@"zombie" forKey:@"status"];
     [user saveInBackground];
     
+    [self.locationManager startUpdatingLocation];
+    
     [self queryNearbyUsers];
     [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    
+    //Beacon stuff
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self initBeacon];
+    [self transmitBeacon];
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
