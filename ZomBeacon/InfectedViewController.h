@@ -23,5 +23,6 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
 - (IBAction)trackMyOrientation;
+- (IBAction)centerMapOnLocation;
 
 @end

@@ -34,5 +34,6 @@
 - (void)countdownTimer;
 - (IBAction)startCounter;
 - (IBAction)trackMyOrientation;
+- (IBAction)centerMapOnLocation;
 
 @end

@@ -18,10 +18,8 @@
 {
     [super viewDidLoad];
     
-    //MapView stuff
     self.mapView.delegate = self;
     
-    //Parse stuff
     [self queryNearbyUsers];
 }
 
@@ -136,9 +134,16 @@
     [self.mapView setRegion:region animated:NO];
 }
 
+//For the compass button on the map
 - (IBAction)trackMyOrientation
 {
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading];
+}
+
+//For the crosshairs button on the map
+- (IBAction)centerMapOnLocation
+{
+    [self zoomToUserLocation:self.mapView.userLocation];
 }
 
 #pragma mark - Beacon Management
