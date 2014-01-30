@@ -46,6 +46,8 @@
     self.locationManager.delegate = self;
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
+    
+    isInfected = NO;
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -209,7 +211,6 @@
         
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
         [self.navigationController pushViewController:vc animated:YES];
-        vc.infectedLabel.text = @"YOU ARE NOW INFECTED";
         isInfected = YES;
     }
 }
@@ -248,10 +249,10 @@
 
 #pragma mark - Closing Methods
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-    [self.peripheralManager stopAdvertising];
-}
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+////    [self.peripheralManager stopAdvertising];
+//}
 
 - (void)didReceiveMemoryWarning
 {
