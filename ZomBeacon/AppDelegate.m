@@ -59,7 +59,7 @@
     if (central.state == CBCentralManagerStatePoweredOff)
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        BlueToothViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"bluetooth"];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"bluetooth"];
         [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
     }
     
