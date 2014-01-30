@@ -34,7 +34,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if (randomNumber > 0 && randomNumber < 75 )
+    if (randomNumber < 25 )
     {
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
         [self.navigationController pushViewController:vc animated:YES];
