@@ -28,6 +28,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
     [query whereKey:@"objectId" equalTo:self.joinGameField.text];
+    [query includeKey:@"hostUser"];
     NSArray *privateGames = [query findObjects];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -41,6 +42,9 @@
         PFGeoPoint *gameLocation = privateGame[@"location"];
         CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
         vc.gameLocationCoord = gameLocationCoords;
+        
+        PFObject *hostUser = privateGame[@"hostUser"];
+        vc.hostUserLabelString = hostUser[@"name"];
     }
     
     [self.navigationController pushViewController:vc animated:YES];
