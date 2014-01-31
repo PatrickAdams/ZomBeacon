@@ -207,6 +207,13 @@
     
     if (beacon.proximity == CLProximityImmediate && isInfected == NO)
     {
+        // present local notification
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"You've been infected by a zombie, go find some survivors!";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
