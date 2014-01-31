@@ -33,11 +33,9 @@
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     [query whereKey:@"user" equalTo:self.myFriend];
     
-    
-        PFFile *file = [query getFirstObject][@"imageFile"];
-        self.profileImage.file = file;
-        [self.profileImage loadInBackground];
-
+    PFFile *file = [query getFirstObject][@"imageFile"];
+    self.profileImage.file = file;
+    [self.profileImage loadInBackground];
 }
 
 - (void)didReceiveMemoryWarning
