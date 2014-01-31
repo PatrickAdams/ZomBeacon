@@ -22,8 +22,6 @@
     self.hostUserLabel.text = self.hostUserLabelString;
     self.gameNameLabel.text = self.gameNameLabelString;
     
-    NSLog(@"%@", self.gameIDString);
-    
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     [annotation setCoordinate:self.gameLocationCoord];
     [annotation setTitle:self.gameNameLabelString]; //You can set the subtitle too

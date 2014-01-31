@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "FriendProfileViewController.h"
+#import "UserLobbyCell.h"
 
-@interface LobbyViewController : UIViewController
+@interface LobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    PFUser *currentUser;
+}
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+- (NSMutableArray *)getPlayersInCurrentGame;
 
 @end

@@ -62,6 +62,8 @@
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
 		E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */; };
 		E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B78186370F500C5A45D /* backgroundBig@2x.png */; };
+		E7F1035E189C0F0D00C713F7 /* UserLobbyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F1035D189C0F0D00C713F7 /* UserLobbyCell.m */; };
+		E7F10364189C2D1000C713F7 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F10363189C2D1000C713F7 /* FriendProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +144,10 @@
 		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
 		E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundSmall@2x.png"; sourceTree = "<group>"; };
 		E7E01B78186370F500C5A45D /* backgroundBig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundBig@2x.png"; sourceTree = "<group>"; };
+		E7F1035C189C0F0D00C713F7 /* UserLobbyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLobbyCell.h; sourceTree = "<group>"; };
+		E7F1035D189C0F0D00C713F7 /* UserLobbyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLobbyCell.m; sourceTree = "<group>"; };
+		E7F10362189C2D1000C713F7 /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendProfileViewController.h; sourceTree = "<group>"; };
+		E7F10363189C2D1000C713F7 /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +270,8 @@
 				E73F95761890430900CC7C14 /* MainMenuViewController.m */,
 				E74E2D0D188996C30080D5A3 /* ProfileViewController.h */,
 				E74E2D0E188996C30080D5A3 /* ProfileViewController.m */,
+				E7F10362189C2D1000C713F7 /* FriendProfileViewController.h */,
+				E7F10363189C2D1000C713F7 /* FriendProfileViewController.m */,
 				E73F9578189060E400CC7C14 /* CreateViewController.h */,
 				E73F9579189060E400CC7C14 /* CreateViewController.m */,
 				E73F957B189062FB00CC7C14 /* CreatedViewController.h */,
@@ -282,6 +290,8 @@
 				E77BFFC11858F825002871A6 /* InfectedViewController.m */,
 				E7B34B001884605200B6750F /* UserAnnotations.h */,
 				E7B34B011884605200B6750F /* UserAnnotations.m */,
+				E7F1035C189C0F0D00C713F7 /* UserLobbyCell.h */,
+				E7F1035D189C0F0D00C713F7 /* UserLobbyCell.m */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
 			);
 			path = ZomBeacon;
@@ -414,6 +424,7 @@
 			files = (
 				E73F95801890631800CC7C14 /* FindGameViewController.m in Sources */,
 				E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */,
+				E7F1035E189C0F0D00C713F7 /* UserLobbyCell.m in Sources */,
 				E73F95741890428300CC7C14 /* GameViewController.m in Sources */,
 				E73F957D189062FB00CC7C14 /* CreatedViewController.m in Sources */,
 				E7B34B021884605200B6750F /* UserAnnotations.m in Sources */,
@@ -421,6 +432,7 @@
 				E73F95831890633200CC7C14 /* GameDetailsViewController.m in Sources */,
 				E7CDB6C4189C01C8001D70EF /* LobbyViewController.m in Sources */,
 				E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */,
+				E7F10364189C2D1000C713F7 /* FriendProfileViewController.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,
 				E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */,
 				E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */,

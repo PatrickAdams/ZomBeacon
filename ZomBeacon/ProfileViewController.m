@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     currentUser = [PFUser currentUser];
     [self refreshImage];
     
