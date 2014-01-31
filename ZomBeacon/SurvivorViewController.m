@@ -64,7 +64,7 @@
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.5];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 

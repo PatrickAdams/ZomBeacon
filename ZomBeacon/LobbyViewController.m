@@ -18,6 +18,10 @@
 {
     currentUser = [PFUser currentUser];
     [super viewDidLoad];
+    
+    self.gameNameLabel.text = self.gameNameLabelString;
+    self.hostUserLabel.text = self.hostUserLabelString;
+    self.startTimeLabel.text = self.startTimeLabelString;
 }
 
 - (NSArray *)getPlayersInCurrentGame
