@@ -16,20 +16,20 @@
 
 - (void)viewDidLoad
 {
-    [self refreshImage];
     [super viewDidLoad];
+    currentUser = [PFUser currentUser];
+    [self refreshImage];
     
-    PFUser *user = [PFUser currentUser];
-    self.userName.text = user.username;
-    self.realName.text = user[@"name"];
-    self.emailAddress.text = user.email;
-    self.shortBio.text = user[@"bio"];
-    [self.currentGameButton setTitle:[NSString stringWithFormat:@"Current Game: %@", user[@"currentGame"]] forState:UIControlStateNormal];
+    self.userName.text = currentUser.username;
+    self.realName.text = currentUser[@"name"];
+    self.emailAddress.text = currentUser.email;
+    self.shortBio.text = currentUser[@"bio"];
+    [self.currentGameButton setTitle:[NSString stringWithFormat:@"Current Game: %@", currentUser[@"currentGame"]] forState:UIControlStateNormal];
     
     
     //Adds a button for each game you've created
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
-    [query whereKey:@"hostUser" equalTo:[PFUser currentUser]];
+    [query whereKey:@"hostUser" equalTo:currentUser];
     NSArray *privateGames = [query findObjects];
     for (int i = 0; i < privateGames.count; i++)
     {
@@ -75,7 +75,7 @@
 -(void)uploadImage:(NSData *)imageData {
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query whereKey:@"user" equalTo:currentUser];
     PFFile *file = [[query getFirstObject] objectForKey:@"imageFile"];
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
     
@@ -93,10 +93,9 @@
                     [userPhoto setObject:imageFile forKey:@"imageFile"];
                     
                     // Set the access control list to current user for security purposes
-                    userPhoto.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+                    userPhoto.ACL = [PFACL ACLWithUser:currentUser];
                     
-                    PFUser *user = [PFUser currentUser];
-                    [userPhoto setObject:user forKey:@"user"];
+                    [userPhoto setObject:currentUser forKey:@"user"];
                     
                     [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                         
@@ -120,7 +119,7 @@
             [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-                    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+                    [query whereKey:@"user" equalTo:currentUser];
                     [query getFirstObjectInBackgroundWithBlock:^(PFObject *objects, NSError *error) {
                         if (!error) {
                             
@@ -148,7 +147,7 @@
 - (void)refreshImage
 {
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query whereKey:@"user" equalTo:currentUser];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         PFFile *file = object[@"imageFile"];
         self.profileImage.file = file;

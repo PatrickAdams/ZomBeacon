@@ -1,18 +1,18 @@
 //
-//  JoinedViewController.m
+//  GameDetailsViewController.m
 //  ZomBeacon
 //
 //  Created by Patrick Adams on 1/22/14.
 //  Copyright (c) 2014 Patrick Adams. All rights reserved.
 //
 
-#import "JoinedViewController.h"
+#import "GameDetailsViewController.h"
 
-@interface JoinedViewController ()
+@interface GameDetailsViewController ()
 
 @end
 
-@implementation JoinedViewController
+@implementation GameDetailsViewController
 
 - (void)viewDidLoad
 {
@@ -21,6 +21,8 @@
     self.dateTimeLabel.text = self.dateTimeLabelString;
     self.hostUserLabel.text = self.hostUserLabelString;
     self.gameNameLabel.text = self.gameNameLabelString;
+    
+    NSLog(@"%@", self.gameIDString);
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     [annotation setCoordinate:self.gameLocationCoord];
@@ -54,6 +56,18 @@
         // Pass the map item to the Maps app
         [mapItem openInMapsWithLaunchOptions:nil];
     }
+}
+
+- (IBAction)joinGame
+{
+    PFUser *currentUser = [PFUser currentUser];
+    currentUser[@"currentGame"] = self.gameIDString;
+    [currentUser saveInBackground];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
+
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -21,13 +21,14 @@
     self.mapView.delegate = self;
     
     [self queryNearbyUsers];
+    currentUser = [PFUser currentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    PFUser *user = [PFUser currentUser];
-    [user setObject:@"zombie" forKey:@"status"];
-    [user saveInBackground];
+    
+    [currentUser setObject:@"zombie" forKey:@"status"];
+    [currentUser saveInBackground];
     
     [self.locationManager startUpdatingLocation];
     
@@ -49,14 +50,13 @@
 //Queries all nearby users and adds them to the mapView
 - (void)queryNearbyUsers
 {
-    PFUser *user = [PFUser currentUser];
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [user setObject:point forKey:@"location"];
-    [user saveInBackground];
+    [currentUser setObject:point forKey:@"location"];
+    [currentUser saveInBackground];
     
-    if (user[@"location"])
+    if (currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = user[@"location"];
+        PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {

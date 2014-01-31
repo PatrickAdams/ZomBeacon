@@ -18,20 +18,19 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    self.currentUser = [PFUser currentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    PFUser *user = [PFUser currentUser];
-    [user setObject:@"" forKey:@"status"];
-    [user setObject:[NSNull null] forKey:@"location"];
-    [user saveInBackground];
+    [self.currentUser setObject:@"" forKey:@"status"];
+    [self.currentUser setObject:[NSNull null] forKey:@"location"];
+    [self.currentUser saveInBackground];
 }
 
 - (IBAction)startPublicGame
 {
-    PFUser *user = [PFUser currentUser];
-    [user setObject:@"" forKey:@"currentGame"];
-    [user saveInBackground];
+    [self.currentUser setObject:@"" forKey:@"currentGame"];
+    [self.currentUser saveInBackground];
 }
 
 //Method that logs the user out with the Parse framework

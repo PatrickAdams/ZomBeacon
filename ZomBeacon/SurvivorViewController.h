@@ -19,6 +19,7 @@
 @interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
     NSTimer *timer;
+    PFUser *currentUser;
 }
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;

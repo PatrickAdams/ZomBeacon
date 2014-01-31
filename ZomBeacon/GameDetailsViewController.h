@@ -8,21 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <Parse/Parse.h>
+#import "LobbyViewController.h"
 
-@interface JoinedViewController : UIViewController <MKMapViewDelegate>
+@interface GameDetailsViewController : UIViewController <MKMapViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *hostUserLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dateTimeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gameNameLabel;
-@property (nonatomic, weak) NSString *hostUserLabelString;
-@property (nonatomic, weak) NSString *dateTimeLabelString;
-@property (nonatomic, weak) NSString *gameNameLabelString;
-@property (nonatomic, weak) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) NSString *hostUserLabelString;
+@property (nonatomic, strong) NSString *dateTimeLabelString;
+@property (nonatomic, strong) NSString *gameNameLabelString;
+@property (nonatomic, strong) NSString *gameIDString;
+@property (nonatomic, strong) IBOutlet MKMapView *mapView;
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 @property (nonatomic, readwrite) double gameLocationLat;
 @property (nonatomic, readwrite) double gameLocationLong;
 
 - (IBAction)openInMaps;
+- (IBAction)joinGame;
 
 
 @end

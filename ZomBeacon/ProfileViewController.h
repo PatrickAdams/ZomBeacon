@@ -13,6 +13,7 @@
 @interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     NSMutableArray *allImages;
+    PFUser *currentUser;
 }
 
 @property (nonatomic, weak) IBOutlet UILabel *userName;

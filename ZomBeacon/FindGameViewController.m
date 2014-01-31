@@ -1,18 +1,18 @@
 //
-//  JoinViewController.m
+//  FindGameViewController.m
 //  ZomBeacon
 //
 //  Created by Patrick Adams on 1/22/14.
 //  Copyright (c) 2014 Patrick Adams. All rights reserved.
 //
 
-#import "JoinViewController.h"
+#import "FindGameViewController.h"
 
-@interface JoinViewController ()
+@interface FindGameViewController ()
 
 @end
 
-@implementation JoinViewController
+@implementation FindGameViewController
 
 - (void)viewDidLoad
 {
@@ -20,19 +20,15 @@
 	// Do any additional setup after loading the view.
 }
 
-- (IBAction)joinGame
+- (IBAction)findGame
 {
-    PFUser *currentUser = [PFUser currentUser];
-    currentUser[@"currentGame"] = self.joinGameField.text;
-    [currentUser saveInBackground];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
-    [query whereKey:@"objectId" equalTo:self.joinGameField.text];
+    [query whereKey:@"objectId" equalTo:self.findGameField.text];
     [query includeKey:@"hostUser"];
     NSArray *privateGames = [query findObjects];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    JoinedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"joined"];
+    GameDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamedetails"];
     
     for (int i = 0; i < privateGames.count; i++)
     {
@@ -42,6 +38,7 @@
         PFGeoPoint *gameLocation = privateGame[@"location"];
         CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
         vc.gameLocationCoord = gameLocationCoords;
+        vc.gameIDString = privateGame.objectId;
         
         PFObject *hostUser = privateGame[@"hostUser"];
         vc.hostUserLabelString = hostUser[@"name"];

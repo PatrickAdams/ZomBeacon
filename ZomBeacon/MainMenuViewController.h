@@ -11,6 +11,8 @@
 
 @interface MainMenuViewController : UIViewController
 
+@property (nonatomic, strong) PFUser *currentUser;
+
 - (IBAction)logUserOut;
 - (IBAction)startPublicGame;
 

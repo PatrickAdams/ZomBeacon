@@ -14,6 +14,9 @@
 #import "UserAnnotations.h"
 
 @interface InfectedViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
+{
+    PFUser *currentUser;
+}
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;

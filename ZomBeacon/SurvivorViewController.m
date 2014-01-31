@@ -30,9 +30,9 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    PFUser *user = [PFUser currentUser];
-    [user setObject:@"survivor" forKey:@"status"];
-    [user saveInBackground];
+    currentUser = [PFUser currentUser];
+    [currentUser setObject:@"survivor" forKey:@"status"];
+    [currentUser saveInBackground];
     
     [self queryNearbyUsers];
     [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
@@ -55,16 +55,15 @@
 //Queries all nearby users and adds them to the mapView
 - (void)queryNearbyUsers
 {
-    PFUser *user = [PFUser currentUser];
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [user setObject:point forKey:@"location"];
-    [user saveInBackground];
+    [currentUser setObject:point forKey:@"location"];
+    [currentUser saveInBackground];
 
-    if (user[@"location"])
+    if (currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = user[@"location"];
+        PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
-        [query whereKey:@"currentGame" equalTo:user[@"currentGame"]];
+        [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
@@ -255,12 +254,6 @@
 }
 
 #pragma mark - Closing Methods
-
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-////    [self.peripheralManager stopAdvertising];
-//}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
