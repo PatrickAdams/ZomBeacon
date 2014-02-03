@@ -25,11 +25,14 @@
 @property (nonatomic, weak) IBOutlet UILabel *gameNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gameDateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gameHostLabel;
-@property (nonatomic, weak) NSString *gameNameString;
-@property (nonatomic, weak) NSString *gameDateString;
-@property (nonatomic, weak) NSString *gameHostString;
-@property (nonatomic, weak) NSString *gameIdString;
+@property (nonatomic, strong) NSString *gameNameString;
+@property (nonatomic, strong) NSString *gameDateString;
+@property (nonatomic, strong) NSString *gameHostString;
+@property (nonatomic, strong) NSString *gameIdString;
+@property (nonatomic, strong) NSString *gameAddressString;
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
+@property (nonatomic, strong) CLGeocoder *geocoder;
+@property (nonatomic, strong) MKPlacemark *placemark;
 
 
 - (NSMutableArray *)getPlayersInCurrentGame;

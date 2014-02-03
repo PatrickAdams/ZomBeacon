@@ -21,12 +21,15 @@
 @property (nonatomic, strong) NSString *gameIdString;
 @property (nonatomic, strong) NSString *locationLatitudeString;
 @property (nonatomic, strong) NSString *locationLongitudeString;
+@property (nonatomic, strong) NSString *gameAddressString;
 @property (nonatomic, weak) IBOutlet UILabel *gameNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gameHostLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gameDateLabel;
 @property (nonatomic, weak) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) UserAnnotations *droppedPin;
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
+@property (nonatomic, strong) CLGeocoder *geocoder;
+@property (nonatomic, strong) MKPlacemark *placemark;
 
 - (IBAction)shareWithFriends;
 
