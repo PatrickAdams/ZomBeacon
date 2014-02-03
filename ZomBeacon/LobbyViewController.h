@@ -14,6 +14,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
+#import <MapKit/MapKit.h>
 
 @interface LobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
@@ -28,9 +29,12 @@
 @property (nonatomic, weak) NSString *gameDateString;
 @property (nonatomic, weak) NSString *gameHostString;
 @property (nonatomic, weak) NSString *gameIdString;
+@property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
+
 
 - (NSMutableArray *)getPlayersInCurrentGame;
 - (IBAction)shareWithFriends;
 - (IBAction)refreshList;
+- (IBAction)openInMaps;
 
 @end

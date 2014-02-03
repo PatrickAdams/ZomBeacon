@@ -37,7 +37,7 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        [self.tableView reloadData];
+    [self.tableView reloadData];
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
@@ -75,6 +75,23 @@
 {
     [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game open the app and tap on 'Find Private Game' and paste in the following code:</br></br><strong>%@</strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString]];
 }
+
+- (IBAction)openInMaps
+{
+    Class mapItemClass = [MKMapItem class];
+    if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+    {
+        // Create an MKMapItem to pass to the Maps app
+        CLLocationCoordinate2D coordinate = self.gameLocationCoord;
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
+                                                       addressDictionary:nil];
+        MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        [mapItem setName:[NSString stringWithFormat:@"ZomBeacon: %@", self.gameNameString]];
+        // Pass the map item to the Maps app
+        [mapItem openInMapsWithLaunchOptions:nil];
+    }
+}
+
 
 // Displays an email composition interface inside the application. Populates all the Mail fields.
 - (void)displayComposerSheet:(NSString *)body {

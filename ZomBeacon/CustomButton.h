@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface CustomButton : UIButton
 
@@ -14,6 +15,7 @@
 @property (nonatomic, strong) NSString *gameDate;
 @property (nonatomic, strong) NSString *gameHost;
 @property (nonatomic, strong) NSString *gameId;
+@property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 
 
 @end

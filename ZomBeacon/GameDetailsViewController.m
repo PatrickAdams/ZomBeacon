@@ -50,7 +50,7 @@
         MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
                                                        addressDictionary:nil];
         MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
-        [mapItem setName:@"ZomBeacon Game"];
+        [mapItem setName:[NSString stringWithFormat:@"ZomBeacon: %@", self.gameNameString]];
         // Pass the map item to the Maps app
         [mapItem openInMapsWithLaunchOptions:nil];
     }
@@ -71,6 +71,7 @@
     vc.gameDateString = self.gameDateString;
     vc.gameHostString = self.gameHostString;
     vc.gameIdString = self.gameIdString;
+    vc.gameLocationCoord = self.gameLocationCoord;
 }
 
 - (void)didReceiveMemoryWarning

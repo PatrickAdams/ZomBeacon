@@ -43,6 +43,9 @@
         button.backgroundColor = [UIColor darkGrayColor];
         button.gameTitle = privateGame[@"gameName"];
         button.gameDate = privateGame[@"dateTime"];
+        PFGeoPoint *gameLocation = privateGame[@"location"];
+        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+        button.gameLocationCoord = gameLocationCoords;
         PFObject *hostUser = privateGame[@"hostUser"];
         button.gameHost = hostUser[@"name"];
         button.gameId = privateGame.objectId;
@@ -73,6 +76,7 @@
     vc.gameDateString = sender.gameDate;
     vc.gameHostString = sender.gameHost;
     vc.gameIdString = sender.gameId;
+    vc.gameLocationCoord = sender.gameLocationCoord;
 }
 
 - (IBAction)cameraButtonTapped
