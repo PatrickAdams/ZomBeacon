@@ -21,11 +21,11 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UILabel *gameNameLabel;
-@property (nonatomic, weak) IBOutlet UILabel *startTimeLabel;
-@property (nonatomic, weak) IBOutlet UILabel *hostUserLabel;
-@property (nonatomic, weak) NSString *gameNameLabelString;
-@property (nonatomic, weak) NSString *startTimeLabelString;
-@property (nonatomic, weak) NSString *hostUserLabelString;
+@property (nonatomic, weak) IBOutlet UILabel *gameDateLabel;
+@property (nonatomic, weak) IBOutlet UILabel *gameHostLabel;
+@property (nonatomic, weak) NSString *gameNameString;
+@property (nonatomic, weak) NSString *gameDateString;
+@property (nonatomic, weak) NSString *gameHostString;
 @property (nonatomic, weak) NSString *gameIdString;
 
 - (NSMutableArray *)getPlayersInCurrentGame;

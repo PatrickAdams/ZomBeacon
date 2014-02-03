@@ -18,13 +18,13 @@
 {
     [super viewDidLoad];
 
-    self.dateTimeLabel.text = self.dateTimeLabelString;
-    self.hostUserLabel.text = self.hostUserLabelString;
-    self.gameNameLabel.text = self.gameNameLabelString;
+    self.gameDateLabel.text = self.gameDateString;
+    self.gameHostLabel.text = self.gameHostString;
+    self.gameNameLabel.text = self.gameNameString;
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     [annotation setCoordinate:self.gameLocationCoord];
-    [annotation setTitle:self.gameNameLabelString]; //You can set the subtitle too
+    [annotation setTitle:self.gameNameString]; //You can set the subtitle too
     [self.mapView addAnnotation:annotation];
     
     [self zoomToPinLocation];
@@ -59,7 +59,7 @@
 - (IBAction)joinGame
 {
     PFUser *currentUser = [PFUser currentUser];
-    currentUser[@"currentGame"] = self.gameIDString;
+    currentUser[@"currentGame"] = self.gameIdString;
     [currentUser saveInBackground];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -67,10 +67,10 @@
 
     [self.navigationController pushViewController:vc animated:YES];
     
-    vc.gameNameLabelString = self.gameNameLabelString;
-    vc.startTimeLabelString = self.dateTimeLabelString;
-    vc.hostUserLabelString = self.hostUserLabelString;
-    vc.gameIdString = self.gameIDString;
+    vc.gameNameString = self.gameNameString;
+    vc.gameDateString = self.gameDateString;
+    vc.gameHostString = self.gameHostString;
+    vc.gameIdString = self.gameIdString;
 }
 
 - (void)didReceiveMemoryWarning

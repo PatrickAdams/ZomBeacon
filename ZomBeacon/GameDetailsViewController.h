@@ -13,13 +13,13 @@
 
 @interface GameDetailsViewController : UIViewController <MKMapViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UILabel *hostUserLabel;
-@property (nonatomic, weak) IBOutlet UILabel *dateTimeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *gameHostLabel;
+@property (nonatomic, weak) IBOutlet UILabel *gameDateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gameNameLabel;
-@property (nonatomic, strong) NSString *hostUserLabelString;
-@property (nonatomic, strong) NSString *dateTimeLabelString;
-@property (nonatomic, strong) NSString *gameNameLabelString;
-@property (nonatomic, strong) NSString *gameIDString;
+@property (nonatomic, strong) NSString *gameHostString;
+@property (nonatomic, strong) NSString *gameDateString;
+@property (nonatomic, strong) NSString *gameNameString;
+@property (nonatomic, strong) NSString *gameIdString;
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 @property (nonatomic, readwrite) double gameLocationLat;

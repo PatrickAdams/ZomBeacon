@@ -35,15 +35,15 @@
         for (int i = 0; i < privateGames.count; i++)
         {
             PFObject *privateGame = [privateGames objectAtIndex:0];
-            vc.dateTimeLabelString = privateGame[@"dateTime"];
-            vc.gameNameLabelString = privateGame[@"gameName"];
+            vc.gameDateString = privateGame[@"dateTime"];
+            vc.gameNameString = privateGame[@"gameName"];
             PFGeoPoint *gameLocation = privateGame[@"location"];
             CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
             vc.gameLocationCoord = gameLocationCoords;
-            vc.gameIDString = privateGame.objectId;
+            vc.gameIdString = privateGame.objectId;
             
             PFObject *hostUser = privateGame[@"hostUser"];
-            vc.hostUserLabelString = hostUser[@"name"];
+            vc.gameHostString = hostUser[@"name"];
         }
         
         [self.navigationController pushViewController:vc animated:YES];

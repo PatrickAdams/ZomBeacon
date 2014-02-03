@@ -59,13 +59,13 @@
     [privateGame save];
     
     vc.gameNameString = privateGame[@"gameName"];
-    vc.createdByString = user.username;
-    vc.dateTimeString = privateGame[@"dateTime"];
+    vc.gameHostString = user.username;
+    vc.gameDateString = privateGame[@"dateTime"];
     
     CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
     vc.gameLocationCoord = gameLocationCoords;
 
-    vc.inviteCodeString = privateGame.objectId;
+    vc.gameIdString = privateGame.objectId;
     
     [self.navigationController pushViewController:vc animated:YES];
 }

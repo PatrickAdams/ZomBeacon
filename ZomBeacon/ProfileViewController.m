@@ -69,9 +69,9 @@
     [currentUser setObject:sender.gameId forKey:@"currentGame"];
     [currentUser save];
     
-    vc.gameNameLabelString = sender.gameTitle;
-    vc.startTimeLabelString = sender.gameDate;
-    vc.hostUserLabelString = sender.gameHost;
+    vc.gameNameString = sender.gameTitle;
+    vc.gameDateString = sender.gameDate;
+    vc.gameHostString = sender.gameHost;
     vc.gameIdString = sender.gameId;
 }
 

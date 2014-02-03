@@ -37,9 +37,9 @@
     [currentUser setObject:@"public" forKey:@"currentGame"];
     [currentUser save];
     
-    vc.gameNameLabelString = @"Public Game";
-    vc.startTimeLabelString = @"Unlimited";
-    vc.hostUserLabelString = @"The Godfather";
+    vc.gameNameString = @"Public Game";
+    vc.gameDateString = @"Unlimited";
+    vc.gameHostString = @"The Godfather";
 }
 
 //Method that logs the user out with the Parse framework

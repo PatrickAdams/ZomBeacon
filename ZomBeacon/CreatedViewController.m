@@ -24,9 +24,8 @@
     self.navigationItem.hidesBackButton = YES;
 	
     self.gameNameLabel.text = self.gameNameString;
-    self.createdByLabel.text = self.createdByString;
-    self.dateTimeLabel.text = self.dateTimeString;
-    self.inviteCodeLabel.text = self.inviteCodeString;
+    self.gameHostLabel.text = self.gameHostString;
+    self.gameDateLabel.text = self.gameDateString;
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     [annotation setCoordinate:self.gameLocationCoord];
@@ -48,7 +47,7 @@
 
 - (IBAction)shareWithFriends
 {
-    [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game open the app and tap on 'Find Private Game' and paste in the following code:</br></br><strong>%@</strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>", self.inviteCodeString, self.gameNameString, self.dateTimeString, self.createdByString]];
+    [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game open the app and tap on 'Find Private Game' and paste in the following code:</br></br><strong>%@</strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString]];
 }
 
 // Displays an email composition interface inside the application. Populates all the Mail fields.
