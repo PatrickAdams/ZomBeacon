@@ -206,6 +206,19 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		E748A62318A02C3F007D5C35 /* Custom Objects */ = {
+			isa = PBXGroup;
+			children = (
+				E7B34B001884605200B6750F /* UserAnnotations.h */,
+				E7B34B011884605200B6750F /* UserAnnotations.m */,
+				E7F1035C189C0F0D00C713F7 /* UserLobbyCell.h */,
+				E7F1035D189C0F0D00C713F7 /* UserLobbyCell.m */,
+				E748A61E18A004A0007D5C35 /* CustomButton.h */,
+				E748A61F18A004A0007D5C35 /* CustomButton.m */,
+			);
+			name = "Custom Objects";
+			sourceTree = "<group>";
+		};
 		E74E2D0C18898FCA0080D5A3 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,12 +304,7 @@
 				E77BFFC41858F832002871A6 /* SurvivorViewController.m */,
 				E77BFFC01858F825002871A6 /* InfectedViewController.h */,
 				E77BFFC11858F825002871A6 /* InfectedViewController.m */,
-				E7B34B001884605200B6750F /* UserAnnotations.h */,
-				E7B34B011884605200B6750F /* UserAnnotations.m */,
-				E7F1035C189C0F0D00C713F7 /* UserLobbyCell.h */,
-				E7F1035D189C0F0D00C713F7 /* UserLobbyCell.m */,
-				E748A61E18A004A0007D5C35 /* CustomButton.h */,
-				E748A61F18A004A0007D5C35 /* CustomButton.m */,
+				E748A62318A02C3F007D5C35 /* Custom Objects */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
 			);
 			path = ZomBeacon;

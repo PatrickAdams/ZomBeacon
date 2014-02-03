@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "FriendProfileViewController.h"
 #import "UserLobbyCell.h"
+#import "MBProgressHUD.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>

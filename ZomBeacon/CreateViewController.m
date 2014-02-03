@@ -49,17 +49,17 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CreatedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"createdview"];
     
-    PFUser *user = [PFUser currentUser];
+    PFUser *currentUser = [PFUser currentUser];
     PFObject *privateGame = [PFObject objectWithClassName:@"PrivateGames"];
     PFGeoPoint *gameLocation = [PFGeoPoint geoPointWithLatitude:self.droppedPin.coordinate.latitude longitude:self.droppedPin.coordinate.longitude];
     privateGame[@"gameName"] = self.gameNameTextField.text;
-    privateGame[@"hostUser"] = user;
+    privateGame[@"hostUser"] = currentUser;
     privateGame[@"dateTime"] = self.dateTimeTextField.text;
     privateGame[@"location"] = gameLocation;
     [privateGame save];
     
     vc.gameNameString = privateGame[@"gameName"];
-    vc.gameHostString = user.username;
+    vc.gameHostString = currentUser[@"name"];
     vc.gameDateString = privateGame[@"dateTime"];
     
     CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
