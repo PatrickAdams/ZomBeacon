@@ -1168,7 +1168,13 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="AUd-Ys-xwJ"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Game Lobby" id="3lh-jw-lwf"/>
+                    <navigationItem key="navigationItem" title="Game Lobby" id="3lh-jw-lwf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="pep-OE-lzI">
+                            <connections>
+                                <action selector="refreshList" destination="Zzc-PN-9nm" id="9OG-T9-gby"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>

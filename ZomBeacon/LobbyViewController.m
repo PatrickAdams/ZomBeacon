@@ -33,6 +33,11 @@
     return thePlayers;
 }
 
+- (IBAction)refreshList
+{
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

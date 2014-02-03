@@ -23,18 +23,19 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.currentUser setObject:@"" forKey:@"status"];
+    [self.currentUser setObject:@"" forKey:@"currentGame"];
     [self.currentUser setObject:[NSNull null] forKey:@"location"];
     [self.currentUser saveInBackground];
 }
 
 - (IBAction)startPublicGame
 {
-    [self.currentUser setObject:@"public" forKey:@"currentGame"];
-    [self.currentUser saveInBackground];
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
     [self.navigationController pushViewController:vc animated:YES];
+    
+    [self.currentUser setObject:@"public" forKey:@"currentGame"];
+    [self.currentUser saveInBackground];
     
     vc.gameNameLabelString = @"Public Game";
     vc.startTimeLabelString = @"Unlimited";
