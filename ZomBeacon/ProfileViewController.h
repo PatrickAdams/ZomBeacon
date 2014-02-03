@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
+#import "LobbyViewController.h"
+#import "CustomButton.h"
 
 @interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     NSMutableArray *allImages;
     PFUser *currentUser;
+    PFObject *privateGame;
 }
 
 @property (nonatomic, weak) IBOutlet UILabel *userName;
@@ -22,9 +25,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *shortBio;
 @property (nonatomic, weak) IBOutlet PFImageView *profileImage;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, weak) IBOutlet UIButton *currentGameButton;
 
-- (IBAction)cameraButtonTapped:(id)sender;
+- (IBAction)cameraButtonTapped;
+- (void)joinGameTapped:(UIButton *)sender;
 - (void)uploadImage:(NSData *)imageData;
 - (void)refreshImage;
 

@@ -30,22 +30,33 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     GameDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamedetails"];
     
-    for (int i = 0; i < privateGames.count; i++)
+    if (privateGames.count > 0)
     {
-        PFObject *privateGame = [privateGames objectAtIndex:0];
-        vc.dateTimeLabelString = privateGame[@"dateTime"];
-        vc.gameNameLabelString = privateGame[@"gameName"];
-        PFGeoPoint *gameLocation = privateGame[@"location"];
-        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
-        vc.gameLocationCoord = gameLocationCoords;
-        vc.gameIDString = privateGame.objectId;
+        for (int i = 0; i < privateGames.count; i++)
+        {
+            PFObject *privateGame = [privateGames objectAtIndex:0];
+            vc.dateTimeLabelString = privateGame[@"dateTime"];
+            vc.gameNameLabelString = privateGame[@"gameName"];
+            PFGeoPoint *gameLocation = privateGame[@"location"];
+            CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+            vc.gameLocationCoord = gameLocationCoords;
+            vc.gameIDString = privateGame.objectId;
+            
+            PFObject *hostUser = privateGame[@"hostUser"];
+            vc.hostUserLabelString = hostUser[@"name"];
+        }
         
-        PFObject *hostUser = privateGame[@"hostUser"];
-        vc.hostUserLabelString = hostUser[@"name"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    
-    [self.navigationController pushViewController:vc animated:YES];
-    
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Games Found"
+                                                        message:@"No games were found that match your code."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning

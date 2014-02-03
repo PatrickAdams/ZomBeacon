@@ -18,14 +18,14 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    self.currentUser = [PFUser currentUser];
+    currentUser = [PFUser currentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.currentUser setObject:@"" forKey:@"status"];
-    [self.currentUser setObject:@"" forKey:@"currentGame"];
-    [self.currentUser setObject:[NSNull null] forKey:@"location"];
-    [self.currentUser saveInBackground];
+    [currentUser setObject:@"" forKey:@"status"];
+    [currentUser setObject:@"" forKey:@"currentGame"];
+    [currentUser setObject:[NSNull null] forKey:@"location"];
+    [currentUser saveInBackground];
 }
 
 - (IBAction)startPublicGame
@@ -34,8 +34,8 @@
     LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
     [self.navigationController pushViewController:vc animated:YES];
     
-    [self.currentUser setObject:@"public" forKey:@"currentGame"];
-    [self.currentUser saveInBackground];
+    [currentUser setObject:@"public" forKey:@"currentGame"];
+    [currentUser save];
     
     vc.gameNameLabelString = @"Public Game";
     vc.startTimeLabelString = @"Unlimited";

@@ -66,6 +66,11 @@
     LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
 
     [self.navigationController pushViewController:vc animated:YES];
+    
+    vc.gameNameLabelString = self.gameNameLabelString;
+    vc.startTimeLabelString = self.dateTimeLabelString;
+    vc.hostUserLabelString = self.hostUserLabelString;
+    vc.gameIdString = self.gameIDString;
 }
 
 - (void)didReceiveMemoryWarning

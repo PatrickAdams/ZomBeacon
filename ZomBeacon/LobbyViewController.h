@@ -10,8 +10,11 @@
 #import <Parse/Parse.h>
 #import "FriendProfileViewController.h"
 #import "UserLobbyCell.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface LobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
     PFUser *currentUser;
 }
@@ -23,8 +26,10 @@
 @property (nonatomic, weak) NSString *gameNameLabelString;
 @property (nonatomic, weak) NSString *startTimeLabelString;
 @property (nonatomic, weak) NSString *hostUserLabelString;
+@property (nonatomic, weak) NSString *gameIdString;
 
 - (NSMutableArray *)getPlayersInCurrentGame;
+- (IBAction)shareWithFriends;
 - (IBAction)refreshList;
 
 @end

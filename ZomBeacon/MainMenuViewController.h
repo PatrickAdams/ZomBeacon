@@ -12,8 +12,9 @@
 #import "MBProgressHUD.h"
 
 @interface MainMenuViewController : UIViewController
-
-@property (nonatomic, strong) PFUser *currentUser;
+{
+    PFUser *currentUser;
+}
 
 - (IBAction)logUserOut;
 - (IBAction)startPublicGame;

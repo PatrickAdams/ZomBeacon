@@ -25,28 +25,57 @@
     self.realName.text = currentUser[@"name"];
     self.emailAddress.text = currentUser.email;
     self.shortBio.text = currentUser[@"bio"];
-    [self.currentGameButton setTitle:[NSString stringWithFormat:@"Current Game: %@", currentUser[@"currentGame"]] forState:UIControlStateNormal];
-    
     
     //Adds a button for each game you've created
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
     [query whereKey:@"hostUser" equalTo:currentUser];
+    [query includeKey:@"hostUser"];
     NSArray *privateGames = [query findObjects];
     for (int i = 0; i < privateGames.count; i++)
     {
-        PFObject *privateGame = [privateGames objectAtIndex:i];
-        CGRect r = CGRectMake(10, 0, 300, 30);
+        privateGame = [privateGames objectAtIndex:i];
+        CGRect r = CGRectMake(10, 0, 300, 50);
         r.origin.y = i * r.size.height + 3 * i;
-        UIButton *button = [[UIButton alloc] initWithFrame:r];
-        [button setTitle:[NSString stringWithFormat:@"Code: %@", privateGame.objectId] forState:UIControlStateNormal];
+        CustomButton *button = [[CustomButton alloc] initWithFrame:r];
+        [button setTitle:[NSString stringWithFormat:@"Name: %@ Code: %@", privateGame[@"gameName"], privateGame.objectId] forState:UIControlStateNormal];
         button.titleLabel.textColor = [UIColor whiteColor];
+        button.titleLabel.font = [UIFont fontWithName:@"helvetica" size:14];
         button.backgroundColor = [UIColor darkGrayColor];
+        button.gameTitle = privateGame[@"gameName"];
+        button.gameDate = privateGame[@"dateTime"];
+        PFObject *hostUser = privateGame[@"hostUser"];
+        button.gameHost = hostUser[@"name"];
+        button.gameId = privateGame.objectId;
+        [button addTarget:self action:@selector(joinGameTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
         self.scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(button.frame));
     }
 }
 
-- (void)cameraButtonTapped:(id)sender
+- (void)viewDidAppear:(BOOL)animated
+{
+    [currentUser setObject:@"" forKey:@"status"];
+    [currentUser setObject:@"" forKey:@"currentGame"];
+    [currentUser setObject:[NSNull null] forKey:@"location"];
+    [currentUser saveInBackground];
+}
+
+- (void)joinGameTapped:(CustomButton *)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    [currentUser setObject:sender.gameId forKey:@"currentGame"];
+    [currentUser save];
+    
+    vc.gameNameLabelString = sender.gameTitle;
+    vc.startTimeLabelString = sender.gameDate;
+    vc.hostUserLabelString = sender.gameHost;
+    vc.gameIdString = sender.gameId;
+}
+
+- (IBAction)cameraButtonTapped
 {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
