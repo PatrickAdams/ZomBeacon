@@ -84,9 +84,72 @@
     return cell;
 }
 
-- (IBAction)shareWithFriends
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    FriendProfileViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friendprofile"];
+    
+    PFUser *player = [self getPlayersInCurrentGame][indexPath.row];
+    vc.realNameString = player[@"name"];
+    vc.userNameString = player[@"username"];
+    vc.shortBioString = player[@"bio"];
+    vc.currentGameString = player[@"currentGame"];
+    vc.myFriend = player;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)shareViaEmail
 {
     [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game open the app and tap on 'Find Private Game' and paste in the following code:</br></br><strong>%@</strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString]];
+}
+
+- (IBAction)shareViaTwitter
+{
+    SLComposeViewController *tweetComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    
+    tweetComposer.completionHandler = ^(SLComposeViewControllerResult result) {
+        switch(result) {
+                //  This means the user cancelled without sending the Tweet
+            case SLComposeViewControllerResultCancelled:
+                break;
+                //  This means the user hit 'Send'
+            case SLComposeViewControllerResultDone:
+                break;
+        }
+    };
+    
+    [tweetComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
+    
+//    if (![tweetComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
+//        NSLog(@"Unable to add the image!");
+//    }
+    
+    [self presentViewController:tweetComposer animated:YES completion:nil];
+}
+
+- (IBAction)shareViaFacebook
+{
+    SLComposeViewController *facebookComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    
+    facebookComposer.completionHandler = ^(SLComposeViewControllerResult result) {
+        switch(result) {
+                //  This means the user cancelled without sending the Tweet
+            case SLComposeViewControllerResultCancelled:
+                break;
+                //  This means the user hit 'Send'
+            case SLComposeViewControllerResultDone:
+                break;
+        }
+    };
+    
+    [facebookComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
+    
+//    if (![facebookComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
+//        NSLog(@"Unable to add the image!");
+//    }
+    
+    [self presentViewController:facebookComposer animated:YES completion:nil];
 }
 
 - (IBAction)openInMaps
@@ -140,21 +203,6 @@
 			break;
 	}
 	[self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    FriendProfileViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friendprofile"];
-    
-    PFUser *player = [self getPlayersInCurrentGame][indexPath.row];
-    vc.realNameString = player[@"name"];
-    vc.userNameString = player[@"username"];
-    vc.shortBioString = player[@"bio"];
-    vc.currentGameString = player[@"currentGame"];
-    vc.myFriend = player;
-    
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

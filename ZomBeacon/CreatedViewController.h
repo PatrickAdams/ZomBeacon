@@ -12,6 +12,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
+#import <Social/Social.h>
 
 @interface CreatedViewController : UIViewController <MKMapViewDelegate, MFMailComposeViewControllerDelegate>
 
@@ -31,7 +32,9 @@
 @property (nonatomic, strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) MKPlacemark *placemark;
 
-- (IBAction)shareWithFriends;
+- (IBAction)shareViaEmail;
+- (IBAction)shareViaTwitter;
+- (IBAction)shareViaFacebook;
 
 
 @end

@@ -15,6 +15,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
 #import <MapKit/MapKit.h>
+#import <Social/Social.h>
 
 @interface LobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
@@ -35,8 +36,10 @@
 @property (nonatomic, strong) MKPlacemark *placemark;
 
 
-- (NSMutableArray *)getPlayersInCurrentGame;
-- (IBAction)shareWithFriends;
+- (NSArray *)getPlayersInCurrentGame;
+- (IBAction)shareViaEmail;
+- (IBAction)shareViaTwitter;
+- (IBAction)shareViaFacebook;
 - (IBAction)refreshList;
 - (IBAction)openInMaps;
 

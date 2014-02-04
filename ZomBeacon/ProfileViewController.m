@@ -26,33 +26,34 @@
     self.emailAddress.text = currentUser.email;
     self.shortBio.text = currentUser[@"bio"];
     
-    //Adds a button for each game you've created
-    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
-    [query whereKey:@"hostUser" equalTo:currentUser];
-    [query includeKey:@"hostUser"];
-    NSArray *privateGames = [query findObjects];
-    for (int i = 0; i < privateGames.count; i++)
-    {
-        privateGame = [privateGames objectAtIndex:i];
-        CGRect r = CGRectMake(10, 0, 300, 50);
-        r.origin.y = i * r.size.height + 3 * i;
-        CustomButton *button = [[CustomButton alloc] initWithFrame:r];
-        [button setTitle:[NSString stringWithFormat:@"Name: %@ Code: %@", privateGame[@"gameName"], privateGame.objectId] forState:UIControlStateNormal];
-        button.titleLabel.textColor = [UIColor whiteColor];
-        button.titleLabel.font = [UIFont fontWithName:@"helvetica" size:14];
-        button.backgroundColor = [UIColor darkGrayColor];
-        button.gameTitle = privateGame[@"gameName"];
-        button.gameDate = privateGame[@"dateTime"];
-        PFGeoPoint *gameLocation = privateGame[@"location"];
-        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
-        button.gameLocationCoord = gameLocationCoords;
-        PFObject *hostUser = privateGame[@"hostUser"];
-        button.gameHost = hostUser[@"name"];
-        button.gameId = privateGame.objectId;
-        [button addTarget:self action:@selector(joinGameTapped:) forControlEvents:UIControlEventTouchUpInside];
-        [self.scrollView addSubview:button];
-        self.scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(button.frame));
-    }
+//    //Adds a button for each game you've created
+//    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+//    [query whereKey:@"hostUser" equalTo:currentUser];
+//    [query includeKey:@"hostUser"];
+//    NSArray *privateGames = [query findObjects];
+//    for (int i = 0; i < privateGames.count; i++)
+//    {
+//        privateGame = [privateGames objectAtIndex:i];
+//        CGRect r = CGRectMake(10, 0, 300, 50);
+//        r.origin.y = i * r.size.height + 3 * i;
+//        CustomButton *button = [[CustomButton alloc] initWithFrame:r];
+//        [button setTitle:[NSString stringWithFormat:@"Name: %@ Code: %@", privateGame[@"gameName"], privateGame.objectId] forState:UIControlStateNormal];
+//        [button setTitleColor:[UIColor yellowColor] forState:UIControlStateHighlighted];
+//        button.titleLabel.textColor = [UIColor whiteColor];
+//        button.titleLabel.font = [UIFont fontWithName:@"helvetica" size:14];
+//        button.backgroundColor = [UIColor lightGrayColor];
+//        button.gameTitle = privateGame[@"gameName"];
+//        button.gameDate = privateGame[@"dateTime"];
+//        PFGeoPoint *gameLocation = privateGame[@"location"];
+//        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+//        button.gameLocationCoord = gameLocationCoords;
+//        PFObject *hostUser = privateGame[@"hostUser"];
+//        button.gameHost = hostUser[@"name"];
+//        button.gameId = privateGame.objectId;
+//        [button addTarget:self action:@selector(joinGameTapped:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.scrollView addSubview:button];
+//        self.scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(button.frame));
+//    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -63,21 +64,21 @@
     [currentUser saveInBackground];
 }
 
-- (void)joinGameTapped:(CustomButton *)sender
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-    [currentUser setObject:sender.gameId forKey:@"currentGame"];
-    [currentUser save];
-    
-    vc.gameNameString = sender.gameTitle;
-    vc.gameDateString = sender.gameDate;
-    vc.gameHostString = sender.gameHost;
-    vc.gameIdString = sender.gameId;
-    vc.gameLocationCoord = sender.gameLocationCoord;
-}
+//- (void)joinGameTapped:(CustomButton *)sender
+//{
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
+//    [self.navigationController pushViewController:vc animated:YES];
+//    
+//    [currentUser setObject:sender.gameId forKey:@"currentGame"];
+//    [currentUser save];
+//    
+//    vc.gameNameString = sender.gameTitle;
+//    vc.gameDateString = sender.gameDate;
+//    vc.gameHostString = sender.gameHost;
+//    vc.gameIdString = sender.gameId;
+//    vc.gameLocationCoord = sender.gameLocationCoord;
+//}
 
 - (IBAction)cameraButtonTapped
 {
@@ -184,6 +185,58 @@
         self.profileImage.file = file;
         [self.profileImage loadInBackground];
     }];
+}
+
+- (NSArray *)getGamesUserHasCreated
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+    [query whereKey:@"hostUser" equalTo:currentUser];
+    [query includeKey:@"hostUser"];
+    NSArray *privateGames = [query findObjects];
+    
+    return privateGames;
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self getGamesUserHasCreated].count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"gameCell";
+    GameCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    PFObject *game = [self getGamesUserHasCreated][indexPath.row];
+    cell.gameName.text = game[@"gameName"];
+    cell.gameDate.text = game[@"dateTime"];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    PFObject *game = [self getGamesUserHasCreated][indexPath.row];
+    
+    [currentUser setObject:game.objectId forKey:@"currentGame"];
+    [currentUser save];
+    
+    PFGeoPoint *gameLocation = game[@"location"];
+    CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+
+    PFObject *hostUser = privateGame[@"hostUser"];
+    
+    vc.gameNameString = game[@"gameName"];
+    vc.gameDateString = game[@"dateTime"];
+    vc.gameHostString = hostUser[@"name"];
+    vc.gameIdString = game.objectId;
+    vc.gameLocationCoord = gameLocationCoords;
 }
 
 - (void)didReceiveMemoryWarning
