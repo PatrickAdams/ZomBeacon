@@ -37,6 +37,7 @@
 		E76AD8231885AA89007C014C /* blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8211885AA89007C014C /* blue@2x.png */; };
 		E76AD8241885AA89007C014C /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8221885AA89007C014C /* red@2x.png */; };
 		E773DD6118A1755600367EAD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E773DD6018A1755600367EAD /* FacebookSDK.framework */; };
+		E773DD6518A29E9300367EAD /* fb_signin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E773DD6418A29E9300367EAD /* fb_signin@2x.png */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
 		E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC11858F825002871A6 /* InfectedViewController.m */; };
@@ -123,6 +124,7 @@
 		E76AD8211885AA89007C014C /* blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue@2x.png"; sourceTree = "<group>"; };
 		E76AD8221885AA89007C014C /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red@2x.png"; sourceTree = "<group>"; };
 		E773DD6018A1755600367EAD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		E773DD6418A29E9300367EAD /* fb_signin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb_signin@2x.png"; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E77BFFC01858F825002871A6 /* InfectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfectedViewController.h; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E773DD6418A29E9300367EAD /* fb_signin@2x.png */,
 				E7EFF89518A1320E00DEE521 /* fb@2x.png */,
 				E7EFF89318A1320300DEE521 /* fb.png */,
 				E7EFF89118A131CA00DEE521 /* twitter@2x.png */,
@@ -464,6 +467,7 @@
 				E7BD36F7189ACF7200A2B308 /* locate@2x.png in Resources */,
 				E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */,
 				E7BD36ED189ACE4400A2B308 /* compass.png in Resources */,
+				E773DD6518A29E9300367EAD /* fb_signin@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

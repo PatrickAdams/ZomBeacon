@@ -182,10 +182,10 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mTH-LF-z1Y">
-                                        <rect key="frame" x="59" y="364" width="203" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mTH-LF-z1Y">
+                                        <rect key="frame" x="2" y="359" width="318" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Sign Up/Login with Facebook">
+                                        <state key="normal" image="fb_signin.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1325,6 +1325,7 @@
         <image name="compass.png" width="25" height="25"/>
         <image name="email.png" width="25" height="25"/>
         <image name="fb.png" width="25" height="25"/>
+        <image name="fb_signin.png" width="159" height="29"/>
         <image name="locate.png" width="25" height="25"/>
         <image name="profile.png" width="25" height="25"/>
         <image name="twitter.png" width="25" height="25"/>
