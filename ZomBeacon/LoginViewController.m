@@ -134,7 +134,7 @@
                         user.username = userData[@"username"];
                         user.email = userData[@"email"];
                         user[@"name"] = userData[@"name"];
-                        user[@"bio"] = userData[@"about"];
+                        user[@"bio"] = userData[@"bio"];
                         
                         [user save];
                      }
