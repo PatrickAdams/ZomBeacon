@@ -27,7 +27,15 @@
 
 - (IBAction)saveProfileChanges
 {
+    currentUser[@"name"] = self.nameField.text;
+    currentUser.username = self.usernameField.text;
+    currentUser.password = self.passwordField.text;
+    currentUser.email = self.emailField.text;
+    currentUser[@"bio"] = self.bioField.text;
     
+    [currentUser save];
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
