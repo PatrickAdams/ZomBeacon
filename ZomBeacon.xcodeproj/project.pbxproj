@@ -38,6 +38,7 @@
 		E76AD8241885AA89007C014C /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8221885AA89007C014C /* red@2x.png */; };
 		E773DD6118A1755600367EAD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E773DD6018A1755600367EAD /* FacebookSDK.framework */; };
 		E773DD6518A29E9300367EAD /* fb_signin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E773DD6418A29E9300367EAD /* fb_signin@2x.png */; };
+		E773DD6818A2A6B100367EAD /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E773DD6718A2A6B100367EAD /* EditProfileViewController.m */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
 		E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC11858F825002871A6 /* InfectedViewController.m */; };
@@ -125,6 +126,8 @@
 		E76AD8221885AA89007C014C /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red@2x.png"; sourceTree = "<group>"; };
 		E773DD6018A1755600367EAD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		E773DD6418A29E9300367EAD /* fb_signin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb_signin@2x.png"; sourceTree = "<group>"; };
+		E773DD6618A2A6B100367EAD /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		E773DD6718A2A6B100367EAD /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E77BFFC01858F825002871A6 /* InfectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfectedViewController.h; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				E73F95761890430900CC7C14 /* MainMenuViewController.m */,
 				E74E2D0D188996C30080D5A3 /* ProfileViewController.h */,
 				E74E2D0E188996C30080D5A3 /* ProfileViewController.m */,
+				E773DD6618A2A6B100367EAD /* EditProfileViewController.h */,
+				E773DD6718A2A6B100367EAD /* EditProfileViewController.m */,
 				E7F10362189C2D1000C713F7 /* FriendProfileViewController.h */,
 				E7F10363189C2D1000C713F7 /* FriendProfileViewController.m */,
 				E73F9578189060E400CC7C14 /* CreateViewController.h */,
@@ -490,6 +495,7 @@
 				E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */,
 				E7EFF89B18A152A500DEE521 /* GameCell.m in Sources */,
 				E7F10364189C2D1000C713F7 /* FriendProfileViewController.m in Sources */,
+				E773DD6818A2A6B100367EAD /* EditProfileViewController.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,
 				E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */,
 				E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */,

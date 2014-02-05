@@ -30,5 +30,7 @@
 - (IBAction)cameraButtonTapped;
 - (void)uploadImage:(NSData *)imageData;
 - (void)refreshImage;
+- (IBAction)linkAccountWithFacebook;
+- (IBAction)unlinkFromFacebook;
 
 @end

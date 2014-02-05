@@ -35,6 +35,37 @@
     [currentUser saveInBackground];
 }
 
+- (IBAction)linkAccountWithFacebook
+{
+    if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        [PFFacebookUtils linkUser:[PFUser currentUser] permissions:nil block:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Facebook!"
+                                                                message:@"You have successfully linked your ZomBeacon account with Facebook"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+    }
+}
+
+- (IBAction)unlinkFromFacebook
+{
+    [PFFacebookUtils unlinkUserInBackground:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Unlinked!"
+                                                            message:@"You have successfully unlinked your ZomBeacon account to Facebook"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
+}
+
 - (IBAction)cameraButtonTapped
 {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
