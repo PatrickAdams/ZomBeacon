@@ -22,6 +22,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    self.navigationItem.hidesBackButton = YES;
     [currentUser setObject:@"" forKey:@"status"];
     [currentUser setObject:@"" forKey:@"currentGame"];
     [currentUser setObject:[NSNull null] forKey:@"location"];

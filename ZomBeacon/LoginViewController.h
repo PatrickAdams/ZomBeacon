@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "GameViewController.h"
 #import "MBProgressHUD.h"
+#import "MainMenuViewController.h"
+#import "SignUpViewController.h"
 
 @interface LoginViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UITextField *usernameField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordField;
 
--(IBAction)logInUser;
+- (IBAction)logInUser;
+- (IBAction)logInWithFacebook;
 
 @end

@@ -182,6 +182,16 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mTH-LF-z1Y">
+                                        <rect key="frame" x="59" y="364" width="203" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Sign Up/Login with Facebook">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logInWithFacebook" destination="C6C-zQ-YDX" eventType="touchUpInside" id="1cJ-Na-BkK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
@@ -206,7 +216,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="dgC-FP-Ip0">
             <objects>
-                <viewController id="gYI-9p-ec8" customClass="SignUpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signup" id="gYI-9p-ec8" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TK2-iY-rvv">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

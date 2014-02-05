@@ -29,8 +29,6 @@
         user.username = self.usernameField.text;
         user.password = self.passwordField.text;
         user.email = self.emailField.text;
-        
-        // other fields can be set just like with PFObject
         user[@"name"] = self.nameField.text;
         user[@"bio"] = self.bioField.text;
         

@@ -20,7 +20,6 @@
 		E7446997185B8E44007F6817 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446996185B8E44007F6817 /* blank_splash.png */; };
 		E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446998185B8ED9007F6817 /* blank_splash_ipad.png */; };
 		E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A6185BB2A8007F6817 /* Default-568h@2x.png */; };
-		E748A62018A004A0007D5C35 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E748A61F18A004A0007D5C35 /* CustomButton.m */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */; };
 		E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0E188996C30080D5A3 /* ProfileViewController.m */; };
@@ -37,6 +36,7 @@
 		E76AD8201885AA26007C014C /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD81E1885AA26007C014C /* red.png */; };
 		E76AD8231885AA89007C014C /* blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8211885AA89007C014C /* blue@2x.png */; };
 		E76AD8241885AA89007C014C /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8221885AA89007C014C /* red@2x.png */; };
+		E773DD6118A1755600367EAD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E773DD6018A1755600367EAD /* FacebookSDK.framework */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
 		E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC11858F825002871A6 /* InfectedViewController.m */; };
@@ -96,8 +96,6 @@
 		E7446996185B8E44007F6817 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
 		E7446998185B8ED9007F6817 /* blank_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash_ipad.png; sourceTree = "<group>"; };
 		E74469A6185BB2A8007F6817 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		E748A61E18A004A0007D5C35 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
-		E748A61F18A004A0007D5C35 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E74E2D0918898FC60080D5A3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -124,6 +122,7 @@
 		E76AD81E1885AA26007C014C /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		E76AD8211885AA89007C014C /* blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue@2x.png"; sourceTree = "<group>"; };
 		E76AD8221885AA89007C014C /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red@2x.png"; sourceTree = "<group>"; };
+		E773DD6018A1755600367EAD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E77BFFC01858F825002871A6 /* InfectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfectedViewController.h; sourceTree = "<group>"; };
@@ -197,6 +196,7 @@
 				E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */,
 				E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */,
 				E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */,
+				E773DD6118A1755600367EAD /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,8 +242,6 @@
 				E7F1035D189C0F0D00C713F7 /* UserLobbyCell.m */,
 				E7EFF89918A152A500DEE521 /* GameCell.h */,
 				E7EFF89A18A152A500DEE521 /* GameCell.m */,
-				E748A61E18A004A0007D5C35 /* CustomButton.h */,
-				E748A61F18A004A0007D5C35 /* CustomButton.m */,
 			);
 			name = "Custom Objects";
 			sourceTree = "<group>";
@@ -278,6 +276,7 @@
 		E751E4831858BF15004E8874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E773DD6018A1755600367EAD /* FacebookSDK.framework */,
 				E7EFF89718A136E900DEE521 /* Social.framework */,
 				E7EFF88918A12CF400DEE521 /* GameKit.framework */,
 				E7206A1518980AEA0049D9CC /* Parse.framework */,
@@ -484,7 +483,6 @@
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
 				E73F95831890633200CC7C14 /* GameDetailsViewController.m in Sources */,
 				E7CDB6C4189C01C8001D70EF /* LobbyViewController.m in Sources */,
-				E748A62018A004A0007D5C35 /* CustomButton.m in Sources */,
 				E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */,
 				E7EFF89B18A152A500DEE521 /* GameCell.m in Sources */,
 				E7F10364189C2D1000C713F7 /* FriendProfileViewController.m in Sources */,

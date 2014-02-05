@@ -10,7 +10,6 @@
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
 #import "LobbyViewController.h"
-#import "CustomButton.h"
 #import "GameCell.h"
 
 @interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -29,7 +28,6 @@
 
 - (NSArray *)getGamesUserHasCreated;
 - (IBAction)cameraButtonTapped;
-- (void)joinGameTapped:(UIButton *)sender;
 - (void)uploadImage:(NSData *)imageData;
 - (void)refreshImage;
 
