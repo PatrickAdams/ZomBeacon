@@ -20,6 +20,7 @@
 	// Do any additional setup after loading the view.
 }
 
+//Method that handles the resetting of the users password
 - (IBAction)sendPasswordResetEmail
 {
     [PFUser requestPasswordResetForEmailInBackground:self.emailField.text];

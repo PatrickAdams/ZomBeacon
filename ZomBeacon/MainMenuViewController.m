@@ -21,7 +21,8 @@
     currentUser = [PFUser currentUser];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     self.navigationItem.hidesBackButton = YES;
     [currentUser setObject:@"" forKey:@"status"];
     [currentUser setObject:@"" forKey:@"currentGame"];

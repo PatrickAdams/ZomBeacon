@@ -40,6 +40,9 @@
     self.shortBio.text = currentUser[@"bio"];
 }
 
+#pragma mark - Facebook/Twitter Linking/Unlinking Methods
+
+//Links the current user's ZomBeacon account with their Facebook account
 - (IBAction)linkAccountWithFacebook
 {
     if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
@@ -57,6 +60,7 @@
     }
 }
 
+//Unlinks the current user's ZomBeacon account from their Facebook account
 - (IBAction)unlinkFromFacebook
 {
     [PFFacebookUtils unlinkUserInBackground:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
@@ -71,6 +75,7 @@
     }];
 }
 
+//Links the current user's ZomBeacon account with their Twitter account
 - (IBAction)linkAccountWithTwitter
 {
     if (![PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
@@ -87,6 +92,7 @@
     }
 }
 
+//Unlinks the current user's ZomBeacon account from their Twitter account
 - (IBAction)unlinkFromTwitter
 {
     [PFTwitterUtils unlinkUserInBackground:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
@@ -101,6 +107,7 @@
     }];
 }
 
+#pragma mark - Camera Methods
 - (IBAction)cameraButtonTapped
 {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -128,8 +135,9 @@
     [self uploadImage:imageData];
 }
 
--(void)uploadImage:(NSData *)imageData {
-    
+//Saves image to Parse under the user's account
+-(void)uploadImage:(NSData *)imageData
+{
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     [query whereKey:@"user" equalTo:currentUser];
     PFFile *file = [[query getFirstObject] objectForKey:@"imageFile"];

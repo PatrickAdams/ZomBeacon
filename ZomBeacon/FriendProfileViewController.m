@@ -20,7 +20,6 @@
     self.realName.text = self.realNameString;
     self.userName.text = self.userNameString;
     self.shortBio.text = self.shortBioString;
-    [self.currentGameButton setTitle:[NSString stringWithFormat:@"Current Game: %@", self.currentGameString] forState:UIControlStateNormal];
 }
 
 -(void)viewDidAppear:(BOOL)animated

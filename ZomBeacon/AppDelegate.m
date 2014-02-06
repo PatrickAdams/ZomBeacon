@@ -16,15 +16,19 @@
     [Parse setApplicationId:@"PnxqTJvBhgcyJaz3PAjo1k9I9XdmxLLya8t9QGjI"
                   clientKey:@"oBSGVpLdkahu5oHsSzQUZIKlYBrqgKGktDU8mzrI"];
     
+    //Parse analytics
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    //Initializes the Facebook SDK
     [PFFacebookUtils initializeFacebook];
     
     //TestFlight analytics
     [TestFlight takeOff:@"5b141d23-4474-4887-b544-9d01461fe8f0"];
     
+    //Lets me use the PFImageView class in place of a UIImageView
     [PFImageView class];
     
+    //Initializes the Twitter SDK
     [PFTwitterUtils initializeWithConsumerKey:@"4Oj2HtCnI9e8ALYhApmEyg"
                                consumerSecret:@"q0wXLhwm6qSdEiM1BmnPEcfYYJ36HbASJ62WENgEBo"];
     
@@ -39,19 +43,23 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication
-                        withSession:[PFFacebookUtils session]];
+#pragma mark - Facebook setup
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return
+    
+    [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 
+#pragma mark - Proximity Kit
+
+//Presents local notification when user enters proximity kit geofence
 - (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
 {
     // present local notification
@@ -62,6 +70,7 @@
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
+//Presents local notification when user exits proximity kit geofence
 - (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
 {
     // present local notification

@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     //Checks to make sure a user is logged in, if so, it skips the login screen
-    PFUser *currentUser = [PFUser currentUser];
+    currentUser = [PFUser currentUser];
     if (currentUser)
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -35,6 +35,8 @@
     self.usernameField.text = @"";
     self.passwordField.text = @"";
 }
+
+#pragma mark - User Login Methods - Normal, Facebook, and Twitter
 
 //Method to log in the user using the Parse framework
 -(IBAction)logInUser
@@ -88,89 +90,87 @@
         NSArray *permissionsArray = @[ @"user_about_me", @"email"];
         
         // Login PFUser using Facebook
-        [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-            
-            if (!user)
-            {
-                if (!error)
-                {
-                    NSLog(@"Uh oh. The user cancelled the Facebook login.");
-                }
-                else
-                {
-                    NSLog(@"Uh oh. An error occurred: %@", error);
-                }
-            }
-            else if (user.isNew)
-            {
-                
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!"
-                                                                message:@"You are now logged in."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-                
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-                [self.navigationController pushViewController:vc animated:YES];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                });
-                
-                // Create request for user's Facebook data
-                FBRequest *request = [FBRequest requestForMe];
-                
-                // Send request to Facebook
-                [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error)
-                {
-                    if (!error)
-                    {
-                        // result is a dictionary with the user's Facebook data
-                        NSDictionary *userData = (NSDictionary *)result;
-                        
-                        PFUser *user = [PFUser currentUser];
-                        user.username = userData[@"username"];
-                        user.email = userData[@"email"];
-                        user[@"name"] = userData[@"name"];
-                        user[@"bio"] = userData[@"bio"];
-                        
-                        [user saveInBackground];
-                        
-                        // Download the user's facebook profile picture
-                        self.imageData = [[NSMutableData alloc] init];
-                        
-                        NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
-                        
-                        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
-                                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                                              timeoutInterval:2.0f];
-                        // Run network request asynchronously
-                        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-                        NSLog(@"%@", urlConnection);
-                     }
-                }];
-            }
-            else
-            {
-
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
-                                                                message:@"You are now logged in."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-                
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-                [self.navigationController pushViewController:vc animated:NO];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                });
-            }
-        }];
+        [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error)
+         {
+             if (!user)
+             {
+                 if (!error)
+                 {
+                     NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                 }
+                 else
+                 {
+                     NSLog(@"Uh oh. An error occurred: %@", error);
+                 }
+             }
+             else if (user.isNew)
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!"
+                                                                 message:@"You are now logged in."
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil];
+                 [alert show];
+                 
+                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                 MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
+                 [self.navigationController pushViewController:vc animated:YES];
+                 
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 });
+                 
+                 // Create request for user's Facebook data
+                 FBRequest *request = [FBRequest requestForMe];
+                 
+                 // Send request to Facebook
+                 [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error)
+                  {
+                      if (!error)
+                      {
+                          // result is a dictionary with the user's Facebook data
+                          NSDictionary *userData = (NSDictionary *)result;
+                          
+                          PFUser *user = [PFUser currentUser];
+                          user.username = userData[@"username"];
+                          user.email = userData[@"email"];
+                          user[@"name"] = userData[@"name"];
+                          user[@"bio"] = userData[@"bio"];
+                          
+                          [user saveInBackground];
+                          
+                          // Download the user's facebook profile picture
+                          self.imageData = [[NSMutableData alloc] init];
+                          
+                          NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
+                          
+                          NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
+                                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                                                timeoutInterval:2.0f];
+                     
+                          NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+                          NSLog(@"%@", urlConnection);
+                      }
+                  }];
+             }
+             else
+             {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
+                                                                 message:@"You are now logged in."
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil];
+                 [alert show];
+                 
+                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                 MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
+                 [self.navigationController pushViewController:vc animated:NO];
+                 
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 });
+             }
+         }];
     });
 }
 
@@ -209,19 +209,20 @@
                                                      returningResponse:&response
                                                                  error:&error];
                 
-                if ( error == nil){
+                if ( error == nil)
+                {
                     NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
                     
                     NSLog(@"%@", result);
                     
-                    PFUser *currentUser = [PFUser currentUser];
+                    currentUser = [PFUser currentUser];
                     currentUser.username = [result objectForKey:@"screen_name"];
                     currentUser[@"name"] = [result objectForKey:@"name"];
                     currentUser[@"bio"] = [result objectForKey:@"description"];
                     
                     [user saveInBackground];
                     
-                    // Download the user's facebook profile picture
+                    // Download the user's twitter profile picture
                     self.imageData = [[NSMutableData alloc] init];
                     
                     NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [result objectForKey:@"profile_image_url_https"]]];
@@ -229,7 +230,7 @@
                     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
                                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                           timeoutInterval:2.0f];
-                    // Run network request asynchronously
+                    
                     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
                     NSLog(@"%@", urlConnection);
                 }
@@ -255,32 +256,36 @@
     });
 }
 
-// Called every time a chunk of the data is received
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [self.imageData appendData:data]; // Build the image
+#pragma mark - Image Download Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.imageData appendData:data];
 }
 
-// Called when the entire image is finished downloading
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    
+//Once the image is done downloading, it saves it to the imageFile value for that User
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     PFFile *file = [[query getFirstObject] objectForKey:@"imageFile"];
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:self.imageData];
     
-    if (!file) {
+    if (!file)
+    {
         // Save PFFile
-        [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error) {
-                
-                PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
-                [userPhoto setObject:imageFile forKey:@"imageFile"];
-                [userPhoto setObject:[PFUser currentUser] forKey:@"user"];
-                [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    
-                }];
-            }
-        }];
+        [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+         {
+             if (!error)
+             {
+                 PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+                 [userPhoto setObject:imageFile forKey:@"imageFile"];
+                 [userPhoto setObject:[PFUser currentUser] forKey:@"user"];
+                 [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                     
+                 }];
+             }
+         }];
     }
 }
 

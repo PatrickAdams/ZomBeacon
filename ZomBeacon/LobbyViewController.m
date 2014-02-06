@@ -22,21 +22,24 @@
     // Create a geocoder and save it for later.
     self.geocoder = [[CLGeocoder alloc] init];
     
+    //Sets values
     self.gameNameLabel.text = self.gameNameString;
     self.gameHostLabel.text = self.gameHostString;
     self.gameDateLabel.text = self.gameDateString;
     
     CLLocation *location = [[CLLocation alloc] initWithLatitude:self.gameLocationCoord.latitude longitude:self.gameLocationCoord.longitude];
     
+    //Reverse geocodes coordinates to a readable address for email sharing
     [self.geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        if ((placemarks != nil) && (placemarks.count > 0)) {
-			// If the placemark is not nil then we have at least one placemark. Typically there will only be one.
+        if ((placemarks != nil) && (placemarks.count > 0))
+        {
 			self.placemark = [placemarks objectAtIndex:0];
             self.gameAddressString = [NSString stringWithFormat:@"%@ %@. %@, %@ %@", self.placemark.subThoroughfare, self.placemark.thoroughfare, self.placemark.locality, self.placemark.administrativeArea, self.placemark.postalCode];
         }
     }];
 }
 
+//Method to get players in game and add them to an array
 - (NSArray *)getPlayersInCurrentGame
 {
     PFQuery *query = [PFUser query];
@@ -46,6 +49,7 @@
     return thePlayers;
 }
 
+//Refreshes lobby
 - (IBAction)refreshList
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -57,7 +61,7 @@
     });
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table View Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -98,6 +102,8 @@
     
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - Share Methods for Twitter, Facebook, and Email
 
 - (IBAction)shareViaEmail
 {
@@ -152,22 +158,6 @@
     [self presentViewController:facebookComposer animated:YES completion:nil];
 }
 
-- (IBAction)openInMaps
-{
-    Class mapItemClass = [MKMapItem class];
-    if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
-    {
-        // Create an MKMapItem to pass to the Maps app
-        CLLocationCoordinate2D coordinate = self.gameLocationCoord;
-        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
-                                                       addressDictionary:nil];
-        MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
-        [mapItem setName:[NSString stringWithFormat:@"ZomBeacon: %@", self.gameNameString]];
-        // Pass the map item to the Maps app
-        [mapItem openInMapsWithLaunchOptions:nil];
-    }
-}
-
 
 // Displays an email composition interface inside the application. Populates all the Mail fields.
 - (void)displayComposerSheet:(NSString *)body {
@@ -203,6 +193,25 @@
 			break;
 	}
 	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Open In Maps Method
+
+//Method allows you to open the game coordinates in the Maps app
+- (IBAction)openInMaps
+{
+    Class mapItemClass = [MKMapItem class];
+    if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+    {
+        // Create an MKMapItem to pass to the Maps app
+        CLLocationCoordinate2D coordinate = self.gameLocationCoord;
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
+                                                       addressDictionary:nil];
+        MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        [mapItem setName:[NSString stringWithFormat:@"ZomBeacon: %@", self.gameNameString]];
+        // Pass the map item to the Maps app
+        [mapItem openInMapsWithLaunchOptions:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning

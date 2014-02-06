@@ -24,12 +24,13 @@
     
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 1.0; //user needs to press for 1 seconds
+    lpgr.minimumPressDuration = 1.0; //user needs to press and hold for 1 second
     [self.mapView addGestureRecognizer:lpgr];
 }
 
+#pragma mark - Game Creation Methods
 
-
+//Method to put pin on map and save it's coordinates
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
@@ -44,6 +45,7 @@
     [self.mapView addAnnotation:self.droppedPin];
 }
 
+//Method for creating a new private game and saving it to Parse
 - (IBAction)createNewGame
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -70,6 +72,9 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - UIDatePicker Methods
+
+//Date picker setup
 - (void)setUpDatePicker
 {
     //Setting up the toolbar and adding a done button to it for the UIDatePicker
@@ -100,13 +105,15 @@
 }
 
 //Pop up UIDatePicker when user taps in field
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
     [self.view addSubview:self.pickerView];
     [self.view addSubview:self.datePicker];
 }
 
 //Method for when the user selects done on the UIDatePicker toolbar
-- (void)pickerDoneClicked:(id)sender {
+- (void)pickerDoneClicked:(id)sender
+{
     [self.datePicker removeFromSuperview];
     [self.pickerView removeFromSuperview];
     [self.dateTimeTextField resignFirstResponder];
@@ -122,7 +129,6 @@
     NSString *formattedDate = [dateFormatter stringFromDate:date];
     return formattedDate;
 }
-
 
 - (void)didReceiveMemoryWarning
 {

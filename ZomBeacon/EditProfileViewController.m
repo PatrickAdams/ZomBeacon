@@ -20,7 +20,6 @@
 	currentUser = [PFUser currentUser];
     self.nameField.text = currentUser[@"name"];
     self.usernameField.text = currentUser.username;
-    self.passwordField.text = currentUser.password;
     self.emailField.text = currentUser.email;
     self.bioField.text = currentUser[@"bio"];
 }
@@ -31,7 +30,6 @@
     
     currentUser[@"name"] = self.nameField.text;
     currentUser.username = self.usernameField.text;
-    currentUser.password = self.passwordField.text;
     currentUser.email = self.emailField.text;
     currentUser[@"bio"] = self.bioField.text;
     

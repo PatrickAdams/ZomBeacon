@@ -21,10 +21,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
     self.mapView.delegate = self;
-
+    [super viewDidLoad];
     [self queryNearbyUsers];
 }
 
