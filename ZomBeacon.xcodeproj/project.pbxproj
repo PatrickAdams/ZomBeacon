@@ -37,7 +37,6 @@
 		E76AD8231885AA89007C014C /* blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8211885AA89007C014C /* blue@2x.png */; };
 		E76AD8241885AA89007C014C /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8221885AA89007C014C /* red@2x.png */; };
 		E773DD6118A1755600367EAD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E773DD6018A1755600367EAD /* FacebookSDK.framework */; };
-		E773DD6518A29E9300367EAD /* fb_signin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E773DD6418A29E9300367EAD /* fb_signin@2x.png */; };
 		E773DD6818A2A6B100367EAD /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E773DD6718A2A6B100367EAD /* EditProfileViewController.m */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
@@ -76,6 +75,9 @@
 		E7EFF89B18A152A500DEE521 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EFF89A18A152A500DEE521 /* GameCell.m */; };
 		E7F1035E189C0F0D00C713F7 /* UserLobbyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F1035D189C0F0D00C713F7 /* UserLobbyCell.m */; };
 		E7F10364189C2D1000C713F7 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F10363189C2D1000C713F7 /* FriendProfileViewController.m */; };
+		E7F7998C18A3F3C5007C1477 /* twitter_signin.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F7998B18A3F3C5007C1477 /* twitter_signin.png */; };
+		E7F7998E18A3F402007C1477 /* facebook_signin.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F7998D18A3F402007C1477 /* facebook_signin.png */; };
+		E7F7999118A3F52E007C1477 /* PasswordResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,7 +127,6 @@
 		E76AD8211885AA89007C014C /* blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue@2x.png"; sourceTree = "<group>"; };
 		E76AD8221885AA89007C014C /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red@2x.png"; sourceTree = "<group>"; };
 		E773DD6018A1755600367EAD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		E773DD6418A29E9300367EAD /* fb_signin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb_signin@2x.png"; sourceTree = "<group>"; };
 		E773DD6618A2A6B100367EAD /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		E773DD6718A2A6B100367EAD /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -174,6 +175,10 @@
 		E7F1035D189C0F0D00C713F7 /* UserLobbyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLobbyCell.m; sourceTree = "<group>"; };
 		E7F10362189C2D1000C713F7 /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendProfileViewController.h; sourceTree = "<group>"; };
 		E7F10363189C2D1000C713F7 /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendProfileViewController.m; sourceTree = "<group>"; };
+		E7F7998B18A3F3C5007C1477 /* twitter_signin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_signin.png; sourceTree = "<group>"; };
+		E7F7998D18A3F402007C1477 /* facebook_signin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_signin.png; sourceTree = "<group>"; };
+		E7F7998F18A3F52E007C1477 /* PasswordResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordResetViewController.h; sourceTree = "<group>"; };
+		E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordResetViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +216,8 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				E773DD6418A29E9300367EAD /* fb_signin@2x.png */,
+				E7F7998B18A3F3C5007C1477 /* twitter_signin.png */,
+				E7F7998D18A3F402007C1477 /* facebook_signin.png */,
 				E7EFF89518A1320E00DEE521 /* fb@2x.png */,
 				E7EFF89318A1320300DEE521 /* fb.png */,
 				E7EFF89118A131CA00DEE521 /* twitter@2x.png */,
@@ -316,6 +322,8 @@
 				E751E4961858BF15004E8874 /* Main.storyboard */,
 				E786C234187B356000347413 /* LoginViewController.h */,
 				E786C235187B356000347413 /* LoginViewController.m */,
+				E7F7998F18A3F52E007C1477 /* PasswordResetViewController.h */,
+				E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */,
 				E786C237187B466900347413 /* SignUpViewController.h */,
 				E786C238187B466900347413 /* SignUpViewController.m */,
 				E73F95751890430900CC7C14 /* MainMenuViewController.h */,
@@ -452,6 +460,7 @@
 				E7446995185B8D35007F6817 /* app_icon.png in Resources */,
 				E7BD36EF189ACE4B00A2B308 /* compass@2x.png in Resources */,
 				E76AD8241885AA89007C014C /* red@2x.png in Resources */,
+				E7F7998E18A3F402007C1477 /* facebook_signin.png in Resources */,
 				E7CC9865188DABDB005C39A6 /* user.png in Resources */,
 				E7BD36F5189ACF6E00A2B308 /* locate.png in Resources */,
 				E7206A1C18980B7E0049D9CC /* ProximityKit.plist in Resources */,
@@ -472,7 +481,7 @@
 				E7BD36F7189ACF7200A2B308 /* locate@2x.png in Resources */,
 				E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */,
 				E7BD36ED189ACE4400A2B308 /* compass.png in Resources */,
-				E773DD6518A29E9300367EAD /* fb_signin@2x.png in Resources */,
+				E7F7998C18A3F3C5007C1477 /* twitter_signin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +507,7 @@
 				E773DD6818A2A6B100367EAD /* EditProfileViewController.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,
 				E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */,
+				E7F7999118A3F52E007C1477 /* PasswordResetViewController.m in Sources */,
 				E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */,
 				E73F957A189060E400CC7C14 /* CreateViewController.m in Sources */,
 				E77BFFC51858F832002871A6 /* SurvivorViewController.m in Sources */,

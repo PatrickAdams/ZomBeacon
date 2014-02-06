@@ -1,0 +1,43 @@
+//
+//  PasswordResetViewController.m
+//  ZomBeacon
+//
+//  Created by Patrick Adams on 2/6/14.
+//  Copyright (c) 2014 Patrick Adams. All rights reserved.
+//
+
+#import "PasswordResetViewController.h"
+
+@interface PasswordResetViewController ()
+
+@end
+
+@implementation PasswordResetViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+}
+
+- (IBAction)sendPasswordResetEmail
+{
+    [PFUser requestPasswordResetForEmailInBackground:self.emailField.text];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password Reset!"
+                                                    message:@"Check your email for further instructions."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
