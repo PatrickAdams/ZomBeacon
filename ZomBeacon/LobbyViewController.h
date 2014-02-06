@@ -16,6 +16,8 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 #import <MapKit/MapKit.h>
 #import <Social/Social.h>
+#import "InfectedViewController.h"
+#import "SurvivorViewController.h"
 
 @interface LobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
@@ -26,6 +28,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *gameNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gameDateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gameHostLabel;
+@property (nonatomic, weak) IBOutlet UIButton *startGameButton;
 @property (nonatomic, strong) NSString *gameNameString;
 @property (nonatomic, strong) NSString *gameDateString;
 @property (nonatomic, strong) NSString *gameHostString;
@@ -34,6 +37,7 @@
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 @property (nonatomic, strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) MKPlacemark *placemark;
+@property (nonatomic, weak) IBOutlet UIView *shareView;
 
 
 - (NSArray *)getPlayersInCurrentGame;
@@ -42,5 +46,6 @@
 - (IBAction)shareViaFacebook;
 - (IBAction)refreshList;
 - (IBAction)openInMaps;
+- (IBAction)startGame;
 
 @end

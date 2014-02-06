@@ -37,6 +37,28 @@
             self.gameAddressString = [NSString stringWithFormat:@"%@ %@. %@, %@ %@", self.placemark.subThoroughfare, self.placemark.thoroughfare, self.placemark.locality, self.placemark.administrativeArea, self.placemark.postalCode];
         }
     }];
+    
+    if ([currentUser[@"currentGame"]  isEqual: @"public"]) {
+        [self.startGameButton setTitle:@"Join" forState:UIControlStateNormal];
+        self.shareView.hidden = YES;
+    }
+    
+    NSString *currentGame = currentUser[@"currentGame"];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+    [query whereKey:@"objectId" equalTo:currentGame];
+    [query includeKey:@"hostUser"];
+    PFObject *theGame = [query getFirstObject];
+    PFUser *theHost = theGame[@"hostUser"];
+    
+    if ([theHost.objectId isEqual:currentUser.objectId])
+    {
+        self.startGameButton.hidden = NO;
+    }
+    else
+    {
+        self.startGameButton.hidden = YES;
+    }
 }
 
 //Method to get players in game and add them to an array
@@ -59,6 +81,30 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
+}
+
+- (IBAction)startGame
+{
+    int randomNumber = [self getRandomNumberBetween:1 to:100];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if (randomNumber < 25 )
+    {
+        InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        SurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"survivor"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+//Method that chooses a random number
+-(int)getRandomNumberBetween:(int)from to:(int)to
+{
+    return (int)from + arc4random() % (to-from+1);
 }
 
 #pragma mark - Table View Methods
