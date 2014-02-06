@@ -16,8 +16,8 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 #import <MapKit/MapKit.h>
 #import <Social/Social.h>
-#import "InfectedViewController.h"
-#import "SurvivorViewController.h"
+#import "PrivateZombieViewController.h"
+#import "PrivateSurvivorViewController.h"
 
 @interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {

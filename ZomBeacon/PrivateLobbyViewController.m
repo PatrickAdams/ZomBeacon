@@ -86,13 +86,13 @@
     
     if (randomNumber < 25 )
     {
-        InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
+        PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
         [self.navigationController pushViewController:vc animated:YES];
         vc.navigationItem.hidesBackButton = YES;
     }
     else
     {
-        SurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"survivor"];
+        PrivateSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateSurvivor"];
         [self.navigationController pushViewController:vc animated:YES];
         vc.navigationItem.hidesBackButton = YES;
     }

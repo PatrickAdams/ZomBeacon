@@ -36,7 +36,7 @@
     PublicLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicLobby"];
     [self.navigationController pushViewController:vc animated:YES];
     
-    [currentUser setObject:@"public" forKey:@"currentGame"];
+    [currentUser setObject:@"YES" forKey:@"joinedPublic"];
     [currentUser save];
 }
 

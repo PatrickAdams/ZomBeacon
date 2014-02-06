@@ -1,18 +1,18 @@
 //
-//  InfectedViewController.m
+//  PrivateZombieViewController.m
 //  ZomBeacon
 //
 //  Created by Patrick Adams on 12/11/13.
 //  Copyright (c) 2013 Patrick Adams. All rights reserved.
 //
 
-#import "InfectedViewController.h"
+#import "PrivateZombieViewController.h"
 
-@interface InfectedViewController ()
+@interface PrivateZombieViewController ()
 
 @end
 
-@implementation InfectedViewController
+@implementation PrivateZombieViewController
 
 - (void)viewDidLoad
 {
@@ -24,7 +24,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     currentUser = [PFUser currentUser];
-    [currentUser setObject:@"zombie" forKey:@"status"];
+    [currentUser setObject:@"zombie" forKey:@"privateStatus"];
     [currentUser saveInBackground];
     
     [self.locationManager startUpdatingLocation];
@@ -55,6 +55,7 @@
     {
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
+        [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
@@ -68,7 +69,7 @@
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
                     NSString *nameOfNearbyUser = users[i][@"name"];
-                    NSString *statusOfNearbyUser = users[i][@"status"];
+                    NSString *statusOfNearbyUser = users[i][@"privateStatus"];
                     
                     // Set some coordinates for our position
                     CLLocationCoordinate2D location;

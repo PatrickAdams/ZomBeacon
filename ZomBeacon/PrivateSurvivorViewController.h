@@ -1,5 +1,5 @@
 //
-//  InfectedViewController.h
+//  PrivateSurvivorViewController.h
 //  ZomBeacon
 //
 //  Created by Patrick Adams on 12/11/13.
@@ -9,22 +9,31 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <AudioToolbox/AudioServices.h>
 #import <MapKit/MapKit.h>
+#import "PrivateZombieViewController.h"
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
+#import "ProfileViewController.h"
 
-@interface InfectedViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
+@interface PrivateSurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
+    NSTimer *timer;
     PFUser *currentUser;
 }
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (nonatomic, weak) IBOutlet UILabel *infectedLabel;
+@property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
+@property (nonatomic, weak) IBOutlet UILabel *warningText;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) NSString *userName;
 
+- (void)updateCounter:(NSTimer *)theTimer;
+- (void)countdownTimer;
+- (IBAction)startCounter;
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
 

@@ -1,9 +1,9 @@
 //
-//  SurvivorViewController.h
+//  PublicSurvivorViewController.h
 //  ZomBeacon
 //
-//  Created by Patrick Adams on 12/11/13.
-//  Copyright (c) 2013 Patrick Adams. All rights reserved.
+//  Created by Patrick Adams on 2/6/14.
+//  Copyright (c) 2014 Patrick Adams. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,12 +11,12 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <AudioToolbox/AudioServices.h>
 #import <MapKit/MapKit.h>
-#import "InfectedViewController.h"
+#import "PrivateZombieViewController.h"
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
 #import "ProfileViewController.h"
 
-@interface SurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
+@interface PublicSurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
     NSTimer *timer;
     PFUser *currentUser;

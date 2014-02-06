@@ -1,23 +1,18 @@
 //
-//  SurvivorViewController.m
+//  PublicZombieViewController.m
 //  ZomBeacon
 //
-//  Created by Patrick Adams on 12/11/13.
-//  Copyright (c) 2013 Patrick Adams. All rights reserved.
+//  Created by Patrick Adams on 2/6/14.
+//  Copyright (c) 2014 Patrick Adams. All rights reserved.
 //
 
-#import "SurvivorViewController.h"
+#import "PublicZombieViewController.h"
 
-@interface SurvivorViewController ()
+@interface PublicZombieViewController ()
 
 @end
 
-@implementation SurvivorViewController
-{
-    BOOL isInfected;
-    int minutes, seconds;
-    int secondsLeft;
-}
+@implementation PublicZombieViewController
 
 - (void)viewDidLoad
 {
@@ -29,23 +24,20 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     currentUser = [PFUser currentUser];
-    [currentUser setObject:@"survivor" forKey:@"status"];
-    [currentUser saveInBackground];
+    
+    [self.locationManager startUpdatingLocation];
     
     [self queryNearbyUsers];
     [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
-    //MapView stuff
-    [self.locationManager startUpdatingLocation];
-    [self zoomToUserLocation:self.mapView.userLocation];
-    
     //Beacon stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    [self initRegion];
-    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
+    [self initBeacon];
+    [self transmitBeacon];
     
-    isInfected = NO;
+    //Zoom to user location once
+    [self zoomToUserLocation:self.mapView.userLocation];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -56,13 +48,13 @@
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
     [currentUser setObject:point forKey:@"location"];
     [currentUser saveInBackground];
-
+    
     if (currentUser[@"location"])
     {
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
-        [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.5];
+        [query whereKey:@"joinedPublic" equalTo:@"YES"];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 
@@ -75,7 +67,7 @@
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
                     NSString *nameOfNearbyUser = users[i][@"name"];
-                    NSString *statusOfNearbyUser = users[i][@"status"];
+                    NSString *statusOfNearbyUser = users[i][@"publicStatus"];
                     
                     // Set some coordinates for our position
                     CLLocationCoordinate2D location;
@@ -129,9 +121,7 @@
 - (void)zoomToUserLocation:(MKUserLocation *)userLocation
 {
     if (!userLocation)
-    {
         return;
-    }
     
     MKCoordinateRegion region;
     region.center = userLocation.location.coordinate;
@@ -154,31 +144,22 @@
 
 #pragma mark - Beacon Management
 
-//Beacon ranging setup
-- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
-{
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-}
-
-//Initializes the beacon region
-- (void)initRegion
+//Method that initializes the device as a beacon and gives it a proximity UUID
+- (void)initBeacon
 {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.patrickadams.theRegion"];
-    [self.locationManager startMonitoringForRegion:self.beaconRegion];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.patrickadams.theRegion"];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+//Method that starts the transmission of the beacon
+- (void)transmitBeacon
 {
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
+    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
-{
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-}
-
-- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
+//Method that tracks the beacon activity
+-(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
     if (peripheral.state == CBPeripheralManagerStatePoweredOn)
     {
@@ -190,71 +171,17 @@
     }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
-{
-    CLBeacon *beacon = [[CLBeacon alloc] init];
-    beacon = [beacons lastObject];
-    
-    if (beacon.proximity == CLProximityNear) //Change to (beacon.proximity == CLProximityFar) whenever testing outside
-    {
-//        self.warningText.hidden = NO;
-//        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-//        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-    }
-    
-    if (beacon.proximity == CLProximityImmediate && isInfected == NO)
-    {
-        // present local notification
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"You've been infected by a zombie, go find some survivors!";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
-        [self.navigationController pushViewController:vc animated:YES];
-        isInfected = YES;
-    }
-}
-
-#pragma mark - Time Counter Management
-
-//Method to start a countdown timer
-- (IBAction)startCounter
-{
-    secondsLeft = 600;
-    [self countdownTimer];
-}
-
-//Method that refreshes and updates the countdown timer
-- (void)updateCounter:(NSTimer *)theTimer
-{
-    if(secondsLeft > 0 )
-    {
-        secondsLeft -- ;
-        minutes = (secondsLeft % 3600) / 60;
-        seconds = (secondsLeft %3600) % 60;
-        self.myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
-    }
-    else
-    {
-        secondsLeft = 600;
-    }
-}
-
-//Method that does the setup for the countdown timer
-- (void)countdownTimer
-{
-    secondsLeft = minutes = seconds = 0;
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
-}
-
 #pragma mark - Closing Methods
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+//Tells the peripheral manager to stop looking for beacons when the view dissapears
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.peripheralManager stopAdvertising];
 }
 
 @end

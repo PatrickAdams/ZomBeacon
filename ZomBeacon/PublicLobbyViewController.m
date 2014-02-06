@@ -20,16 +20,11 @@
     [super viewDidLoad];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    currentUser = [PFUser currentUser];
-}
-
 //Method to get players in game and add them to an array
 - (NSArray *)getPlayersInCurrentGame
 {
     PFQuery *query = [PFUser query];
-    [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
+    [query whereKey:@"joinedPublic" equalTo:@"YES"];
     NSArray *thePlayers = [query findObjects];
 
     return thePlayers;
@@ -53,12 +48,12 @@
     
     if ([currentUser[@"publicStatus"] isEqualToString:@"zombie"])
     {
-        InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
+        PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([currentUser[@"publicStatus"] isEqualToString:@"survivor"])
     {
-        SurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"survivor"];
+        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else
@@ -67,14 +62,14 @@
         
         if (randomNumber < 25 )
         {
-            InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
+            PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
             [self.navigationController pushViewController:vc animated:YES];
             [currentUser setObject:@"zombie" forKey:@"publicStatus"];
             [currentUser saveInBackground];
         }
         else
         {
-            SurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"survivor"];
+            PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
             [self.navigationController pushViewController:vc animated:YES];
             [currentUser setObject:@"survivor" forKey:@"publicStatus"];
             [currentUser saveInBackground];

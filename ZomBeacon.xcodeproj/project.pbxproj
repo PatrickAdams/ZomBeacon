@@ -39,8 +39,8 @@
 		E773DD6818A2A6B100367EAD /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E773DD6718A2A6B100367EAD /* EditProfileViewController.m */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
-		E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC11858F825002871A6 /* InfectedViewController.m */; };
-		E77BFFC51858F832002871A6 /* SurvivorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC41858F832002871A6 /* SurvivorViewController.m */; };
+		E77BFFC21858F825002871A6 /* PrivateZombieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC11858F825002871A6 /* PrivateZombieViewController.m */; };
+		E77BFFC51858F832002871A6 /* PrivateSurvivorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77BFFC41858F832002871A6 /* PrivateSurvivorViewController.m */; };
 		E78107DA1860CB1300B19DB9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107D91860CB1300B19DB9 /* AudioToolbox.framework */; };
 		E78107DC1860CB1800B19DB9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107DB1860CB1800B19DB9 /* CFNetwork.framework */; };
 		E78107DE1860CB3300B19DB9 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107DD1860CB3300B19DB9 /* libz.1.1.3.dylib */; };
@@ -78,6 +78,8 @@
 		E7F7998E18A3F402007C1477 /* facebook_signin.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F7998D18A3F402007C1477 /* facebook_signin.png */; };
 		E7F7999118A3F52E007C1477 /* PasswordResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */; };
 		E7F7999418A41FA2007C1477 /* PrivateLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */; };
+		E7F7999718A42D2F007C1477 /* PublicSurvivorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7999618A42D2F007C1477 /* PublicSurvivorViewController.m */; };
+		E7F7999A18A42D49007C1477 /* PublicZombieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7999918A42D49007C1477 /* PublicZombieViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,10 +131,10 @@
 		E773DD6718A2A6B100367EAD /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		E77BFFC01858F825002871A6 /* InfectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfectedViewController.h; sourceTree = "<group>"; };
-		E77BFFC11858F825002871A6 /* InfectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfectedViewController.m; sourceTree = "<group>"; };
-		E77BFFC31858F832002871A6 /* SurvivorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurvivorViewController.h; sourceTree = "<group>"; };
-		E77BFFC41858F832002871A6 /* SurvivorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurvivorViewController.m; sourceTree = "<group>"; };
+		E77BFFC01858F825002871A6 /* PrivateZombieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateZombieViewController.h; sourceTree = "<group>"; };
+		E77BFFC11858F825002871A6 /* PrivateZombieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateZombieViewController.m; sourceTree = "<group>"; };
+		E77BFFC31858F832002871A6 /* PrivateSurvivorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateSurvivorViewController.h; sourceTree = "<group>"; };
+		E77BFFC41858F832002871A6 /* PrivateSurvivorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateSurvivorViewController.m; sourceTree = "<group>"; };
 		E78107D91860CB1300B19DB9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E78107DB1860CB1800B19DB9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E78107DD1860CB3300B19DB9 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
@@ -179,6 +181,10 @@
 		E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordResetViewController.m; sourceTree = "<group>"; };
 		E7F7999218A41FA2007C1477 /* PrivateLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateLobbyViewController.h; sourceTree = "<group>"; };
 		E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateLobbyViewController.m; sourceTree = "<group>"; };
+		E7F7999518A42D2F007C1477 /* PublicSurvivorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicSurvivorViewController.h; sourceTree = "<group>"; };
+		E7F7999618A42D2F007C1477 /* PublicSurvivorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicSurvivorViewController.m; sourceTree = "<group>"; };
+		E7F7999818A42D49007C1477 /* PublicZombieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicZombieViewController.h; sourceTree = "<group>"; };
+		E7F7999918A42D49007C1477 /* PublicZombieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicZombieViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,10 +352,14 @@
 				E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */,
 				E7F7999218A41FA2007C1477 /* PrivateLobbyViewController.h */,
 				E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */,
-				E77BFFC31858F832002871A6 /* SurvivorViewController.h */,
-				E77BFFC41858F832002871A6 /* SurvivorViewController.m */,
-				E77BFFC01858F825002871A6 /* InfectedViewController.h */,
-				E77BFFC11858F825002871A6 /* InfectedViewController.m */,
+				E77BFFC31858F832002871A6 /* PrivateSurvivorViewController.h */,
+				E77BFFC41858F832002871A6 /* PrivateSurvivorViewController.m */,
+				E77BFFC01858F825002871A6 /* PrivateZombieViewController.h */,
+				E77BFFC11858F825002871A6 /* PrivateZombieViewController.m */,
+				E7F7999518A42D2F007C1477 /* PublicSurvivorViewController.h */,
+				E7F7999618A42D2F007C1477 /* PublicSurvivorViewController.m */,
+				E7F7999818A42D49007C1477 /* PublicZombieViewController.h */,
+				E7F7999918A42D49007C1477 /* PublicZombieViewController.m */,
 				E748A62318A02C3F007D5C35 /* Custom Objects */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
 			);
@@ -493,7 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E73F95801890631800CC7C14 /* FindGameViewController.m in Sources */,
-				E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */,
+				E77BFFC21858F825002871A6 /* PrivateZombieViewController.m in Sources */,
 				E7F1035E189C0F0D00C713F7 /* UserLobbyCell.m in Sources */,
 				E73F957D189062FB00CC7C14 /* CreatedViewController.m in Sources */,
 				E7B34B021884605200B6750F /* UserAnnotations.m in Sources */,
@@ -503,6 +513,8 @@
 				E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */,
 				E7EFF89B18A152A500DEE521 /* GameCell.m in Sources */,
 				E7F7999418A41FA2007C1477 /* PrivateLobbyViewController.m in Sources */,
+				E7F7999718A42D2F007C1477 /* PublicSurvivorViewController.m in Sources */,
+				E7F7999A18A42D49007C1477 /* PublicZombieViewController.m in Sources */,
 				E7F10364189C2D1000C713F7 /* FriendProfileViewController.m in Sources */,
 				E773DD6818A2A6B100367EAD /* EditProfileViewController.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,
@@ -510,7 +522,7 @@
 				E7F7999118A3F52E007C1477 /* PasswordResetViewController.m in Sources */,
 				E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */,
 				E73F957A189060E400CC7C14 /* CreateViewController.m in Sources */,
-				E77BFFC51858F832002871A6 /* SurvivorViewController.m in Sources */,
+				E77BFFC51858F832002871A6 /* PrivateSurvivorViewController.m in Sources */,
 				E751E4911858BF15004E8874 /* main.m in Sources */,
 				E786C239187B466900347413 /* SignUpViewController.m in Sources */,
 			);

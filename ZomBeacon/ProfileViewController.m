@@ -24,7 +24,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [currentUser setObject:@"" forKey:@"status"];
+    [currentUser setObject:@"" forKey:@"privateStatus"];
     [currentUser setObject:@"" forKey:@"currentGame"];
     [currentUser setObject:[NSNull null] forKey:@"location"];
     [currentUser saveInBackground];
