@@ -174,6 +174,73 @@
     });
 }
 
+-(IBAction)loginWithTwitter
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        
+        [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
+            if (!user) {
+                NSLog(@"Uh oh. The user cancelled the Twitter login.");
+            }
+            else if(user.isNew)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!"
+                                                                message:@"You are now logged in."
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
+                [self.navigationController pushViewController:vc animated:YES];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                });
+                
+                NSString * requestString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/account/verify_credentials.json"];
+                NSURL *verify = [NSURL URLWithString:requestString];
+                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:verify];
+                [[PFTwitterUtils twitter] signRequest:request];
+                NSURLResponse *response = nil;
+                NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                                     returningResponse:&response
+                                                                 error:&error];
+                
+                if ( error == nil){
+                    NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+                    
+                    PFUser *currentUser = [PFUser currentUser];
+                    currentUser.username = [result objectForKey:@"screen_name"];
+                    currentUser[@"name"] = [result objectForKey:@"name"];
+                    currentUser[@"bio"] = [result objectForKey:@"description"];
+                    
+                    [user saveInBackground];
+                }
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
+                                                                message:@"You are now logged in."
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
+                [self.navigationController pushViewController:vc animated:NO];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                });
+            }
+        }];
+    });
+}
+
 // Called every time a chunk of the data is received
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [self.imageData appendData:data]; // Build the image

@@ -20,5 +20,6 @@
 
 - (IBAction)logInUser;
 - (IBAction)logInWithFacebook;
+- (IBAction)loginWithTwitter;
 
 @end

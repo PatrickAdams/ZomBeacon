@@ -25,6 +25,9 @@
     
     [PFImageView class];
     
+    [PFTwitterUtils initializeWithConsumerKey:@"4Oj2HtCnI9e8ALYhApmEyg"
+                               consumerSecret:@"q0wXLhwm6qSdEiM1BmnPEcfYYJ36HbASJ62WENgEBo"];
+    
 //    // create and start to sync the manager with the Proximity Kit backend
 //    self.proximityKitManager = [PKManager managerWithDelegate:self];
 //    [self.proximityKitManager start];

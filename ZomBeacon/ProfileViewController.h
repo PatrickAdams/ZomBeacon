@@ -32,5 +32,8 @@
 - (void)refreshImage;
 - (IBAction)linkAccountWithFacebook;
 - (IBAction)unlinkFromFacebook;
+- (IBAction)linkAccountWithTwitter;
+- (IBAction)unlinkFromTwitter;
+
 
 @end

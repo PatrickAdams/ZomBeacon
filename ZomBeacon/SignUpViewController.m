@@ -37,7 +37,7 @@
              if (!error)
              {
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!"
-                                                                 message:@"You have successfully signed up."
+                                                                 message:@"You will receive an email to confirm your account."
                                                                 delegate:nil
                                                        cancelButtonTitle:@"OK"
                                                        otherButtonTitles:nil];
