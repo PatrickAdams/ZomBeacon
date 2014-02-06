@@ -24,7 +24,6 @@
     self.mapView.delegate = self;
     [super viewDidLoad];
     [self queryNearbyUsers];
-    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated

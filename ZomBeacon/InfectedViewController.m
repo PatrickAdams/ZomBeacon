@@ -17,7 +17,6 @@
 - (void)viewDidLoad
 {
     self.mapView.delegate = self;
-    self.navigationItem.hidesBackButton = YES;
     [super viewDidLoad];
     [self queryNearbyUsers];
 }

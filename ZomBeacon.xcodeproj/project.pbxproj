@@ -10,7 +10,6 @@
 		E7206A1718980AEA0049D9CC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7206A1518980AEA0049D9CC /* Parse.framework */; };
 		E7206A1818980AEA0049D9CC /* ProximityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7206A1618980AEA0049D9CC /* ProximityKit.framework */; };
 		E7206A1C18980B7E0049D9CC /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7206A1B18980B7E0049D9CC /* ProximityKit.plist */; };
-		E73F95741890428300CC7C14 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95731890428300CC7C14 /* GameViewController.m */; };
 		E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95761890430900CC7C14 /* MainMenuViewController.m */; };
 		E73F957A189060E400CC7C14 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F9579189060E400CC7C14 /* CreateViewController.m */; };
 		E73F957D189062FB00CC7C14 /* CreatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F957C189062FB00CC7C14 /* CreatedViewController.m */; };
@@ -85,8 +84,6 @@
 		E7206A1518980AEA0049D9CC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Parse.framework; sourceTree = "<group>"; };
 		E7206A1618980AEA0049D9CC /* ProximityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProximityKit.framework; path = ZomBeacon/ProximityKit.framework; sourceTree = "<group>"; };
 		E7206A1B18980B7E0049D9CC /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProximityKit.plist; sourceTree = "<group>"; };
-		E73F95721890428300CC7C14 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		E73F95731890428300CC7C14 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		E73F95751890430900CC7C14 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		E73F95761890430900CC7C14 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		E73F9578189060E400CC7C14 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
@@ -349,8 +346,6 @@
 				E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */,
 				E7F7999218A41FA2007C1477 /* PrivateLobbyViewController.h */,
 				E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */,
-				E73F95721890428300CC7C14 /* GameViewController.h */,
-				E73F95731890428300CC7C14 /* GameViewController.m */,
 				E77BFFC31858F832002871A6 /* SurvivorViewController.h */,
 				E77BFFC41858F832002871A6 /* SurvivorViewController.m */,
 				E77BFFC01858F825002871A6 /* InfectedViewController.h */,
@@ -500,7 +495,6 @@
 				E73F95801890631800CC7C14 /* FindGameViewController.m in Sources */,
 				E77BFFC21858F825002871A6 /* InfectedViewController.m in Sources */,
 				E7F1035E189C0F0D00C713F7 /* UserLobbyCell.m in Sources */,
-				E73F95741890428300CC7C14 /* GameViewController.m in Sources */,
 				E73F957D189062FB00CC7C14 /* CreatedViewController.m in Sources */,
 				E7B34B021884605200B6750F /* UserAnnotations.m in Sources */,
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,

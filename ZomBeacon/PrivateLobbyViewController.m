@@ -88,17 +88,18 @@
     {
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
         [self.navigationController pushViewController:vc animated:YES];
-        
+        vc.navigationItem.hidesBackButton = YES;
     }
     else
     {
         SurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"survivor"];
         [self.navigationController pushViewController:vc animated:YES];
+        vc.navigationItem.hidesBackButton = YES;
     }
 }
 
 //Method that chooses a random number
--(int)getRandomNumberBetween:(int)from to:(int)to
+- (int)getRandomNumberBetween:(int)from to:(int)to
 {
     return (int)from + arc4random() % (to-from+1);
 }

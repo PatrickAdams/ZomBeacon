@@ -259,7 +259,7 @@
     PFGeoPoint *gameLocation = game[@"location"];
     CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
 
-    PFObject *hostUser = privateGame[@"hostUser"];
+    PFObject *hostUser = game[@"hostUser"];
     
     vc.gameNameString = game[@"gameName"];
     vc.gameDateString = game[@"dateTime"];
