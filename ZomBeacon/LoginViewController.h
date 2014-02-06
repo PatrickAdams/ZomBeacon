@@ -12,10 +12,11 @@
 #import "MainMenuViewController.h"
 #import "SignUpViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <NSURLConnectionDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *usernameField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordField;
+@property (nonatomic, strong) NSMutableData *imageData;
 
 - (IBAction)logInUser;
 - (IBAction)logInWithFacebook;

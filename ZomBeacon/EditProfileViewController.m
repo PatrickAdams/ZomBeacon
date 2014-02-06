@@ -27,6 +27,8 @@
 
 - (IBAction)saveProfileChanges
 {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
     currentUser[@"name"] = self.nameField.text;
     currentUser.username = self.usernameField.text;
     currentUser.password = self.passwordField.text;
@@ -35,7 +37,12 @@
     
     [currentUser save];
     
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Changes Saved!"
+                                                    message:@"The changes you've made have been saved."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning

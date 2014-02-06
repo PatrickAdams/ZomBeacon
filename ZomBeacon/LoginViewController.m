@@ -137,6 +137,18 @@
                         user[@"bio"] = userData[@"bio"];
                         
                         [user save];
+                        
+                        // Download the user's facebook profile picture
+                        self.imageData = [[NSMutableData alloc] init];
+                        
+                        NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
+                        
+                        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
+                                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                                              timeoutInterval:2.0f];
+                        // Run network request asynchronously
+                        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+                        NSLog(@"%@", urlConnection);
                      }
                 }];
             }
@@ -160,6 +172,35 @@
             }
         }];
     });
+}
+
+// Called every time a chunk of the data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.imageData appendData:data]; // Build the image
+}
+
+// Called when the entire image is finished downloading
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    PFFile *file = [[query getFirstObject] objectForKey:@"imageFile"];
+    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:self.imageData];
+    
+    if (!file) {
+        // Save PFFile
+        [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                
+                PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+                [userPhoto setObject:imageFile forKey:@"imageFile"];
+                [userPhoto setObject:[PFUser currentUser] forKey:@"user"];
+                [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    
+                }];
+            }
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
