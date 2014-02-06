@@ -1,18 +1,18 @@
 //
-//  LobbyViewController.m
+//  PrivateLobbyViewController.m
 //  ZomBeacon
 //
-//  Created by Patrick Adams on 1/31/14.
+//  Created by Patrick Adams on 2/6/14.
 //  Copyright (c) 2014 Patrick Adams. All rights reserved.
 //
 
-#import "LobbyViewController.h"
+#import "PrivateLobbyViewController.h"
 
-@interface LobbyViewController ()
+@interface PrivateLobbyViewController ()
 
 @end
 
-@implementation LobbyViewController
+@implementation PrivateLobbyViewController
 
 - (void)viewDidLoad
 {
@@ -38,20 +38,15 @@
         }
     }];
     
-    if ([currentUser[@"currentGame"]  isEqual: @"public"]) {
-        [self.startGameButton setTitle:@"Join" forState:UIControlStateNormal];
-        self.shareView.hidden = YES;
-    }
-    
+    //Checks if you are the host of the current game or not
     NSString *currentGame = currentUser[@"currentGame"];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
     [query whereKey:@"objectId" equalTo:currentGame];
     [query includeKey:@"hostUser"];
     PFObject *theGame = [query getFirstObject];
     PFUser *theHost = theGame[@"hostUser"];
     
-    if ([theHost.objectId isEqual:currentUser.objectId])
+    if ([theHost.objectId isEqual:currentUser.objectId] || [currentGame isEqual:@"public"])
     {
         self.startGameButton.hidden = NO;
     }
@@ -67,7 +62,7 @@
     PFQuery *query = [PFUser query];
     [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
     NSArray *thePlayers = [query findObjects];
-
+    
     return thePlayers;
 }
 
@@ -76,7 +71,7 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-    [self.tableView reloadData];
+        [self.tableView reloadData];
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
@@ -93,6 +88,7 @@
     {
         InfectedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"infected"];
         [self.navigationController pushViewController:vc animated:YES];
+        
     }
     else
     {
@@ -173,9 +169,9 @@
     
     [tweetComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
     
-//    if (![tweetComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
-//        NSLog(@"Unable to add the image!");
-//    }
+    //    if (![tweetComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
+    //        NSLog(@"Unable to add the image!");
+    //    }
     
     [self presentViewController:tweetComposer animated:YES completion:nil];
 }
@@ -197,9 +193,9 @@
     
     [facebookComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
     
-//    if (![facebookComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
-//        NSLog(@"Unable to add the image!");
-//    }
+    //    if (![facebookComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
+    //        NSLog(@"Unable to add the image!");
+    //    }
     
     [self presentViewController:facebookComposer animated:YES completion:nil];
 }

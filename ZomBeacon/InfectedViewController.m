@@ -16,17 +16,15 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
     self.mapView.delegate = self;
-    
+    self.navigationItem.hidesBackButton = YES;
+    [super viewDidLoad];
     [self queryNearbyUsers];
-    currentUser = [PFUser currentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
+    currentUser = [PFUser currentUser];
     [currentUser setObject:@"zombie" forKey:@"status"];
     [currentUser saveInBackground];
     

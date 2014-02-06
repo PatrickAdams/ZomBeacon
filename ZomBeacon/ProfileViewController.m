@@ -248,7 +248,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
+    PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
     [self.navigationController pushViewController:vc animated:YES];
     
     PFObject *game = [self getGamesUserHasCreated][indexPath.row];

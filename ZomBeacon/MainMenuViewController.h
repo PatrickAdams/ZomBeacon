@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "LobbyViewController.h"
+#import "PublicLobbyViewController.h"
 #import "MBProgressHUD.h"
 
 @interface MainMenuViewController : UIViewController

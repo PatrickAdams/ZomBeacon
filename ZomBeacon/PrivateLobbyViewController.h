@@ -1,8 +1,8 @@
 //
-//  LobbyViewController.h
+//  PrivateLobbyViewController.h
 //  ZomBeacon
 //
-//  Created by Patrick Adams on 1/31/14.
+//  Created by Patrick Adams on 2/6/14.
 //  Copyright (c) 2014 Patrick Adams. All rights reserved.
 //
 
@@ -19,7 +19,7 @@
 #import "InfectedViewController.h"
 #import "SurvivorViewController.h"
 
-@interface LobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+@interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
     PFUser *currentUser;
 }
@@ -47,5 +47,6 @@
 - (IBAction)refreshList;
 - (IBAction)openInMaps;
 - (IBAction)startGame;
+
 
 @end

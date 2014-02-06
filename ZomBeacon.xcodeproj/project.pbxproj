@@ -59,7 +59,7 @@
 		E7BD36F5189ACF6E00A2B308 /* locate.png in Resources */ = {isa = PBXBuildFile; fileRef = E7BD36F4189ACF6E00A2B308 /* locate.png */; };
 		E7BD36F7189ACF7200A2B308 /* locate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7BD36F6189ACF7200A2B308 /* locate@2x.png */; };
 		E7CC9865188DABDB005C39A6 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E7CC9864188DABDB005C39A6 /* user.png */; };
-		E7CDB6C4189C01C8001D70EF /* LobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CDB6C3189C01C8001D70EF /* LobbyViewController.m */; };
+		E7CDB6C4189C01C8001D70EF /* PublicLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */; };
 		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
 		E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */; };
@@ -78,6 +78,7 @@
 		E7F7998C18A3F3C5007C1477 /* twitter_signin.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F7998B18A3F3C5007C1477 /* twitter_signin.png */; };
 		E7F7998E18A3F402007C1477 /* facebook_signin.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F7998D18A3F402007C1477 /* facebook_signin.png */; };
 		E7F7999118A3F52E007C1477 /* PasswordResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */; };
+		E7F7999418A41FA2007C1477 /* PrivateLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,8 +156,8 @@
 		E7BD36F4189ACF6E00A2B308 /* locate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locate.png; sourceTree = "<group>"; };
 		E7BD36F6189ACF7200A2B308 /* locate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locate@2x.png"; sourceTree = "<group>"; };
 		E7CC9864188DABDB005C39A6 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		E7CDB6C2189C01C7001D70EF /* LobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LobbyViewController.h; sourceTree = "<group>"; };
-		E7CDB6C3189C01C8001D70EF /* LobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LobbyViewController.m; sourceTree = "<group>"; };
+		E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicLobbyViewController.h; sourceTree = "<group>"; };
+		E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicLobbyViewController.m; sourceTree = "<group>"; };
 		E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
 		E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundSmall@2x.png"; sourceTree = "<group>"; };
@@ -179,6 +180,8 @@
 		E7F7998D18A3F402007C1477 /* facebook_signin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_signin.png; sourceTree = "<group>"; };
 		E7F7998F18A3F52E007C1477 /* PasswordResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordResetViewController.h; sourceTree = "<group>"; };
 		E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordResetViewController.m; sourceTree = "<group>"; };
+		E7F7999218A41FA2007C1477 /* PrivateLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivateLobbyViewController.h; sourceTree = "<group>"; };
+		E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivateLobbyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,8 +345,10 @@
 				E73F957F1890631800CC7C14 /* FindGameViewController.m */,
 				E73F95811890633200CC7C14 /* GameDetailsViewController.h */,
 				E73F95821890633200CC7C14 /* GameDetailsViewController.m */,
-				E7CDB6C2189C01C7001D70EF /* LobbyViewController.h */,
-				E7CDB6C3189C01C8001D70EF /* LobbyViewController.m */,
+				E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */,
+				E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */,
+				E7F7999218A41FA2007C1477 /* PrivateLobbyViewController.h */,
+				E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */,
 				E73F95721890428300CC7C14 /* GameViewController.h */,
 				E73F95731890428300CC7C14 /* GameViewController.m */,
 				E77BFFC31858F832002871A6 /* SurvivorViewController.h */,
@@ -500,9 +505,10 @@
 				E7B34B021884605200B6750F /* UserAnnotations.m in Sources */,
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
 				E73F95831890633200CC7C14 /* GameDetailsViewController.m in Sources */,
-				E7CDB6C4189C01C8001D70EF /* LobbyViewController.m in Sources */,
+				E7CDB6C4189C01C8001D70EF /* PublicLobbyViewController.m in Sources */,
 				E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */,
 				E7EFF89B18A152A500DEE521 /* GameCell.m in Sources */,
+				E7F7999418A41FA2007C1477 /* PrivateLobbyViewController.m in Sources */,
 				E7F10364189C2D1000C713F7 /* FriendProfileViewController.m in Sources */,
 				E773DD6818A2A6B100367EAD /* EditProfileViewController.m in Sources */,
 				E786C236187B356000347413 /* LoginViewController.m in Sources */,

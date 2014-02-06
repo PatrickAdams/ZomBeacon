@@ -33,15 +33,11 @@
 - (IBAction)startPublicGame
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamelobby"];
+    PublicLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicLobby"];
     [self.navigationController pushViewController:vc animated:YES];
     
     [currentUser setObject:@"public" forKey:@"currentGame"];
     [currentUser save];
-    
-    vc.gameNameString = @"Public Game";
-    vc.gameDateString = @"Unlimited";
-    vc.gameHostString = @"The Godfather";
 }
 
 //Method that logs the user out with the Parse framework
