@@ -136,7 +136,7 @@
                         user[@"name"] = userData[@"name"];
                         user[@"bio"] = userData[@"bio"];
                         
-                        [user save];
+                        [user saveInBackground];
                         
                         // Download the user's facebook profile picture
                         self.imageData = [[NSMutableData alloc] init];
@@ -212,12 +212,26 @@
                 if ( error == nil){
                     NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
                     
+                    NSLog(@"%@", result);
+                    
                     PFUser *currentUser = [PFUser currentUser];
                     currentUser.username = [result objectForKey:@"screen_name"];
                     currentUser[@"name"] = [result objectForKey:@"name"];
                     currentUser[@"bio"] = [result objectForKey:@"description"];
                     
                     [user saveInBackground];
+                    
+                    // Download the user's facebook profile picture
+                    self.imageData = [[NSMutableData alloc] init];
+                    
+                    NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [result objectForKey:@"profile_image_url_https"]]];
+                    
+                    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
+                                                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                                          timeoutInterval:2.0f];
+                    // Run network request asynchronously
+                    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+                    NSLog(@"%@", urlConnection);
                 }
             }
             else
