@@ -163,6 +163,7 @@
 //Initializes the beacon region
 - (void)initRegion
 {
+    //Grabs UUID from game so that the iBeacon is unique to the game
     PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
     [uuidQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
     PFObject *currentGame = [uuidQuery getFirstObject];

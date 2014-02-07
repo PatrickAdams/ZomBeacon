@@ -149,6 +149,7 @@
 //Method that initializes the device as a beacon and gives it a proximity UUID
 - (void)initBeacon
 {
+    //Grabs UUID from game so that the iBeacon is unique to the game
     PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
     [uuidQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
     PFObject *currentGame = [uuidQuery getFirstObject];

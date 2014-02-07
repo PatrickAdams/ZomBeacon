@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "PublicLobbyViewController.h"
 #import "MBProgressHUD.h"
+#import "LoginViewController.h"
 
 @interface MainMenuViewController : UIViewController
 {
