@@ -13,13 +13,12 @@
 #import "MBProgressHUD.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-#import <MessageUI/MFMessageComposeViewController.h>
 #import <MapKit/MapKit.h>
 #import <Social/Social.h>
 #import "PrivateZombieViewController.h"
 #import "PrivateSurvivorViewController.h"
 
-@interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+@interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate>
 {
     PFUser *currentUser;
 }

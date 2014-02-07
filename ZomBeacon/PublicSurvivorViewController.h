@@ -11,7 +11,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <AudioToolbox/AudioServices.h>
 #import <MapKit/MapKit.h>
-#import "PrivateZombieViewController.h"
+#import "PublicZombieViewController.h"
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
 #import "ProfileViewController.h"

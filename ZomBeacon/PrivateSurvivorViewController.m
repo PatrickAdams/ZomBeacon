@@ -164,7 +164,7 @@
 - (void)initRegion
 {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.patrickadams.theRegion"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.privateRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
 }
 

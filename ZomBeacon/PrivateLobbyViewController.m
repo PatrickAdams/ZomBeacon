@@ -38,22 +38,22 @@
         }
     }];
     
-    //Checks if you are the host of the current game or not
-    NSString *currentGame = currentUser[@"currentGame"];
-    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
-    [query whereKey:@"objectId" equalTo:currentGame];
-    [query includeKey:@"hostUser"];
-    PFObject *theGame = [query getFirstObject];
-    PFUser *theHost = theGame[@"hostUser"];
-    
-    if ([theHost.objectId isEqual:currentUser.objectId] || [currentGame isEqual:@"public"])
-    {
-        self.startGameButton.hidden = NO;
-    }
-    else
-    {
-        self.startGameButton.hidden = YES;
-    }
+//    //Checks if you are the host of the current game or not
+//    NSString *currentGame = currentUser[@"currentGame"];
+//    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+//    [query whereKey:@"objectId" equalTo:currentGame];
+//    [query includeKey:@"hostUser"];
+//    PFObject *theGame = [query getFirstObject];
+//    PFUser *theHost = theGame[@"hostUser"];
+//    
+//    if ([theHost.objectId isEqual:currentUser.objectId] || [currentGame isEqual:@"public"])
+//    {
+//        self.startGameButton.hidden = NO;
+//    }
+//    else
+//    {
+//        self.startGameButton.hidden = YES;
+//    }
 }
 
 //Method to get players in game and add them to an array
@@ -207,11 +207,15 @@
     
 	MFMailComposeViewController *mailComposerView = [[MFMailComposeViewController alloc] init];
     
-	mailComposerView.mailComposeDelegate = self;
-	[mailComposerView setSubject:@"You've Been Invited to a ZomBeacon Game!"];
-	[mailComposerView setMessageBody:body isHTML:YES];
-    
-	[self presentViewController:mailComposerView animated:YES completion:nil];
+    if ([MFMailComposeViewController canSendMail])
+    {
+        mailComposerView.mailComposeDelegate = self;
+        [mailComposerView setSubject:@"You've Been Invited to a ZomBeacon Game!"];
+        [mailComposerView setMessageBody:body isHTML:YES];
+        
+        [self presentViewController:mailComposerView animated:YES completion:nil];
+    }
+	
 }
 
 // Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
@@ -235,6 +239,7 @@
 			NSLog(@"Result: not sent");
 			break;
 	}
+    
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 

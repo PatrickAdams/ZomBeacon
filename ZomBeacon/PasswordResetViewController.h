@@ -14,5 +14,6 @@
 @property (nonatomic, weak) IBOutlet UITextField *emailField;
 
 - (IBAction)sendPasswordResetEmail;
+- (IBAction)dismissView;
 
 @end

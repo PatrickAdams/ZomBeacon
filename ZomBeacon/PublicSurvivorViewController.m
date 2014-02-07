@@ -60,7 +60,7 @@
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.5];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 
@@ -162,7 +162,7 @@
 - (void)initRegion
 {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.patrickadams.theRegion"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
 }
 
@@ -211,9 +211,11 @@
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
-        PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
+        PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
         [self.navigationController pushViewController:vc animated:YES];
         isZombie = YES;
+        [currentUser setObject:@"zombie" forKey:@"publicStatus"];
+        [currentUser saveInBackground];
     }
 }
 

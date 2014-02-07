@@ -18,15 +18,16 @@
 {
     currentUser = [PFUser currentUser];
     [super viewDidLoad];
-    [self refreshImage];
+
     [self setProfileValues];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self refreshImage];
+    
     [currentUser setObject:@"" forKey:@"privateStatus"];
     [currentUser setObject:@"" forKey:@"currentGame"];
-    [currentUser setObject:[NSNull null] forKey:@"location"];
     [currentUser saveInBackground];
     
     [self setProfileValues];
@@ -254,7 +255,7 @@
     PFObject *game = [self getGamesUserHasCreated][indexPath.row];
     
     [currentUser setObject:game.objectId forKey:@"currentGame"];
-    [currentUser save];
+    [currentUser saveInBackground];
     
     PFGeoPoint *gameLocation = game[@"location"];
     CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);

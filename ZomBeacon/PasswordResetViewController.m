@@ -35,6 +35,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)dismissView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

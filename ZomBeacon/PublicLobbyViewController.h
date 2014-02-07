@@ -11,15 +11,12 @@
 #import "FriendProfileViewController.h"
 #import "UserLobbyCell.h"
 #import "MBProgressHUD.h"
-#import <MessageUI/MessageUI.h>
-#import <MessageUI/MFMailComposeViewController.h>
-#import <MessageUI/MFMessageComposeViewController.h>
 #import <MapKit/MapKit.h>
 #import <Social/Social.h>
 #import "PublicZombieViewController.h"
 #import "PublicSurvivorViewController.h"
 
-@interface PublicLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+@interface PublicLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     PFUser *currentUser;
 }
