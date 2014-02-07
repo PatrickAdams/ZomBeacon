@@ -326,40 +326,11 @@
 				E751E4931858BF15004E8874 /* AppDelegate.h */,
 				E751E4941858BF15004E8874 /* AppDelegate.m */,
 				E751E4961858BF15004E8874 /* Main.storyboard */,
-				E786C234187B356000347413 /* LoginViewController.h */,
-				E786C235187B356000347413 /* LoginViewController.m */,
-				E7F7998F18A3F52E007C1477 /* PasswordResetViewController.h */,
-				E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */,
-				E786C237187B466900347413 /* SignUpViewController.h */,
-				E786C238187B466900347413 /* SignUpViewController.m */,
-				E73F95751890430900CC7C14 /* MainMenuViewController.h */,
-				E73F95761890430900CC7C14 /* MainMenuViewController.m */,
-				E74E2D0D188996C30080D5A3 /* ProfileViewController.h */,
-				E74E2D0E188996C30080D5A3 /* ProfileViewController.m */,
-				E773DD6618A2A6B100367EAD /* EditProfileViewController.h */,
-				E773DD6718A2A6B100367EAD /* EditProfileViewController.m */,
-				E7F10362189C2D1000C713F7 /* FriendProfileViewController.h */,
-				E7F10363189C2D1000C713F7 /* FriendProfileViewController.m */,
-				E73F9578189060E400CC7C14 /* CreateViewController.h */,
-				E73F9579189060E400CC7C14 /* CreateViewController.m */,
-				E73F957B189062FB00CC7C14 /* CreatedViewController.h */,
-				E73F957C189062FB00CC7C14 /* CreatedViewController.m */,
-				E73F957E1890631800CC7C14 /* FindGameViewController.h */,
-				E73F957F1890631800CC7C14 /* FindGameViewController.m */,
-				E73F95811890633200CC7C14 /* GameDetailsViewController.h */,
-				E73F95821890633200CC7C14 /* GameDetailsViewController.m */,
-				E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */,
-				E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */,
-				E7F7999218A41FA2007C1477 /* PrivateLobbyViewController.h */,
-				E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */,
-				E77BFFC31858F832002871A6 /* PrivateSurvivorViewController.h */,
-				E77BFFC41858F832002871A6 /* PrivateSurvivorViewController.m */,
-				E77BFFC01858F825002871A6 /* PrivateZombieViewController.h */,
-				E77BFFC11858F825002871A6 /* PrivateZombieViewController.m */,
-				E7F7999518A42D2F007C1477 /* PublicSurvivorViewController.h */,
-				E7F7999618A42D2F007C1477 /* PublicSurvivorViewController.m */,
-				E7F7999818A42D49007C1477 /* PublicZombieViewController.h */,
-				E7F7999918A42D49007C1477 /* PublicZombieViewController.m */,
+				E7F7999D18A57701007C1477 /* Login/Sign Up */,
+				E7F7999E18A57714007C1477 /* Profile */,
+				E7F7999F18A5772A007C1477 /* Navigation */,
+				E7F7999B18A576BF007C1477 /* Public Game */,
+				E7F7999C18A576C9007C1477 /* Private Game */,
 				E748A62318A02C3F007D5C35 /* Custom Objects */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
 			);
@@ -390,6 +361,75 @@
 			);
 			name = TestFlightSDK2;
 			path = ZomBeacon/TestFlightSDK2;
+			sourceTree = "<group>";
+		};
+		E7F7999B18A576BF007C1477 /* Public Game */ = {
+			isa = PBXGroup;
+			children = (
+				E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */,
+				E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */,
+				E7F7999518A42D2F007C1477 /* PublicSurvivorViewController.h */,
+				E7F7999618A42D2F007C1477 /* PublicSurvivorViewController.m */,
+				E7F7999818A42D49007C1477 /* PublicZombieViewController.h */,
+				E7F7999918A42D49007C1477 /* PublicZombieViewController.m */,
+			);
+			name = "Public Game";
+			sourceTree = "<group>";
+		};
+		E7F7999C18A576C9007C1477 /* Private Game */ = {
+			isa = PBXGroup;
+			children = (
+				E7F7999218A41FA2007C1477 /* PrivateLobbyViewController.h */,
+				E7F7999318A41FA2007C1477 /* PrivateLobbyViewController.m */,
+				E77BFFC31858F832002871A6 /* PrivateSurvivorViewController.h */,
+				E77BFFC41858F832002871A6 /* PrivateSurvivorViewController.m */,
+				E77BFFC01858F825002871A6 /* PrivateZombieViewController.h */,
+				E77BFFC11858F825002871A6 /* PrivateZombieViewController.m */,
+			);
+			name = "Private Game";
+			sourceTree = "<group>";
+		};
+		E7F7999D18A57701007C1477 /* Login/Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				E786C234187B356000347413 /* LoginViewController.h */,
+				E786C235187B356000347413 /* LoginViewController.m */,
+				E7F7998F18A3F52E007C1477 /* PasswordResetViewController.h */,
+				E7F7999018A3F52E007C1477 /* PasswordResetViewController.m */,
+				E786C237187B466900347413 /* SignUpViewController.h */,
+				E786C238187B466900347413 /* SignUpViewController.m */,
+			);
+			name = "Login/Sign Up";
+			sourceTree = "<group>";
+		};
+		E7F7999E18A57714007C1477 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E74E2D0D188996C30080D5A3 /* ProfileViewController.h */,
+				E74E2D0E188996C30080D5A3 /* ProfileViewController.m */,
+				E773DD6618A2A6B100367EAD /* EditProfileViewController.h */,
+				E773DD6718A2A6B100367EAD /* EditProfileViewController.m */,
+				E7F10362189C2D1000C713F7 /* FriendProfileViewController.h */,
+				E7F10363189C2D1000C713F7 /* FriendProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		E7F7999F18A5772A007C1477 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E73F95751890430900CC7C14 /* MainMenuViewController.h */,
+				E73F95761890430900CC7C14 /* MainMenuViewController.m */,
+				E73F9578189060E400CC7C14 /* CreateViewController.h */,
+				E73F9579189060E400CC7C14 /* CreateViewController.m */,
+				E73F957B189062FB00CC7C14 /* CreatedViewController.h */,
+				E73F957C189062FB00CC7C14 /* CreatedViewController.m */,
+				E73F957E1890631800CC7C14 /* FindGameViewController.h */,
+				E73F957F1890631800CC7C14 /* FindGameViewController.m */,
+				E73F95811890633200CC7C14 /* GameDetailsViewController.h */,
+				E73F95821890633200CC7C14 /* GameDetailsViewController.m */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
