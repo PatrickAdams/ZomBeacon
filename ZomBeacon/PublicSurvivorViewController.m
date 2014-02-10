@@ -28,10 +28,11 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    isZombie = NO;
     currentUser = [PFUser currentUser];
     
     [self queryNearbyUsers];
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
     [self.locationManager startUpdatingLocation];
@@ -43,7 +44,6 @@
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
     
-    isZombie = NO;
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -163,59 +163,40 @@
 {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
+    
+    self.beaconRegion.notifyEntryStateOnDisplay = YES;
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
-{
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
-{
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-}
-
-- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
-{
-    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
-    {
-        [self.peripheralManager startAdvertising:self.beaconPeripheralData];
-    }
-    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
-    {
-        [self.peripheralManager stopAdvertising];
-    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     CLBeacon *beacon = [[CLBeacon alloc] init];
-    beacon = [beacons lastObject];
+    beacon = [beacons firstObject];
     
-    if (beacon.proximity == CLProximityNear) //Change to (beacon.proximity == CLProximityFar) whenever testing outside
-    {
-        //        self.warningText.hidden = NO;
-        //        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        //        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-    }
+//    if (beacon.proximity == CLProximityNear) //Change to (beacon.proximity == CLProximityFar) whenever testing outside
+//    {
+//        //        self.warningText.hidden = NO;
+//        //        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+//        //        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+//    }
     
-    if (beacon.proximity == CLProximityImmediate && isZombie == NO)
+    if (beacon.proximity == CLProximityNear && isZombie == NO)
     {
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"You've been infected by a zombie, go find some survivors!";
+        notification.alertBody = @"PUBLIC GAME: You've been infected by a zombie, go find some survivors!";
         notification.soundName = UILocalNotificationDefaultSoundName;
-        
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
         PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
         [self.navigationController pushViewController:vc animated:YES];
-        isZombie = YES;
         [currentUser setObject:@"zombie" forKey:@"publicStatus"];
         [currentUser saveInBackground];
+        
+        isZombie = YES;
     }
 }
 

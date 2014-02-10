@@ -366,12 +366,12 @@
 		E7F7999B18A576BF007C1477 /* Public Game */ = {
 			isa = PBXGroup;
 			children = (
-				E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */,
-				E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */,
 				E7F7999518A42D2F007C1477 /* PublicSurvivorViewController.h */,
 				E7F7999618A42D2F007C1477 /* PublicSurvivorViewController.m */,
 				E7F7999818A42D49007C1477 /* PublicZombieViewController.h */,
 				E7F7999918A42D49007C1477 /* PublicZombieViewController.m */,
+				E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */,
+				E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */,
 			);
 			name = "Public Game";
 			sourceTree = "<group>";

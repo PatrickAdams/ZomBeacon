@@ -22,10 +22,7 @@
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, weak) IBOutlet UIButton *startGameButton;
 
-- (NSArray *)getPlayersInCurrentGame;
-- (IBAction)refreshList;
-- (IBAction)startGame;
+- (NSMutableArray *)getPlayersInCurrentGame;
 
 @end

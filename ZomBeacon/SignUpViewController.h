@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *nameField;
 @property (nonatomic, weak) IBOutlet UITextField *bioField;
 
--(IBAction)signUpNewUser;
+- (IBAction)signUpNewUser;
+- (BOOL)fieldsAreValid;
 
 @end

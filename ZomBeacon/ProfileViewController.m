@@ -18,7 +18,7 @@
 {
     currentUser = [PFUser currentUser];
     [super viewDidLoad];
-
+    
     [self setProfileValues];
 }
 
@@ -259,7 +259,7 @@
     
     PFGeoPoint *gameLocation = game[@"location"];
     CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
-
+    
     PFObject *hostUser = game[@"hostUser"];
     
     vc.gameNameString = game[@"gameName"];

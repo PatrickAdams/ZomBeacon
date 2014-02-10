@@ -28,7 +28,7 @@
     [self.locationManager startUpdatingLocation];
     
     [self queryNearbyUsers];
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Beacon stuff
     self.locationManager = [[CLLocationManager alloc] init];
@@ -176,12 +176,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-//Tells the peripheral manager to stop looking for beacons when the view dissapears
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.peripheralManager stopAdvertising];
 }
 
 @end

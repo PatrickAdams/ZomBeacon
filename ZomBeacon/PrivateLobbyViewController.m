@@ -38,22 +38,23 @@
         }
     }];
     
-//    //Checks if you are the host of the current game or not
-//    NSString *currentGame = currentUser[@"currentGame"];
-//    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
-//    [query whereKey:@"objectId" equalTo:currentGame];
-//    [query includeKey:@"hostUser"];
-//    PFObject *theGame = [query getFirstObject];
-//    PFUser *theHost = theGame[@"hostUser"];
-//    
-//    if ([theHost.objectId isEqual:currentUser.objectId] || [currentGame isEqual:@"public"])
-//    {
-//        self.startGameButton.hidden = NO;
-//    }
-//    else
-//    {
-//        self.startGameButton.hidden = YES;
-//    }
+    //Checks if you are the host of the current game or not
+    NSString *currentGame = currentUser[@"currentGame"];
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+    [query whereKey:@"objectId" equalTo:currentGame];
+    [query includeKey:@"hostUser"];
+    PFObject *theGame = [query getFirstObject];
+    PFUser *theHost = theGame[@"hostUser"];
+    
+    if ([theHost.objectId isEqual:currentUser.objectId] || [currentGame isEqual:@"public"])
+    {
+        self.assignTeamsButton.hidden = NO;
+    }
+    else
+    {
+        self.assignTeamsButton.hidden = YES;
+        [self.startGameButton isEnabled];
+    }
 }
 
 //Method to get players in game and add them to an array
@@ -76,6 +77,18 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
+}
+
+- (IBAction)assignTeams
+{
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *players, NSError *error) {
+        for (int i = 0; i < players.count; i++) {
+            PFUser *player = players[i];
+            [player setObject:@"zombie" forKey:@"privateStatus"];
+        }
+    }];
 }
 
 - (IBAction)startGame

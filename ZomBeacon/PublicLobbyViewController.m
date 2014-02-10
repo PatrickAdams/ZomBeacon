@@ -16,72 +16,32 @@
 
 - (void)viewDidLoad
 {
-    currentUser = [PFUser currentUser];
     [super viewDidLoad];
+    currentUser = [PFUser currentUser];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self getPlayersInCurrentGame];
+    [self.tableView reloadData];
 }
 
 //Method to get players in game and add them to an array
-- (NSArray *)getPlayersInCurrentGame
+- (NSMutableArray *)getPlayersInCurrentGame
 {
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"joinedPublic" equalTo:@"YES"];
-    NSArray *thePlayers = [query findObjects];
+    NSMutableArray *thePlayers = nil;
+    
+    if (currentUser[@"location"])
+    {
+        PFGeoPoint *userGeoPoint = currentUser[@"location"];
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"joinedPublic" equalTo:@"YES"];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
+        thePlayers = (NSMutableArray *)[query findObjects];
+        [thePlayers removeObjectAtIndex:0];
+    }
 
     return thePlayers;
-}
-
-//Refreshes lobby
-- (IBAction)refreshList
-{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-    [self getPlayersInCurrentGame];
-    [self.tableView reloadData];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-        });
-    });
-}
-
-- (IBAction)startGame
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    if ([currentUser[@"publicStatus"] isEqualToString:@"zombie"])
-    {
-        PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if ([currentUser[@"publicStatus"] isEqualToString:@"survivor"])
-    {
-        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else
-    {
-        int randomNumber = [self getRandomNumberBetween:1 to:100];
-        
-        if (randomNumber < 25 )
-        {
-            PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
-            [self.navigationController pushViewController:vc animated:YES];
-            [currentUser setObject:@"zombie" forKey:@"publicStatus"];
-            [currentUser saveInBackground];
-        }
-        else
-        {
-            PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-            [self.navigationController pushViewController:vc animated:YES];
-            [currentUser setObject:@"survivor" forKey:@"publicStatus"];
-            [currentUser saveInBackground];
-        }
-    }
-}
-
-//Method that chooses a random number
--(int)getRandomNumberBetween:(int)from to:(int)to
-{
-    return (int)from + arc4random() % (to-from+1);
 }
 
 #pragma mark - Table View Methods
@@ -99,6 +59,14 @@
     PFObject *player = [self getPlayersInCurrentGame][indexPath.row];
     NSString *playerName = player[@"name"];
     cell.nameLabel.text = playerName;
+    
+    if ([player[@"publicStatus"] isEqualToString:@"zombie"]) {
+        cell.nameLabel.textColor = [UIColor redColor];
+    }
+    else
+    {
+        cell.nameLabel.textColor = [UIColor blueColor];
+    }
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     [query whereKey:@"user" equalTo:player];

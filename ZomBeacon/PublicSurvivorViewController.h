@@ -16,7 +16,7 @@
 #import "UserAnnotations.h"
 #import "ProfileViewController.h"
 
-@interface PublicSurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
+@interface PublicSurvivorViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
     NSTimer *timer;
     PFUser *currentUser;
@@ -24,8 +24,6 @@
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSDictionary *beaconPeripheralData;
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, weak) IBOutlet UILabel *warningText;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
