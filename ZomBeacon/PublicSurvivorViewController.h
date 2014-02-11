@@ -19,7 +19,6 @@
 @interface PublicSurvivorViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
     NSTimer *timer;
-    PFUser *currentUser;
 }
 
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion;
@@ -28,6 +27,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *warningText;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) PFUser *currentUser;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;

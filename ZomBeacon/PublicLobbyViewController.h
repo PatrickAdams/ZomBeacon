@@ -17,11 +17,9 @@
 #import "PublicSurvivorViewController.h"
 
 @interface PublicLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-{
-    PFUser *currentUser;
-}
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) PFUser *currentUser;
 
 - (NSMutableArray *)getPlayersInCurrentGame;
 

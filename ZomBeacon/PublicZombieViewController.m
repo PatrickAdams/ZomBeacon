@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad
 {
+    self.currentUser = [PFUser currentUser];
     self.mapView.delegate = self;
     [super viewDidLoad];
     [self queryNearbyUsers];
@@ -46,12 +47,12 @@
 - (void)queryNearbyUsers
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [[PFUser currentUser] setObject:point forKey:@"location"];
-    [[PFUser currentUser] saveInBackground];
+    [self.currentUser setObject:point forKey:@"location"];
+    [self.currentUser saveInBackground];
     
-    if ([PFUser currentUser][@"location"])
+    if (self.currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = [PFUser currentUser][@"location"];
+        PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];

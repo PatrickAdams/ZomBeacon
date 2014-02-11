@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    currentUser = [PFUser currentUser];
+    self.currentUser = [PFUser currentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -31,9 +31,9 @@
 {
     NSMutableArray *thePlayers = nil;
     
-    if (currentUser[@"location"])
+    if (self.currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = currentUser[@"location"];
+        PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];

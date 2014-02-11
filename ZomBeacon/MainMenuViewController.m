@@ -24,8 +24,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     self.navigationItem.hidesBackButton = YES;
-    [currentUser setObject:@"" forKey:@"currentGame"];
-    [currentUser saveInBackground];
 }
 
 - (IBAction)startPublicGame

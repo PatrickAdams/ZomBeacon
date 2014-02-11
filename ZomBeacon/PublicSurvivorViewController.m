@@ -22,14 +22,13 @@
 - (void)viewDidLoad
 {
     self.mapView.delegate = self;
+    self.currentUser = [PFUser currentUser];
     [super viewDidLoad];
     [self queryNearbyUsers];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    isZombie = NO;
-    
     [self queryNearbyUsers];
     [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
@@ -50,12 +49,12 @@
 - (void)queryNearbyUsers
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [[PFUser currentUser] setObject:point forKey:@"location"];
-    [[PFUser currentUser] saveInBackground];
+    [self.currentUser setObject:point forKey:@"location"];
+    [self.currentUser saveInBackground];
     
-    if ([PFUser currentUser][@"location"])
+    if (self.currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = [PFUser currentUser][@"location"];
+        PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
@@ -175,20 +174,16 @@
     CLBeacon *beacon = [[CLBeacon alloc] init];
     beacon = [beacons lastObject];
     
-    if (beacon.proximity == CLProximityNear && isZombie == NO)
+    if (beacon.proximity == CLProximityNear)
     {
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        NSString *personWhoInfectedYou = region.identifier;
-        NSLog(@"%@", personWhoInfectedYou);
         notification.alertBody = @"PUBLIC GAME: You've been bitten by a zombie, you are now infected. Go find some Survivors!";
         notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
-        isZombie = YES;
-        
-        [[PFUser currentUser] setObject:@"zombie" forKey:@"publicStatus"];
-        [[PFUser currentUser] saveInBackground];
+        [self.currentUser setObject:@"zombie" forKey:@"publicStatus"];
+        [self.currentUser saveInBackground];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         

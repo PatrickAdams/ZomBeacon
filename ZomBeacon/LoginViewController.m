@@ -21,8 +21,7 @@
     [super viewDidLoad];
     
     //Checks to make sure a user is logged in, if so, it skips the login screen
-    currentUser = [PFUser currentUser];
-    if (currentUser)
+    if ([PFUser currentUser])
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
