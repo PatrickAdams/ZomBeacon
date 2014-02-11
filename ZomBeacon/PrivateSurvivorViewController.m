@@ -210,7 +210,7 @@
     {
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"You've been infected by a zombie, go find some survivors!";
+        notification.alertBody = @"You've been bitten by a zombie, go find some survivors!";
         notification.soundName = UILocalNotificationDefaultSoundName;
         
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];

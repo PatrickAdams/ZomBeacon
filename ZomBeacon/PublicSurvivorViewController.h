@@ -22,8 +22,8 @@
     PFUser *currentUser;
 }
 
-@property (strong, nonatomic) CLBeaconRegion *beaconRegion;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLBeaconRegion *beaconRegion;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, weak) IBOutlet UILabel *warningText;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;

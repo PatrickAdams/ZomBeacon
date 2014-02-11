@@ -18,11 +18,12 @@
     PFUser *currentUser;
 }
 
-@property (strong, nonatomic) CLBeaconRegion *beaconRegion;
-@property (strong, nonatomic) NSDictionary *beaconPeripheralData;
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLBeaconRegion *beaconRegion;
+@property (nonatomic, strong) NSDictionary *beaconPeripheralData;
+@property (nonatomic, strong) CBPeripheralManager *peripheralManager;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property (nonatomic, weak) IBOutlet UIButton *infectButton;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

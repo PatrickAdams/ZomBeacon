@@ -19,22 +19,22 @@
     self.mapView.delegate = self;
     [super viewDidLoad];
     [self queryNearbyUsers];
+    
+    [self.infectButton addTarget:self action:@selector(startInfecting) forControlEvents:UIControlEventTouchDown];
+    [self.infectButton addTarget:self action:@selector(stopInfecting) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    currentUser = [PFUser currentUser];
-    
     [self.locationManager startUpdatingLocation];
     
     [self queryNearbyUsers];
-    [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Beacon stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self initBeacon];
-    [self transmitBeacon];
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
@@ -46,12 +46,12 @@
 - (void)queryNearbyUsers
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [currentUser setObject:point forKey:@"location"];
-    [currentUser saveInBackground];
+    [[PFUser currentUser] setObject:point forKey:@"location"];
+    [[PFUser currentUser] saveInBackground];
     
-    if (currentUser[@"location"])
+    if ([PFUser currentUser][@"location"])
     {
-        PFGeoPoint *userGeoPoint = currentUser[@"location"];
+        PFGeoPoint *userGeoPoint = [PFUser currentUser][@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
@@ -152,10 +152,15 @@
 }
 
 //Method that starts the transmission of the beacon
-- (void)transmitBeacon
+- (void)startInfecting
 {
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+}
+
+- (void)stopInfecting
+{
+    [self.peripheralManager stopAdvertising];
 }
 
 //Method that tracks the beacon activity
@@ -164,10 +169,6 @@
     if (peripheral.state == CBPeripheralManagerStatePoweredOn)
     {
         [self.peripheralManager startAdvertising:self.beaconPeripheralData];
-    }
-    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
-    {
-        [self.peripheralManager stopAdvertising];
     }
 }
 

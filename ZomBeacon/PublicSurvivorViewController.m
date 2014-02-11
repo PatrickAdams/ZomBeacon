@@ -29,10 +29,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     isZombie = NO;
-    currentUser = [PFUser currentUser];
     
     [self queryNearbyUsers];
-    [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
     [self.locationManager startUpdatingLocation];
@@ -43,7 +42,6 @@
     self.locationManager.delegate = self;
     [self initRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
-    
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -52,12 +50,12 @@
 - (void)queryNearbyUsers
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [currentUser setObject:point forKey:@"location"];
-    [currentUser saveInBackground];
+    [[PFUser currentUser] setObject:point forKey:@"location"];
+    [[PFUser currentUser] saveInBackground];
     
-    if (currentUser[@"location"])
+    if ([PFUser currentUser][@"location"])
     {
-        PFGeoPoint *userGeoPoint = currentUser[@"location"];
+        PFGeoPoint *userGeoPoint = [PFUser currentUser][@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
@@ -152,51 +150,50 @@
 
 #pragma mark - Beacon Management
 
-//Beacon ranging setup
-- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
-{
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-}
-
 //Initializes the beacon region
 - (void)initRegion
 {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
-    
-    self.beaconRegion.notifyEntryStateOnDisplay = YES;
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     CLBeacon *beacon = [[CLBeacon alloc] init];
-    beacon = [beacons firstObject];
-    
-//    if (beacon.proximity == CLProximityNear) //Change to (beacon.proximity == CLProximityFar) whenever testing outside
-//    {
-//        //        self.warningText.hidden = NO;
-//        //        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-//        //        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-//    }
+    beacon = [beacons lastObject];
     
     if (beacon.proximity == CLProximityNear && isZombie == NO)
     {
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"PUBLIC GAME: You've been infected by a zombie, go find some survivors!";
+        NSString *personWhoInfectedYou = region.identifier;
+        NSLog(@"%@", personWhoInfectedYou);
+        notification.alertBody = @"PUBLIC GAME: You've been bitten by a zombie, you are now infected. Go find some Survivors!";
         notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
+        isZombie = YES;
+        
+        [[PFUser currentUser] setObject:@"zombie" forKey:@"publicStatus"];
+        [[PFUser currentUser] saveInBackground];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
         PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
         [self.navigationController pushViewController:vc animated:YES];
-        [currentUser setObject:@"zombie" forKey:@"publicStatus"];
-        [currentUser saveInBackground];
-        
-        isZombie = YES;
     }
 }
 
