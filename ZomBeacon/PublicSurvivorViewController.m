@@ -174,7 +174,9 @@
     CLBeacon *beacon = [[CLBeacon alloc] init];
     beacon = [beacons lastObject];
     
-    if (beacon.proximity == CLProximityNear)
+    NSString *publicStatus = [self.currentUser objectForKey:@"publicStatus"];
+    
+    if (beacon.proximity == CLProximityNear && [publicStatus isEqual:@"survivor"])
     {
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];

@@ -11,6 +11,7 @@
 #import "TestFlight.h"
 #import <ProximityKit/ProximityKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "PublicZombieViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, PKManagerDelegate, CBCentralManagerDelegate>
 
