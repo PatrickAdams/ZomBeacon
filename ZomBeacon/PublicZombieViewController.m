@@ -51,7 +51,7 @@
         PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 
@@ -145,14 +145,13 @@
 {
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-//    [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
 }
 
-//- (void)stopInfecting
-//{
-//    [self.peripheralManager stopAdvertising];
-//    NSLog(@"stopped advertising");
-//}
+- (void)stopInfecting
+{
+    [self.peripheralManager stopAdvertising];
+}
 
 //Method that tracks the beacon activity
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
@@ -160,7 +159,6 @@
     if (peripheral.state == CBPeripheralManagerStatePoweredOn)
     {
         [self.peripheralManager startAdvertising:self.beaconPeripheralData];
-        NSLog(@"started advertising");
     }
     else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
     {

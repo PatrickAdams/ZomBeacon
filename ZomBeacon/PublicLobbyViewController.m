@@ -36,7 +36,7 @@
         PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
         thePlayers = (NSMutableArray *)[query findObjects];
         [thePlayers removeObjectAtIndex:0];
     }

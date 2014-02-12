@@ -33,7 +33,6 @@
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.publicRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -103,7 +102,6 @@
     if ([annotation isKindOfClass:[UserAnnotations class]])
     {
         UserAnnotations *userLocations = (UserAnnotations *)annotation;
-        
         MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"UserLocations"];
         
         if (annotationView == nil)
@@ -153,26 +151,11 @@
 
 #pragma mark - Beacon Management
 
-- (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion*)region
-{
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-}
-
--(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion*)region
-{
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
-{
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-}
-
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon *beacon = [beacons firstObject];
+    CLBeacon *beacon = [beacons lastObject];
     
-    if (beacon.proximity == CLProximityNear)
+    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];

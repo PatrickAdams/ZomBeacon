@@ -63,28 +63,6 @@
     }
 }
 
-//- (IBAction)startPublicGame
-//{
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//
-//    PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
-//    [self.navigationController pushViewController:vc animated:YES];
-//    [currentUser setObject:@"zombie" forKey:@"publicStatus"];
-//    [currentUser setObject:@"YES" forKey:@"joinedPublic"];
-//    [currentUser saveInBackground];
-//}
-//
-//- (IBAction)startPublicGame
-//{
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    
-//    PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-//    [self.navigationController pushViewController:vc animated:YES];
-//    [currentUser setObject:@"survivor" forKey:@"publicStatus"];
-//    [currentUser setObject:@"YES" forKey:@"joinedPublic"];
-//    [currentUser saveInBackground];
-//}
-
 //Method that chooses a random number
 -(int)getRandomNumberBetween:(int)from to:(int)to
 {
