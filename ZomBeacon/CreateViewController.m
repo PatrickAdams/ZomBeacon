@@ -22,8 +22,7 @@
     //MapView stuff
     self.mapView.delegate = self;
     
-    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
-                                          initWithTarget:self action:@selector(handleLongPress:)];
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0; //user needs to press and hold for 1 second
     [self.mapView addGestureRecognizer:lpgr];
 }
@@ -34,11 +33,12 @@
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
-        return;
+    {
+       return;
+    }
     
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate =
-    [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     [self.mapView removeAnnotation:self.droppedPin];
     self.droppedPin = [[UserAnnotations alloc] init];
     self.droppedPin.coordinate = touchMapCoordinate;

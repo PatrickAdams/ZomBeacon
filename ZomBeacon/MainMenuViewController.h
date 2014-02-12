@@ -13,11 +13,10 @@
 #import "LoginViewController.h"
 
 @interface MainMenuViewController : UIViewController
-{
-    PFUser *currentUser;
-}
 
-- (IBAction)logUserOut;
+
+@property (nonatomic, strong) PFUser *currentUser;
+
 - (IBAction)startPublicGame;
 
 @end

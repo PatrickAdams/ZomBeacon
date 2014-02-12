@@ -18,24 +18,24 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    currentUser = [PFUser currentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     self.navigationItem.hidesBackButton = YES;
+    self.currentUser = [PFUser currentUser];
 }
 
 - (IBAction)startPublicGame
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
-    if ([currentUser[@"publicStatus"] isEqualToString:@"zombie"])
+    if ([self.currentUser[@"publicStatus"] isEqualToString:@"zombie"])
     {
         PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([currentUser[@"publicStatus"] isEqualToString:@"survivor"])
+    else if ([self.currentUser[@"publicStatus"] isEqualToString:@"survivor"])
     {
         PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
         [self.navigationController pushViewController:vc animated:YES];
@@ -44,21 +44,21 @@
     {
         int randomNumber = [self getRandomNumberBetween:1 to:100];
 
-        if (randomNumber < 1)
+        if (randomNumber < 99)
         {
             PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
             [self.navigationController pushViewController:vc animated:YES];
-            [currentUser setObject:@"zombie" forKey:@"publicStatus"];
-            [currentUser setObject:@"YES" forKey:@"joinedPublic"];
-            [currentUser saveInBackground];
+            [self.currentUser setObject:@"zombie" forKey:@"publicStatus"];
+            [self.currentUser setObject:@"YES" forKey:@"joinedPublic"];
+            [self.currentUser saveInBackground];
         }
         else
         {
             PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
             [self.navigationController pushViewController:vc animated:YES];
-            [currentUser setObject:@"survivor" forKey:@"publicStatus"];
-            [currentUser setObject:@"YES" forKey:@"joinedPublic"];
-            [currentUser saveInBackground];
+            [self.currentUser setObject:@"survivor" forKey:@"publicStatus"];
+            [self.currentUser setObject:@"YES" forKey:@"joinedPublic"];
+            [self.currentUser saveInBackground];
         }
     }
 }
@@ -89,13 +89,6 @@
 -(int)getRandomNumberBetween:(int)from to:(int)to
 {
     return (int)from + arc4random() % (to-from+1);
-}
-
-//Method that logs the user out with the Parse framework
-- (IBAction)logUserOut
-{
-    [PFUser logOut];
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

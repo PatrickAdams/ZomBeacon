@@ -16,26 +16,24 @@
 
 - (void)viewDidLoad
 {
-    self.currentUser = [PFUser currentUser];
     self.mapView.delegate = self;
     [super viewDidLoad];
     [self queryNearbyUsers];
     
-    [self.infectButton addTarget:self action:@selector(startInfecting) forControlEvents:UIControlEventTouchDown];
-    [self.infectButton addTarget:self action:@selector(stopInfecting) forControlEvents:UIControlEventTouchUpInside];
+//    [self.infectButton addTarget:self action:@selector(startInfecting) forControlEvents:UIControlEventTouchDown];
+//    [self.infectButton addTarget:self action:@selector(stopInfecting) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.currentUser = [PFUser currentUser];
     [self.locationManager startUpdatingLocation];
     
     [self queryNearbyUsers];
     [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
-    
-    //Beacon stuff
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [self initBeacon];
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
@@ -97,7 +95,6 @@
     if ([annotation isKindOfClass:[UserAnnotations class]])
     {
         UserAnnotations *userLocations = (UserAnnotations *)annotation;
-        
         MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"UserLocations"];
         
         if (annotationView == nil)
@@ -145,23 +142,18 @@
 
 #pragma mark - Beacon Management
 
-//Method that initializes the device as a beacon and gives it a proximity UUID
-- (void)initBeacon
-{
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
-}
-
 //Method that starts the transmission of the beacon
-- (void)startInfecting
+- (IBAction)startInfecting
 {
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
 }
 
 - (void)stopInfecting
 {
     [self.peripheralManager stopAdvertising];
+    NSLog(@"stopped advertising");
 }
 
 //Method that tracks the beacon activity
@@ -170,6 +162,11 @@
     if (peripheral.state == CBPeripheralManagerStatePoweredOn)
     {
         [self.peripheralManager startAdvertising:self.beaconPeripheralData];
+        NSLog(@"started advertising");
+    }
+    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
+    {
+        [self.peripheralManager stopAdvertising];
     }
 }
 

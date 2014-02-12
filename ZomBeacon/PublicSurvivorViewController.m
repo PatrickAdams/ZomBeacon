@@ -21,26 +21,31 @@
 
 - (void)viewDidLoad
 {
-    self.mapView.delegate = self;
-    self.currentUser = [PFUser currentUser];
     [super viewDidLoad];
+    
+    self.mapView.delegate = self;
     [self queryNearbyUsers];
+    
+    //Beacon stuff
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
+    [self.locationManager startMonitoringForRegion:self.beaconRegion];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self queryNearbyUsers];
+    self.currentUser = [PFUser currentUser];
+
     [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
     [self.locationManager startUpdatingLocation];
     [self zoomToUserLocation:self.mapView.userLocation];
-    
-    //Beacon stuff
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [self initRegion];
-    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -50,7 +55,7 @@
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
     [self.currentUser setObject:point forKey:@"location"];
-    [self.currentUser saveInBackground];
+    [self.currentUser save];
     
     if (self.currentUser[@"location"])
     {
@@ -149,34 +154,26 @@
 
 #pragma mark - Beacon Management
 
-//Initializes the beacon region
-- (void)initRegion
+- (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion*)region
 {
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
-    [self.locationManager startMonitoringForRegion:self.beaconRegion];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+-(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion*)region
+{
     [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
+{
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon *beacon = [[CLBeacon alloc] init];
-    beacon = [beacons lastObject];
+    CLBeacon *beacon = [beacons firstObject];
     
-    NSString *publicStatus = [self.currentUser objectForKey:@"publicStatus"];
-    
-    if (beacon.proximity == CLProximityNear && [publicStatus isEqual:@"survivor"])
+    if (beacon.proximity == CLProximityNear)
     {
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
@@ -185,12 +182,13 @@
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
         [self.currentUser setObject:@"zombie" forKey:@"publicStatus"];
-        [self.currentUser saveInBackground];
+        [self.currentUser save];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
         PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
         [self.navigationController pushViewController:vc animated:YES];
+        
+        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     }
 }
 

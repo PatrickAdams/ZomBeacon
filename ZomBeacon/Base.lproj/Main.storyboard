@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="2917" y="502"/>
         </scene>
-        <!--Public Zombie View Controller - Survivor-->
+        <!--Public Zombie View Controller - Zombie-->
         <scene sceneID="riS-2O-UHS">
             <objects>
                 <viewController storyboardIdentifier="publicZombie" id="it5-Tg-ZWA" customClass="PublicZombieViewController" sceneMemberID="viewController">
@@ -133,12 +133,15 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startInfecting" destination="it5-Tg-ZWA" eventType="touchUpInside" id="62s-Aj-iQe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Survivor" id="c9M-7b-1VW">
+                    <navigationItem key="navigationItem" title="Zombie" id="c9M-7b-1VW">
                         <barButtonItem key="rightBarButtonItem" title="Details" id="QJg-ZS-VIs">
                             <connections>
                                 <segue destination="Zzc-PN-9nm" kind="push" id="xhs-QU-DpM"/>
@@ -442,7 +445,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private Games Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3de-z0-7yN">
-                                <rect key="frame" x="69" y="194" width="183" height="21"/>
+                                <rect key="frame" x="69" y="226" width="183" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -455,8 +458,8 @@
                                 <color key="textColor" red="0.1539652054" green="0.40435497129999998" blue="0.53260869570000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1MX-qD-Coy">
-                                <rect key="frame" x="16" y="6" width="289" height="28"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1MX-qD-Coy">
+                                <rect key="frame" x="16" y="5" width="284" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.1539652054" green="0.40435497129999998" blue="0.53260869570000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -480,7 +483,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="1tz-Cy-jbl">
-                                <rect key="frame" x="0.0" y="223" width="320" height="281"/>
+                                <rect key="frame" x="0.0" y="255" width="320" height="249"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -574,6 +577,16 @@
                                 </state>
                                 <connections>
                                     <action selector="unlinkFromTwitter" destination="KmB-En-GMb" eventType="touchUpInside" id="ND3-Gr-eWB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kWF-jD-fCr">
+                                <rect key="frame" x="132" y="188" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logUserOut" destination="KmB-En-GMb" eventType="touchUpInside" id="vE2-Ye-9vx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -930,10 +943,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vr0-vd-YDs">
-                                <rect key="frame" x="69" y="83" width="182" height="39"/>
+                                <rect key="frame" x="69" y="95" width="182" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="Play Public Game">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Public Game">
                                     <color key="titleColor" red="0.1539652054" green="0.40435497129999998" blue="0.53260869570000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -941,21 +954,10 @@
                                     <action selector="startPublicGame" destination="NGH-f2-ute" eventType="touchUpInside" id="Ywe-k8-IJC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c7L-Wf-cGo">
-                                <rect key="frame" x="132" y="341" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logUserOut" destination="NGH-f2-ute" eventType="touchUpInside" id="sYh-Td-egc"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J0F-7N-lF8">
-                                <rect key="frame" x="54" y="153" width="212" height="39"/>
+                                <rect key="frame" x="54" y="253" width="212" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Create Private Game">
                                     <color key="titleColor" red="0.1539652054" green="0.40435497129999998" blue="0.53260869570000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -965,9 +967,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g4z-Gj-hMp">
-                                <rect key="frame" x="67" y="226" width="188" height="39"/>
+                                <rect key="frame" x="66" y="300" width="188" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Find Private Game">
                                     <color key="titleColor" red="0.1539652054" green="0.40435497129999998" blue="0.53260869570000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

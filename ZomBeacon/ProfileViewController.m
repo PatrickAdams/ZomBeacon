@@ -25,11 +25,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self refreshImage];
-    
-    [currentUser setObject:@"" forKey:@"privateStatus"];
-    [currentUser setObject:@"" forKey:@"currentGame"];
-    [currentUser saveInBackground];
-    
     [self setProfileValues];
 }
 
@@ -267,6 +262,13 @@
     vc.gameHostString = hostUser[@"name"];
     vc.gameIdString = game.objectId;
     vc.gameLocationCoord = gameLocationCoords;
+}
+
+//Method that logs the user out with the Parse framework
+- (IBAction)logUserOut
+{
+    [PFUser logOut];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

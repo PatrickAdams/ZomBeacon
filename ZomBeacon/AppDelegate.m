@@ -95,13 +95,6 @@
     }
 }
 
--(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've been bitten!" message:@"You are now infected, go find some survivors." delegate:nil cancelButtonTitle:@"I WANT BRAINSSS!" otherButtonTitles:nil];
-    
-    [alert show];
-}
-
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

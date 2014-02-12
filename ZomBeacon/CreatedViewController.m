@@ -151,6 +151,7 @@
 			NSLog(@"Result: not sent");
 			break;
 	}
+    
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 

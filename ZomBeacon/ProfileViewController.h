@@ -35,6 +35,7 @@
 - (IBAction)unlinkFromFacebook;
 - (IBAction)linkAccountWithTwitter;
 - (IBAction)unlinkFromTwitter;
+- (IBAction)logUserOut;
 
 
 @end
