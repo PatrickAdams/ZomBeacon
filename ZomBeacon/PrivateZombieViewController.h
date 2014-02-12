@@ -21,6 +21,7 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, strong) NSTimer *queryTimer;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

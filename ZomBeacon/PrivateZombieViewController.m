@@ -38,10 +38,15 @@
     
     [self.locationManager startUpdatingLocation];
     
-    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.queryTimer invalidate];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations

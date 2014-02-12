@@ -27,6 +27,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, strong) NSTimer *queryTimer;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;

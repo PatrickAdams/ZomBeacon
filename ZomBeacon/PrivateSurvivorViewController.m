@@ -47,11 +47,16 @@
     [self.currentUser setObject:@"survivor" forKey:@"privateStatus"];
     [self.currentUser saveInBackground];
     
-    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
     [self.locationManager startUpdatingLocation];
     [self zoomToUserLocation:self.mapView.userLocation];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.queryTimer invalidate];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
