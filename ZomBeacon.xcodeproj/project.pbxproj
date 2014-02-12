@@ -16,7 +16,6 @@
 		E73F95801890631800CC7C14 /* FindGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F957F1890631800CC7C14 /* FindGameViewController.m */; };
 		E73F95831890633200CC7C14 /* GameDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95821890633200CC7C14 /* GameDetailsViewController.m */; };
 		E7446995185B8D35007F6817 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446994185B8D35007F6817 /* app_icon.png */; };
-		E7446997185B8E44007F6817 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446996185B8E44007F6817 /* blank_splash.png */; };
 		E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446998185B8ED9007F6817 /* blank_splash_ipad.png */; };
 		E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A6185BB2A8007F6817 /* Default-568h@2x.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
@@ -59,6 +58,8 @@
 		E7BD36F7189ACF7200A2B308 /* locate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7BD36F6189ACF7200A2B308 /* locate@2x.png */; };
 		E7CC9865188DABDB005C39A6 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E7CC9864188DABDB005C39A6 /* user.png */; };
 		E7CDB6C4189C01C8001D70EF /* PublicLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */; };
+		E7DBB0D418ABF5B000CE4198 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D318ABF5B000CE4198 /* blank_splash.png */; };
+		E7DBB0D618ABF5FF00CE4198 /* blank_splash0.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */; };
 		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
 		E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */; };
@@ -97,7 +98,6 @@
 		E73F95811890633200CC7C14 /* GameDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailsViewController.h; sourceTree = "<group>"; };
 		E73F95821890633200CC7C14 /* GameDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailsViewController.m; sourceTree = "<group>"; };
 		E7446994185B8D35007F6817 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
-		E7446996185B8E44007F6817 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
 		E7446998185B8ED9007F6817 /* blank_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash_ipad.png; sourceTree = "<group>"; };
 		E74469A6185BB2A8007F6817 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -157,6 +157,8 @@
 		E7CC9864188DABDB005C39A6 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicLobbyViewController.h; sourceTree = "<group>"; };
 		E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicLobbyViewController.m; sourceTree = "<group>"; };
+		E7DBB0D318ABF5B000CE4198 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
+		E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash0.png; sourceTree = "<group>"; };
 		E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
 		E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundSmall@2x.png"; sourceTree = "<group>"; };
@@ -245,7 +247,8 @@
 				E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */,
 				E7E01B74186370DB00C5A45D /* dotImage@2x.png */,
 				E7446994185B8D35007F6817 /* app_icon.png */,
-				E7446996185B8E44007F6817 /* blank_splash.png */,
+				E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */,
+				E7DBB0D318ABF5B000CE4198 /* blank_splash.png */,
 				E7446998185B8ED9007F6817 /* blank_splash_ipad.png */,
 			);
 			name = Images;
@@ -510,6 +513,7 @@
 				E7446995185B8D35007F6817 /* app_icon.png in Resources */,
 				E7BD36EF189ACE4B00A2B308 /* compass@2x.png in Resources */,
 				E76AD8241885AA89007C014C /* red@2x.png in Resources */,
+				E7DBB0D418ABF5B000CE4198 /* blank_splash.png in Resources */,
 				E7F7998E18A3F402007C1477 /* facebook_signin.png in Resources */,
 				E7CC9865188DABDB005C39A6 /* user.png in Resources */,
 				E7BD36F5189ACF6E00A2B308 /* locate.png in Resources */,
@@ -520,12 +524,12 @@
 				E7EFF89418A1320300DEE521 /* fb.png in Resources */,
 				E7EFF88C18A1315E00DEE521 /* email.png in Resources */,
 				E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */,
+				E7DBB0D618ABF5FF00CE4198 /* blank_splash0.png in Resources */,
 				E76AD81F1885AA26007C014C /* blue.png in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
 				E7BD36E9189ACD1D00A2B308 /* profile.png in Resources */,
 				E7BD36EB189ACD3F00A2B308 /* profile@2x.png in Resources */,
-				E7446997185B8E44007F6817 /* blank_splash.png in Resources */,
 				E7EFF89218A131CA00DEE521 /* twitter@2x.png in Resources */,
 				E76AD8201885AA26007C014C /* red.png in Resources */,
 				E7BD36F7189ACF7200A2B308 /* locate@2x.png in Resources */,
