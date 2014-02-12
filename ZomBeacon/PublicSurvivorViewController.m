@@ -164,7 +164,7 @@
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
         [self.currentUser setObject:@"zombie" forKey:@"publicStatus"];
-        [self.currentUser save];
+        [self.currentUser saveInBackground];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];

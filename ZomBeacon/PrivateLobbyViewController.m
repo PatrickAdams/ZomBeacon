@@ -101,7 +101,7 @@
                 [player setObject:@"survivor" forKey:@"privateStatus"];
             }
             
-            [player save];
+            [player saveInBackground];
         }
     }];
 }

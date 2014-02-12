@@ -60,7 +60,7 @@
 {
     PFUser *currentUser = [PFUser currentUser];
     currentUser[@"currentGame"] = self.gameIdString;
-    [currentUser save];
+    [currentUser saveInBackground];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];

@@ -33,7 +33,7 @@
     currentUser.email = self.emailField.text;
     currentUser[@"bio"] = self.bioField.text;
     
-    [currentUser save];
+    [currentUser saveInBackground];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Changes Saved!"
                                                     message:@"The changes you've made have been saved."
