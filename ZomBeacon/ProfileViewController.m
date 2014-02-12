@@ -41,15 +41,13 @@
 //Links the current user's ZomBeacon account with their Facebook account
 - (IBAction)linkAccountWithFacebook
 {
-    if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+    if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
+    {
         [PFFacebookUtils linkUser:[PFUser currentUser] permissions:nil block:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
+            if (succeeded)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Facebook!" message:@"You have successfully linked your ZomBeacon account with Facebook" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Facebook!"
-                                                                message:@"You have successfully linked your ZomBeacon account with Facebook"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
                 [alert show];
             }
         }];
@@ -60,12 +58,10 @@
 - (IBAction)unlinkFromFacebook
 {
     [PFFacebookUtils unlinkUserInBackground:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Unlinked!"
-                                                            message:@"You have successfully unlinked your ZomBeacon account to Facebook"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
+        if (succeeded)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Unlinked!" message:@"You have successfully unlinked your ZomBeacon account to Facebook" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
             [alert show];
         }
     }];
@@ -74,14 +70,13 @@
 //Links the current user's ZomBeacon account with their Twitter account
 - (IBAction)linkAccountWithTwitter
 {
-    if (![PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
+    if (![PFTwitterUtils isLinkedWithUser:[PFUser currentUser]])
+    {
         [PFTwitterUtils linkUser:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
-            if ([PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Twitter!"
-                                                                message:@"You have successfully linked your ZomBeacon account with Twitter"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
+            if ([PFTwitterUtils isLinkedWithUser:[PFUser currentUser]])
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Twitter!" message:@"You have successfully linked your ZomBeacon account with Twitter" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
                 [alert show];
             }
         }];
@@ -92,18 +87,17 @@
 - (IBAction)unlinkFromTwitter
 {
     [PFTwitterUtils unlinkUserInBackground:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
-        if (!error && succeeded) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Unlinked!"
-                                                            message:@"You have successfully unlinked your ZomBeacon account to Twitter"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
+        if (!error && succeeded)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Unlinked!" message:@"You have successfully unlinked your ZomBeacon account to Twitter" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
             [alert show];
         }
     }];
 }
 
 #pragma mark - Camera Methods
+
 - (IBAction)cameraButtonTapped
 {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -138,16 +132,14 @@
     [query whereKey:@"user" equalTo:currentUser];
     PFFile *file = [[query getFirstObject] objectForKey:@"imageFile"];
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
-    
-    if (!file) {
-        
+    if (!file)
+    {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            
             // Save PFFile
             [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    
+                if (!error)
+                {
                     // Create a PFObject around a PFFile and associate it with the current user
                     PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
                     [userPhoto setObject:imageFile forKey:@"imageFile"];
@@ -160,7 +152,8 @@
                             [MBProgressHUD hideHUDForView:self.view animated:YES];
                         });
                         
-                        if (!error) {
+                        if (!error)
+                        {
                             [self refreshImage];
                         }
                     }];
@@ -172,23 +165,22 @@
     {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            
             [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
+                if (!error)
+                {
                     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
                     [query whereKey:@"user" equalTo:currentUser];
                     [query getFirstObjectInBackgroundWithBlock:^(PFObject *objects, NSError *error) {
-                        if (!error) {
-                            
+                        if (!error)
+                        {
                             PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
                             [objects setObject:imageFile forKey:@"imageFile"];
                             [objects saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                                
                                 dispatch_async(dispatch_get_main_queue(), ^{
                                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                                 });
-                                
-                                if (!error) {
+                                if (!error)
+                                {
                                     [self refreshImage];
                                 }
                             }];

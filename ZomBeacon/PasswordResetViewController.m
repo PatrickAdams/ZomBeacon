@@ -25,11 +25,8 @@
 {
     [PFUser requestPasswordResetForEmailInBackground:self.emailField.text];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password Reset!"
-                                                    message:@"Check your email for further instructions."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Password Reset!" message:@"Check your email for further instructions." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
     [alert show];
     
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.gameDateLabel.text = self.gameDateString;
     self.gameHostLabel.text = self.gameHostString;
     self.gameNameLabel.text = self.gameNameString;
@@ -64,7 +64,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
-
+    
     [self.navigationController pushViewController:vc animated:YES];
     
     vc.gameNameString = self.gameNameString;

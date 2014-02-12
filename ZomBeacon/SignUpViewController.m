@@ -49,11 +49,8 @@
              {
                  if (!error)
                  {
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!"
-                                                                     message:@"You will receive an email to confirm your account."
-                                                                    delegate:nil
-                                                           cancelButtonTitle:@"OK"
-                                                           otherButtonTitles:nil];
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!" message:@"You will receive an email to confirm your account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                     
                      [alert show];
                      
                      dispatch_async(dispatch_get_main_queue(), ^{
@@ -72,15 +69,11 @@
                  }
              }];
         });
-
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account creation is not complete."
-                                                        message:@"You cannot leave any of the following fields blank: username, password, email, or name."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account creation is not complete." message:@"You cannot leave any of the following fields blank: username, password, email, or name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
         [alert show];
     }
 }

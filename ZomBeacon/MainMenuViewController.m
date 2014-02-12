@@ -32,6 +32,7 @@
     
     [self saveLocation];
     
+    //When user is on the menu, checks every minute for their location
     self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(saveLocation) userInfo:nil repeats:YES];
 }
 
@@ -51,7 +52,7 @@
 - (IBAction)startPublicGame
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-
+    
     if ([self.currentUser[@"publicStatus"] isEqualToString:@"zombie"])
     {
         PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
@@ -65,7 +66,7 @@
     else
     {
         int randomNumber = [self getRandomNumberBetween:1 to:100];
-
+        
         if (randomNumber < 20)
         {
             PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];

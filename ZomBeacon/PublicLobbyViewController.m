@@ -40,7 +40,7 @@
         thePlayers = (NSMutableArray *)[query findObjects];
         [thePlayers removeObjectAtIndex:0];
     }
-
+    
     return thePlayers;
 }
 

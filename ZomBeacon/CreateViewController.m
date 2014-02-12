@@ -23,7 +23,7 @@
     self.mapView.delegate = self;
     
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 1.0; //user needs to press and hold for 1 second
+    lpgr.minimumPressDuration = 0.5; //user needs to press and hold for 1 second
     [self.mapView addGestureRecognizer:lpgr];
 }
 
@@ -34,7 +34,7 @@
 {
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
     {
-       return;
+        return;
     }
     
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
@@ -54,6 +54,7 @@
     PFUser *currentUser = [PFUser currentUser];
     PFObject *privateGame = [PFObject objectWithClassName:@"PrivateGames"];
     PFGeoPoint *gameLocation = [PFGeoPoint geoPointWithLatitude:self.droppedPin.coordinate.latitude longitude:self.droppedPin.coordinate.longitude];
+    
     privateGame[@"gameName"] = self.gameNameTextField.text;
     privateGame[@"hostUser"] = currentUser;
     privateGame[@"dateTime"] = self.dateTimeTextField.text;
@@ -66,8 +67,8 @@
     vc.gameDateString = privateGame[@"dateTime"];
     
     CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+    
     vc.gameLocationCoord = gameLocationCoords;
-
     vc.gameIdString = privateGame.objectId;
     
     [self.navigationController pushViewController:vc animated:YES];

@@ -49,11 +49,8 @@
          {
              if (user)
              {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
-                                                                 message:@"You are now logged in."
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                       otherButtonTitles:nil];
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 
                  [alert show];
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
@@ -66,11 +63,8 @@
              }
              else
              {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login credentials are incorrect."
-                                                                 message:@"Please try again."
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                       otherButtonTitles:nil];
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login credentials are incorrect." message:@"Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 
                  [alert show];
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
@@ -104,11 +98,8 @@
              }
              else if (user.isNew)
              {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!"
-                                                                 message:@"You are now logged in."
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                       otherButtonTitles:nil];
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 
                  [alert show];
                  
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -143,10 +134,8 @@
                           
                           NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
                           
-                          NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
-                                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                                                timeoutInterval:2.0f];
-                     
+                          NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:2.0f];
+                          
                           NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
                           NSLog(@"%@", urlConnection);
                       }
@@ -154,11 +143,8 @@
              }
              else
              {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
-                                                                 message:@"You are now logged in."
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                       otherButtonTitles:nil];
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 
                  [alert show];
                  
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -184,11 +170,8 @@
             }
             else if(user.isNew)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!"
-                                                                message:@"You are now logged in."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
                 [alert show];
                 
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -204,9 +187,7 @@
                 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:verify];
                 [[PFTwitterUtils twitter] signRequest:request];
                 NSURLResponse *response = nil;
-                NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                                     returningResponse:&response
-                                                                 error:&error];
+                NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
                 
                 if ( error == nil)
                 {
@@ -226,9 +207,7 @@
                     
                     NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [result objectForKey:@"profile_image_url_https"]]];
                     
-                    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
-                                                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                                          timeoutInterval:2.0f];
+                    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:2.0f];
                     
                     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
                     NSLog(@"%@", urlConnection);
@@ -236,11 +215,8 @@
             }
             else
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!"
-                                                                message:@"You are now logged in."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
                 [alert show];
                 
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

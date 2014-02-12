@@ -112,7 +112,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if (randomNumber < 25 )
+    if (randomNumber < 25)
     {
         PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
         [self.navigationController pushViewController:vc animated:YES];
@@ -181,6 +181,47 @@
     [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game open the app and tap on 'Find Private Game' and paste in the following code:</br></br><strong>%@</strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString]];
 }
 
+// Displays an email composition interface inside the application. Populates all the Mail fields.
+- (void)displayComposerSheet:(NSString *)body {
+    
+	MFMailComposeViewController *mailComposerView = [[MFMailComposeViewController alloc] init];
+    
+    if ([MFMailComposeViewController canSendMail])
+    {
+        mailComposerView.mailComposeDelegate = self;
+        [mailComposerView setSubject:@"You've Been Invited to a ZomBeacon Game!"];
+        [mailComposerView setMessageBody:body isHTML:YES];
+        
+        [self presentViewController:mailComposerView animated:YES completion:nil];
+    }
+	
+}
+
+// Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+	// Notifies users about errors associated with the interface
+	switch (result)
+	{
+		case MFMailComposeResultCancelled:
+			NSLog(@"Result: canceled");
+			break;
+		case MFMailComposeResultSaved:
+			NSLog(@"Result: saved");
+			break;
+		case MFMailComposeResultSent:
+			NSLog(@"Result: sent");
+			break;
+		case MFMailComposeResultFailed:
+			NSLog(@"Result: failed");
+			break;
+		default:
+			NSLog(@"Result: not sent");
+			break;
+	}
+    
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)shareViaTwitter
 {
     SLComposeViewController *tweetComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
@@ -227,48 +268,6 @@
     //    }
     
     [self presentViewController:facebookComposer animated:YES completion:nil];
-}
-
-
-// Displays an email composition interface inside the application. Populates all the Mail fields.
-- (void)displayComposerSheet:(NSString *)body {
-    
-	MFMailComposeViewController *mailComposerView = [[MFMailComposeViewController alloc] init];
-    
-    if ([MFMailComposeViewController canSendMail])
-    {
-        mailComposerView.mailComposeDelegate = self;
-        [mailComposerView setSubject:@"You've Been Invited to a ZomBeacon Game!"];
-        [mailComposerView setMessageBody:body isHTML:YES];
-        
-        [self presentViewController:mailComposerView animated:YES completion:nil];
-    }
-	
-}
-
-// Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
-	// Notifies users about errors associated with the interface
-	switch (result)
-	{
-		case MFMailComposeResultCancelled:
-			NSLog(@"Result: canceled");
-			break;
-		case MFMailComposeResultSaved:
-			NSLog(@"Result: saved");
-			break;
-		case MFMailComposeResultSent:
-			NSLog(@"Result: sent");
-			break;
-		case MFMailComposeResultFailed:
-			NSLog(@"Result: failed");
-			break;
-		default:
-			NSLog(@"Result: not sent");
-			break;
-	}
-    
-	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Open In Maps Method

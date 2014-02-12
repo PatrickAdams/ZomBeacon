@@ -75,8 +75,8 @@
         [query whereKey:@"currentGame" equalTo:self.currentUser[@"currentGame"]];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
-            if (!error) {
-                
+            if (!error)
+            {
                 // First remove all annotations to refresh the status of them
                 UserAnnotations *newAnnotation;
                 [self.mapView removeAnnotations:self.mapView.annotations];

@@ -14,7 +14,6 @@
 
 @interface MainMenuViewController : UIViewController <CLLocationManagerDelegate>
 
-
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) PFGeoPoint *point;
 @property (nonatomic, strong) NSTimer *locationTimer;
