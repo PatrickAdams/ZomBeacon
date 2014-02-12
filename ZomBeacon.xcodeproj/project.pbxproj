@@ -29,6 +29,7 @@
 		E751E4911858BF15004E8874 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4901858BF15004E8874 /* main.m */; };
 		E751E4951858BF15004E8874 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4941858BF15004E8874 /* AppDelegate.m */; };
 		E751E4981858BF15004E8874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E751E4961858BF15004E8874 /* Main.storyboard */; };
+		E76AD8181885A1A0007C014C /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E76AD8121885A1A0007C014C /* libTestFlight.a */; };
 		E76AD81C1885A1F1007C014C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E76AD81B1885A1F1007C014C /* libz.dylib */; };
 		E76AD81F1885AA26007C014C /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD81D1885AA26007C014C /* blue.png */; };
 		E76AD8201885AA26007C014C /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD81E1885AA26007C014C /* red.png */; };
@@ -116,6 +117,10 @@
 		E751E4941858BF15004E8874 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E751E4971858BF15004E8874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E751E4A31858BF15004E8874 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E76AD8121885A1A0007C014C /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		E76AD8151885A1A0007C014C /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		E76AD8161885A1A0007C014C /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		E76AD8171885A1A0007C014C /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		E76AD81B1885A1F1007C014C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E76AD81D1885AA26007C014C /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
 		E76AD81E1885AA26007C014C /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
@@ -192,6 +197,7 @@
 				E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */,
 				E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */,
 				E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */,
+				E76AD8181885A1A0007C014C /* libTestFlight.a in Frameworks */,
 				E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */,
 				E7206A1718980AEA0049D9CC /* Parse.framework in Frameworks */,
 				E7206A1818980AEA0049D9CC /* ProximityKit.framework in Frameworks */,
@@ -293,6 +299,7 @@
 				E7EFF88918A12CF400DEE521 /* GameKit.framework */,
 				E7206A1518980AEA0049D9CC /* Parse.framework */,
 				E7206A1618980AEA0049D9CC /* ProximityKit.framework */,
+				E76AD8111885A1A0007C014C /* TestFlightSDK2 */,
 				E7496A68187DF40F003E4B8A /* MapKit.framework */,
 				E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */,
 				E78107E31860CB4E00B19DB9 /* Security.framework */,
@@ -342,6 +349,18 @@
 				E751E4921858BF15004E8874 /* ZomBeacon-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E76AD8111885A1A0007C014C /* TestFlightSDK2 */ = {
+			isa = PBXGroup;
+			children = (
+				E76AD8121885A1A0007C014C /* libTestFlight.a */,
+				E76AD8151885A1A0007C014C /* TestFlight+AsyncLogging.h */,
+				E76AD8161885A1A0007C014C /* TestFlight+ManualSessions.h */,
+				E76AD8171885A1A0007C014C /* TestFlight.h */,
+			);
+			name = TestFlightSDK2;
+			path = ZomBeacon/TestFlightSDK2;
 			sourceTree = "<group>";
 		};
 		E7F7999B18A576BF007C1477 /* Public Game */ = {
