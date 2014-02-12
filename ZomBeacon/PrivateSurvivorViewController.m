@@ -14,38 +14,44 @@
 
 @implementation PrivateSurvivorViewController
 {
-    BOOL isZombie;
     int minutes, seconds;
     int secondsLeft;
 }
 
 - (void)viewDidLoad
 {
-    self.mapView.delegate = self;
     [super viewDidLoad];
-    [self queryNearbyUsers];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    currentUser = [PFUser currentUser];
-    [currentUser setObject:@"survivor" forKey:@"privateStatus"];
-    [currentUser saveInBackground];
     
-    [self queryNearbyUsers];
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    self.currentUser = [PFUser currentUser];
     
-    //MapView stuff
-    [self.locationManager startUpdatingLocation];
-    [self zoomToUserLocation:self.mapView.userLocation];
+    self.mapView.delegate = self;
+    [self queryNearbyUsers];
     
     //Beacon stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    [self initRegion];
-    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
     
-    isZombie = NO;
+    //Grabs UUID from game so that the iBeacon is unique to the game
+    PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+    [uuidQuery whereKey:@"objectId" equalTo:self.currentUser[@"currentGame"]];
+    PFObject *currentGame = [uuidQuery getFirstObject];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.privateRegion"];
+    [self.locationManager startMonitoringForRegion:self.beaconRegion];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    //This code will be phased out with "Assign Teams" method
+    [self.currentUser setObject:@"survivor" forKey:@"privateStatus"];
+    [self.currentUser saveInBackground];
+    
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    
+    //MapView stuff
+    [self.locationManager startUpdatingLocation];
+    [self zoomToUserLocation:self.mapView.userLocation];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -54,15 +60,15 @@
 - (void)queryNearbyUsers
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [currentUser setObject:point forKey:@"location"];
-    [currentUser saveInBackground];
+    [self.currentUser setObject:point forKey:@"location"];
+    [self.currentUser saveInBackground];
 
-    if (currentUser[@"location"])
+    if (self.currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = currentUser[@"location"];
+        PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
         PFQuery *query = [PFUser query];
-        [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.5];
+        [query whereKey:@"currentGame" equalTo:self.currentUser[@"currentGame"]];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 
@@ -104,7 +110,6 @@
     if ([annotation isKindOfClass:[UserAnnotations class]])
     {
         UserAnnotations *userLocations = (UserAnnotations *)annotation;
-        
         MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"UserLocations"];
         
         if (annotationView == nil)
@@ -154,72 +159,23 @@
 
 #pragma mark - Beacon Management
 
-//Beacon ranging setup
-- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
-{
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-}
-
-//Initializes the beacon region
-- (void)initRegion
-{
-    //Grabs UUID from game so that the iBeacon is unique to the game
-    PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
-    [uuidQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
-    PFObject *currentGame = [uuidQuery getFirstObject];
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.privateRegion"];
-    [self.locationManager startMonitoringForRegion:self.beaconRegion];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
-{
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
-{
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-}
-
-- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
-{
-    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
-    {
-        [self.peripheralManager startAdvertising:self.beaconPeripheralData];
-    }
-    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
-    {
-        [self.peripheralManager stopAdvertising];
-    }
-}
-
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon *beacon = [[CLBeacon alloc] init];
-    beacon = [beacons lastObject];
+    CLBeacon *beacon = [beacons lastObject];
     
-    if (beacon.proximity == CLProximityNear) //Change to (beacon.proximity == CLProximityFar) whenever testing outside
-    {
-//        self.warningText.hidden = NO;
-//        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-//        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-    }
-    
-    if (beacon.proximity == CLProximityImmediate && isZombie == NO)
+    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"You've been bitten by a zombie, go find some survivors!";
+        notification.alertBody = @"PRIVATE GAME: You've been bitten by a zombie, you are now infected. Go find some Survivors!";
         notification.soundName = UILocalNotificationDefaultSoundName;
-        
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
         PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
         [self.navigationController pushViewController:vc animated:YES];
-        isZombie = YES;
+        
+        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     }
 }
 

@@ -84,9 +84,24 @@
     PFQuery *query = [PFUser query];
     [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *players, NSError *error) {
-        for (int i = 0; i < players.count; i++) {
-            PFUser *player = players[i];
-            [player setObject:@"zombie" forKey:@"privateStatus"];
+        NSMutableArray *playersArray = [players mutableCopy];
+        NSUInteger totalPlayers = playersArray.count;
+        NSUInteger totalZombies = totalPlayers * 0.2;
+        
+        for (int i = 0; i < playersArray.count; i++)
+        {
+            PFObject *player = players[i];
+            
+            if (i < totalZombies)
+            {
+                [player setObject:@"zombie" forKey:@"privateStatus"];
+            }
+            else
+            {
+                [player setObject:@"survivor" forKey:@"privateStatus"];
+            }
+            
+            [player save];
         }
     }];
 }

@@ -30,7 +30,6 @@
     self.currentUser = [PFUser currentUser];
     [self.locationManager startUpdatingLocation];
     
-    [self queryNearbyUsers];
     [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Zoom to user location once

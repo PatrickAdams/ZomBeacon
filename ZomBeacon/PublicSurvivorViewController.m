@@ -53,7 +53,7 @@
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
     [self.currentUser setObject:point forKey:@"location"];
-    [self.currentUser save];
+    [self.currentUser saveInBackground];
     
     if (self.currentUser[@"location"])
     {

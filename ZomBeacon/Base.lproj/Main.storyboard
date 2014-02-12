@@ -52,7 +52,19 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="centerMapOnLocation" destination="WSR-Ds-yNc" eventType="touchUpInside" id="6vX-ae-7V3"/>
+                                    <action selector="centerMapOnLocation" destination="WSR-Ds-yNc" eventType="touchUpInside" id="6bR-W4-v4T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pnf-jb-R9t">
+                                <rect key="frame" x="105" y="344" width="110" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <state key="normal" title="BITE">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.15787433079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startInfecting:" destination="WSR-Ds-yNc" eventType="touchUpInside" id="8DV-3d-oMl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -106,7 +118,6 @@
                                 </state>
                                 <connections>
                                     <action selector="centerMapOnLocation" destination="it5-Tg-ZWA" eventType="touchUpInside" id="9vR-j4-nOV"/>
-                                    <action selector="centerMapOnLocation" destination="WSR-Ds-yNc" eventType="touchUpInside" id="ioP-1T-LJP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wjv-t7-BxU">
@@ -119,7 +130,6 @@
                                 </state>
                                 <connections>
                                     <action selector="trackMyOrientation" destination="it5-Tg-ZWA" eventType="touchUpInside" id="IqD-mv-tKF"/>
-                                    <action selector="trackMyOrientation" destination="WSR-Ds-yNc" eventType="touchUpInside" id="qAq-yu-8OP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vK1-Bk-qtU">
@@ -150,7 +160,6 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="infectButton" destination="vK1-Bk-qtU" id="Urd-hm-1SQ"/>
                         <outlet property="mapView" destination="6wc-Qr-BpL" id="lVi-I7-56f"/>
                     </connections>
                 </viewController>
@@ -811,7 +820,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startCounter" destination="5w5-oG-fwH" eventType="touchUpInside" id="gHs-PN-wER"/>
-                                    <action selector="startCounter" destination="SOP-YH-psb" eventType="touchUpInside" id="jNE-P5-swn"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU ARE A SURVIVOR" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="obf-o5-UCI">
@@ -838,7 +846,6 @@
                                 </state>
                                 <connections>
                                     <action selector="trackMyOrientation" destination="5w5-oG-fwH" eventType="touchUpInside" id="Fy5-wO-7i9"/>
-                                    <action selector="trackMyOrientation" destination="SOP-YH-psb" eventType="touchUpInside" id="lEg-pL-jJi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gQ2-JW-XQH">
@@ -851,7 +858,6 @@
                                 </state>
                                 <connections>
                                     <action selector="centerMapOnLocation" destination="5w5-oG-fwH" eventType="touchUpInside" id="KZ3-Q7-6Rs"/>
-                                    <action selector="centerMapOnLocation" destination="SOP-YH-psb" eventType="touchUpInside" id="ik2-a5-MLm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1770,6 +1776,9 @@
                                 <state key="normal" title="Assign Teams">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="assignTeams" destination="tVY-1o-Iu1" eventType="touchUpInside" id="pSk-3j-uC4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1794,7 +1803,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4b-DC-BkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2519" y="-499"/>
+            <point key="canvasLocation" x="2137" y="-500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7o5-wC-7dx">
@@ -1836,6 +1845,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kx5-jM-uCj"/>
-        <segue reference="xhs-QU-DpM"/>
+        <segue reference="2tQ-oh-ysy"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,7 +20,6 @@
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
-@property (nonatomic, weak) IBOutlet UIButton *infectButton;
 @property (nonatomic, strong) PFUser *currentUser;
 
 - (IBAction)trackMyOrientation;

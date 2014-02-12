@@ -9,27 +9,24 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-#import <AudioToolbox/AudioServices.h>
 #import <MapKit/MapKit.h>
 #import "PrivateZombieViewController.h"
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
 #import "ProfileViewController.h"
 
-@interface PrivateSurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
+@interface PrivateSurvivorViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
     NSTimer *timer;
-    PFUser *currentUser;
 }
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSDictionary *beaconPeripheralData;
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, weak) IBOutlet UILabel *warningText;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) PFUser *currentUser;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;

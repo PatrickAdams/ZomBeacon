@@ -14,17 +14,16 @@
 #import "UserAnnotations.h"
 
 @interface PrivateZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
-{
-    PFUser *currentUser;
-}
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) PFUser *currentUser;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
+- (IBAction)startInfecting:(id)sender;
 
 @end

@@ -16,27 +16,29 @@
 
 - (void)viewDidLoad
 {
-    self.mapView.delegate = self;
     [super viewDidLoad];
+    
+    self.mapView.delegate = self;
     [self queryNearbyUsers];
+    
+    self.currentUser = [PFUser currentUser];
+    
+    //Grabs UUID from game so that the iBeacon is unique to the game
+    PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+    [uuidQuery whereKey:@"objectId" equalTo:self.currentUser[@"currentGame"]];
+    PFObject *currentGame = [uuidQuery getFirstObject];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.privateRegion"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    currentUser = [PFUser currentUser];
-    [currentUser setObject:@"zombie" forKey:@"privateStatus"];
-    [currentUser saveInBackground];
+    [self.currentUser setObject:@"zombie" forKey:@"privateStatus"];
+    [self.currentUser saveInBackground];
     
     [self.locationManager startUpdatingLocation];
     
-    [self queryNearbyUsers];
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
-    
-    //Beacon stuff
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    [self initBeacon];
-    [self transmitBeacon];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
@@ -48,15 +50,15 @@
 - (void)queryNearbyUsers
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [currentUser setObject:point forKey:@"location"];
-    [currentUser saveInBackground];
+    [self.currentUser setObject:point forKey:@"location"];
+    [self.currentUser saveInBackground];
     
-    if (currentUser[@"location"])
+    if (self.currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = currentUser[@"location"];
+        PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
         PFQuery *query = [PFUser query];
-        [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
+        [query whereKey:@"currentGame" equalTo:self.currentUser[@"currentGame"]];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error) {
                 
@@ -98,7 +100,6 @@
     if ([annotation isKindOfClass:[UserAnnotations class]])
     {
         UserAnnotations *userLocations = (UserAnnotations *)annotation;
-        
         MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"UserLocations"];
         
         if (annotationView == nil)
@@ -146,22 +147,17 @@
 
 #pragma mark - Beacon Management
 
-//Method that initializes the device as a beacon and gives it a proximity UUID
-- (void)initBeacon
-{
-    //Grabs UUID from game so that the iBeacon is unique to the game
-    PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
-    [uuidQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
-    PFObject *currentGame = [uuidQuery getFirstObject];
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.privateRegion"];
-}
-
 //Method that starts the transmission of the beacon
-- (void)transmitBeacon
+- (IBAction)startInfecting:(id)sender
 {
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
+}
+
+- (void)stopInfecting
+{
+    [self.peripheralManager stopAdvertising];
 }
 
 //Method that tracks the beacon activity
@@ -184,11 +180,4 @@
     [super didReceiveMemoryWarning];
 }
 
-//Tells the peripheral manager to stop looking for beacons when the view dissapears
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.peripheralManager stopAdvertising];
-}
-
 @end
-
