@@ -134,7 +134,7 @@
                                     <color key="titleColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startInfecting" destination="it5-Tg-ZWA" eventType="touchUpInside" id="62s-Aj-iQe"/>
+                                    <action selector="startInfecting:" destination="it5-Tg-ZWA" eventType="touchUpInside" id="5w7-lR-xAD"/>
                                 </connections>
                             </button>
                         </subviews>

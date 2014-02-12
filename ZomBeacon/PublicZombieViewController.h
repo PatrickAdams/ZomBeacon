@@ -25,6 +25,6 @@
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
-- (IBAction)startInfecting;
+- (IBAction)startInfecting:(id)sender;
 
 @end

@@ -14,7 +14,6 @@
 
 @implementation PublicSurvivorViewController
 {
-    BOOL isZombie;
     int minutes, seconds;
     int secondsLeft;
 }
@@ -30,8 +29,8 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.publicRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];

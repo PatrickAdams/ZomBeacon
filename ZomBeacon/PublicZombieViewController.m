@@ -16,15 +16,13 @@
 
 - (void)viewDidLoad
 {
-    self.mapView.delegate = self;
     [super viewDidLoad];
+    
+    self.mapView.delegate = self;
     [self queryNearbyUsers];
     
-//    [self.infectButton addTarget:self action:@selector(startInfecting) forControlEvents:UIControlEventTouchDown];
-//    [self.infectButton addTarget:self action:@selector(stopInfecting) forControlEvents:UIControlEventTouchUpInside];
-    
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"12345678-1234-1234-1234-123456789012"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:2 minor:1 identifier:@"com.zombeacon.publicRegion"];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.publicRegion"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -143,18 +141,18 @@
 #pragma mark - Beacon Management
 
 //Method that starts the transmission of the beacon
-- (IBAction)startInfecting
+- (IBAction)startInfecting:(id)sender
 {
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-    [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
+//    [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
 }
 
-- (void)stopInfecting
-{
-    [self.peripheralManager stopAdvertising];
-    NSLog(@"stopped advertising");
-}
+//- (void)stopInfecting
+//{
+//    [self.peripheralManager stopAdvertising];
+//    NSLog(@"stopped advertising");
+//}
 
 //Method that tracks the beacon activity
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
