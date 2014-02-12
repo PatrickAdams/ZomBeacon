@@ -44,7 +44,7 @@
     {
         int randomNumber = [self getRandomNumberBetween:1 to:100];
 
-        if (randomNumber < 1)
+        if (randomNumber < 20)
         {
             PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
             [self.navigationController pushViewController:vc animated:YES];
