@@ -21,6 +21,10 @@
     self.mapView.delegate = self;
     [self queryNearbyUsers];
     
+    //MapView Stuff
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
     self.currentUser = [PFUser currentUser];
     
     //Grabs UUID from game so that the iBeacon is unique to the game

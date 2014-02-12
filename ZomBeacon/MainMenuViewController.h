@@ -12,10 +12,13 @@
 #import "MBProgressHUD.h"
 #import "LoginViewController.h"
 
-@interface MainMenuViewController : UIViewController
+@interface MainMenuViewController : UIViewController <CLLocationManagerDelegate>
 
 
 @property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, strong) PFGeoPoint *point;
+@property (nonatomic, strong) NSTimer *locationTimer;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 - (IBAction)startPublicGame;
 

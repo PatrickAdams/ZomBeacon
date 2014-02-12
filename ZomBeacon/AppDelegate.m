@@ -40,10 +40,12 @@
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     [self centralManagerDidUpdateState:self.centralManager];
     
+    self.currentUser = [PFUser currentUser];
+    
     return YES;
 }
 
-#pragma mark - Facebook setup
+#pragma mark - Facebook Setup
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
@@ -81,8 +83,65 @@
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
+#pragma mark - Application State Methods
+
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
+    
+    [self saveLocation];
+    
+    //Will save user's location every 5 minutes when enters background
+    self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:300.0f target:self selector:@selector(saveLocation) userInfo:nil repeats:YES];
+}
+
+- (void)saveLocation
+{
+    if (self.currentUser)
+    {
+        [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+            [self.currentUser setObject:geoPoint forKey:@"location"];
+            [self.currentUser saveInBackground];
+        }];
+    }
+    else
+    {
+        return;
+    }
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    [self.locationTimer invalidate];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    //Deletes users location whenever the app is terminated
+    if (self.currentUser)
+    {
+        [self.currentUser setObject:[NSNull null] forKey:@"location"];
+        [self.currentUser save];
+    }
+    else
+    {
+        return;
+    }
+}
+
+#pragma mark - Bluetooth Check
+
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
+    //Shows blue tooth warning view controller if bluetooth is not enabled
     if (central.state == CBCentralManagerStatePoweredOff)
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -93,27 +152,6 @@
     if (central.state == CBCentralManagerStatePoweredOn) {
         [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
     }
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end

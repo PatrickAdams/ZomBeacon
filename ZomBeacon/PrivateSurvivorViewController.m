@@ -27,7 +27,7 @@
     self.mapView.delegate = self;
     [self queryNearbyUsers];
     
-    //Beacon stuff
+    //Beacon & MapView stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     

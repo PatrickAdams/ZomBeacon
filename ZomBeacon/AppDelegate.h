@@ -13,10 +13,14 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "PublicZombieViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, PKManagerDelegate, CBCentralManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PKManagerDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property PKManager *proximityKitManager;
 @property (nonatomic, strong) CBCentralManager *centralManager;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) PFGeoPoint *point;
+@property (nonatomic, strong) NSTimer *locationTimer;
+@property (nonatomic, strong) PFUser *currentUser;
 
 @end

@@ -18,12 +18,34 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    
+    self.currentUser = [PFUser currentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     self.navigationItem.hidesBackButton = YES;
-    self.currentUser = [PFUser currentUser];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
+    
+    [self saveLocation];
+    
+    self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(saveLocation) userInfo:nil repeats:YES];
+}
+
+- (void)saveLocation
+{
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        [self.currentUser setObject:geoPoint forKey:@"location"];
+        [self.currentUser saveInBackground];
+    }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.locationTimer invalidate];
 }
 
 - (IBAction)startPublicGame
