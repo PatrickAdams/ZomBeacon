@@ -112,7 +112,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if (randomNumber < 25)
+    if (randomNumber < 20)
     {
         PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
         [self.navigationController pushViewController:vc animated:YES];

@@ -23,7 +23,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated
-{    
+{
     self.navigationItem.hidesBackButton = YES;
     
     self.locationManager = [[CLLocationManager alloc] init];
