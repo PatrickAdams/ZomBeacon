@@ -17,7 +17,6 @@
 		E73F95831890633200CC7C14 /* GameDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95821890633200CC7C14 /* GameDetailsViewController.m */; };
 		E7446995185B8D35007F6817 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446994185B8D35007F6817 /* app_icon.png */; };
 		E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446998185B8ED9007F6817 /* blank_splash_ipad.png */; };
-		E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E74469A6185BB2A8007F6817 /* Default-568h@2x.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */; };
 		E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0E188996C30080D5A3 /* ProfileViewController.m */; };
@@ -32,7 +31,6 @@
 		E76AD8201885AA26007C014C /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD81E1885AA26007C014C /* red.png */; };
 		E76AD8231885AA89007C014C /* blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8211885AA89007C014C /* blue@2x.png */; };
 		E76AD8241885AA89007C014C /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76AD8221885AA89007C014C /* red@2x.png */; };
-		E773DD6118A1755600367EAD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E773DD6018A1755600367EAD /* FacebookSDK.framework */; };
 		E773DD6818A2A6B100367EAD /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E773DD6718A2A6B100367EAD /* EditProfileViewController.m */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
@@ -57,9 +55,11 @@
 		E7CC9865188DABDB005C39A6 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E7CC9864188DABDB005C39A6 /* user.png */; };
 		E7CDB6C4189C01C8001D70EF /* PublicLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */; };
 		E7D81E2918AD68E8008BBC8F /* hole.png in Resources */ = {isa = PBXBuildFile; fileRef = E7D81E2818AD68E8008BBC8F /* hole.png */; };
+		E7D81E2B18AD76BD008BBC8F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D81E2A18AD76BD008BBC8F /* FacebookSDK.framework */; };
+		E7D81E2D18AD772B008BBC8F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */; };
+		E7D81E2F18AD7736008BBC8F /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D81E2E18AD7736008BBC8F /* libEstimoteSDK.a */; };
 		E7DBB0D418ABF5B000CE4198 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D318ABF5B000CE4198 /* blank_splash.png */; };
 		E7DBB0D618ABF5FF00CE4198 /* blank_splash0.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */; };
-		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
 		E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */; };
 		E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B78186370F500C5A45D /* backgroundBig@2x.png */; };
@@ -98,7 +98,6 @@
 		E73F95821890633200CC7C14 /* GameDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailsViewController.m; sourceTree = "<group>"; };
 		E7446994185B8D35007F6817 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
 		E7446998185B8ED9007F6817 /* blank_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash_ipad.png; sourceTree = "<group>"; };
-		E74469A6185BB2A8007F6817 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E74E2D0918898FC60080D5A3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 		E76AD81E1885AA26007C014C /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		E76AD8211885AA89007C014C /* blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue@2x.png"; sourceTree = "<group>"; };
 		E76AD8221885AA89007C014C /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red@2x.png"; sourceTree = "<group>"; };
-		E773DD6018A1755600367EAD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		E773DD6618A2A6B100367EAD /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		E773DD6718A2A6B100367EAD /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -152,9 +150,11 @@
 		E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicLobbyViewController.h; sourceTree = "<group>"; };
 		E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicLobbyViewController.m; sourceTree = "<group>"; };
 		E7D81E2818AD68E8008BBC8F /* hole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hole.png; sourceTree = "<group>"; };
+		E7D81E2A18AD76BD008BBC8F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ZomBeacon/FacebookSDK.framework; sourceTree = "<group>"; };
+		E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "ZomBeacon/Default-568h@2x.png"; sourceTree = "<group>"; };
+		E7D81E2E18AD7736008BBC8F /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = ZomBeacon/EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		E7DBB0D318ABF5B000CE4198 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
 		E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash0.png; sourceTree = "<group>"; };
-		E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
 		E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundSmall@2x.png"; sourceTree = "<group>"; };
 		E7E01B78186370F500C5A45D /* backgroundBig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundBig@2x.png"; sourceTree = "<group>"; };
@@ -190,8 +190,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */,
+				E7D81E2B18AD76BD008BBC8F /* FacebookSDK.framework in Frameworks */,
 				E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */,
-				E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */,
 				E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */,
 				E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */,
 				E7206A1718980AEA0049D9CC /* Parse.framework in Frameworks */,
@@ -202,12 +202,12 @@
 				E78107DC1860CB1800B19DB9 /* CFNetwork.framework in Frameworks */,
 				E78107DA1860CB1300B19DB9 /* AudioToolbox.framework in Frameworks */,
 				E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */,
+				E7D81E2F18AD7736008BBC8F /* libEstimoteSDK.a in Frameworks */,
 				E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */,
 				E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */,
 				E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */,
 				E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */,
 				E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */,
-				E773DD6118A1755600367EAD /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +273,7 @@
 		E751E4781858BF15004E8874 = {
 			isa = PBXGroup;
 			children = (
-				E74469A6185BB2A8007F6817 /* Default-568h@2x.png */,
+				E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */,
 				E751E48A1858BF15004E8874 /* ZomBeacon */,
 				E751E4831858BF15004E8874 /* Frameworks */,
 				E751E4821858BF15004E8874 /* Products */,
@@ -291,7 +291,7 @@
 		E751E4831858BF15004E8874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E773DD6018A1755600367EAD /* FacebookSDK.framework */,
+				E7D81E2A18AD76BD008BBC8F /* FacebookSDK.framework */,
 				E7EFF89718A136E900DEE521 /* Social.framework */,
 				E7EFF88918A12CF400DEE521 /* GameKit.framework */,
 				E7206A1518980AEA0049D9CC /* Parse.framework */,
@@ -310,7 +310,7 @@
 				E751E4881858BF15004E8874 /* UIKit.framework */,
 				E751E4A31858BF15004E8874 /* XCTest.framework */,
 				E78107DD1860CB3300B19DB9 /* libz.1.1.3.dylib */,
-				E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */,
+				E7D81E2E18AD7736008BBC8F /* libEstimoteSDK.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -499,11 +499,11 @@
 				E7BD36F5189ACF6E00A2B308 /* locate.png in Resources */,
 				E7206A1C18980B7E0049D9CC /* ProximityKit.plist in Resources */,
 				E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */,
+				E7D81E2D18AD772B008BBC8F /* Default-568h@2x.png in Resources */,
 				E7EFF88E18A1316D00DEE521 /* email@2x.png in Resources */,
 				E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */,
 				E7EFF89418A1320300DEE521 /* fb.png in Resources */,
 				E7EFF88C18A1315E00DEE521 /* email.png in Resources */,
-				E74469A7185BB2A8007F6817 /* Default-568h@2x.png in Resources */,
 				E7DBB0D618ABF5FF00CE4198 /* blank_splash0.png in Resources */,
 				E76AD81F1885AA26007C014C /* blue.png in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
@@ -666,14 +666,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/EstimoteSDK/Headers",
+					"$(SRCROOT)/ZomBeacon/EstimoteSDK/Headers",
 				);
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/EstimoteSDK,
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/TestFlightSDK2,
+					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/EstimoteSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -697,14 +696,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/EstimoteSDK/Headers",
+					"$(SRCROOT)/ZomBeacon/EstimoteSDK/Headers",
 				);
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/EstimoteSDK,
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/TestFlightSDK2,
+					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/EstimoteSDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
