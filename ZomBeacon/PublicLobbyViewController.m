@@ -24,6 +24,9 @@
 {
     [self getPlayersInCurrentGame];
     [self.tableView reloadData];
+    
+    NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }
 
 //Method to get players in game and add them to an array

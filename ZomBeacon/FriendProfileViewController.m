@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad
 {
+    [self refreshImage];
     [super viewDidLoad];
     self.realName.text = self.realNameString;
     self.userName.text = self.userNameString;

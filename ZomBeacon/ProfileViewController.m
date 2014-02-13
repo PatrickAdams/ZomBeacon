@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     currentUser = [PFUser currentUser];
+    [self refreshImage];
     [super viewDidLoad];
     
     [self setProfileValues];
@@ -26,6 +27,9 @@
 {
     [self refreshImage];
     [self setProfileValues];
+    
+    NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }
 
 - (void)setProfileValues

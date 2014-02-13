@@ -58,6 +58,7 @@
 		E7BD36F7189ACF7200A2B308 /* locate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7BD36F6189ACF7200A2B308 /* locate@2x.png */; };
 		E7CC9865188DABDB005C39A6 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E7CC9864188DABDB005C39A6 /* user.png */; };
 		E7CDB6C4189C01C8001D70EF /* PublicLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */; };
+		E7D81E2918AD68E8008BBC8F /* hole.png in Resources */ = {isa = PBXBuildFile; fileRef = E7D81E2818AD68E8008BBC8F /* hole.png */; };
 		E7DBB0D418ABF5B000CE4198 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D318ABF5B000CE4198 /* blank_splash.png */; };
 		E7DBB0D618ABF5FF00CE4198 /* blank_splash0.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */; };
 		E7E01B7318636A9300C5A45D /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */; };
@@ -157,6 +158,7 @@
 		E7CC9864188DABDB005C39A6 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		E7CDB6C2189C01C7001D70EF /* PublicLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicLobbyViewController.h; sourceTree = "<group>"; };
 		E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicLobbyViewController.m; sourceTree = "<group>"; };
+		E7D81E2818AD68E8008BBC8F /* hole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hole.png; sourceTree = "<group>"; };
 		E7DBB0D318ABF5B000CE4198 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
 		E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash0.png; sourceTree = "<group>"; };
 		E7E01B7218636A9300C5A45D /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E7D81E2818AD68E8008BBC8F /* hole.png */,
 				E7F7998B18A3F3C5007C1477 /* twitter_signin.png */,
 				E7F7998D18A3F402007C1477 /* facebook_signin.png */,
 				E7EFF89518A1320E00DEE521 /* fb@2x.png */,
@@ -531,6 +534,7 @@
 				E7BD36E9189ACD1D00A2B308 /* profile.png in Resources */,
 				E7BD36EB189ACD3F00A2B308 /* profile@2x.png in Resources */,
 				E7EFF89218A131CA00DEE521 /* twitter@2x.png in Resources */,
+				E7D81E2918AD68E8008BBC8F /* hole.png in Resources */,
 				E76AD8201885AA26007C014C /* red.png in Resources */,
 				E7BD36F7189ACF7200A2B308 /* locate@2x.png in Resources */,
 				E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */,
