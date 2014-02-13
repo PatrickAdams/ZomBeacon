@@ -72,14 +72,15 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        [self.tableView reloadData];
+        [self getPlayersInCurrentGame];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
 }
 
-- (IBAction)assignTeams
+- (void)assignTeams
 {
     PFQuery *query = [PFUser query];
     [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
