@@ -204,12 +204,12 @@
     }];
 }
 
-- (NSArray *)getGamesUserHasCreated
+- (NSMutableArray *)getGamesUserHasCreated
 {
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
     [query whereKey:@"hostUser" equalTo:currentUser];
     [query includeKey:@"hostUser"];
-    NSArray *privateGames = [query findObjects];
+    NSMutableArray *privateGames = [[query findObjects] mutableCopy];
     
     return privateGames;
 }
@@ -254,6 +254,27 @@
     vc.gameHostString = hostUser[@"name"];
     vc.gameIdString = game.objectId;
     vc.gameLocationCoord = gameLocationCoords;
+}
+
+//Allowing the deletion of cells
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+//Setting up what happens when you tap delete on a cell
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        PFObject *gameToBeDeleted = [[self getGamesUserHasCreated] objectAtIndex:indexPath.row];
+        [gameToBeDeleted deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                [self getGamesUserHasCreated];
+                [self.tableView reloadData];
+            }
+        }];
+    }
 }
 
 //Method that logs the user out with the Parse framework

@@ -137,7 +137,7 @@
     
     MKCoordinateRegion region;
     region.center = userLocation.location.coordinate;
-    region.span = MKCoordinateSpanMake(0.002, 0.002); //Zoom distance
+    region.span = MKCoordinateSpanMake(0.005, 0.005); //Zoom distance
     region = [self.mapView regionThatFits:region];
     [self.mapView setRegion:region animated:NO];
 }

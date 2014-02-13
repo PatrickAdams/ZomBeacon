@@ -89,10 +89,16 @@
              {
                  if (!error)
                  {
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         [MBProgressHUD hideHUDForView:self.view animated:YES];
+                     });
                      NSLog(@"Uh oh. The user cancelled the Facebook login.");
                  }
                  else
                  {
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         [MBProgressHUD hideHUDForView:self.view animated:YES];
+                     });
                      NSLog(@"Uh oh. An error occurred: %@", error);
                  }
              }
@@ -165,7 +171,11 @@
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         
         [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
-            if (!user) {
+            if (!user)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                });
                 NSLog(@"Uh oh. The user cancelled the Twitter login.");
             }
             else if(user.isNew)
@@ -189,7 +199,7 @@
                 NSURLResponse *response = nil;
                 NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
                 
-                if ( error == nil)
+                if (error == nil)
                 {
                     NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
                     

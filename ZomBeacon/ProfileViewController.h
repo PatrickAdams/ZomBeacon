@@ -27,7 +27,7 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *gamesArray;
 
-- (NSArray *)getGamesUserHasCreated;
+- (NSMutableArray *)getGamesUserHasCreated;
 - (IBAction)cameraButtonTapped;
 - (void)uploadImage:(NSData *)imageData;
 - (void)refreshImage;

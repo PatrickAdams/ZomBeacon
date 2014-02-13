@@ -48,30 +48,39 @@
 //Method for creating a new private game and saving it to Parse
 - (IBAction)createNewGame
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CreatedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"createdview"];
-    
     PFUser *currentUser = [PFUser currentUser];
     PFObject *privateGame = [PFObject objectWithClassName:@"PrivateGames"];
     PFGeoPoint *gameLocation = [PFGeoPoint geoPointWithLatitude:self.droppedPin.coordinate.latitude longitude:self.droppedPin.coordinate.longitude];
     
-    privateGame[@"gameName"] = self.gameNameTextField.text;
-    privateGame[@"hostUser"] = currentUser;
-    privateGame[@"dateTime"] = self.dateTimeTextField.text;
-    privateGame[@"location"] = gameLocation;
-    privateGame[@"uuid"] = [[NSUUID UUID] UUIDString];
-    [privateGame save];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CreatedViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"createdview"];
     
-    vc.gameNameString = privateGame[@"gameName"];
-    vc.gameHostString = currentUser[@"name"];
-    vc.gameDateString = privateGame[@"dateTime"];
-    
-    CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
-    
-    vc.gameLocationCoord = gameLocationCoords;
-    vc.gameIdString = privateGame.objectId;
-    
-    [self.navigationController pushViewController:vc animated:YES];
+    if (![self.gameNameTextField.text isEqual:@""] && ![self.dateTimeTextField.text isEqual:@""] && gameLocation.latitude != 0)
+    {
+        privateGame[@"gameName"] = self.gameNameTextField.text;
+        privateGame[@"hostUser"] = currentUser;
+        privateGame[@"dateTime"] = self.dateTimeTextField.text;
+        privateGame[@"location"] = gameLocation;
+        privateGame[@"uuid"] = [[NSUUID UUID] UUIDString];
+        [privateGame save];
+        
+        vc.gameNameString = privateGame[@"gameName"];
+        vc.gameHostString = currentUser[@"name"];
+        vc.gameDateString = privateGame[@"dateTime"];
+        
+        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+        
+        vc.gameLocationCoord = gameLocationCoords;
+        vc.gameIdString = privateGame.objectId;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"All fields are required!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 #pragma mark - UIDatePicker Methods
@@ -93,6 +102,7 @@
     [self.datePicker setDate:[NSDate date]];
     [self.datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     self.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    self.datePicker.minuteInterval = 5;
     [self.dateTimeTextField setInputView:self.datePicker];
     self.dateTimeTextField.inputAccessoryView = keyboardDoneButtonView;
     [self.datePicker removeFromSuperview];

@@ -40,8 +40,6 @@
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     [self centralManagerDidUpdateState:self.centralManager];
     
-    self.currentUser = [PFUser currentUser];
-    
     return YES;
 }
 
@@ -105,11 +103,11 @@
 
 - (void)saveLocation
 {
-    if (self.currentUser)
+    if ([PFUser currentUser])
     {
         [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-            [self.currentUser setObject:geoPoint forKey:@"location"];
-            [self.currentUser saveInBackground];
+            [[PFUser currentUser] setObject:geoPoint forKey:@"location"];
+            [[PFUser currentUser] saveInBackground];
         }];
     }
     else
@@ -121,15 +119,20 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [self.locationTimer invalidate];
+    
+    if ([PFUser currentUser]) {
+        [[PFUser currentUser] refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        }];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     //Deletes users location whenever the app is terminated
-    if (self.currentUser)
+    if ([PFUser currentUser])
     {
-        [self.currentUser setObject:[NSNull null] forKey:@"location"];
-        [self.currentUser save];
+        [[PFUser currentUser] setObject:[NSNull null] forKey:@"location"];
+        [[PFUser currentUser] save];
     }
     else
     {
