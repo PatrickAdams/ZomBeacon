@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "TestFlight.h"
 #import <ProximityKit/ProximityKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "PublicZombieViewController.h"
