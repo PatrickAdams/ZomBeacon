@@ -135,7 +135,7 @@
     if (!file)
     {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             // Save PFFile
             [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error)
@@ -164,7 +164,7 @@
     else
     {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error)
                 {

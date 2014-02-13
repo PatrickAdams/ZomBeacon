@@ -41,7 +41,7 @@
 -(IBAction)logInUser
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         NSString *username = self.usernameField.text;
         NSString *password = self.passwordField.text;
         
@@ -78,7 +78,7 @@
 - (IBAction)logInWithFacebook
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         // The permissions requested from the user
         NSArray *permissionsArray = @[ @"user_about_me", @"email"];
         
@@ -168,7 +168,7 @@
 -(IBAction)loginWithTwitter
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         
         [PFTwitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
             if (!user)

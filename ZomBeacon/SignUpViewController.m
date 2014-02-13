@@ -36,7 +36,7 @@
 {
     if ([self fieldsAreValid]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             
             PFUser *user = [PFUser user];
             user.username = self.usernameField.text;
