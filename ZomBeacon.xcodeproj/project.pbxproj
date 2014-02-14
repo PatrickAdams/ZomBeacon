@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06D439D3DC764BD78226CB6B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30442EAA2AD14D65BA857E33 /* libPods.a */; };
 		E7206A1718980AEA0049D9CC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7206A1518980AEA0049D9CC /* Parse.framework */; };
 		E7206A1C18980B7E0049D9CC /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7206A1B18980B7E0049D9CC /* ProximityKit.plist */; };
 		E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95761890430900CC7C14 /* MainMenuViewController.m */; };
@@ -15,7 +16,6 @@
 		E73F95801890631800CC7C14 /* FindGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F957F1890631800CC7C14 /* FindGameViewController.m */; };
 		E73F95831890633200CC7C14 /* GameDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95821890633200CC7C14 /* GameDetailsViewController.m */; };
 		E7446995185B8D35007F6817 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446994185B8D35007F6817 /* app_icon.png */; };
-		E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E7446998185B8ED9007F6817 /* blank_splash_ipad.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E74E2D0B18898FC60080D5A3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */; };
 		E74E2D0F188996C30080D5A3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74E2D0E188996C30080D5A3 /* ProfileViewController.m */; };
@@ -59,8 +59,6 @@
 		E7DBB0D418ABF5B000CE4198 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D318ABF5B000CE4198 /* blank_splash.png */; };
 		E7DBB0D618ABF5FF00CE4198 /* blank_splash0.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */; };
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
-		E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */; };
-		E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B78186370F500C5A45D /* backgroundBig@2x.png */; };
 		E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF88918A12CF400DEE521 /* GameKit.framework */; };
 		E7EFF88C18A1315E00DEE521 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = E7EFF88B18A1315E00DEE521 /* email.png */; };
 		E7EFF88E18A1316D00DEE521 /* email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7EFF88D18A1316D00DEE521 /* email@2x.png */; };
@@ -81,9 +79,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57210141BDDE4609BE1A07CE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		30442EAA2AD14D65BA857E33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		57210141BDDE4609BE1A07CE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E705A9C618AE713E00CFE7B6 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7206A1518980AEA0049D9CC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Parse.framework; sourceTree = "<group>"; };
-		E7206A1618980AEA0049D9CC /* ProximityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProximityKit.framework; path = ZomBeacon/ProximityKit.framework; sourceTree = "<group>"; };
 		E7206A1B18980B7E0049D9CC /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProximityKit.plist; sourceTree = "<group>"; };
 		E73F95751890430900CC7C14 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		E73F95761890430900CC7C14 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
@@ -96,13 +95,11 @@
 		E73F95811890633200CC7C14 /* GameDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailsViewController.h; sourceTree = "<group>"; };
 		E73F95821890633200CC7C14 /* GameDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailsViewController.m; sourceTree = "<group>"; };
 		E7446994185B8D35007F6817 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
-		E7446998185B8ED9007F6817 /* blank_splash_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash_ipad.png; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E74E2D0918898FC60080D5A3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E74E2D0A18898FC60080D5A3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		E74E2D0D188996C30080D5A3 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		E74E2D0E188996C30080D5A3 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		E751E4811858BF15004E8874 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E751E4881858BF15004E8874 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -150,12 +147,10 @@
 		E7CDB6C3189C01C8001D70EF /* PublicLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicLobbyViewController.m; sourceTree = "<group>"; };
 		E7D81E2818AD68E8008BBC8F /* hole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hole.png; sourceTree = "<group>"; };
 		E7D81E2A18AD76BD008BBC8F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ZomBeacon/FacebookSDK.framework; sourceTree = "<group>"; };
-		E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "ZomBeacon/Default-568h@2x.png"; sourceTree = "<group>"; };
+		E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E7DBB0D318ABF5B000CE4198 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
 		E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash0.png; sourceTree = "<group>"; };
 		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
-		E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundSmall@2x.png"; sourceTree = "<group>"; };
-		E7E01B78186370F500C5A45D /* backgroundBig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundBig@2x.png"; sourceTree = "<group>"; };
 		E7EFF88918A12CF400DEE521 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E7EFF88B18A1315E00DEE521 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
 		E7EFF88D18A1316D00DEE521 /* email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email@2x.png"; sourceTree = "<group>"; };
@@ -204,6 +199,7 @@
 				E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */,
 				E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */,
 				E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */,
+				06D439D3DC764BD78226CB6B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +209,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */,
 				E7D81E2818AD68E8008BBC8F /* hole.png */,
 				E7F7998B18A3F3C5007C1477 /* twitter_signin.png */,
 				E7F7998D18A3F402007C1477 /* facebook_signin.png */,
@@ -233,13 +230,10 @@
 				E76AD81E1885AA26007C014C /* red.png */,
 				E76AD8211885AA89007C014C /* blue@2x.png */,
 				E76AD8221885AA89007C014C /* red@2x.png */,
-				E7E01B78186370F500C5A45D /* backgroundBig@2x.png */,
-				E7E01B76186370E700C5A45D /* backgroundSmall@2x.png */,
 				E7E01B74186370DB00C5A45D /* dotImage@2x.png */,
 				E7446994185B8D35007F6817 /* app_icon.png */,
 				E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */,
 				E7DBB0D318ABF5B000CE4198 /* blank_splash.png */,
-				E7446998185B8ED9007F6817 /* blank_splash_ipad.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -269,20 +263,8 @@
 		E751E4781858BF15004E8874 = {
 			isa = PBXGroup;
 			children = (
-				E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */,
 				E751E48A1858BF15004E8874 /* ZomBeacon */,
-				E751E4831858BF15004E8874 /* Frameworks */,
-				E751E4821858BF15004E8874 /* Products */,
-				57210141BDDE4609BE1A07CE /* Pods.xcconfig */,
 			);
-			sourceTree = "<group>";
-		};
-		E751E4821858BF15004E8874 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E751E4811858BF15004E8874 /* ZomBeacon.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E751E4831858BF15004E8874 /* Frameworks */ = {
@@ -292,7 +274,6 @@
 				E7EFF89718A136E900DEE521 /* Social.framework */,
 				E7EFF88918A12CF400DEE521 /* GameKit.framework */,
 				E7206A1518980AEA0049D9CC /* Parse.framework */,
-				E7206A1618980AEA0049D9CC /* ProximityKit.framework */,
 				E7496A68187DF40F003E4B8A /* MapKit.framework */,
 				E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */,
 				E78107E31860CB4E00B19DB9 /* Security.framework */,
@@ -307,8 +288,10 @@
 				E751E4881858BF15004E8874 /* UIKit.framework */,
 				E751E4A31858BF15004E8874 /* XCTest.framework */,
 				E78107DD1860CB3300B19DB9 /* libz.1.1.3.dylib */,
+				30442EAA2AD14D65BA857E33 /* libPods.a */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E751E48A1858BF15004E8874 /* ZomBeacon */ = {
@@ -324,6 +307,7 @@
 				E7F7999C18A576C9007C1477 /* Private Game */,
 				E748A62318A02C3F007D5C35 /* Custom Objects */,
 				E751E48B1858BF15004E8874 /* Supporting Files */,
+				E751E4831858BF15004E8874 /* Frameworks */,
 			);
 			path = ZomBeacon;
 			sourceTree = "<group>";
@@ -338,6 +322,8 @@
 				E751E48D1858BF15004E8874 /* InfoPlist.strings */,
 				E751E4901858BF15004E8874 /* main.m */,
 				E751E4921858BF15004E8874 /* ZomBeacon-Prefix.pch */,
+				57210141BDDE4609BE1A07CE /* Pods.xcconfig */,
+				E705A9C618AE713E00CFE7B6 /* ZomBeacon.app */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -430,7 +416,7 @@
 			);
 			name = ZomBeacon;
 			productName = ZomBeacon;
-			productReference = E751E4811858BF15004E8874 /* ZomBeacon.app */;
+			productReference = E705A9C618AE713E00CFE7B6 /* ZomBeacon.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -470,7 +456,7 @@
 				Base,
 			);
 			mainGroup = E751E4781858BF15004E8874;
-			productRefGroup = E751E4821858BF15004E8874 /* Products */;
+			productRefGroup = E751E4781858BF15004E8874;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -487,7 +473,6 @@
 				E7EFF89018A131BF00DEE521 /* twitter.png in Resources */,
 				E76AD8231885AA89007C014C /* blue@2x.png in Resources */,
 				E7EFF89618A1320E00DEE521 /* fb@2x.png in Resources */,
-				E7E01B77186370E700C5A45D /* backgroundSmall@2x.png in Resources */,
 				E7446995185B8D35007F6817 /* app_icon.png in Resources */,
 				E7BD36EF189ACE4B00A2B308 /* compass@2x.png in Resources */,
 				E76AD8241885AA89007C014C /* red@2x.png in Resources */,
@@ -499,7 +484,6 @@
 				E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */,
 				E7D81E2D18AD772B008BBC8F /* Default-568h@2x.png in Resources */,
 				E7EFF88E18A1316D00DEE521 /* email@2x.png in Resources */,
-				E7446999185B8ED9007F6817 /* blank_splash_ipad.png in Resources */,
 				E7EFF89418A1320300DEE521 /* fb.png in Resources */,
 				E7EFF88C18A1315E00DEE521 /* email.png in Resources */,
 				E7DBB0D618ABF5FF00CE4198 /* blank_splash0.png in Resources */,
@@ -512,7 +496,6 @@
 				E7D81E2918AD68E8008BBC8F /* hole.png in Resources */,
 				E76AD8201885AA26007C014C /* red.png in Resources */,
 				E7BD36F7189ACF7200A2B308 /* locate@2x.png in Resources */,
-				E7E01B79186370F500C5A45D /* backgroundBig@2x.png in Resources */,
 				E7BD36ED189ACE4400A2B308 /* compass.png in Resources */,
 				E7F7998C18A3F3C5007C1477 /* twitter_signin.png in Resources */,
 			);
@@ -698,14 +681,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/ZomBeacon/EstimoteSDK/Headers",
 				);
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/EstimoteSDK,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -729,14 +708,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/ZomBeacon/EstimoteSDK/Headers",
 				);
 				INFOPLIST_FILE = "ZomBeacon/ZomBeacon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/EstimoteSDK,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
