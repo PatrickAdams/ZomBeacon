@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E7206A1718980AEA0049D9CC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7206A1518980AEA0049D9CC /* Parse.framework */; };
-		E7206A1818980AEA0049D9CC /* ProximityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7206A1618980AEA0049D9CC /* ProximityKit.framework */; };
 		E7206A1C18980B7E0049D9CC /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7206A1B18980B7E0049D9CC /* ProximityKit.plist */; };
 		E73F95771890430900CC7C14 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F95761890430900CC7C14 /* MainMenuViewController.m */; };
 		E73F957A189060E400CC7C14 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F9579189060E400CC7C14 /* CreateViewController.m */; };
@@ -57,7 +56,6 @@
 		E7D81E2918AD68E8008BBC8F /* hole.png in Resources */ = {isa = PBXBuildFile; fileRef = E7D81E2818AD68E8008BBC8F /* hole.png */; };
 		E7D81E2B18AD76BD008BBC8F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D81E2A18AD76BD008BBC8F /* FacebookSDK.framework */; };
 		E7D81E2D18AD772B008BBC8F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */; };
-		E7D81E2F18AD7736008BBC8F /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D81E2E18AD7736008BBC8F /* libEstimoteSDK.a */; };
 		E7DBB0D418ABF5B000CE4198 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D318ABF5B000CE4198 /* blank_splash.png */; };
 		E7DBB0D618ABF5FF00CE4198 /* blank_splash0.png in Resources */ = {isa = PBXBuildFile; fileRef = E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */; };
 		E7E01B75186370DB00C5A45D /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E01B74186370DB00C5A45D /* dotImage@2x.png */; };
@@ -83,6 +81,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57210141BDDE4609BE1A07CE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E7206A1518980AEA0049D9CC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Parse.framework; sourceTree = "<group>"; };
 		E7206A1618980AEA0049D9CC /* ProximityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProximityKit.framework; path = ZomBeacon/ProximityKit.framework; sourceTree = "<group>"; };
 		E7206A1B18980B7E0049D9CC /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProximityKit.plist; sourceTree = "<group>"; };
@@ -152,7 +151,6 @@
 		E7D81E2818AD68E8008BBC8F /* hole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hole.png; sourceTree = "<group>"; };
 		E7D81E2A18AD76BD008BBC8F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ZomBeacon/FacebookSDK.framework; sourceTree = "<group>"; };
 		E7D81E2C18AD772B008BBC8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "ZomBeacon/Default-568h@2x.png"; sourceTree = "<group>"; };
-		E7D81E2E18AD7736008BBC8F /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = ZomBeacon/EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		E7DBB0D318ABF5B000CE4198 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash.png; sourceTree = "<group>"; };
 		E7DBB0D518ABF5FF00CE4198 /* blank_splash0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_splash0.png; sourceTree = "<group>"; };
 		E7E01B74186370DB00C5A45D /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotImage@2x.png"; sourceTree = "<group>"; };
@@ -195,14 +193,12 @@
 				E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */,
 				E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */,
 				E7206A1718980AEA0049D9CC /* Parse.framework in Frameworks */,
-				E7206A1818980AEA0049D9CC /* ProximityKit.framework in Frameworks */,
 				E78107E21860CB4500B19DB9 /* QuartzCore.framework in Frameworks */,
 				E78107E01860CB3F00B19DB9 /* MobileCoreServices.framework in Frameworks */,
 				E78107DE1860CB3300B19DB9 /* libz.1.1.3.dylib in Frameworks */,
 				E78107DC1860CB1800B19DB9 /* CFNetwork.framework in Frameworks */,
 				E78107DA1860CB1300B19DB9 /* AudioToolbox.framework in Frameworks */,
 				E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */,
-				E7D81E2F18AD7736008BBC8F /* libEstimoteSDK.a in Frameworks */,
 				E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */,
 				E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */,
 				E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */,
@@ -277,6 +273,7 @@
 				E751E48A1858BF15004E8874 /* ZomBeacon */,
 				E751E4831858BF15004E8874 /* Frameworks */,
 				E751E4821858BF15004E8874 /* Products */,
+				57210141BDDE4609BE1A07CE /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -310,7 +307,6 @@
 				E751E4881858BF15004E8874 /* UIKit.framework */,
 				E751E4A31858BF15004E8874 /* XCTest.framework */,
 				E78107DD1860CB3300B19DB9 /* libz.1.1.3.dylib */,
-				E7D81E2E18AD7736008BBC8F /* libEstimoteSDK.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -422,9 +418,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E751E4B31858BF16004E8874 /* Build configuration list for PBXNativeTarget "ZomBeacon" */;
 			buildPhases = (
+				159D1849E5C449BABF7AC615 /* Check Pods Manifest.lock */,
 				E751E47D1858BF15004E8874 /* Sources */,
 				E751E47E1858BF15004E8874 /* Frameworks */,
 				E751E47F1858BF15004E8874 /* Resources */,
+				1CCA01953FF2461E8988918F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -521,6 +519,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		159D1849E5C449BABF7AC615 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1CCA01953FF2461E8988918F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E751E47D1858BF15004E8874 /* Sources */ = {
@@ -653,6 +684,7 @@
 		};
 		E751E4B41858BF16004E8874 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57210141BDDE4609BE1A07CE /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -683,6 +715,7 @@
 		};
 		E751E4B51858BF16004E8874 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57210141BDDE4609BE1A07CE /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
