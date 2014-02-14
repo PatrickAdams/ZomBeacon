@@ -27,18 +27,40 @@
     }
     else
     {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account creation is not complete." message:@"You cannot leave any of the following fields blank: username, password, email, or name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+        
         return FALSE;
+    }
+}
+
+- (BOOL)noWhiteSpaceInUsername
+{
+    NSRange whiteSpaceRange = [self.usernameField.text rangeOfCharacterFromSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (whiteSpaceRange.location != NSNotFound)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Username Issue." message:@"Usernames cannot have any spaces." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+        
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
     }
 }
 
 //User sign up method using the Parse framework
 - (IBAction)signUpNewUser
 {
-    if ([self fieldsAreValid]) {
+    if ([self fieldsAreValid] && [self noWhiteSpaceInUsername]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             
             PFUser *user = [PFUser user];
+            
             user.username = self.usernameField.text;
             user.password = self.passwordField.text;
             user.email = self.emailField.text;
@@ -69,12 +91,6 @@
                  }
              }];
         });
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account creation is not complete." message:@"You cannot leave any of the following fields blank: username, password, email, or name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [alert show];
     }
 }
 
