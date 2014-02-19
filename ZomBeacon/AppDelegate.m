@@ -116,11 +116,6 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [self.locationTimer invalidate];
-    
-    if ([PFUser currentUser]) {
-        [[PFUser currentUser] refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        }];
-    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

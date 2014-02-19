@@ -19,6 +19,11 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     
+    if ([PFUser currentUser]) {
+        [[PFUser currentUser] refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        }];
+    }
+    
     self.currentUser = [PFUser currentUser];
 }
 
