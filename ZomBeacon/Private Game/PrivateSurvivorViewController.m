@@ -59,6 +59,18 @@
     [self.queryTimer invalidate];
 }
 
+- (IBAction)activateShield
+{
+    [self.shieldButton setEnabled:NO];
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    self.shieldTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(startRangingAgain) userInfo:nil repeats:NO];
+}
+
+- (void)startRangingAgain
+{
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+}
+
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
 
 //Queries all nearby users and adds them to the mapView

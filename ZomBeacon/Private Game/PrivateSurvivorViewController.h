@@ -28,11 +28,14 @@
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSTimer *queryTimer;
+@property (nonatomic, strong) NSTimer *shieldTimer;
+@property (nonatomic, weak) IBOutlet UIButton *shieldButton;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;
 - (IBAction)startCounter;
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
+- (IBAction)activateShield;
 
 @end
