@@ -43,10 +43,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //This code will be phased out with "Assign Teams" method
-    [self.currentUser setObject:@"survivor" forKey:@"privateStatus"];
-    [self.currentUser saveInBackground];
-    
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
@@ -98,7 +94,12 @@
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
                     NSString *nameOfNearbyUser = users[i][@"name"];
-                    NSString *statusOfNearbyUser = users[i][@"privateStatus"];
+                    
+                    PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
+                    [privateStatusQuery whereKey:@"user" equalTo:users[i]];
+                    PFObject *privateStatus = [privateStatusQuery getFirstObject];
+                    
+                    NSString *statusOfNearbyUser = privateStatus[@"status"];
                     
                     // Set some coordinates for our position
                     CLLocationCoordinate2D location;
@@ -186,10 +187,18 @@
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.alertBody = @"PRIVATE GAME: You've been bitten by a zombie, you are now infected. Go find some Survivors!";
         notification.soundName = UILocalNotificationDefaultSoundName;
+        
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+        [query whereKey:@"user" equalTo:self.currentUser];
+        PFObject *theStatus = [query getFirstObject];
+        [theStatus setObject:@"zombie" forKey:@"status"];
+        [theStatus saveInBackground];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
+        vc.navigationItem.hidesBackButton = YES;
         [self.navigationController pushViewController:vc animated:YES];
         
         [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];

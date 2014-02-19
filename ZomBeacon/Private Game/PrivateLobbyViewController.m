@@ -37,6 +37,22 @@
             self.gameAddressString = [NSString stringWithFormat:@"%@ %@. %@, %@ %@", self.placemark.subThoroughfare, self.placemark.thoroughfare, self.placemark.locality, self.placemark.administrativeArea, self.placemark.postalCode];
         }
     }];
+
+    PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
+    [privateStatusQuery whereKey:@"user" equalTo:currentUser];
+    [privateStatusQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects.count == 0)
+        {
+            PFObject *privateStatus = [PFObject objectWithClassName:@"PrivateStatus"];
+            [privateStatus setObject:currentUser forKey:@"user"];
+            [privateStatus saveInBackground];
+        }
+        else
+        {
+            //Do nothing
+        }
+    }];
     
     //Checks if you are the host of the current game or not
     NSString *currentGame = currentUser[@"currentGame"];
@@ -91,46 +107,60 @@
     PFQuery *query = [PFUser query];
     [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *players, NSError *error) {
+        
         NSMutableArray *playersArray = [players mutableCopy];
         NSUInteger totalPlayers = playersArray.count;
-        NSUInteger totalZombies = totalPlayers * 0.2;
+        NSUInteger totalZombies = ceil(totalPlayers * 0.2);
         
         for (int i = 0; i < playersArray.count; i++)
         {
-            PFObject *player = players[i];
+            PFUser *player = playersArray[i];
+            
+            PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+            [query whereKey:@"user" equalTo:player];
+            PFObject *theStatus = [query getFirstObject];
             
             if (i < totalZombies)
             {
-                [player setObject:@"zombie" forKey:@"privateStatus"];
+                [theStatus setObject:@"zombie" forKey:@"status"];
             }
             else
             {
-                [player setObject:@"survivor" forKey:@"privateStatus"];
+                [theStatus setObject:@"survivor" forKey:@"status"];
             }
             
-            [player saveInBackground];
+            [theStatus save];
         }
     }];
 }
 
 - (IBAction)startGame
 {
-    int randomNumber = [self getRandomNumberBetween:1 to:100];
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    if (randomNumber < 20)
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+    [query whereKey:@"user" equalTo:currentUser];
+    PFObject *privateStatus = [query getFirstObject];
+    
+    if ([privateStatus[@"status"] isEqualToString:@"zombie"])
     {
         PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
         [self.navigationController pushViewController:vc animated:YES];
         vc.navigationItem.hidesBackButton = YES;
     }
-    else
+    else if ([privateStatus[@"status"] isEqualToString:@"survivor"])
     {
         PrivateSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateSurvivor"];
         [self.navigationController pushViewController:vc animated:YES];
         vc.navigationItem.hidesBackButton = YES;
     }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Teams Not Yet Assigned" message:@"Host must assign teams before you can start." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    
 }
 
 //Method that chooses a random number

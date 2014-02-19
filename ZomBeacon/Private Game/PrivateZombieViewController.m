@@ -37,9 +37,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self.currentUser setObject:@"zombie" forKey:@"privateStatus"];
-    [self.currentUser saveInBackground];
-    
     [self.locationManager startUpdatingLocation];
     
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
@@ -80,7 +77,12 @@
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
                     NSString *nameOfNearbyUser = users[i][@"name"];
-                    NSString *statusOfNearbyUser = users[i][@"privateStatus"];
+                    
+                    PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
+                    [privateStatusQuery whereKey:@"user" equalTo:users[i]];
+                    PFObject *privateStatus = [privateStatusQuery getFirstObject];
+                    
+                    NSString *statusOfNearbyUser = privateStatus[@"status"];
                     
                     // Set some coordinates for our position
                     CLLocationCoordinate2D location;
