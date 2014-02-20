@@ -22,5 +22,6 @@
 @property (nonatomic, strong) PFUser *currentUser;
 
 - (NSMutableArray *)getPlayersInCurrentGame;
+- (int)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
 
 @end

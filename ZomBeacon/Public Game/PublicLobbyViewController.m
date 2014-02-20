@@ -22,6 +22,14 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    //Checks to see if the public game start date was more than 7 days ago
+    PFQuery *publicGameStart = [PFQuery queryWithClassName:@"PublicGame"];
+    PFObject *currentPublicGame = [publicGameStart getFirstObject];
+    NSDate *startDate = currentPublicGame[@"startDate"];
+    int daysBetween = [self daysBetweenDate:startDate andDate:[NSDate date]];
+    if (daysBetween > 7) {
+        [self.currentUser setObject:@"" forKey:@"publicStatus"];
+    }
     [self getPlayersInCurrentGame];
     [self.tableView reloadData];
     
@@ -45,6 +53,24 @@
     }
     
     return thePlayers;
+}
+
+- (int)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
+{
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate
+                 interval:NULL forDate:fromDateTime];
+    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate
+                 interval:NULL forDate:toDateTime];
+    
+    NSDateComponents *difference = [calendar components:NSDayCalendarUnit
+                                               fromDate:fromDate toDate:toDate options:0];
+    
+    return [difference day];
 }
 
 #pragma mark - Table View Methods
