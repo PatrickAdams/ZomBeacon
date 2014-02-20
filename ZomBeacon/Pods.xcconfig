@@ -1,0 +1,7 @@
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/ProximityKit"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/EstimoteSDK" "${PODS_ROOT}/Headers/ProximityKit" "${PODS_ROOT}/Headers/EstimoteSDK"
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/EstimoteSDK" "$(PODS_ROOT)/EstimoteSDK/EstimoteSDK"
+OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/EstimoteSDK" "-isystem${PODS_ROOT}/Headers/ProximityKit"
+OTHER_LDFLAGS = -ObjC -lEstimoteSDK -framework CoreLocation -framework Foundation -framework MobileCoreServices -framework ProximityKit -framework SystemConfiguration -framework UIKit
+PODS_ROOT = ${SRCROOT}/Pods

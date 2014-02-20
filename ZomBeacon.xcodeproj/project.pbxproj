@@ -74,13 +74,12 @@
 		E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */; };
 		E7C8653F18B6594F00D80BD1 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */; };
 		E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */; };
+		E7C8654218B659DC00D80BD1 /* Pods.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E7C8654118B659DC00D80BD1 /* Pods.xcconfig */; };
 		E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF88918A12CF400DEE521 /* GameKit.framework */; };
 		E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF89718A136E900DEE521 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		47E0468FB3EF4950A3A1ED65 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		57210141BDDE4609BE1A07CE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		AEFBB27E3AC14635A6D0168B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E705A9CA18AE728700CFE7B6 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon.png; path = Images/app_icon.png; sourceTree = "<group>"; };
 		E705A9CB18AE728700CFE7B6 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_splash.png; path = Images/blank_splash.png; sourceTree = "<group>"; };
@@ -174,6 +173,7 @@
 		E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendProfileViewController.m; path = Profiles/FriendProfileViewController.m; sourceTree = "<group>"; };
 		E7C8653C18B6594F00D80BD1 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Profiles/ProfileViewController.h; sourceTree = "<group>"; };
 		E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Profiles/ProfileViewController.m; sourceTree = "<group>"; };
+		E7C8654118B659DC00D80BD1 /* Pods.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = "<group>"; };
 		E7EFF88918A12CF400DEE521 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E7EFF89718A136E900DEE521 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -207,14 +207,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		847D0F4C88054214883939A0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AEFBB27E3AC14635A6D0168B /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,9 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				E751E48A1858BF15004E8874 /* ZomBeacon */,
-				E705AA4618AE74A100CFE7B6 /* ZomBeacon.app */,
-				47E0468FB3EF4950A3A1ED65 /* Pods.xcconfig */,
-				847D0F4C88054214883939A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -300,6 +289,7 @@
 				E751E4881858BF15004E8874 /* UIKit.framework */,
 				E751E4A31858BF15004E8874 /* XCTest.framework */,
 				E78107DD1860CB3300B19DB9 /* libz.1.1.3.dylib */,
+				AEFBB27E3AC14635A6D0168B /* libPods.a */,
 			);
 			name = Frameworks;
 			path = ..;
@@ -333,7 +323,8 @@
 				E705AA4118AE744500CFE7B6 /* ZomBeacon-Info.plist */,
 				E705AA4218AE744500CFE7B6 /* ZomBeacon-Prefix.pch */,
 				E751E48D1858BF15004E8874 /* InfoPlist.strings */,
-				57210141BDDE4609BE1A07CE /* Pods.xcconfig */,
+				E7C8654118B659DC00D80BD1 /* Pods.xcconfig */,
+				E705AA4618AE74A100CFE7B6 /* ZomBeacon.app */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -481,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E705A9E718AE728700CFE7B6 /* blue@2x.png in Resources */,
+				E7C8654218B659DC00D80BD1 /* Pods.xcconfig in Resources */,
 				E705A9EF18AE728700CFE7B6 /* fb.png in Resources */,
 				E705A9EE18AE728700CFE7B6 /* facebook_signin.png in Resources */,
 				E705A9ED18AE728700CFE7B6 /* email@2x.png in Resources */,
@@ -677,7 +669,6 @@
 		};
 		E751E4B41858BF16004E8874 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47E0468FB3EF4950A3A1ED65 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -705,7 +696,6 @@
 		};
 		E751E4B51858BF16004E8874 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47E0468FB3EF4950A3A1ED65 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
