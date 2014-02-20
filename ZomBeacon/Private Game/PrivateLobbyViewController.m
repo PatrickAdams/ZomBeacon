@@ -62,12 +62,14 @@
     PFObject *theGame = [query getFirstObject];
     PFUser *theHost = theGame[@"hostUser"];
     
-    if ([theHost.objectId isEqual:currentUser.objectId] || [currentGame isEqual:@"public"])
+    if ([theHost.objectId isEqual:currentUser.objectId])
     {
         self.assignTeamsButton.hidden = NO;
+        [self.startGameButton setEnabled:NO];
     }
     else
     {
+        [self.startGameButton setEnabled:YES];
         self.assignTeamsButton.hidden = YES;
         [self.startGameButton isEnabled];
     }
@@ -104,34 +106,42 @@
 
 - (void)assignTeams
 {
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *players, NSError *error) {
-        
-        NSMutableArray *playersArray = [players mutableCopy];
-        NSUInteger totalPlayers = playersArray.count;
-        NSUInteger totalZombies = ceil(totalPlayers * 0.2);
-        
-        for (int i = 0; i < playersArray.count; i++)
-        {
-            PFUser *player = playersArray[i];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *players, NSError *error) {
             
-            PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
-            [query whereKey:@"user" equalTo:player];
-            PFObject *theStatus = [query getFirstObject];
+            NSMutableArray *playersArray = [players mutableCopy];
+            NSUInteger totalPlayers = playersArray.count;
+            NSUInteger totalZombies = ceil(totalPlayers * 0.2);
             
-            if (i < totalZombies)
+            for (int i = 0; i < playersArray.count; i++)
             {
-                [theStatus setObject:@"zombie" forKey:@"status"];
+                PFUser *player = playersArray[i];
+                
+                PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+                [query whereKey:@"user" equalTo:player];
+                PFObject *theStatus = [query getFirstObject];
+                
+                if (i < totalZombies)
+                {
+                    [theStatus setObject:@"zombie" forKey:@"status"];
+                }
+                else
+                {
+                    [theStatus setObject:@"survivor" forKey:@"status"];
+                }
+                
+                [theStatus save];
             }
-            else
-            {
-                [theStatus setObject:@"survivor" forKey:@"status"];
-            }
-            
-            [theStatus save];
-        }
-    }];
+        }];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.startGameButton setEnabled:YES];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 - (IBAction)startGame
