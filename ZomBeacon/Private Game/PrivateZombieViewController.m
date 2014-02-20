@@ -72,6 +72,9 @@
                 UserAnnotations *newAnnotation;
                 [self.mapView removeAnnotations:self.mapView.annotations];
                 
+                int zombieCount = 0;
+                int survivorCount = 0;
+                
                 //Start at int = 1 so that the query doesn't include yourself
                 for (int i = 1; i < users.count ; i++)
                 {
@@ -91,15 +94,33 @@
                     
                     if ([statusOfNearbyUser isEqualToString:@"survivor"])
                     {
+                        survivorCount++;
                         newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"blue"]];
                     }
                     else if ([statusOfNearbyUser isEqualToString:@"zombie"])
                     {
+                        zombieCount++;
                         newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"red"]];
                     }
                     
                     [self.mapView addAnnotation:newAnnotation];
                 }
+                
+                PFQuery *currentUserPrivateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
+                [currentUserPrivateStatusQuery whereKey:@"user" equalTo:self.currentUser];
+                PFObject *currentUserPrivateStatus = [currentUserPrivateStatusQuery getFirstObject];
+                
+                if ([currentUserPrivateStatus[@"status"] isEqualToString:@"zombie"])
+                {
+                    zombieCount++;
+                }
+                else if ([currentUserPrivateStatus[@"status"] isEqualToString:@"survivor"])
+                {
+                    survivorCount++;
+                }
+                
+                self.zombieCount.text = [NSString stringWithFormat:@"%d", zombieCount];
+                self.survivorCount.text = [NSString stringWithFormat:@"%d", survivorCount];
             }
         }];
     }

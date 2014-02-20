@@ -22,6 +22,8 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSTimer *queryTimer;
+@property (nonatomic, weak) IBOutlet UILabel *survivorCount;
+@property (nonatomic, weak) IBOutlet UILabel *zombieCount;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

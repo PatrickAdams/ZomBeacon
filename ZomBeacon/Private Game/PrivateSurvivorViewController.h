@@ -23,13 +23,14 @@
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
-@property (nonatomic, weak) IBOutlet UILabel *warningText;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, strong) NSTimer *shieldTimer;
 @property (nonatomic, weak) IBOutlet UIButton *shieldButton;
+@property (nonatomic, weak) IBOutlet UILabel *survivorCount;
+@property (nonatomic, weak) IBOutlet UILabel *zombieCount;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;
