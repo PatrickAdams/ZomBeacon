@@ -20,6 +20,6 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 - (IBAction)startPublicGame;
-- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
+//- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
 
 @end
