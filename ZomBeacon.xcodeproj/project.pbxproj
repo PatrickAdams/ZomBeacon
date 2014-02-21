@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
 		E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CA18AE728700CFE7B6 /* app_icon.png */; };
 		E705A9E418AE728700CFE7B6 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CB18AE728700CFE7B6 /* blank_splash.png */; };
 		E705A9E518AE728700CFE7B6 /* blank_splash0.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CC18AE728700CFE7B6 /* blank_splash0.png */; };
@@ -49,7 +50,6 @@
 		E705AA3518AE73C400CFE7B6 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3018AE73C400CFE7B6 /* GameCell.m */; };
 		E705AA3618AE73C400CFE7B6 /* UserAnnotations.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3218AE73C400CFE7B6 /* UserAnnotations.m */; };
 		E705AA3718AE73C400CFE7B6 /* UserLobbyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3418AE73C400CFE7B6 /* UserLobbyCell.m */; };
-		E705AA3918AE73FA00CFE7B6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E705AA3818AE73FA00CFE7B6 /* Parse.framework */; };
 		E705AA3B18AE740200CFE7B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E705AA3A18AE740200CFE7B6 /* FacebookSDK.framework */; };
 		E705AA3E18AE741000CFE7B6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3D18AE741000CFE7B6 /* MBProgressHUD.m */; };
 		E705AA4318AE744500CFE7B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3F18AE744500CFE7B6 /* main.m */; };
@@ -73,13 +73,13 @@
 		E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */; };
 		E7C8653F18B6594F00D80BD1 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */; };
 		E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */; };
-		E7C8654218B659DC00D80BD1 /* Pods.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E7C8654118B659DC00D80BD1 /* Pods.xcconfig */; };
 		E7EBC23318B66007005D8AA6 /* ProximityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EBC23218B66007005D8AA6 /* ProximityKit.framework */; };
 		E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF88918A12CF400DEE521 /* GameKit.framework */; };
 		E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF89718A136E900DEE521 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		E705A9CA18AE728700CFE7B6 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon.png; path = Images/app_icon.png; sourceTree = "<group>"; };
 		E705A9CB18AE728700CFE7B6 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_splash.png; path = Images/blank_splash.png; sourceTree = "<group>"; };
 		E705A9CC18AE728700CFE7B6 /* blank_splash0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_splash0.png; path = Images/blank_splash0.png; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 		E705AA3218AE73C400CFE7B6 /* UserAnnotations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserAnnotations.m; path = "Custom Objects/UserAnnotations.m"; sourceTree = "<group>"; };
 		E705AA3318AE73C400CFE7B6 /* UserLobbyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserLobbyCell.h; path = "Custom Objects/UserLobbyCell.h"; sourceTree = "<group>"; };
 		E705AA3418AE73C400CFE7B6 /* UserLobbyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserLobbyCell.m; path = "Custom Objects/UserLobbyCell.m"; sourceTree = "<group>"; };
-		E705AA3818AE73FA00CFE7B6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		E705AA3A18AE740200CFE7B6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ZomBeacon/Frameworks/FacebookSDK.framework; sourceTree = "<group>"; };
 		E705AA3C18AE741000CFE7B6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Frameworks/MBProgressHUD.h; sourceTree = "<group>"; };
 		E705AA3D18AE741000CFE7B6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Frameworks/MBProgressHUD.m; sourceTree = "<group>"; };
@@ -189,13 +188,13 @@
 				E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */,
 				E78107E21860CB4500B19DB9 /* QuartzCore.framework in Frameworks */,
 				E78107E01860CB3F00B19DB9 /* MobileCoreServices.framework in Frameworks */,
-				E705AA3918AE73FA00CFE7B6 /* Parse.framework in Frameworks */,
 				E7EBC23318B66007005D8AA6 /* ProximityKit.framework in Frameworks */,
 				E78107DE1860CB3300B19DB9 /* libz.1.1.3.dylib in Frameworks */,
 				E705AA3B18AE740200CFE7B6 /* FacebookSDK.framework in Frameworks */,
 				E78107DC1860CB1800B19DB9 /* CFNetwork.framework in Frameworks */,
 				E78107DA1860CB1300B19DB9 /* AudioToolbox.framework in Frameworks */,
 				E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */,
+				CD53842118B7142100780EE6 /* Parse.framework in Frameworks */,
 				E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */,
 				E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */,
 				E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */,
@@ -271,9 +270,9 @@
 		E751E4831858BF15004E8874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD53842018B7142100780EE6 /* Parse.framework */,
 				E7EBC23218B66007005D8AA6 /* ProximityKit.framework */,
 				E705AA3A18AE740200CFE7B6 /* FacebookSDK.framework */,
-				E705AA3818AE73FA00CFE7B6 /* Parse.framework */,
 				E7EFF89718A136E900DEE521 /* Social.framework */,
 				E7EFF88918A12CF400DEE521 /* GameKit.framework */,
 				E7496A68187DF40F003E4B8A /* MapKit.framework */,
@@ -470,7 +469,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E705A9E718AE728700CFE7B6 /* blue@2x.png in Resources */,
-				E7C8654218B659DC00D80BD1 /* Pods.xcconfig in Resources */,
 				E705A9EF18AE728700CFE7B6 /* fb.png in Resources */,
 				E705A9EE18AE728700CFE7B6 /* facebook_signin.png in Resources */,
 				E705A9ED18AE728700CFE7B6 /* email@2x.png in Resources */,
@@ -642,6 +640,7 @@
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon,
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon,
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/Frameworks,
+					/Users/Patrick/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/ZomBeacon/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/Supporting Files/ZomBeacon-Prefix.pch";
@@ -669,6 +668,7 @@
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon,
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon,
 					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/Frameworks,
+					/Users/Patrick/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/ZomBeacon/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/Supporting Files/ZomBeacon-Prefix.pch";
