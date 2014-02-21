@@ -30,6 +30,7 @@
     if (daysBetween > 7) {
         [self.currentUser setObject:@"" forKey:@"publicStatus"];
     }
+    
     [self getPlayersInCurrentGame];
     [self.tableView reloadData];
     
