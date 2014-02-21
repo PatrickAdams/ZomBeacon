@@ -22,6 +22,8 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSTimer *queryTimer;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *customFont;
+@property (nonatomic, weak) IBOutlet UIButton *biteButton;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

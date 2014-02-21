@@ -27,6 +27,12 @@
     
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.publicRegion"];
+    
+    for (UILabel * label in self.customFont) {
+        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
+    }
+    
+    self.biteButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.biteButton.titleLabel.font.pointSize];
 }
 
 - (void)viewDidAppear:(BOOL)animated

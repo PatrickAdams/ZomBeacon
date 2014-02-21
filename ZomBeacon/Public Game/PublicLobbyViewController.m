@@ -18,6 +18,10 @@
 {
     [super viewDidLoad];
     self.currentUser = [PFUser currentUser];
+    
+    for (UILabel * label in self.customFont) {
+        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

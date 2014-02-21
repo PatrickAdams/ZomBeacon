@@ -33,6 +33,10 @@
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.publicRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    
+    for (UILabel * label in self.customFont) {
+        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
