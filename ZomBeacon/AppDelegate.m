@@ -116,7 +116,38 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [self.locationTimer invalidate];
+    
+//    //Checks to see if the public game start date was more than 7 days ago
+//    PFQuery *publicGameStart = [PFQuery queryWithClassName:@"PublicGame"];
+//    PFObject *currentPublicGame = [publicGameStart getFirstObject];
+//    NSDate *startDate = currentPublicGame[@"startDate"];
+//    NSInteger daysBetween = [self daysBetweenDate:startDate andDate:[NSDate date]];
+//    if (daysBetween > 7)
+//    {
+//        [[PFUser currentUser] setObject:@"" forKey:@"publicStatus"];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME RESET" message:@"A new public game has started, your status has been reset!" delegate:nil cancelButtonTitle:@"Yay!" otherButtonTitles:nil];
+//        
+//        [alert show];
+//    }
 }
+
+//- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
+//{
+//    NSDate *fromDate;
+//    NSDate *toDate;
+//    
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    
+//    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate
+//                 interval:NULL forDate:fromDateTime];
+//    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate
+//                 interval:NULL forDate:toDateTime];
+//    
+//    NSDateComponents *difference = [calendar components:NSDayCalendarUnit
+//                                               fromDate:fromDate toDate:toDate options:0];
+//    
+//    return [difference day];
+//}
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {

@@ -21,4 +21,6 @@
 @property (nonatomic, strong) NSTimer *locationTimer;
 @property PKManager *proximityKitManager;
 
+- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
+
 @end
