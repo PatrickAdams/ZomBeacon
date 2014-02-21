@@ -10,13 +10,11 @@
 
 @implementation UserLobbyCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (void)layoutSubviews
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
+    for (UILabel * label in self.customFont) {
+        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
     }
-    return self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

@@ -73,6 +73,7 @@
 		E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */; };
 		E7C8653F18B6594F00D80BD1 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */; };
 		E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */; };
+		E7D596A718B7CC5F00E8844E /* 04B_19__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E7D596A618B7CC5F00E8844E /* 04B_19__.TTF */; };
 		E7EBC23318B66007005D8AA6 /* ProximityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EBC23218B66007005D8AA6 /* ProximityKit.framework */; };
 		E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF88918A12CF400DEE521 /* GameKit.framework */; };
 		E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF89718A136E900DEE521 /* Social.framework */; };
@@ -172,6 +173,7 @@
 		E7C8653C18B6594F00D80BD1 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Profiles/ProfileViewController.h; sourceTree = "<group>"; };
 		E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Profiles/ProfileViewController.m; sourceTree = "<group>"; };
 		E7C8654118B659DC00D80BD1 /* Pods.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = "<group>"; };
+		E7D596A618B7CC5F00E8844E /* 04B_19__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = 04B_19__.TTF; sourceTree = "<group>"; };
 		E7EBC23218B66007005D8AA6 /* ProximityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProximityKit.framework; path = ZomBeacon/Frameworks/ProximityKit.framework; sourceTree = "<group>"; };
 		E7EFF88918A12CF400DEE521 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E7EFF89718A136E900DEE521 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -315,6 +317,7 @@
 		E751E48B1858BF15004E8874 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E7D596A518B7CC4100E8844E /* Fonts */,
 				E7446985185B81E9007F6817 /* Images */,
 				E74E2D0C18898FCA0080D5A3 /* MBProgressHUD */,
 				E705AA3F18AE744500CFE7B6 /* main.m */,
@@ -326,6 +329,14 @@
 				E705AA4618AE74A100CFE7B6 /* ZomBeacon.app */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E7D596A518B7CC4100E8844E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E7D596A618B7CC5F00E8844E /* 04B_19__.TTF */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		E7F7999B18A576BF007C1477 /* Public Game */ = {
@@ -475,6 +486,7 @@
 				E705A9F618AE728700CFE7B6 /* red.png in Resources */,
 				E705A9F818AE728700CFE7B6 /* twitter_signin.png in Resources */,
 				E705A9EA18AE728700CFE7B6 /* Default-568h@2x.png in Resources */,
+				E7D596A718B7CC5F00E8844E /* 04B_19__.TTF in Resources */,
 				E705A9F218AE728700CFE7B6 /* locate.png in Resources */,
 				E705A9EB18AE728700CFE7B6 /* dotImage@2x.png in Resources */,
 				E705A9E518AE728700CFE7B6 /* blank_splash0.png in Resources */,

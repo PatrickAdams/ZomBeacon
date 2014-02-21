@@ -29,6 +29,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *gameHostLabel;
 @property (nonatomic, weak) IBOutlet UIButton *assignTeamsButton;
 @property (nonatomic, weak) IBOutlet UIButton *startGameButton;
+@property (nonatomic, weak) IBOutlet UIButton *openInMapsButton;
 @property (nonatomic, strong) NSString *gameNameString;
 @property (nonatomic, strong) NSString *gameDateString;
 @property (nonatomic, strong) NSString *gameHostString;
@@ -37,6 +38,7 @@
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 @property (nonatomic, strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) MKPlacemark *placemark;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *customFont;
 
 
 - (NSArray *)getPlayersInCurrentGame;

@@ -26,6 +26,11 @@
     self.gameNameLabel.text = self.gameNameString;
     self.gameHostLabel.text = self.gameHostString;
     self.gameDateLabel.text = self.gameDateString;
+    self.openInMapsButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.openInMapsButton.titleLabel.font.pointSize];
+    
+    for (UILabel * label in self.customFont) {
+        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
+    }
     
     CLLocation *location = [[CLLocation alloc] initWithLatitude:self.gameLocationCoord.latitude longitude:self.gameLocationCoord.longitude];
     

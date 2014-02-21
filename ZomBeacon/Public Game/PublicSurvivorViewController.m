@@ -77,7 +77,7 @@
                 for (int i = 1; i < users.count ; i++)
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
-                    NSString *nameOfNearbyUser = users[i][@"name"];
+                    NSString *nameOfNearbyUser = users[i][@"username"];
                     NSString *statusOfNearbyUser = users[i][@"publicStatus"];
                     
                     // Set some coordinates for our position

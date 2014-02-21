@@ -79,7 +79,7 @@
                 for (int i = 1; i < users.count ; i++)
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
-                    NSString *nameOfNearbyUser = users[i][@"name"];
+                    NSString *nameOfNearbyUser = users[i][@"username"];
                     
                     PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
                     [privateStatusQuery whereKey:@"user" equalTo:users[i]];
