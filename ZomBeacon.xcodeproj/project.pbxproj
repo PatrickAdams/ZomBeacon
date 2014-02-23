@@ -649,10 +649,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon,
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon,
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/Frameworks,
-					/Users/Patrick/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/ZomBeacon/Frameworks,
+					"$(SRCROOT)/ZomBeacon/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/Supporting Files/ZomBeacon-Prefix.pch";
@@ -677,10 +674,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon,
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon,
-					/Users/padams/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/Frameworks,
-					/Users/Patrick/Desktop/Patrick/Projects/ZomBeacon/ZomBeacon/ZomBeacon/Frameworks,
+					"$(SRCROOT)/ZomBeacon/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/Supporting Files/ZomBeacon-Prefix.pch";
