@@ -834,7 +834,7 @@
                                     <action selector="centerMapOnLocation" destination="SOP-YH-psb" eventType="touchUpInside" id="cUM-at-1el"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7HR-Bg-gIg">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7HR-Bg-gIg">
                                 <rect key="frame" x="115" y="333" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -874,6 +874,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="drL-fN-zDn">
+                                <rect key="frame" x="122" y="333" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Headshot">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="headshotTheZombie:" destination="SOP-YH-psb" eventType="touchUpInside" id="Res-Px-5Nh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.2218008668" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -964,7 +974,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZMf-Bm-plI">
-                                <rect key="frame" x="127" y="331" width="67" height="30"/>
+                                <rect key="frame" x="127" y="336" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Headshot">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -997,10 +1007,10 @@
             </objects>
             <point key="canvasLocation" x="3269" y="-187"/>
         </scene>
-        <!--Dead View Controller-->
+        <!--Public Dead View Controller-->
         <scene sceneID="LYG-fE-c4F">
             <objects>
-                <viewController storyboardIdentifier="dead" id="brW-n8-4WY" customClass="DeadViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="publicdead" id="brW-n8-4WY" customClass="PublicDeadViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="579-Ep-OPW">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1022,6 +1032,16 @@
                                     <action selector="rejoinGame" destination="brW-n8-4WY" eventType="touchUpInside" id="hnn-kj-DI4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rdv-kM-IMx">
+                                <rect key="frame" x="140" y="196" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goHome" destination="brW-n8-4WY" eventType="touchUpInside" id="tuN-7Z-V4W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17669802300000001" green="0.17669802300000001" blue="0.17669802300000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1030,6 +1050,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4m-F5-X4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-143" y="-477"/>
+        </scene>
+        <!--Private Dead View Controller-->
+        <scene sceneID="kR3-Ma-hGl">
+            <objects>
+                <viewController storyboardIdentifier="privatedead" id="8Lm-J4-94L" customClass="PrivateDeadViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cYF-7A-V8g">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU ARE DEAD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NAh-lf-q0A">
+                                <rect key="frame" x="98" y="102" width="125" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qYY-yY-UKV">
+                                <rect key="frame" x="140" y="162" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goHome" destination="8Lm-J4-94L" eventType="touchUpInside" id="DYh-bC-jaM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.17669802300000001" green="0.17669802300000001" blue="0.17669802300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vpy-h0-wZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="-480"/>
         </scene>
         <!--Blue Tooth View Controller-->
         <scene sceneID="W5M-pC-seI">

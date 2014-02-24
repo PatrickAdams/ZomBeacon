@@ -1,5 +1,5 @@
 //
-//  DeadViewController.h
+//  PrivateDeadViewController.h
 //  ZomBeacon
 //
 //  Created by Patrick Adams on 2/24/14.
@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 #import "MainMenuViewController.h"
 
-@interface DeadViewController : UIViewController
+@interface PrivateDeadViewController : UIViewController
 
-- (IBAction)rejoinGame;
+- (IBAction)goHome;
 
 @end

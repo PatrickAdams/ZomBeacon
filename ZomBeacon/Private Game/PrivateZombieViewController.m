@@ -33,6 +33,12 @@
     PFObject *currentGame = [uuidQuery getFirstObject];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[self.currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.privateRegion"];
+    
+    //Initializing beacon region to range for headshots
+    NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"D547D988-6F2A-48B7-A1B3-AA555494F251"];
+    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 identifier:@"com.zombeacon.publicRegion"];
+    [self.locationManager startMonitoringForRegion:self.beaconRegion2];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -147,6 +153,38 @@
     else
     {
         return nil;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
+{
+    CLBeacon *beacon = [beacons firstObject];
+    
+    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+    {
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+        
+        // present local notification
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = [NSString stringWithFormat:@"You just got headshotted by %@ bitch!", userThatInfected.username];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+        [query whereKey:@"user" equalTo:self.currentUser];
+        PFObject *theStatus = [query getFirstObject];
+        
+        [theStatus setObject:@"dead" forKey:@"status"];
+        [theStatus saveInBackground];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PrivateDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privatedead"];
+        vc.navigationItem.hidesBackButton = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
     }
 }
 

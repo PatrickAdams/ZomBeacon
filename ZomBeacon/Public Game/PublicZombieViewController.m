@@ -182,7 +182,7 @@
         [self.currentUser saveInBackground];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"dead"];
+        PublicDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicdead"];
         [self.navigationController pushViewController:vc animated:YES];
         
         PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];

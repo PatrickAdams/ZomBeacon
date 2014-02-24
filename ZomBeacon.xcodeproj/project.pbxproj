@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
-		E70028C118BBE4AA00036E1B /* DeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C018BBE4AA00036E1B /* DeadViewController.m */; };
+		E70028C118BBE4AA00036E1B /* PublicDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */; };
+		E70028C418BBF3F100036E1B /* PrivateDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */; };
 		E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CA18AE728700CFE7B6 /* app_icon.png */; };
 		E705A9E418AE728700CFE7B6 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CB18AE728700CFE7B6 /* blank_splash.png */; };
 		E705A9E518AE728700CFE7B6 /* blank_splash0.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CC18AE728700CFE7B6 /* blank_splash0.png */; };
@@ -82,8 +83,10 @@
 
 /* Begin PBXFileReference section */
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
-		E70028BF18BBE4AA00036E1B /* DeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeadViewController.h; path = Navigation/DeadViewController.h; sourceTree = "<group>"; };
-		E70028C018BBE4AA00036E1B /* DeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeadViewController.m; path = Navigation/DeadViewController.m; sourceTree = "<group>"; };
+		E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicDeadViewController.h; path = Navigation/PublicDeadViewController.h; sourceTree = "<group>"; };
+		E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicDeadViewController.m; path = Navigation/PublicDeadViewController.m; sourceTree = "<group>"; };
+		E70028C218BBF3F100036E1B /* PrivateDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrivateDeadViewController.h; path = Navigation/PrivateDeadViewController.h; sourceTree = "<group>"; };
+		E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrivateDeadViewController.m; path = Navigation/PrivateDeadViewController.m; sourceTree = "<group>"; };
 		E705A9CA18AE728700CFE7B6 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon.png; path = Images/app_icon.png; sourceTree = "<group>"; };
 		E705A9CB18AE728700CFE7B6 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_splash.png; path = Images/blank_splash.png; sourceTree = "<group>"; };
 		E705A9CC18AE728700CFE7B6 /* blank_splash0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_splash0.png; path = Images/blank_splash0.png; sourceTree = "<group>"; };
@@ -397,8 +400,10 @@
 		E7F7999F18A5772A007C1477 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				E70028BF18BBE4AA00036E1B /* DeadViewController.h */,
-				E70028C018BBE4AA00036E1B /* DeadViewController.m */,
+				E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */,
+				E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */,
+				E70028C218BBF3F100036E1B /* PrivateDeadViewController.h */,
+				E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */,
 				E705AA0E18AE735600CFE7B6 /* CreatedViewController.h */,
 				E705AA0F18AE735600CFE7B6 /* CreatedViewController.m */,
 				E705AA1018AE735600CFE7B6 /* CreateViewController.h */,
@@ -524,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E705AA1818AE735600CFE7B6 /* CreatedViewController.m in Sources */,
+				E70028C418BBF3F100036E1B /* PrivateDeadViewController.m in Sources */,
 				E705AA3E18AE741000CFE7B6 /* MBProgressHUD.m in Sources */,
 				E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */,
 				E705AA2518AE739000CFE7B6 /* PublicZombieViewController.m in Sources */,
@@ -535,7 +541,7 @@
 				E705AA2318AE739000CFE7B6 /* PublicLobbyViewController.m in Sources */,
 				E705AA1918AE735600CFE7B6 /* CreateViewController.m in Sources */,
 				E705AA3718AE73C400CFE7B6 /* UserLobbyCell.m in Sources */,
-				E70028C118BBE4AA00036E1B /* DeadViewController.m in Sources */,
+				E70028C118BBE4AA00036E1B /* PublicDeadViewController.m in Sources */,
 				E705AA1C18AE735600CFE7B6 /* MainMenuViewController.m in Sources */,
 				E705AA2E18AE739900CFE7B6 /* PrivateZombieViewController.m in Sources */,
 				E705AA0318AE72DA00CFE7B6 /* PasswordResetViewController.m in Sources */,

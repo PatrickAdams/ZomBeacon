@@ -12,16 +12,15 @@
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
+#import "PublicDeadViewController.h"
 
 @interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion;
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion2;
-@property (nonatomic, strong) CLBeaconRegion *beaconRegion3;
 @property (nonatomic, strong) NSDictionary *beaconPeripheralData;
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLLocationManager *locationManager2;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSTimer *queryTimer;

@@ -39,6 +39,10 @@
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.zombeacon.privateRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    
+    //Setting up beacon for headshots
+    NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"D547D988-6F2A-48B7-A1B3-AA555494F251"];
+    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:1 minor:[self.currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.publicRegion"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -57,9 +61,9 @@
 
 - (IBAction)activateShield
 {
-    [self.shieldButton setEnabled:NO];
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-    self.shieldTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(startRangingAgain) userInfo:nil repeats:NO];
+//    [self.shieldButton setEnabled:NO];
+//    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+//    self.shieldTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(startRangingAgain) userInfo:nil repeats:NO];
 }
 
 - (void)startRangingAgain
@@ -227,6 +231,32 @@
         [self.navigationController pushViewController:vc animated:YES];
         
         [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    }
+}
+
+//Method that starts the transmission of the headshot
+- (IBAction)headshotTheZombie:(id)sender
+{
+    self.beaconPeripheralData = [self.beaconRegion2 peripheralDataWithMeasuredPower:nil];
+    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
+}
+
+- (void)stopTheHeadshot
+{
+    [self.peripheralManager stopAdvertising];
+}
+
+//Method that tracks the beacon activity
+-(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
+{
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
+    {
+        [self.peripheralManager startAdvertising:self.beaconPeripheralData];
+    }
+    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
+    {
+        [self.peripheralManager stopAdvertising];
     }
 }
 

@@ -169,6 +169,12 @@
         [self.navigationController pushViewController:vc animated:YES];
         vc.navigationItem.hidesBackButton = YES;
     }
+    else if ([privateStatus[@"status"] isEqualToString:@"dead"])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"You cannot rejoin this game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
     else
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Teams Not Yet Assigned" message:@"Host must assign teams before you can start." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

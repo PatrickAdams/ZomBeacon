@@ -105,8 +105,9 @@
     }
     else if ([self.currentUser[@"publicStatus"] isEqualToString:@"dead"])
     {
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"dead"];
-        [self.navigationController pushViewController:vc animated:YES];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"Do you want to rejoin this game for -5,000 points?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        
+        [alert show];
     }
     else
     {
@@ -128,6 +129,45 @@
             [self.currentUser setObject:@"YES" forKey:@"joinedPublic"];
             [self.currentUser saveInBackground];
         }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        int randomNumber = [self getRandomNumberBetween:1 to:100];
+        
+        if (randomNumber < 20)
+        {
+            PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
+            [self.navigationController pushViewController:vc animated:YES];
+            [self.currentUser setObject:@"zombie" forKey:@"publicStatus"];
+            [self.currentUser setObject:@"YES" forKey:@"joinedPublic"];
+            [self.currentUser saveInBackground];
+        }
+        else
+        {
+            PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
+            [self.navigationController pushViewController:vc animated:YES];
+            [self.currentUser setObject:@"survivor" forKey:@"publicStatus"];
+            [self.currentUser setObject:@"YES" forKey:@"joinedPublic"];
+            [self.currentUser saveInBackground];
+        }
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
+        [query whereKey:@"user" equalTo:[PFUser currentUser]];
+        PFObject *theUserScore = [query getFirstObject];
+        float score = [theUserScore[@"score"] floatValue];
+        float points = 5000.0f;
+        NSNumber *sum = [NSNumber numberWithFloat:score - points];
+        [theUserScore setObject:sum forKey:@"score"];
+        [theUserScore saveInBackground];
+    }
+    else
+    {
+        //Do nothing
     }
 }
 
