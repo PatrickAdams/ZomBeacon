@@ -43,7 +43,7 @@
     [query whereKey:@"user" equalTo:currentUser];
     PFObject *theUserScore = [query getFirstObject];
     
-    self.userScore.text = [NSString stringWithFormat:@"%@ pts", theUserScore[@"score"]];
+    self.userScore.text = [NSString stringWithFormat:@"%@ pts", theUserScore[@"publicScore"]];
 }
 
 #pragma mark - Facebook/Twitter Linking/Unlinking Methods
