@@ -59,9 +59,15 @@
 //Presents local notification when user enters proximity kit geofence
 - (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
 {
+    if ([PFUser currentUser] && [[PFUser currentUser][@"publicStatus"] isEqualToString:@"zombie"])
+    {
+        [[PFUser currentUser] setObject:@"survivor" forKey:@"publicStatus"];
+        [[PFUser currentUser] saveInBackground];
+    }
+    
     // present local notification
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"You've entered the game region!";
+    notification.alertBody = @"You have entered the quarantine zone! - If you were a zombie you are no longer infected.";
     notification.soundName = UILocalNotificationDefaultSoundName;
     
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
@@ -72,7 +78,7 @@
 {
     // present local notification
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"You are out of bounds, return or you will be disqualified.";
+    notification.alertBody = @"You've just exited the quarantine zone. Watch out for Zombies!";
     notification.soundName = UILocalNotificationDefaultSoundName;
     
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];

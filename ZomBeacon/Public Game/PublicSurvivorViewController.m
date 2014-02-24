@@ -190,6 +190,15 @@
         PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
         [self.navigationController pushViewController:vc animated:YES];
         
+        PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
+        [query whereKey:@"user" equalTo:userThatInfected];
+        PFObject *theUserScore = [query getFirstObject];
+        float score = [theUserScore[@"score"] floatValue];
+        float points = 250.0f;
+        NSNumber *sum = [NSNumber numberWithFloat:score + points];
+        [theUserScore setObject:sum forKey:@"score"];
+        [theUserScore saveInBackground];
+        
         [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     }
 }

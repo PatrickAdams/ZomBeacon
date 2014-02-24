@@ -38,6 +38,12 @@
     self.realName.text = currentUser[@"name"];
     self.emailAddress.text = currentUser.email;
     self.shortBio.text = currentUser[@"bio"];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
+    [query whereKey:@"user" equalTo:currentUser];
+    PFObject *theUserScore = [query getFirstObject];
+    
+    self.userScore.text = [NSString stringWithFormat:@"%@ pts", theUserScore[@"score"]];
 }
 
 #pragma mark - Facebook/Twitter Linking/Unlinking Methods

@@ -174,7 +174,7 @@
         
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = [NSString stringWithFormat:@"%@ just headshotted you bitch!", userThatInfected.username];
+        notification.alertBody = [NSString stringWithFormat:@"You just got headshotted by %@ bitch!", userThatInfected.username];
         notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
@@ -184,6 +184,15 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"dead"];
         [self.navigationController pushViewController:vc animated:YES];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
+        [query whereKey:@"user" equalTo:userThatInfected];
+        PFObject *theUserScore = [query getFirstObject];
+        float score = [theUserScore[@"score"] floatValue];
+        float points = 1000.0f;
+        NSNumber *sum = [NSNumber numberWithFloat:score + points];
+        [theUserScore setObject:sum forKey:@"score"];
+        [theUserScore saveInBackground];
         
         [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
     }

@@ -22,8 +22,11 @@
 
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion;
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion2;
+@property (nonatomic, strong) CLBeaconRegion *beaconRegion3;
 @property (nonatomic, strong) NSDictionary *beaconPeripheralData;
+@property (nonatomic, strong) NSDictionary *beaconPeripheralData2;
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
+@property (nonatomic, strong) CBPeripheralManager *peripheralManager2;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;

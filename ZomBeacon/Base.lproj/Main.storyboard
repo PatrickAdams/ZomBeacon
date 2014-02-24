@@ -689,6 +689,7 @@
                         <outlet property="shortBio" destination="Bfl-Wj-18d" id="m9K-h1-xHq"/>
                         <outlet property="tableView" destination="1tz-Cy-jbl" id="rrj-h4-JN3"/>
                         <outlet property="userName" destination="1MX-qD-Coy" id="K7Q-lI-Wdu"/>
+                        <outlet property="userScore" destination="nTn-xJ-p12" id="4YB-5v-2QI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtG-G3-AZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -996,24 +997,35 @@
             </objects>
             <point key="canvasLocation" x="3269" y="-187"/>
         </scene>
-        <!--View Controller-->
+        <!--Dead View Controller-->
         <scene sceneID="LYG-fE-c4F">
             <objects>
-                <viewController storyboardIdentifier="dead" id="brW-n8-4WY" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dead" id="brW-n8-4WY" customClass="DeadViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="579-Ep-OPW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU ARE DEAD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RtK-tS-g7h">
-                                <rect key="frame" x="98" y="185" width="125" height="21"/>
+                                <rect key="frame" x="98" y="98" width="125" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uXb-gS-dzO">
+                                <rect key="frame" x="70" y="142" width="180" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Rejoin Game? (-5,000 pts)">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rejoinGame" destination="brW-n8-4WY" eventType="touchUpInside" id="hnn-kj-DI4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17669802300000001" green="0.17669802300000001" blue="0.17669802300000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4m-F5-X4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

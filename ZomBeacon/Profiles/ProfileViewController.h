@@ -23,6 +23,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *realName;
 @property (nonatomic, weak) IBOutlet UILabel *emailAddress;
 @property (nonatomic, weak) IBOutlet UILabel *shortBio;
+@property (nonatomic, weak) IBOutlet UILabel *userScore;
 @property (nonatomic, weak) IBOutlet PFImageView *profileImage;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *gamesArray;
