@@ -66,6 +66,7 @@
             user.email = self.emailField.text;
             user[@"name"] = self.nameField.text;
             user[@"bio"] = self.bioField.text;
+            user[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:1 to:100000000]];
             
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
              {
@@ -92,6 +93,12 @@
              }];
         });
     }
+}
+
+//Method that chooses a random number
+-(int)getRandomNumberBetween:(int)from to:(int)to
+{
+    return (int)from + arc4random() % (to-from+1);
 }
 
 - (void)didReceiveMemoryWarning

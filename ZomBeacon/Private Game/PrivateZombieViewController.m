@@ -32,7 +32,7 @@
     [uuidQuery whereKey:@"objectId" equalTo:self.currentUser[@"currentGame"]];
     PFObject *currentGame = [uuidQuery getFirstObject];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.privateRegion"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[self.currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.privateRegion"];
 }
 
 - (void)viewDidAppear:(BOOL)animated

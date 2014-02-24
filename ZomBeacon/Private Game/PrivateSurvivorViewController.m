@@ -36,7 +36,7 @@
     [uuidQuery whereKey:@"objectId" equalTo:self.currentUser[@"currentGame"]];
     PFObject *currentGame = [uuidQuery getFirstObject];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.privateRegion"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.zombeacon.privateRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
@@ -204,9 +204,13 @@
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+        
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"PRIVATE GAME: You've been bitten by a zombie, you are now infected. Go find some Survivors!";
+        notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
         notification.soundName = UILocalNotificationDefaultSoundName;
         
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];

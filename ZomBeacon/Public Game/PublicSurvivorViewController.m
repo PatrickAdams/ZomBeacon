@@ -22,6 +22,8 @@
 {
     [super viewDidLoad];
     
+    self.currentUser = [PFUser currentUser];
+    
     self.mapView.delegate = self;
     [self queryNearbyUsers];
     
@@ -29,10 +31,15 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
+    //Initializing beacon region to range for zombies
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.publicRegion"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.zombeacon.publicRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    
+    //Setting up beacon for headshots
+    NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
+    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:1 minor:[self.currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.publicRegion"];
     
     for (UILabel * label in self.customFont) {
         label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
@@ -162,13 +169,17 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon *beacon = [beacons lastObject];
+    CLBeacon *beacon = [beacons firstObject];
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+        
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"PUBLIC GAME: You've been bitten by a zombie, you are now infected. Go find some Survivors!";
+        notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
         notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
@@ -180,6 +191,32 @@
         [self.navigationController pushViewController:vc animated:YES];
         
         [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    }
+}
+
+//Method that starts the transmission of the headshot
+- (IBAction)headshotTheZombie:(id)sender
+{
+    self.beaconPeripheralData = [self.beaconRegion2 peripheralDataWithMeasuredPower:nil];
+    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
+}
+
+- (void)stopTheHeadshot
+{
+    [self.peripheralManager stopAdvertising];
+}
+
+//Method that tracks the beacon activity
+-(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
+{
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
+    {
+        [self.peripheralManager startAdvertising:self.beaconPeripheralData];
+    }
+    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
+    {
+        [self.peripheralManager stopAdvertising];
     }
 }
 

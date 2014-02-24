@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.currentUser = [PFUser currentUser];
     
     self.mapView.delegate = self;
     [self queryNearbyUsers];
@@ -25,8 +26,15 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
+    //Initializing beacon region to send to survivors
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:1 identifier:@"com.zombeacon.publicRegion"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[self.currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.publicRegion"];
+    
+    //Initializing beacon region to range for headshots
+    NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
+    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 identifier:@"com.zombeacon.publicRegion"];
+    [self.locationManager startMonitoringForRegion:self.beaconRegion2];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
     
     for (UILabel * label in self.customFont) {
         label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
@@ -153,6 +161,33 @@
 }
 
 #pragma mark - Beacon Management
+
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
+{
+    CLBeacon *beacon = [beacons firstObject];
+    
+    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+    {
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+        
+        // present local notification
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = [NSString stringWithFormat:@"%@ just headshotted you bitch!", userThatInfected.username];
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
+        [self.currentUser setObject:@"dead" forKey:@"publicStatus"];
+        [self.currentUser saveInBackground];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"dead"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+    }
+}
 
 //Method that starts the transmission of the beacon
 - (IBAction)startInfecting:(id)sender

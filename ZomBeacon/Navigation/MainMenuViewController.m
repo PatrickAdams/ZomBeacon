@@ -19,11 +19,6 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     
-    if ([PFUser currentUser]) {
-        [[PFUser currentUser] refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        }];
-    }
-    
     self.currentUser = [PFUser currentUser];
     self.findPrivateGameButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.findPrivateGameButton.titleLabel.font.pointSize];
     self.startPublicGameButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.startPublicGameButton.titleLabel.font.pointSize];
@@ -47,6 +42,11 @@
 //    }
     
     self.navigationItem.hidesBackButton = YES;
+    
+    if ([PFUser currentUser]) {
+        [[PFUser currentUser] refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        }];
+    }
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -101,6 +101,11 @@
     else if ([self.currentUser[@"publicStatus"] isEqualToString:@"survivor"])
     {
         PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([self.currentUser[@"publicStatus"] isEqualToString:@"dead"])
+    {
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"dead"];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else

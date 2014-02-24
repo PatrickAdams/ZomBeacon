@@ -15,12 +15,15 @@
 #import "UserAnnotations.h"
 #import "ProfileViewController.h"
 
-@interface PublicSurvivorViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface PublicSurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
     NSTimer *timer;
 }
 
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion;
+@property (nonatomic, strong) CLBeaconRegion *beaconRegion2;
+@property (nonatomic, strong) NSDictionary *beaconPeripheralData;
+@property (nonatomic, strong) CBPeripheralManager *peripheralManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
@@ -34,5 +37,6 @@
 - (IBAction)startCounter;
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
+- (IBAction)headshotTheZombie:(id)sender;
 
 @end
