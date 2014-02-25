@@ -35,13 +35,15 @@
     PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
     [uuidQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
     PFObject *currentGame = [uuidQuery getFirstObject];
+    
+    //Initializing beacon reagon to range for bites
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.zombeacon.privateRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
     
     //Setting up beacon for headshots
-    NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"D547D988-6F2A-48B7-A1B3-AA555494F251"];
+    NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid2"]];
     CLBeaconMajorValue major = [currentUser[@"major"] unsignedShortValue];
     CLBeaconMajorValue minor = [currentUser[@"minor"] unsignedShortValue];
     self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:major minor:minor identifier:@"com.zombeacon.privateRegion"];
