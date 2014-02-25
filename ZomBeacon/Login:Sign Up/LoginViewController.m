@@ -20,8 +20,10 @@
     
     [super viewDidLoad];
     
+    currentUser = [PFUser currentUser];
+    
     //Checks to make sure a user is logged in, if so, it skips the login screen
-    if ([PFUser currentUser])
+    if (currentUser)
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
@@ -31,6 +33,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    //Reset fields when view loads
     self.usernameField.text = @"";
     self.passwordField.text = @"";
 }
@@ -49,10 +52,6 @@
          {
              if (user)
              {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 
-                 [alert show];
-                 
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
@@ -60,16 +59,20 @@
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                  MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
                  [self.navigationController pushViewController:vc animated:YES];
+                 
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 
+                 [alert show];
              }
              else
              {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login credentials are incorrect." message:@"Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 
-                 [alert show];
-                 
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
+                 
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login credentials are incorrect." message:@"Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 
+                 [alert show];
              }
          }];
     });
@@ -104,10 +107,6 @@
              }
              else if (user.isNew)
              {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 
-                 [alert show];
-                 
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                  MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
                  [self.navigationController pushViewController:vc animated:YES];
@@ -115,6 +114,10 @@
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
+                 
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 
+                 [alert show];
                  
                  // Create request for user's Facebook data
                  FBRequest *request = [FBRequest requestForMe];
@@ -127,7 +130,7 @@
                           // result is a dictionary with the user's Facebook data
                           NSDictionary *userData = (NSDictionary *)result;
                           
-                          PFUser *user = [PFUser currentUser];
+                          PFUser *user = currentUser;
                           user.username = userData[@"username"];
                           user.email = userData[@"email"];
                           user[@"name"] = userData[@"name"];
@@ -149,10 +152,6 @@
              }
              else
              {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                 
-                 [alert show];
-                 
                  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                  MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
                  [self.navigationController pushViewController:vc animated:NO];
@@ -160,6 +159,10 @@
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
+                 
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 
+                 [alert show];
              }
          }];
     });
@@ -180,10 +183,6 @@
             }
             else if(user.isNew)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                
-                [alert show];
-                
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
                 [self.navigationController pushViewController:vc animated:YES];
@@ -191,6 +190,10 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                 });
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign up successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
                 
                 NSString * requestString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/account/verify_credentials.json"];
                 NSURL *verify = [NSURL URLWithString:requestString];
@@ -205,7 +208,6 @@
                     
                     NSLog(@"%@", result);
                     
-                    currentUser = [PFUser currentUser];
                     currentUser.username = [result objectForKey:@"screen_name"];
                     currentUser[@"name"] = [result objectForKey:@"name"];
                     currentUser[@"bio"] = [result objectForKey:@"description"];
@@ -225,10 +227,6 @@
             }
             else
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                
-                [alert show];
-                
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
                 [self.navigationController pushViewController:vc animated:NO];
@@ -236,6 +234,10 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                 });
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
             }
         }];
     });
@@ -252,7 +254,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query whereKey:@"user" equalTo:currentUser];
     PFFile *file = [[query getFirstObject] objectForKey:@"imageFile"];
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:self.imageData];
     
@@ -265,7 +267,7 @@
              {
                  PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
                  [userPhoto setObject:imageFile forKey:@"imageFile"];
-                 [userPhoto setObject:[PFUser currentUser] forKey:@"user"];
+                 [userPhoto setObject:currentUser forKey:@"user"];
                  [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                      
                  }];

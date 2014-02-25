@@ -51,9 +51,9 @@
 //Links the current user's ZomBeacon account with their Facebook account
 - (IBAction)linkAccountWithFacebook
 {
-    if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]])
+    if (![PFFacebookUtils isLinkedWithUser:currentUser])
     {
-        [PFFacebookUtils linkUser:[PFUser currentUser] permissions:nil block:^(BOOL succeeded, NSError *error) {
+        [PFFacebookUtils linkUser:currentUser permissions:nil block:^(BOOL succeeded, NSError *error) {
             if (succeeded)
             {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Facebook!" message:@"You have successfully linked your ZomBeacon account with Facebook" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -67,7 +67,7 @@
 //Unlinks the current user's ZomBeacon account from their Facebook account
 - (IBAction)unlinkFromFacebook
 {
-    [PFFacebookUtils unlinkUserInBackground:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
+    [PFFacebookUtils unlinkUserInBackground:currentUser block:^(BOOL succeeded, NSError *error) {
         if (succeeded)
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Unlinked!" message:@"You have successfully unlinked your ZomBeacon account to Facebook" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -80,10 +80,10 @@
 //Links the current user's ZomBeacon account with their Twitter account
 - (IBAction)linkAccountWithTwitter
 {
-    if (![PFTwitterUtils isLinkedWithUser:[PFUser currentUser]])
+    if (![PFTwitterUtils isLinkedWithUser:currentUser])
     {
-        [PFTwitterUtils linkUser:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
-            if ([PFTwitterUtils isLinkedWithUser:[PFUser currentUser]])
+        [PFTwitterUtils linkUser:currentUser block:^(BOOL succeeded, NSError *error) {
+            if ([PFTwitterUtils isLinkedWithUser:currentUser])
             {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Twitter!" message:@"You have successfully linked your ZomBeacon account with Twitter" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
@@ -96,7 +96,7 @@
 //Unlinks the current user's ZomBeacon account from their Twitter account
 - (IBAction)unlinkFromTwitter
 {
-    [PFTwitterUtils unlinkUserInBackground:[PFUser currentUser] block:^(BOOL succeeded, NSError *error) {
+    [PFTwitterUtils unlinkUserInBackground:currentUser block:^(BOOL succeeded, NSError *error) {
         if (!error && succeeded)
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Unlinked!" message:@"You have successfully unlinked your ZomBeacon account to Twitter" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

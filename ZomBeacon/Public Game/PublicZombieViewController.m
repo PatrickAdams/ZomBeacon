@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.currentUser = [PFUser currentUser];
+    currentUser = [PFUser currentUser];
     
     self.mapView.delegate = self;
     [self queryNearbyUsers];
@@ -28,7 +28,7 @@
     
     //Initializing beacon region to send to survivors
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[self.currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.publicRegion"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.publicRegion"];
     
     //Initializing beacon region to range for headshots
     NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
@@ -45,7 +45,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.currentUser = [PFUser currentUser];
     [self.locationManager startUpdatingLocation];
     
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
@@ -65,12 +64,12 @@
 - (void)queryNearbyUsers
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [self.currentUser setObject:point forKey:@"location"];
-    [self.currentUser saveInBackground];
+    [currentUser setObject:point forKey:@"location"];
+    [currentUser saveInBackground];
     
-    if (self.currentUser[@"location"])
+    if (currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
+        PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
@@ -165,7 +164,7 @@
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     CLBeacon *beacon = [beacons firstObject];
-    
+        
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         PFQuery *userQuery = [PFUser query];
@@ -178,8 +177,8 @@
         notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
-        [self.currentUser setObject:@"dead" forKey:@"publicStatus"];
-        [self.currentUser saveInBackground];
+        [currentUser setObject:@"dead" forKey:@"publicStatus"];
+        [currentUser saveInBackground];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PublicDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicdead"];
@@ -189,7 +188,7 @@
         [query whereKey:@"user" equalTo:userThatInfected];
         PFObject *theUserScore = [query getFirstObject];
         float score = [theUserScore[@"publicScore"] floatValue];
-        float points = 1000.0f;
+        float points = 500.0f;
         NSNumber *sum = [NSNumber numberWithFloat:score + points];
         [theUserScore setObject:sum forKey:@"publicScore"];
         [theUserScore saveInBackground];

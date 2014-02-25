@@ -18,6 +18,7 @@
 @interface PrivateSurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
     NSTimer *timer;
+    PFUser *currentUser;
 }
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
@@ -28,7 +29,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *myCounterLabel;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, strong) NSTimer *shieldTimer;
 @property (nonatomic, weak) IBOutlet UIButton *shieldButton;

@@ -6,20 +6,20 @@
 -->
 <dict>
 	<key>PKKitName</key>
-	<string>ZomBeacon</string>
+	<string>ZB</string>
 	<key>PKUserIdentifier</key>
 	<string>770</string>
 	<key>PKUserEmail</key>
-	<string>patrickleeadams@gmail.com</string>
+	<string>padams@weblinc.com</string>
 	<key>PKGlobalUserIdentifier</key>
 	<string>1179</string>
 	<key>PKAPIToken</key>
-	<string>38f0ed8574f2f724530c98a286eeef171dcbfbc7391885262fb678857fd2513c</string>
+	<string>61feb335665cb2f067beaa476201a0b29a2dfa56941133b54040b6d2c26cb027</string>
 	<key>PKKitURL</key>
-	<string>http://proximitykit.com/api/kits/649</string>
+	<string>http://proximitykit.com/api/kits/1035</string>
 	<key>PKMapURL</key>
-	<string>http://proximitykit.com/api/maps/261</string>
+	<string>http://proximitykit.com/api/maps/364</string>
 	<key>PKMapName</key>
-	<string>Patient Zero</string>
+	<string>ZB Clients</string>
 </dict>
 </plist>

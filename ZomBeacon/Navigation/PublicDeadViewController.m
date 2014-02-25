@@ -17,9 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.currentUser = [PFUser currentUser];
+	currentUser = [PFUser currentUser];
 }
 
+//Lets you rejoin the game for 5,000 points docked off your overall score
 - (IBAction)rejoinGame
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -30,17 +31,17 @@
     {
         PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
         [self.navigationController pushViewController:vc animated:YES];
-        [self.currentUser setObject:@"zombie" forKey:@"publicStatus"];
-        [self.currentUser setObject:@"YES" forKey:@"joinedPublic"];
-        [self.currentUser saveInBackground];
+        [currentUser setObject:@"zombie" forKey:@"publicStatus"];
+        [currentUser setObject:@"YES" forKey:@"joinedPublic"];
+        [currentUser saveInBackground];
     }
     else
     {
         PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
         [self.navigationController pushViewController:vc animated:YES];
-        [self.currentUser setObject:@"survivor" forKey:@"publicStatus"];
-        [self.currentUser setObject:@"YES" forKey:@"joinedPublic"];
-        [self.currentUser saveInBackground];
+        [currentUser setObject:@"survivor" forKey:@"publicStatus"];
+        [currentUser setObject:@"YES" forKey:@"joinedPublic"];
+        [currentUser saveInBackground];
     }
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
@@ -53,6 +54,7 @@
     [theUserScore saveInBackground];
 }
 
+//Sends you back to the main menu
 - (IBAction)goHome
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

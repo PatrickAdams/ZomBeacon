@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
 	currentUser = [PFUser currentUser];
+    
     self.nameField.text = currentUser[@"name"];
     self.usernameField.text = currentUser.username;
     self.emailField.text = currentUser.email;

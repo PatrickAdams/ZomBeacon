@@ -18,6 +18,8 @@
 {
     [self setUpDatePicker];
     [super viewDidLoad];
+    
+    currentUser = [PFUser currentUser];
 	
     //MapView stuff
     self.mapView.delegate = self;
@@ -48,7 +50,6 @@
 //Method for creating a new private game and saving it to Parse
 - (IBAction)createNewGame
 {
-    PFUser *currentUser = [PFUser currentUser];
     PFObject *privateGame = [PFObject objectWithClassName:@"PrivateGames"];
     PFGeoPoint *gameLocation = [PFGeoPoint geoPointWithLatitude:self.droppedPin.coordinate.latitude longitude:self.droppedPin.coordinate.longitude];
     

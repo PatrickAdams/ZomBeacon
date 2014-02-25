@@ -11,8 +11,9 @@
 #import "MainMenuViewController.h"
 
 @interface PublicDeadViewController : UIViewController
-
-@property (nonatomic, strong) PFUser *currentUser;
+{
+    PFUser *currentUser;
+}
 
 - (IBAction)rejoinGame;
 - (IBAction)goHome;

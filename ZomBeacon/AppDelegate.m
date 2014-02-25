@@ -29,13 +29,16 @@
     [PFTwitterUtils initializeWithConsumerKey:@"4Oj2HtCnI9e8ALYhApmEyg"
                                consumerSecret:@"q0wXLhwm6qSdEiM1BmnPEcfYYJ36HbASJ62WENgEBo"];
     
-    //    // create and start to sync the manager with the Proximity Kit backend
-    //    self.proximityKitManager = [PKManager managerWithDelegate:self];
-    //    [self.proximityKitManager start];
+    // create and start to sync the manager with the Proximity Kit backend
+    self.proximityKitManager = [PKManager managerWithDelegate:self];
+    [self.proximityKitManager start];
     
     //Bluetooth
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     [self centralManagerDidUpdateState:self.centralManager];
+    
+    //Establish currentUser
+    currentUser = [PFUser currentUser];
     
     return YES;
 }
@@ -59,10 +62,10 @@
 //Presents local notification when user enters proximity kit geofence
 - (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
 {
-    if ([PFUser currentUser] && [[PFUser currentUser][@"publicStatus"] isEqualToString:@"zombie"])
+    if (currentUser != nil && [currentUser[@"publicStatus"] isEqualToString:@"zombie"])
     {
-        [[PFUser currentUser] setObject:@"survivor" forKey:@"publicStatus"];
-        [[PFUser currentUser] saveInBackground];
+        [currentUser setObject:@"survivor" forKey:@"publicStatus"];
+        [currentUser saveInBackground];
     }
     
     // present local notification
@@ -94,6 +97,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    //Starts location manager to track user location in the background
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
@@ -106,11 +110,11 @@
 
 - (void)saveLocation
 {
-    if ([PFUser currentUser])
+    if (currentUser != nil)
     {
         [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-            [[PFUser currentUser] setObject:geoPoint forKey:@"location"];
-            [[PFUser currentUser] saveInBackground];
+            [currentUser setObject:geoPoint forKey:@"location"];
+            [currentUser saveInBackground];
         }];
     }
     else
@@ -122,46 +126,15 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [self.locationTimer invalidate];
-    
-//    //Checks to see if the public game start date was more than 7 days ago
-//    PFQuery *publicGameStart = [PFQuery queryWithClassName:@"PublicGame"];
-//    PFObject *currentPublicGame = [publicGameStart getFirstObject];
-//    NSDate *startDate = currentPublicGame[@"startDate"];
-//    NSInteger daysBetween = [self daysBetweenDate:startDate andDate:[NSDate date]];
-//    if (daysBetween > 7)
-//    {
-//        [[PFUser currentUser] setObject:@"" forKey:@"publicStatus"];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME RESET" message:@"A new public game has started, your status has been reset!" delegate:nil cancelButtonTitle:@"Yay!" otherButtonTitles:nil];
-//        
-//        [alert show];
-//    }
 }
-
-//- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
-//{
-//    NSDate *fromDate;
-//    NSDate *toDate;
-//    
-//    NSCalendar *calendar = [NSCalendar currentCalendar];
-//    
-//    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&fromDate
-//                 interval:NULL forDate:fromDateTime];
-//    [calendar rangeOfUnit:NSDayCalendarUnit startDate:&toDate
-//                 interval:NULL forDate:toDateTime];
-//    
-//    NSDateComponents *difference = [calendar components:NSDayCalendarUnit
-//                                               fromDate:fromDate toDate:toDate options:0];
-//    
-//    return [difference day];
-//}
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     //Deletes users location whenever the app is terminated
-    if ([PFUser currentUser])
+    if (currentUser != nil)
     {
-        [[PFUser currentUser] setObject:[NSNull null] forKey:@"location"];
-        [[PFUser currentUser] save];
+        [currentUser setObject:[NSNull null] forKey:@"location"];
+        [currentUser save];
     }
     else
     {

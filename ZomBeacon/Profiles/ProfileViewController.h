@@ -30,13 +30,13 @@
 
 - (NSMutableArray *)getGamesUserHasCreated;
 - (IBAction)cameraButtonTapped;
-- (void)uploadImage:(NSData *)imageData;
-- (void)refreshImage;
 - (IBAction)linkAccountWithFacebook;
 - (IBAction)unlinkFromFacebook;
 - (IBAction)linkAccountWithTwitter;
 - (IBAction)unlinkFromTwitter;
 - (IBAction)logUserOut;
+- (void)uploadImage:(NSData *)imageData;
+- (void)refreshImage;
 
 
 @end

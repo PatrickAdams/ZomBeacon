@@ -15,6 +15,9 @@
 #import "PublicDeadViewController.h"
 
 @interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
+{
+    PFUser *currentUser;
+}
 
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion;
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion2;
@@ -22,7 +25,6 @@
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
-@property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *customFont;
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;

@@ -14,6 +14,9 @@
 #import "UserAnnotations.h"
 
 @interface CreateViewController : UIViewController <MKMapViewDelegate>
+{
+    PFUser *currentUser;
+}
 
 @property (nonatomic, weak) IBOutlet UITextField *gameNameTextField;
 @property (nonatomic, weak) IBOutlet UITextField *dateTimeTextField;

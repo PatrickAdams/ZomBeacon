@@ -13,6 +13,9 @@
 #import "PublicZombieViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, PKManagerDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate>
+{
+    PFUser *currentUser;
+}
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) CBCentralManager *centralManager;

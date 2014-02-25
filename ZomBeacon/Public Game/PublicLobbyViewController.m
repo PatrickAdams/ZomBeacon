@@ -17,7 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.currentUser = [PFUser currentUser];
+    
+    currentUser = [PFUser currentUser];
     
     for (UILabel * label in self.customFont) {
         label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
@@ -38,9 +39,9 @@
 {
     NSMutableArray *thePlayers = nil;
     
-    if (self.currentUser[@"location"])
+    if (currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
+        PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];

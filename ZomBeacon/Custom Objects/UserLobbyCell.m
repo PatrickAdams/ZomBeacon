@@ -12,7 +12,8 @@
 
 - (void)layoutSubviews
 {
-    for (UILabel * label in self.customFont) {
+    for (UILabel * label in self.customFont)
+    {
         label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
     }
 }
@@ -20,8 +21,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

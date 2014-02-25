@@ -55,7 +55,7 @@
 		E705AA3B18AE740200CFE7B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E705AA3A18AE740200CFE7B6 /* FacebookSDK.framework */; };
 		E705AA3E18AE741000CFE7B6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3D18AE741000CFE7B6 /* MBProgressHUD.m */; };
 		E705AA4318AE744500CFE7B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3F18AE744500CFE7B6 /* main.m */; };
-		E705AA4418AE744500CFE7B6 /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E705AA4018AE744500CFE7B6 /* ProximityKit.plist */; };
+		E705C71C18BCDD1400CFA0CD /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E705C71B18BCDD1400CFA0CD /* ProximityKit.plist */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
@@ -150,10 +150,10 @@
 		E705AA3C18AE741000CFE7B6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Frameworks/MBProgressHUD.h; sourceTree = "<group>"; };
 		E705AA3D18AE741000CFE7B6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Frameworks/MBProgressHUD.m; sourceTree = "<group>"; };
 		E705AA3F18AE744500CFE7B6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
-		E705AA4018AE744500CFE7B6 /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ProximityKit.plist; path = "Supporting Files/ProximityKit.plist"; sourceTree = "<group>"; };
 		E705AA4118AE744500CFE7B6 /* ZomBeacon-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ZomBeacon-Info.plist"; path = "Supporting Files/ZomBeacon-Info.plist"; sourceTree = "<group>"; };
 		E705AA4218AE744500CFE7B6 /* ZomBeacon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ZomBeacon-Prefix.pch"; path = "Supporting Files/ZomBeacon-Prefix.pch"; sourceTree = "<group>"; };
 		E705AA4618AE74A100CFE7B6 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E705C71B18BCDD1400CFA0CD /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProximityKit.plist; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -327,7 +327,7 @@
 				E7446985185B81E9007F6817 /* Images */,
 				E74E2D0C18898FCA0080D5A3 /* MBProgressHUD */,
 				E705AA3F18AE744500CFE7B6 /* main.m */,
-				E705AA4018AE744500CFE7B6 /* ProximityKit.plist */,
+				E705C71B18BCDD1400CFA0CD /* ProximityKit.plist */,
 				E705AA4118AE744500CFE7B6 /* ZomBeacon-Info.plist */,
 				E705AA4218AE744500CFE7B6 /* ZomBeacon-Prefix.pch */,
 				E751E48D1858BF15004E8874 /* InfoPlist.strings */,
@@ -494,6 +494,7 @@
 				E705A9EE18AE728700CFE7B6 /* facebook_signin.png in Resources */,
 				E705A9ED18AE728700CFE7B6 /* email@2x.png in Resources */,
 				E705A9F618AE728700CFE7B6 /* red.png in Resources */,
+				E705C71C18BCDD1400CFA0CD /* ProximityKit.plist in Resources */,
 				E705A9F818AE728700CFE7B6 /* twitter_signin.png in Resources */,
 				E705A9EA18AE728700CFE7B6 /* Default-568h@2x.png in Resources */,
 				E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */,
@@ -502,7 +503,6 @@
 				E705A9E518AE728700CFE7B6 /* blank_splash0.png in Resources */,
 				E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */,
 				E705A9F718AE728700CFE7B6 /* red@2x.png in Resources */,
-				E705AA4418AE744500CFE7B6 /* ProximityKit.plist in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E705A9EC18AE728700CFE7B6 /* email.png in Resources */,
 				E705A9F118AE728700CFE7B6 /* hole.png in Resources */,

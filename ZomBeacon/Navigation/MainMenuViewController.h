@@ -13,8 +13,10 @@
 #import "LoginViewController.h"
 
 @interface MainMenuViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate>
+{
+    PFUser *currentUser;
+}
 
-@property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) PFGeoPoint *point;
 @property (nonatomic, strong) NSTimer *locationTimer;
 @property (nonatomic, weak) IBOutlet UIButton *startPublicGameButton;

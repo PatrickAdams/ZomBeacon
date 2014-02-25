@@ -25,14 +25,14 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    self.currentUser = [PFUser currentUser];
+    currentUser = [PFUser currentUser];
     
     //Grabs UUID from game so that the iBeacon is unique to the game
     PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
-    [uuidQuery whereKey:@"objectId" equalTo:self.currentUser[@"currentGame"]];
+    [uuidQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
     PFObject *currentGame = [uuidQuery getFirstObject];
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:currentGame[@"uuid"]];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[self.currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.privateRegion"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.privateRegion"];
     
     //Initializing beacon region to range for headshots
     NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"D547D988-6F2A-48B7-A1B3-AA555494F251"];
@@ -62,14 +62,14 @@
 - (void)queryNearbyUsers
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [self.currentUser setObject:point forKey:@"location"];
-    [self.currentUser saveInBackground];
+    [currentUser setObject:point forKey:@"location"];
+    [currentUser saveInBackground];
     
-    if (self.currentUser[@"location"])
+    if (currentUser[@"location"])
     {
-        PFGeoPoint *userGeoPoint = self.currentUser[@"location"];
+        PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
-        [query whereKey:@"currentGame" equalTo:self.currentUser[@"currentGame"]];
+        [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error)
@@ -113,7 +113,7 @@
                 }
                 
                 PFQuery *currentUserPrivateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
-                [currentUserPrivateStatusQuery whereKey:@"user" equalTo:self.currentUser];
+                [currentUserPrivateStatusQuery whereKey:@"user" equalTo:currentUser];
                 PFObject *currentUserPrivateStatus = [currentUserPrivateStatusQuery getFirstObject];
                 
                 if ([currentUserPrivateStatus[@"status"] isEqualToString:@"zombie"])
@@ -173,7 +173,7 @@
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
         PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
-        [query whereKey:@"user" equalTo:self.currentUser];
+        [query whereKey:@"user" equalTo:currentUser];
         PFObject *theStatus = [query getFirstObject];
         
         [theStatus setObject:@"dead" forKey:@"status"];
@@ -183,6 +183,15 @@
         PrivateDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privatedead"];
         vc.navigationItem.hidesBackButton = YES;
         [self.navigationController pushViewController:vc animated:YES];
+        
+        PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
+        [query2 whereKey:@"user" equalTo:userThatInfected];
+        PFObject *theUserScore = [query2 getFirstObject];
+        float score = [theUserScore[@"publicScore"] floatValue];
+        float points = 500.0f;
+        NSNumber *sum = [NSNumber numberWithFloat:score + points];
+        [theUserScore setObject:sum forKey:@"publicScore"];
+        [theUserScore saveInBackground];
         
         [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
     }

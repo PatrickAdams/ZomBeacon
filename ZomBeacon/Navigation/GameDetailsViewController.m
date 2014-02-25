@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     
+    currentUser = [PFUser currentUser];
+    
     self.gameDateLabel.text = self.gameDateString;
     self.gameHostLabel.text = self.gameHostString;
     self.gameNameLabel.text = self.gameNameString;
@@ -58,7 +60,6 @@
 
 - (IBAction)joinGame
 {
-    PFUser *currentUser = [PFUser currentUser];
     currentUser[@"currentGame"] = self.gameIdString;
     [currentUser saveInBackground];
     
