@@ -39,7 +39,9 @@
     
     //Setting up beacon for sending headshots
     NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
-    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:1 minor:[currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.publicRegion"];
+    CLBeaconMajorValue major = [currentUser[@"major"] unsignedShortValue];
+    CLBeaconMajorValue minor = [currentUser[@"minor"] unsignedShortValue];
+    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:major minor:minor identifier:@"com.zombeacon.publicRegion"];
     
     //Custom font outlet collection
     for (UILabel * label in self.customFont) {
@@ -89,7 +91,7 @@
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
                     NSString *nameOfNearbyUser = users[i][@"username"];
-                    NSString *statusOfNearbyUser = users[i][@"publicStatus"];
+        [self queryNearbyUsers];            NSString *statusOfNearbyUser = users[i][@"publicStatus"];
                     
                     // Set some coordinates for our position
                     CLLocationCoordinate2D location;
@@ -173,6 +175,7 @@
     {
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        [userQuery whereKey:@"major" equalTo:beacon.major];
         PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
         
         //Presents the local notification

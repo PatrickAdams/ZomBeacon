@@ -20,12 +20,12 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
     currentUser = [PFUser currentUser];
     
-    self.mapView.delegate = self;
     [self queryNearbyUsers];
+    [super viewDidLoad];
+    
+    self.mapView.delegate = self;
     
     //Beacon & MapView stuff
     self.locationManager = [[CLLocationManager alloc] init];
@@ -42,7 +42,9 @@
     
     //Setting up beacon for headshots
     NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"D547D988-6F2A-48B7-A1B3-AA555494F251"];
-    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:1 minor:[currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.publicRegion"];
+    CLBeaconMajorValue major = [currentUser[@"major"] unsignedShortValue];
+    CLBeaconMajorValue minor = [currentUser[@"minor"] unsignedShortValue];
+    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:major minor:minor identifier:@"com.zombeacon.privateRegion"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -210,6 +212,7 @@
     {
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        [userQuery whereKey:@"major" equalTo:beacon.major];
         PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
         
         // present local notification

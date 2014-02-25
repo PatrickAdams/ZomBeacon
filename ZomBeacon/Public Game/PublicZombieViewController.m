@@ -32,7 +32,9 @@
     
     //Initializing beacon region to send to survivors
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[currentUser[@"minor"] unsignedShortValue] identifier:@"com.zombeacon.publicRegion"];
+    CLBeaconMajorValue major = [currentUser[@"major"] unsignedShortValue];
+    CLBeaconMajorValue minor = [currentUser[@"minor"] unsignedShortValue];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:major minor:minor identifier:@"com.zombeacon.publicRegion"];
     
     //Initializing beacon region to range for headshots
     NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
@@ -207,6 +209,7 @@
     {
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        [userQuery whereKey:@"major" equalTo:beacon.major];
         PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
         
         // present local notification

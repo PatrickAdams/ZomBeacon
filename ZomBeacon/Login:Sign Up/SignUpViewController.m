@@ -66,7 +66,8 @@
             user.email = self.emailField.text;
             user[@"name"] = self.nameField.text;
             user[@"bio"] = self.bioField.text;
-            user[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:1 to:100000000]];
+            user[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+            user[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
             
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
              {

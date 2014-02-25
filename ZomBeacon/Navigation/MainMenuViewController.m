@@ -43,11 +43,7 @@
     self.navigationItem.hidesBackButton = YES;
     
     //Refreshes currentUser data
-    if (currentUser)
-    {
-        [currentUser refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        }];
-    }
+    [currentUser refresh];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
