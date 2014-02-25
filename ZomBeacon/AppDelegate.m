@@ -101,6 +101,7 @@
     {
         [currentUser setObject:[NSNull null] forKey:@"location"];
         [currentUser save];
+        [PFUser logOut];
     }
     else
     {

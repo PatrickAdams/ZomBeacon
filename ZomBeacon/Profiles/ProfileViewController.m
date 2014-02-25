@@ -25,6 +25,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self getGamesUserHasCreated];
+    [self.tableView reloadData];
     [self refreshImage];
     [self setProfileValues];
     
@@ -220,19 +222,21 @@
 
 - (NSMutableArray *)getGamesUserHasCreated
 {
+    self.privateGames = nil;
+    
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
     [query whereKey:@"hostUser" equalTo:currentUser];
     [query includeKey:@"hostUser"];
-    NSMutableArray *privateGames = [[query findObjects] mutableCopy];
+    self.privateGames = [[query findObjects] mutableCopy];
     
-    return privateGames;
+    return self.privateGames;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self getGamesUserHasCreated].count;
+    return self.privateGames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -240,7 +244,7 @@
     static NSString *CellIdentifier = @"gameCell";
     GameCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    PFObject *game = [self getGamesUserHasCreated][indexPath.row];
+    PFObject *game = self.privateGames[indexPath.row];
     cell.gameName.text = game[@"gameName"];
     cell.gameDate.text = game[@"dateTime"];
     
@@ -253,7 +257,7 @@
     PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
     [self.navigationController pushViewController:vc animated:YES];
     
-    PFObject *game = [self getGamesUserHasCreated][indexPath.row];
+    PFObject *game = self.privateGames[indexPath.row];
     
     [currentUser setObject:game.objectId forKey:@"currentGame"];
     [currentUser saveInBackground];
@@ -281,7 +285,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        PFObject *gameToBeDeleted = [[self getGamesUserHasCreated] objectAtIndex:indexPath.row];
+        PFObject *gameToBeDeleted = [self.privateGames objectAtIndex:indexPath.row];
         [gameToBeDeleted deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {
                 [self getGamesUserHasCreated];
@@ -294,6 +298,8 @@
 //Method that logs the user out with the Parse framework
 - (IBAction)logUserOut
 {
+    [currentUser setObject:[NSNull null] forKey:@"location"];
+    [currentUser save];
     [PFUser logOut];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

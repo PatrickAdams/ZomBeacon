@@ -27,6 +27,7 @@
 @property (nonatomic, weak) IBOutlet PFImageView *profileImage;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *gamesArray;
+@property (nonatomic, strong) NSMutableArray *privateGames;
 
 - (NSMutableArray *)getGamesUserHasCreated;
 - (IBAction)cameraButtonTapped;

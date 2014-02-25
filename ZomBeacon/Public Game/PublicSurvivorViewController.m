@@ -20,12 +20,12 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
     currentUser = [PFUser currentUser];
     
-    self.mapView.delegate = self;
     [self queryNearbyUsers];
+    [super viewDidLoad];
+    
+    self.mapView.delegate = self;
     
     //Beacon & MapView stuff
     self.locationManager = [[CLLocationManager alloc] init];
@@ -49,6 +49,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff

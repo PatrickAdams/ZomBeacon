@@ -37,7 +37,7 @@
 //Method to get players in game and add them to an array
 - (NSMutableArray *)getPlayersInCurrentGame
 {
-    NSMutableArray *thePlayers = nil;
+    self.thePlayers = nil;
     
     if (currentUser[@"location"])
     {
@@ -45,18 +45,17 @@
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
-        thePlayers = (NSMutableArray *)[query findObjects];
-        [thePlayers removeObjectAtIndex:0];
+        self.thePlayers = (NSMutableArray *)[query findObjects];
     }
     
-    return thePlayers;
+    return self.thePlayers;
 }
 
 #pragma mark - Table View Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self getPlayersInCurrentGame].count;
+    return self.thePlayers.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,7 +63,7 @@
     static NSString *CellIdentifier = @"userCell";
     UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    PFObject *player = [self getPlayersInCurrentGame][indexPath.row];
+    PFObject *player = self.thePlayers[indexPath.row];
     NSString *playerName = player[@"name"];
     cell.nameLabel.text = playerName;
     
@@ -92,7 +91,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FriendProfileViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friendprofile"];
     
-    PFUser *player = [self getPlayersInCurrentGame][indexPath.row];
+    PFUser *player = self.thePlayers[indexPath.row];
     vc.realNameString = player[@"name"];
     vc.userNameString = player[@"username"];
     vc.shortBioString = player[@"bio"];
