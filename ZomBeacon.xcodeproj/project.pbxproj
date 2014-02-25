@@ -387,12 +387,12 @@
 		E7F7999E18A57714007C1477 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
+				E7C8653C18B6594F00D80BD1 /* ProfileViewController.h */,
+				E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */,
 				E7C8653818B6594F00D80BD1 /* EditProfileViewController.h */,
 				E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */,
 				E7C8653A18B6594F00D80BD1 /* FriendProfileViewController.h */,
 				E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */,
-				E7C8653C18B6594F00D80BD1 /* ProfileViewController.h */,
-				E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */,
 			);
 			name = Profiles;
 			sourceTree = "<group>";
