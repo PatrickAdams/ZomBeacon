@@ -29,10 +29,6 @@
     [PFTwitterUtils initializeWithConsumerKey:@"4Oj2HtCnI9e8ALYhApmEyg"
                                consumerSecret:@"q0wXLhwm6qSdEiM1BmnPEcfYYJ36HbASJ62WENgEBo"];
     
-    // create and start to sync the manager with the Proximity Kit backend
-    self.proximityKitManager = [PKManager managerWithDelegate:self];
-    [self.proximityKitManager start];
-    
     //Bluetooth
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     [self centralManagerDidUpdateState:self.centralManager];
@@ -55,36 +51,6 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
-}
-
-#pragma mark - Proximity Kit
-
-//Presents local notification when user enters proximity kit geofence
-- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
-{
-    if (currentUser != nil && [currentUser[@"publicStatus"] isEqualToString:@"zombie"])
-    {
-        [currentUser setObject:@"survivor" forKey:@"publicStatus"];
-        [currentUser saveInBackground];
-    }
-    
-    // present local notification
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"You have entered the quarantine zone! - If you were a zombie you are no longer infected.";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-}
-
-//Presents local notification when user exits proximity kit geofence
-- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
-{
-    // present local notification
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"You've just exited the quarantine zone. Watch out for Zombies!";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 #pragma mark - Application State Methods

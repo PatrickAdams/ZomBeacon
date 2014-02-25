@@ -13,8 +13,9 @@
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
 #import "PublicDeadViewController.h"
+#import <ProximityKit/ProximityKit.h>
 
-@interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
+@interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate, PKManagerDelegate>
 {
     PFUser *currentUser;
 }
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *customFont;
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;
+@property PKManager *proximityKitManager;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

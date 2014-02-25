@@ -22,6 +22,10 @@
     self.mapView.delegate = self;
     [self queryNearbyUsers];
     
+    // create and start to sync the manager with the Proximity Kit backend
+    self.proximityKitManager = [PKManager managerWithDelegate:self];
+    [self.proximityKitManager start];
+    
     //MapView Stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -56,6 +60,40 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.queryTimer invalidate];
+}
+
+#pragma mark - Proximity Kit Methods
+
+//Presents local notification when user enters proximity kit geofence
+- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
+{
+    if (currentUser != nil && [currentUser[@"publicStatus"] isEqualToString:@"zombie"])
+    {
+        [currentUser setObject:@"survivor" forKey:@"publicStatus"];
+        [currentUser saveInBackground];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    // present local notification
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"You have entered the quarantine zone! - If you were a zombie you are no longer infected.";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+//Presents local notification when user exits proximity kit geofence
+- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
+{
+    // present local notification
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"You've just exited the quarantine zone. Watch out for Zombies!";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations

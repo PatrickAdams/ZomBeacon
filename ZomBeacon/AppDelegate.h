@@ -12,7 +12,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "PublicZombieViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, PKManagerDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate>
 {
     PFUser *currentUser;
 }
@@ -22,8 +22,5 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) PFGeoPoint *point;
 @property (nonatomic, strong) NSTimer *locationTimer;
-@property PKManager *proximityKitManager;
-
-//- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
 
 @end
