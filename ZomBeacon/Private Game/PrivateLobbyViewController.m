@@ -159,9 +159,9 @@
     HUD.margin = 10.f;
     HUD.removeFromSuperViewOnHide = YES;
     
-    HUD.labelFont = [UIFont fontWithName:@"Helvetica" size:15.0f];
+    HUD.labelFont = [UIFont fontWithName:@"04B_19" size:20.0f];
     HUD.labelText = @"GAME STARTS IN";
-    HUD.detailsLabelFont = [UIFont fontWithName:@"Helvetica" size:40.0f];
+    HUD.detailsLabelFont = [UIFont fontWithName:@"04B_19" size:40.0f];
     HUD.detailsLabelText = @"00:20";
 
     

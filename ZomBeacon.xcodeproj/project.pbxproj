@@ -11,8 +11,6 @@
 		E70028C118BBE4AA00036E1B /* PublicDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */; };
 		E70028C418BBF3F100036E1B /* PrivateDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */; };
 		E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CA18AE728700CFE7B6 /* app_icon.png */; };
-		E705A9E418AE728700CFE7B6 /* blank_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CB18AE728700CFE7B6 /* blank_splash.png */; };
-		E705A9E518AE728700CFE7B6 /* blank_splash0.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CC18AE728700CFE7B6 /* blank_splash0.png */; };
 		E705A9E618AE728700CFE7B6 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CD18AE728700CFE7B6 /* blue.png */; };
 		E705A9E718AE728700CFE7B6 /* blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CE18AE728700CFE7B6 /* blue@2x.png */; };
 		E705A9E818AE728700CFE7B6 /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CF18AE728700CFE7B6 /* compass.png */; };
@@ -65,6 +63,8 @@
 		E751E4981858BF15004E8874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E751E4961858BF15004E8874 /* Main.storyboard */; };
 		E76B2C0F18BE3D0700B5E45D /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = E76B2C0E18BE3D0700B5E45D /* sms.png */; };
 		E76B2C1118BE3D1300B5E45D /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76B2C1018BE3D1300B5E45D /* sms@2x.png */; };
+		E76B2C1318BE82E700B5E45D /* splash_long.png in Resources */ = {isa = PBXBuildFile; fileRef = E76B2C1218BE82E700B5E45D /* splash_long.png */; };
+		E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */ = {isa = PBXBuildFile; fileRef = E76B2C1418BE83F300B5E45D /* splash_short.png */; };
 		E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E7771BCD18B7DD560040EFCF /* 04B_19__.TTF */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
@@ -90,8 +90,6 @@
 		E70028C218BBF3F100036E1B /* PrivateDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrivateDeadViewController.h; path = Navigation/PrivateDeadViewController.h; sourceTree = "<group>"; };
 		E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrivateDeadViewController.m; path = Navigation/PrivateDeadViewController.m; sourceTree = "<group>"; };
 		E705A9CA18AE728700CFE7B6 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon.png; path = Images/app_icon.png; sourceTree = "<group>"; };
-		E705A9CB18AE728700CFE7B6 /* blank_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_splash.png; path = Images/blank_splash.png; sourceTree = "<group>"; };
-		E705A9CC18AE728700CFE7B6 /* blank_splash0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_splash0.png; path = Images/blank_splash0.png; sourceTree = "<group>"; };
 		E705A9CD18AE728700CFE7B6 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue.png; path = Images/blue.png; sourceTree = "<group>"; };
 		E705A9CE18AE728700CFE7B6 /* blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue@2x.png"; path = "Images/blue@2x.png"; sourceTree = "<group>"; };
 		E705A9CF18AE728700CFE7B6 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass.png; path = Images/compass.png; sourceTree = "<group>"; };
@@ -167,6 +165,8 @@
 		E751E4A31858BF15004E8874 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E76B2C0E18BE3D0700B5E45D /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
 		E76B2C1018BE3D1300B5E45D /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
+		E76B2C1218BE82E700B5E45D /* splash_long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_long.png; path = Images/splash_long.png; sourceTree = "<group>"; };
+		E76B2C1418BE83F300B5E45D /* splash_short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_short.png; path = Images/splash_short.png; sourceTree = "<group>"; };
 		E7771BCD18B7DD560040EFCF /* 04B_19__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04B_19__.TTF; path = Fonts/04B_19__.TTF; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -221,9 +221,9 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E76B2C1218BE82E700B5E45D /* splash_long.png */,
+				E76B2C1418BE83F300B5E45D /* splash_short.png */,
 				E705A9CA18AE728700CFE7B6 /* app_icon.png */,
-				E705A9CB18AE728700CFE7B6 /* blank_splash.png */,
-				E705A9CC18AE728700CFE7B6 /* blank_splash0.png */,
 				E705A9CD18AE728700CFE7B6 /* blue.png */,
 				E705A9CE18AE728700CFE7B6 /* blue@2x.png */,
 				E705A9CF18AE728700CFE7B6 /* compass.png */,
@@ -506,7 +506,6 @@
 				E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */,
 				E705A9F218AE728700CFE7B6 /* locate.png in Resources */,
 				E705A9EB18AE728700CFE7B6 /* dotImage@2x.png in Resources */,
-				E705A9E518AE728700CFE7B6 /* blank_splash0.png in Resources */,
 				E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */,
 				E705A9F718AE728700CFE7B6 /* red@2x.png in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
@@ -523,8 +522,9 @@
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
 				E705A9E618AE728700CFE7B6 /* blue.png in Resources */,
 				E705A9E818AE728700CFE7B6 /* compass.png in Resources */,
+				E76B2C1318BE82E700B5E45D /* splash_long.png in Resources */,
+				E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */,
 				E76B2C1118BE3D1300B5E45D /* sms@2x.png in Resources */,
-				E705A9E418AE728700CFE7B6 /* blank_splash.png in Resources */,
 				E705A9E918AE728700CFE7B6 /* compass@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
