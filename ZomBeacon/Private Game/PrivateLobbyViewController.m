@@ -149,7 +149,66 @@
     });
 }
 
-- (IBAction)startGame
+- (IBAction)startGameCountdown
+{
+    HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    // Configure for text only and offset down
+    HUD.mode = MBProgressHUDModeText;
+    HUD.dimBackground = YES;
+    HUD.backgroundColor = [UIColor grayColor];
+    HUD.margin = 10.f;
+    HUD.removeFromSuperViewOnHide = YES;
+    
+    HUD.labelFont = [UIFont fontWithName:@"Helvetica" size:15.0f];
+    HUD.labelText = @"GAME STARTS IN";
+    HUD.detailsLabelFont = [UIFont fontWithName:@"Helvetica" size:40.0f];
+    HUD.detailsLabelText = @"00:20";
+
+    
+    secondsLeft = 20;
+    
+    [self countdownTimer];
+}
+
+#pragma mark - Time Counter Management
+
+//Method that refreshes and updates the countdown timer
+- (void)updateCounter:(NSTimer *)theTimer
+{
+    if (secondsLeft > 11)
+    {
+        secondsLeft -- ;
+        minutes = (secondsLeft % 3600) / 60;
+        seconds = (secondsLeft %3600) % 60;
+        
+        HUD.labelText = @"GAME STARTS IN";
+        HUD.detailsLabelText = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+    }
+    else if (secondsLeft <= 11 && secondsLeft > 0)
+    {
+        secondsLeft -- ;
+        minutes = (secondsLeft % 3600) / 60;
+        seconds = (secondsLeft %3600) % 60;
+        
+        HUD.labelText = @"GAME STARTS IN";
+        HUD.detailsLabelColor = [UIColor orangeColor];
+        HUD.detailsLabelText = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+    }
+    else
+    {
+        [timer invalidate];
+        [HUD removeFromSuperview];
+        [self startGame];
+    }
+}
+
+//Method that does the setup for the countdown timer
+- (void)countdownTimer
+{
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+}
+
+- (void)startGame
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
@@ -181,7 +240,7 @@
         
         [alert show];
     }
-    
+
 }
 
 //Method that chooses a random number
@@ -252,7 +311,6 @@
         
         [self presentViewController:mailComposerView animated:YES completion:nil];
     }
-	
 }
 
 // Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.

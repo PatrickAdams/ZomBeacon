@@ -227,6 +227,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
     [query whereKey:@"hostUser" equalTo:currentUser];
     [query includeKey:@"hostUser"];
+    [query orderByAscending:@"dateTime"];
     self.privateGames = [[query findObjects] mutableCopy];
     
     return self.privateGames;

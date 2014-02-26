@@ -18,9 +18,13 @@
 #import "PrivateZombieViewController.h"
 #import "PrivateSurvivorViewController.h"
 
-@interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate>
+@interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate, MBProgressHUDDelegate>
 {
+    MBProgressHUD *HUD;
     PFUser *currentUser;
+    int minutes, seconds;
+    int secondsLeft;
+    NSTimer *timer;
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -48,7 +52,7 @@
 - (IBAction)shareViaSMS;
 - (IBAction)refreshList;
 - (IBAction)openInMaps;
-- (IBAction)startGame;
+- (IBAction)startGameCountdown;
 - (IBAction)assignTeams;
 
 

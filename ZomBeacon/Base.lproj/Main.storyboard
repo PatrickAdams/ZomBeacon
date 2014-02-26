@@ -2053,7 +2053,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startGame" destination="tVY-1o-Iu1" eventType="touchUpInside" id="Egp-5i-3om"/>
+                                    <action selector="startGameCountdown" destination="tVY-1o-Iu1" eventType="touchUpInside" id="Vxf-S4-hUN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ron-Yq-C6V">
