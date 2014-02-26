@@ -63,6 +63,8 @@
 		E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E751E48D1858BF15004E8874 /* InfoPlist.strings */; };
 		E751E4951858BF15004E8874 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E751E4941858BF15004E8874 /* AppDelegate.m */; };
 		E751E4981858BF15004E8874 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E751E4961858BF15004E8874 /* Main.storyboard */; };
+		E76B2C0F18BE3D0700B5E45D /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = E76B2C0E18BE3D0700B5E45D /* sms.png */; };
+		E76B2C1118BE3D1300B5E45D /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E76B2C1018BE3D1300B5E45D /* sms@2x.png */; };
 		E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E7771BCD18B7DD560040EFCF /* 04B_19__.TTF */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
@@ -163,6 +165,8 @@
 		E751E4941858BF15004E8874 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E751E4971858BF15004E8874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E751E4A31858BF15004E8874 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E76B2C0E18BE3D0700B5E45D /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
+		E76B2C1018BE3D1300B5E45D /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
 		E7771BCD18B7DD560040EFCF /* 04B_19__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04B_19__.TTF; path = Fonts/04B_19__.TTF; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -229,6 +233,8 @@
 				E705A9D318AE728700CFE7B6 /* email.png */,
 				E705A9D418AE728700CFE7B6 /* email@2x.png */,
 				E705A9D518AE728700CFE7B6 /* facebook_signin.png */,
+				E76B2C0E18BE3D0700B5E45D /* sms.png */,
+				E76B2C1018BE3D1300B5E45D /* sms@2x.png */,
 				E705A9D618AE728700CFE7B6 /* fb.png */,
 				E705A9D718AE728700CFE7B6 /* fb@2x.png */,
 				E705A9D818AE728700CFE7B6 /* hole.png */,
@@ -404,10 +410,10 @@
 				E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */,
 				E70028C218BBF3F100036E1B /* PrivateDeadViewController.h */,
 				E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */,
-				E705AA0E18AE735600CFE7B6 /* CreatedViewController.h */,
-				E705AA0F18AE735600CFE7B6 /* CreatedViewController.m */,
 				E705AA1018AE735600CFE7B6 /* CreateViewController.h */,
 				E705AA1118AE735600CFE7B6 /* CreateViewController.m */,
+				E705AA0E18AE735600CFE7B6 /* CreatedViewController.h */,
+				E705AA0F18AE735600CFE7B6 /* CreatedViewController.m */,
 				E705AA1218AE735600CFE7B6 /* FindGameViewController.h */,
 				E705AA1318AE735600CFE7B6 /* FindGameViewController.m */,
 				E705AA1418AE735600CFE7B6 /* GameDetailsViewController.h */,
@@ -513,9 +519,11 @@
 				E705A9F318AE728700CFE7B6 /* locate@2x.png in Resources */,
 				E705A9FA18AE728700CFE7B6 /* twitter@2x.png in Resources */,
 				E705A9F518AE728700CFE7B6 /* profile@2x.png in Resources */,
+				E76B2C0F18BE3D0700B5E45D /* sms.png in Resources */,
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
 				E705A9E618AE728700CFE7B6 /* blue.png in Resources */,
 				E705A9E818AE728700CFE7B6 /* compass.png in Resources */,
+				E76B2C1118BE3D1300B5E45D /* sms@2x.png in Resources */,
 				E705A9E418AE728700CFE7B6 /* blank_splash.png in Resources */,
 				E705A9E918AE728700CFE7B6 /* compass@2x.png in Resources */,
 			);

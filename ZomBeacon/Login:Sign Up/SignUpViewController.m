@@ -85,7 +85,9 @@
                  }
                  else
                  {
-                     NSLog(@"Error signing user up.");
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", [error userInfo][@"error"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                     
+                     [alert show];
                      
                      dispatch_async(dispatch_get_main_queue(), ^{
                          [MBProgressHUD hideHUDForView:self.view animated:YES];

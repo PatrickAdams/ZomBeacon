@@ -328,6 +328,11 @@
     [self presentViewController:facebookComposer animated:YES completion:nil];
 }
 
+- (IBAction)shareViaSMS
+{
+    
+}
+
 #pragma mark - Open In Maps Method
 
 //Method allows you to open the game coordinates in the Maps app

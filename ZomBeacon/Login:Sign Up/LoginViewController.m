@@ -70,7 +70,7 @@
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
                  
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login credentials are incorrect." message:@"Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", [error userInfo][@"error"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                  
                  [alert show];
              }

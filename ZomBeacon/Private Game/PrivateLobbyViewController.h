@@ -45,6 +45,7 @@
 - (IBAction)shareViaEmail;
 - (IBAction)shareViaTwitter;
 - (IBAction)shareViaFacebook;
+- (IBAction)shareViaSMS;
 - (IBAction)refreshList;
 - (IBAction)openInMaps;
 - (IBAction)startGame;

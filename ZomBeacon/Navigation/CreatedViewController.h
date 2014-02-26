@@ -14,7 +14,7 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 #import <Social/Social.h>
 
-@interface CreatedViewController : UIViewController <MKMapViewDelegate, MFMailComposeViewControllerDelegate>
+@interface CreatedViewController : UIViewController <MKMapViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSString *gameNameString;
 @property (nonatomic, strong) NSString *gameHostString;
@@ -35,6 +35,7 @@
 - (IBAction)shareViaEmail;
 - (IBAction)shareViaTwitter;
 - (IBAction)shareViaFacebook;
+- (IBAction)shareViaSMS;
 
 
 @end
