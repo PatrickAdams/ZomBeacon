@@ -317,16 +317,6 @@
 
 #pragma mark - GameCenter Implementation
 
-+ (BOOL)isGameCenterAvailable
-{
-	Class gcClass = (NSClassFromString(@"GKLocalPlayer"));
-	NSString *reqSysVer = @"7.0";
-	NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
-	BOOL osVersionSupported = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending);
-	
-	return (gcClass && osVersionSupported);
-}
-
 - (void)authenticateLocalUser
 {
     GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
@@ -367,6 +357,8 @@
         }
     }];
 }
+
+#pragma mark - Closing methods
 
 - (void)didReceiveMemoryWarning
 {

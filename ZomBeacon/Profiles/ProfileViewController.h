@@ -40,9 +40,6 @@
 - (IBAction)showLeaderboards;
 - (void)uploadImage:(NSData *)imageData;
 - (void)refreshImage;
-- (void)reportScore:(int64_t)score forLeaderboardID:(NSString*)identifier;
-+ (BOOL)isGameCenterAvailable;
-- (void)authenticateLocalUser;
 
 
 @end
