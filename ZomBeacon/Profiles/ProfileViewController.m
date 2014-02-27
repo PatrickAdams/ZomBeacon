@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad
 {
+    //GameCenter user authentication
+    [self authenticateLocalUser];
+    
     currentUser = [PFUser currentUser];
     [self refreshImage];
     [super viewDidLoad];
@@ -25,6 +28,9 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    //GameCenter user authentication
+    [self authenticateLocalUser];
+    
     [self getGamesUserHasCreated];
     [self.tableView reloadData];
     [self refreshImage];
@@ -50,6 +56,10 @@
     NSNumber *scoreTotal = [NSNumber numberWithFloat:([publicScore floatValue] + [privateScore floatValue])];
     
     self.userScore.text = [NSString stringWithFormat:@"%@ pts", scoreTotal];
+    
+    //Sets the score values in the GameCenter leaderboards
+    [self reportScore:[publicScore intValue] forLeaderboardID:@"publicScore"];
+    [self reportScore:[privateScore intValue] forLeaderboardID:@"privateScore"];
 }
 
 #pragma mark - Facebook/Twitter Linking/Unlinking Methods
@@ -303,6 +313,59 @@
     [currentUser save];
     [PFUser logOut];
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - GameCenter Implementation
+
++ (BOOL)isGameCenterAvailable
+{
+	Class gcClass = (NSClassFromString(@"GKLocalPlayer"));
+	NSString *reqSysVer = @"7.0";
+	NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+	BOOL osVersionSupported = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending);
+	
+	return (gcClass && osVersionSupported);
+}
+
+- (void)authenticateLocalUser
+{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+        if (viewController != nil)
+        {
+            [self presentViewController:viewController animated:YES completion:nil];
+        }
+    };
+}
+
+- (IBAction)showLeaderboards
+{
+    GKGameCenterViewController *vc = [[GKGameCenterViewController alloc] init];
+    if (vc != NULL)
+    {
+        vc.gameCenterDelegate = self;
+        //Controls which state of the view you want to show
+        vc.viewState = GKGameCenterViewControllerStateLeaderboards;
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
+
+- (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)reportScore:(int64_t)score forLeaderboardID:(NSString*)identifier
+{
+	GKScore *scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier:identifier];
+	scoreReporter.value = score;
+    
+	[GKScore reportScores:@[scoreReporter] withCompletionHandler:^(NSError *error) {
+        if (error)
+        {
+           //Didn't report.
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning

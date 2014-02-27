@@ -11,8 +11,9 @@
 #import "MBProgressHUD.h"
 #import "PrivateLobbyViewController.h"
 #import "GameCell.h"
+#import <GameKit/GameKit.h>
 
-@interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate, GKGameCenterControllerDelegate>
 {
     NSMutableArray *allImages;
     PFUser *currentUser;
@@ -36,8 +37,12 @@
 - (IBAction)linkAccountWithTwitter;
 - (IBAction)unlinkFromTwitter;
 - (IBAction)logUserOut;
+- (IBAction)showLeaderboards;
 - (void)uploadImage:(NSData *)imageData;
 - (void)refreshImage;
+- (void)reportScore:(int64_t)score forLeaderboardID:(NSString*)identifier;
++ (BOOL)isGameCenterAvailable;
+- (void)authenticateLocalUser;
 
 
 @end
