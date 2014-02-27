@@ -13,7 +13,7 @@
 #import "GameCell.h"
 #import <GameKit/GameKit.h>
 
-@interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate, GKGameCenterControllerDelegate>
+@interface ProfileViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate, GKGameCenterControllerDelegate, UIActionSheetDelegate>
 {
     NSMutableArray *allImages;
     PFUser *currentUser;

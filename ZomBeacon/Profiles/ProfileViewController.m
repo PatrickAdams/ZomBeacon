@@ -126,11 +126,39 @@
 
 - (IBAction)cameraButtonTapped
 {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
-    imagePicker.delegate = self;
-    imagePicker.allowsEditing = YES;
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"PHOTO"
+                                  delegate:self
+                                  cancelButtonTitle:@"Cancel"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"From Library", @"From Camera", nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+//Lets you sort by Alphabetical, Score Descending, and Score Ascending
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if  ([buttonTitle isEqualToString:@"From Library"])
+    {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.delegate = self;
+        imagePicker.allowsEditing = YES;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+    if ([buttonTitle isEqualToString:@"From Camera"])
+    {
+        if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+        {
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+            imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+            imagePicker.delegate = self;
+            imagePicker.allowsEditing = YES;
+            [self presentViewController:imagePicker animated:YES completion:nil];
+        }
+    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

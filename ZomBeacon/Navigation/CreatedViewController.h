@@ -13,6 +13,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
 #import <Social/Social.h>
+#import <GameKit/GameKit.h>
 
 @interface CreatedViewController : UIViewController <MKMapViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 

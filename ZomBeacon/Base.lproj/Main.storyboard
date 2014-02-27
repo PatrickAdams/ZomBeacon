@@ -673,9 +673,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KT1-0l-G8M">
-                                <rect key="frame" x="12" y="188" width="95" height="30"/>
+                                <rect key="frame" x="16" y="188" width="87" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Leaderboards">
+                                <state key="normal" title="GameCenter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2155,7 +2155,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Hiy-XA-NFh"/>
+        <segue reference="kx5-jM-uCj"/>
         <segue reference="2tQ-oh-ysy"/>
     </inferredMetricsTieBreakers>
 </document>
