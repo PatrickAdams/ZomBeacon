@@ -26,11 +26,7 @@
     self.gameNameLabel.text = self.gameNameString;
     self.gameHostLabel.text = self.gameHostString;
     self.gameDateLabel.text = self.gameDateString;
-    self.openInMapsButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.openInMapsButton.titleLabel.font.pointSize];
-    
-    for (UILabel * label in self.customFont) {
-        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
-    }
+    self.openInMapsButton.titleLabel.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:self.openInMapsButton.titleLabel.font.pointSize];
     
     CLLocation *location = [[CLLocation alloc] initWithLatitude:self.gameLocationCoord.latitude longitude:self.gameLocationCoord.longitude];
     
@@ -77,6 +73,14 @@
         [self.startGameButton setEnabled:YES];
         self.assignTeamsButton.hidden = YES;
         [self.startGameButton isEnabled];
+    }
+    
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    for (UILabel * label in self.titilliumRegularFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
 }
 
@@ -145,6 +149,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.startGameButton setEnabled:YES];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self.assignTeamsButton setEnabled:NO];
         });
     });
 }

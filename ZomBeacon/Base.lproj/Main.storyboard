@@ -1992,11 +1992,19 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE &amp; TIME:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5bU-V6-vGR">
-                                <rect key="frame" x="17" y="77" width="85" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg4.png" id="1D2-1B-we2">
+                                <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="0.20416130060000001" green="0.66376151210000001" blue="0.85315823550000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="zUC-sp-Qy6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE &amp; TIME:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5bU-V6-vGR">
+                                <rect key="frame" x="24" y="95" width="104" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mHz-XP-QOr" userLabel="Email Button">
@@ -2027,7 +2035,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ya9-Yy-2nA" userLabel="Facebook Button">
-                                <rect key="frame" x="229" y="47" width="42" height="42"/>
+                                <rect key="frame" x="210" y="47" width="61" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="fb.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2037,32 +2045,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rgF-J4-ZWJ">
-                                <rect key="frame" x="17" y="97" width="70" height="21"/>
+                                <rect key="frame" x="24" y="135" width="84" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="0.20416130060000001" green="0.66376151210000001" blue="0.85315823550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOST:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lud-dF-DOf">
-                                <rect key="frame" x="17" y="58" width="43" height="21"/>
+                                <rect key="frame" x="24" y="115" width="58" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="0.20416130060000001" green="0.66376151210000001" blue="0.85315823550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAYERS IN THIS GAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3QS-RP-oJQ">
-                                <rect key="frame" x="17" y="130" width="204" height="21"/>
+                                <rect key="frame" x="24" y="178" width="220" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rt9-aS-jiF">
-                                <rect key="frame" x="87" y="93" width="97" height="30"/>
+                                <rect key="frame" x="106" y="131" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="Open in Maps">
-                                    <color key="titleColor" red="0.045528925659999997" green="1" blue="0.089063420239999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -2070,33 +2078,33 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="XXs-5h-c35">
-                                <rect key="frame" x="0.0" y="229" width="320" height="275"/>
+                                <rect key="frame" x="0.0" y="213" width="320" height="211"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.17669802300000001" green="0.17669802300000001" blue="0.17669802300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <inset key="separatorInset" minX="23" minY="0.0" maxX="23" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="37" id="hqf-aC-pK8" customClass="UserLobbyCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="37" id="hqf-aC-pK8" customClass="UserLobbyCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hqf-aC-pK8" id="n93-zh-Kzb">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="36"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QmL-fo-I7G">
-                                                    <rect key="frame" x="52" y="7" width="252" height="21"/>
+                                                    <rect key="frame" x="56" y="7" width="252" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.png" id="pqr-9A-LzD" customClass="PFImageView">
-                                                    <rect key="frame" x="18" y="6" width="24" height="24"/>
+                                                    <rect key="frame" x="23" y="6" width="24" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.17669802300000001" green="0.17669802300000001" blue="0.17669802300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="QmL-fo-I7G" id="kX5-wr-6Na"/>
                                             <outlet property="profileImage" destination="pqr-9A-LzD" id="e8N-bu-QLY"/>
@@ -2111,46 +2119,45 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DETAILS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lqK-J8-DUD">
-                                <rect key="frame" x="17" y="15" width="77" height="21"/>
+                                <rect key="frame" x="24" y="44" width="77" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Fv-bR-cNf">
-                                <rect key="frame" x="109" y="77" width="196" height="21"/>
+                                <rect key="frame" x="130" y="95" width="175" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lL6-hu-HAd">
-                                <rect key="frame" x="103" y="38" width="179" height="21"/>
+                                <rect key="frame" x="130" y="75" width="175" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAME NAME:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YSl-9S-Oia">
-                                <rect key="frame" x="17" y="38" width="85" height="21"/>
+                                <rect key="frame" x="24" y="75" width="104" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="0.20416130060000001" green="0.66376151210000001" blue="0.85315823550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GD0-fR-yDa">
-                                <rect key="frame" x="60" y="58" width="198" height="21"/>
+                                <rect key="frame" x="130" y="115" width="175" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8hr-Ps-nOG">
-                                <rect key="frame" x="183" y="160" width="117" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8hr-Ps-nOG">
+                                <rect key="frame" x="168" y="444" width="128" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <state key="normal" title="Start Game">
+                                <state key="normal" image="startgame_button.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2158,12 +2165,11 @@
                                     <action selector="startGameCountdown" destination="tVY-1o-Iu1" eventType="touchUpInside" id="Vxf-S4-hUN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ron-Yq-C6V">
-                                <rect key="frame" x="38" y="160" width="113" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ron-Yq-C6V">
+                                <rect key="frame" x="25" y="444" width="128" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Assign Teams">
+                                <state key="normal" image="assignteams_button.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2172,7 +2178,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.17669802295918369" green="0.17669802295918369" blue="0.17669802295918369" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Private Lobby" id="Dc4-PD-n7G">
@@ -2191,15 +2196,15 @@
                         <outlet property="openInMapsButton" destination="Rt9-aS-jiF" id="ot9-62-OvE"/>
                         <outlet property="startGameButton" destination="8hr-Ps-nOG" id="FTA-8z-Oyv"/>
                         <outlet property="tableView" destination="XXs-5h-c35" id="bVL-Q2-qC9"/>
-                        <outletCollection property="customFont" destination="lqK-J8-DUD" id="RaW-9i-awH"/>
-                        <outletCollection property="customFont" destination="YSl-9S-Oia" id="MsG-IS-Hoy"/>
-                        <outletCollection property="customFont" destination="lL6-hu-HAd" id="5VP-Zk-74f"/>
-                        <outletCollection property="customFont" destination="Lud-dF-DOf" id="pt8-qa-Ajh"/>
-                        <outletCollection property="customFont" destination="GD0-fR-yDa" id="Ah6-hO-xzu"/>
-                        <outletCollection property="customFont" destination="5bU-V6-vGR" id="lmJ-Dr-iKc"/>
-                        <outletCollection property="customFont" destination="0Fv-bR-cNf" id="fIe-D9-0aw"/>
-                        <outletCollection property="customFont" destination="rgF-J4-ZWJ" id="duK-s1-thQ"/>
-                        <outletCollection property="customFont" destination="3QS-RP-oJQ" id="ye4-Ui-wXT"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="lqK-J8-DUD" id="kg3-uM-6B6"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="YSl-9S-Oia" id="cd7-4s-lVM"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="5bU-V6-vGR" id="aTn-ey-EO5"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="rgF-J4-ZWJ" id="hzn-4U-gog"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="3QS-RP-oJQ" id="LN6-I2-4TW"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="Lud-dF-DOf" id="kOO-wr-Ffg"/>
+                        <outletCollection property="titilliumRegularFonts" destination="lL6-hu-HAd" id="XTW-4S-vJl"/>
+                        <outletCollection property="titilliumRegularFonts" destination="0Fv-bR-cNf" id="Srs-hu-anb"/>
+                        <outletCollection property="titilliumRegularFonts" destination="GD0-fR-yDa" id="omp-Pf-gvw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4b-DC-BkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2233,9 +2238,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="assignteams_button.png" width="128" height="40"/>
         <image name="bg.png" width="320" height="568"/>
         <image name="bg2.png" width="320" height="568"/>
         <image name="bg3.png" width="320" height="568"/>
+        <image name="bg4.png" width="320" height="568"/>
         <image name="bg_mainmenu.png" width="320" height="568"/>
         <image name="compass.png" width="25" height="25"/>
         <image name="creategame_button.png" width="180" height="181"/>
@@ -2254,6 +2261,7 @@
         <image name="savechanges_button.png" width="158" height="40"/>
         <image name="signmeup_button.png" width="138" height="40"/>
         <image name="sms.png" width="25" height="25"/>
+        <image name="startgame_button.png" width="128" height="40"/>
         <image name="tape.png" width="320" height="15"/>
         <image name="twitter.png" width="25" height="25"/>
         <image name="twt.png" width="55" height="55"/>
