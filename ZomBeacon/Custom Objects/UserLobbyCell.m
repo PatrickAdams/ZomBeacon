@@ -14,9 +14,22 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    for (UILabel * label in self.titilliumSemiBoldFonts)
+    {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    for (UILabel * label in self.titilliumRegularFonts)
+    {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

@@ -100,6 +100,7 @@
 		E7EBC23318B66007005D8AA6 /* ProximityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EBC23218B66007005D8AA6 /* ProximityKit.framework */; };
 		E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF88918A12CF400DEE521 /* GameKit.framework */; };
 		E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF89718A136E900DEE521 /* Social.framework */; };
+		E7F9C0AC18C12B240023D10F /* logout_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F9C0AB18C12B240023D10F /* logout_button@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -225,6 +226,7 @@
 		E7EBC23218B66007005D8AA6 /* ProximityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProximityKit.framework; path = ZomBeacon/Frameworks/ProximityKit.framework; sourceTree = "<group>"; };
 		E7EFF88918A12CF400DEE521 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E7EFF89718A136E900DEE521 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		E7F9C0AB18C12B240023D10F /* logout_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logout_button@2x.png"; path = "Images/logout_button@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E7F9C0AB18C12B240023D10F /* logout_button@2x.png */,
 				E786A2D918C11CCC00942576 /* startgame_button@2x.png */,
 				E786A2D718C11CC400942576 /* assignteams_button@2x.png */,
 				E786A2D518C11B0F00942576 /* bg4@2x.png */,
@@ -559,6 +562,7 @@
 				E786A2D618C11B0F00942576 /* bg4@2x.png in Resources */,
 				E786A2DA18C11CCC00942576 /* startgame_button@2x.png in Resources */,
 				E705C71C18BCDD1400CFA0CD /* ProximityKit.plist in Resources */,
+				E7F9C0AC18C12B240023D10F /* logout_button@2x.png in Resources */,
 				E786A2B618C0F19800942576 /* login_button@2x.png in Resources */,
 				E705A9EA18AE728700CFE7B6 /* Default-568h@2x.png in Resources */,
 				E786A2BC18C0F74F00942576 /* creategame_button@2x.png in Resources */,

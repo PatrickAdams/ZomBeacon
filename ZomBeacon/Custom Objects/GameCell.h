@@ -12,5 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *gameName;
 @property (nonatomic, weak) IBOutlet UILabel *gameDate;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 @end
