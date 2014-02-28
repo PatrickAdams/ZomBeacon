@@ -21,10 +21,6 @@
 
     currentUser = [PFUser currentUser];
     
-    self.findPrivateGameButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.findPrivateGameButton.titleLabel.font.pointSize];
-    self.startPublicGameButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.startPublicGameButton.titleLabel.font.pointSize];
-    self.createPrivateGameButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.createPrivateGameButton.titleLabel.font.pointSize];
-    
     PFQuery *userScoreQuery = [PFQuery queryWithClassName:@"UserScore"];
     [userScoreQuery whereKey:@"user" equalTo:currentUser];
     PFObject *userScore = [userScoreQuery getFirstObject];

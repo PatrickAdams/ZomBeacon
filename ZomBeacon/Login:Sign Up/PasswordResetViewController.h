@@ -16,4 +16,6 @@
 - (IBAction)sendPasswordResetEmail;
 - (IBAction)dismissView;
 
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+
 @end

@@ -50,6 +50,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>04B_19__.TTF</string>
+		<string>TitilliumWeb-SemiBold.ttf</string>
+		<string>TitilliumWeb-Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

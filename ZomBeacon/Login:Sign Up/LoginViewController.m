@@ -29,6 +29,14 @@
         MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
         [self.navigationController pushViewController:vc animated:NO];
     }
+    
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    self.forgotPasswordButton.titleLabel.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:self.forgotPasswordButton.titleLabel.font.pointSize];
+    
+    self.signUpButton.titleLabel.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:self.signUpButton.titleLabel.font.pointSize];
 }
 
 - (void)viewWillAppear:(BOOL)animated

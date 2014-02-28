@@ -20,6 +20,10 @@
 @property (nonatomic, weak) IBOutlet UITextField *usernameField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordField;
 @property (nonatomic, strong) NSMutableData *imageData;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, weak) IBOutlet UIButton *forgotPasswordButton;
+@property (nonatomic, weak) IBOutlet UIButton *signUpButton;
+
 
 - (IBAction)logInUser;
 - (IBAction)logInWithFacebook;
