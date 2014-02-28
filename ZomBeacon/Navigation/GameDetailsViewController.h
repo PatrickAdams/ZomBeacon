@@ -27,6 +27,8 @@
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 @property (nonatomic, readwrite) double gameLocationLat;
 @property (nonatomic, readwrite) double gameLocationLong;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (IBAction)openInMaps;
 - (IBAction)joinGame;

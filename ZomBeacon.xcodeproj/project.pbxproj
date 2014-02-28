@@ -85,6 +85,12 @@
 		E786A2C418C0FB4B00942576 /* findgame_button2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2C318C0FB4B00942576 /* findgame_button2@2x.png */; };
 		E786A2C618C0FE2400942576 /* signmeup_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2C518C0FE2400942576 /* signmeup_button@2x.png */; };
 		E786A2C818C1014000942576 /* reset_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2C718C1014000942576 /* reset_button@2x.png */; };
+		E786A2CA18C104F200942576 /* creategame_button2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2C918C104F200942576 /* creategame_button2@2x.png */; };
+		E786A2CC18C1091400942576 /* bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2CB18C1091400942576 /* bg2@2x.png */; };
+		E786A2CE18C10B3600942576 /* joingame_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2CD18C10B3600942576 /* joingame_button@2x.png */; };
+		E786A2D018C10EEE00942576 /* home_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2CF18C10EEE00942576 /* home_button@2x.png */; };
+		E786A2D218C1125600942576 /* bg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2D118C1125600942576 /* bg3@2x.png */; };
+		E786A2D418C112C400942576 /* savechanges_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2D318C112C400942576 /* savechanges_button@2x.png */; };
 		E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */; };
 		E7C8653F18B6594F00D80BD1 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */; };
 		E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */; };
@@ -197,6 +203,12 @@
 		E786A2C318C0FB4B00942576 /* findgame_button2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "findgame_button2@2x.png"; path = "Images/findgame_button2@2x.png"; sourceTree = "<group>"; };
 		E786A2C518C0FE2400942576 /* signmeup_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "signmeup_button@2x.png"; path = "Images/signmeup_button@2x.png"; sourceTree = "<group>"; };
 		E786A2C718C1014000942576 /* reset_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reset_button@2x.png"; path = "Images/reset_button@2x.png"; sourceTree = "<group>"; };
+		E786A2C918C104F200942576 /* creategame_button2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "creategame_button2@2x.png"; path = "Images/creategame_button2@2x.png"; sourceTree = "<group>"; };
+		E786A2CB18C1091400942576 /* bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg2@2x.png"; path = "Images/bg2@2x.png"; sourceTree = "<group>"; };
+		E786A2CD18C10B3600942576 /* joingame_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "joingame_button@2x.png"; path = "Images/joingame_button@2x.png"; sourceTree = "<group>"; };
+		E786A2CF18C10EEE00942576 /* home_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_button@2x.png"; path = "Images/home_button@2x.png"; sourceTree = "<group>"; };
+		E786A2D118C1125600942576 /* bg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg3@2x.png"; path = "Images/bg3@2x.png"; sourceTree = "<group>"; };
+		E786A2D318C112C400942576 /* savechanges_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "savechanges_button@2x.png"; path = "Images/savechanges_button@2x.png"; sourceTree = "<group>"; };
 		E7C8653818B6594F00D80BD1 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = Profiles/EditProfileViewController.h; sourceTree = "<group>"; };
 		E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = Profiles/EditProfileViewController.m; sourceTree = "<group>"; };
 		E7C8653A18B6594F00D80BD1 /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendProfileViewController.h; path = Profiles/FriendProfileViewController.h; sourceTree = "<group>"; };
@@ -241,6 +253,12 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E786A2D318C112C400942576 /* savechanges_button@2x.png */,
+				E786A2CF18C10EEE00942576 /* home_button@2x.png */,
+				E786A2CD18C10B3600942576 /* joingame_button@2x.png */,
+				E786A2D118C1125600942576 /* bg3@2x.png */,
+				E786A2CB18C1091400942576 /* bg2@2x.png */,
+				E786A2C918C104F200942576 /* creategame_button2@2x.png */,
 				E786A2C718C1014000942576 /* reset_button@2x.png */,
 				E786A2C518C0FE2400942576 /* signmeup_button@2x.png */,
 				E786A2C318C0FB4B00942576 /* findgame_button2@2x.png */,
@@ -527,6 +545,7 @@
 			files = (
 				E705A9E718AE728700CFE7B6 /* blue@2x.png in Resources */,
 				E705A9ED18AE728700CFE7B6 /* email@2x.png in Resources */,
+				E786A2CC18C1091400942576 /* bg2@2x.png in Resources */,
 				E705A9F618AE728700CFE7B6 /* red.png in Resources */,
 				E705C71C18BCDD1400CFA0CD /* ProximityKit.plist in Resources */,
 				E786A2B618C0F19800942576 /* login_button@2x.png in Resources */,
@@ -544,12 +563,16 @@
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E705A9EC18AE728700CFE7B6 /* email.png in Resources */,
 				E705A9F118AE728700CFE7B6 /* hole.png in Resources */,
+				E786A2CE18C10B3600942576 /* joingame_button@2x.png in Resources */,
 				E705A9F418AE728700CFE7B6 /* profile.png in Resources */,
 				E705A9F918AE728700CFE7B6 /* twitter.png in Resources */,
+				E786A2D218C1125600942576 /* bg3@2x.png in Resources */,
 				E705A9FB18AE728700CFE7B6 /* user.png in Resources */,
 				E786A2C618C0FE2400942576 /* signmeup_button@2x.png in Resources */,
 				E786A2AF18C0E96800942576 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				E705A9F018AE728700CFE7B6 /* fb@2x.png in Resources */,
+				E786A2D418C112C400942576 /* savechanges_button@2x.png in Resources */,
+				E786A2D018C10EEE00942576 /* home_button@2x.png in Resources */,
 				E705A9F318AE728700CFE7B6 /* locate@2x.png in Resources */,
 				E705A9FA18AE728700CFE7B6 /* twitter@2x.png in Resources */,
 				E705A9F518AE728700CFE7B6 /* profile@2x.png in Resources */,
@@ -564,6 +587,7 @@
 				E76B2C1318BE82E700B5E45D /* splash_long.png in Resources */,
 				E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */,
 				E76B2C1118BE3D1300B5E45D /* sms@2x.png in Resources */,
+				E786A2CA18C104F200942576 /* creategame_button2@2x.png in Resources */,
 				E786A2C818C1014000942576 /* reset_button@2x.png in Resources */,
 				E705A9E918AE728700CFE7B6 /* compass@2x.png in Resources */,
 			);

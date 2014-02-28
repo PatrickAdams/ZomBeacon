@@ -23,6 +23,10 @@
     self.usernameField.text = currentUser.username;
     self.emailField.text = currentUser.email;
     self.bioField.text = currentUser[@"bio"];
+    
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
 }
 
 - (IBAction)saveProfileChanges
