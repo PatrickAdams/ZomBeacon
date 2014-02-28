@@ -29,6 +29,8 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *gamesArray;
 @property (nonatomic, strong) NSMutableArray *privateGames;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (NSMutableArray *)getGamesUserHasCreated;
 - (IBAction)cameraButtonTapped;
