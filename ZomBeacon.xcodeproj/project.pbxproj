@@ -101,6 +101,7 @@
 		E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF88918A12CF400DEE521 /* GameKit.framework */; };
 		E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF89718A136E900DEE521 /* Social.framework */; };
 		E7F9C0AC18C12B240023D10F /* logout_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F9C0AB18C12B240023D10F /* logout_button@2x.png */; };
+		E7F9C0AF18C194DE0023D10F /* BluetoothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F9C0AE18C194DE0023D10F /* BluetoothViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,6 +228,8 @@
 		E7EFF88918A12CF400DEE521 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E7EFF89718A136E900DEE521 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		E7F9C0AB18C12B240023D10F /* logout_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logout_button@2x.png"; path = "Images/logout_button@2x.png"; sourceTree = "<group>"; };
+		E7F9C0AD18C194DE0023D10F /* BluetoothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BluetoothViewController.h; path = "Login:Sign Up/BluetoothViewController.h"; sourceTree = "<group>"; };
+		E7F9C0AE18C194DE0023D10F /* BluetoothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BluetoothViewController.m; path = "Login:Sign Up/BluetoothViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +449,8 @@
 				E705A9FF18AE72DA00CFE7B6 /* PasswordResetViewController.m */,
 				E705AA0018AE72DA00CFE7B6 /* SignUpViewController.h */,
 				E705AA0118AE72DA00CFE7B6 /* SignUpViewController.m */,
+				E7F9C0AD18C194DE0023D10F /* BluetoothViewController.h */,
+				E7F9C0AE18C194DE0023D10F /* BluetoothViewController.m */,
 			);
 			name = "Login/Sign Up";
 			sourceTree = "<group>";
@@ -623,6 +628,7 @@
 				E705AA2518AE739000CFE7B6 /* PublicZombieViewController.m in Sources */,
 				E705AA2D18AE739900CFE7B6 /* PrivateSurvivorViewController.m in Sources */,
 				E705AA2418AE739000CFE7B6 /* PublicSurvivorViewController.m in Sources */,
+				E7F9C0AF18C194DE0023D10F /* BluetoothViewController.m in Sources */,
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
 				E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */,
 				E705AA0218AE72DA00CFE7B6 /* LoginViewController.m in Sources */,
