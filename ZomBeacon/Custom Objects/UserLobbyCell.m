@@ -21,6 +21,10 @@
 
 - (void)layoutSubviews
 {
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
+    self.profileImage.layer.masksToBounds = YES;
+    self.profileImage.layer.borderWidth = 0;
+    
     for (UILabel * label in self.titilliumSemiBoldFonts)
     {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];

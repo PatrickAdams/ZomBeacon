@@ -302,7 +302,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mTH-LF-z1Y">
                                         <rect key="frame" x="88" y="339" width="65" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="fb.png">
+                                        <state key="normal" image="login_facebook.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -312,7 +312,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M9p-TH-9pG">
                                         <rect key="frame" x="172" y="345" width="55" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="twt.png">
+                                        <state key="normal" image="login_twitter.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1612,9 +1612,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bj9-Jc-cIT">
-                                <rect key="frame" x="48" y="432" width="42" height="45"/>
+                                <rect key="frame" x="60" y="414" width="42" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="email.png">
+                                <state key="normal" image="share_email.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1629,17 +1629,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eSC-ce-vxQ">
-                                <rect key="frame" x="98" y="421" width="59" height="57"/>
+                                <rect key="frame" x="103" y="408" width="59" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="twt.png"/>
+                                <state key="normal" image="share_twitter.png"/>
                                 <connections>
                                     <action selector="shareViaTwitter" destination="o9z-do-yd5" eventType="touchUpInside" id="dKZ-aU-mwT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tfR-4c-gei">
-                                <rect key="frame" x="163" y="421" width="57" height="58"/>
+                                <rect key="frame" x="152" y="408" width="57" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="fb.png">
+                                <state key="normal" image="share_facebook.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1647,7 +1647,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WrZ-W5-UeZ">
-                                <rect key="frame" x="228" y="432" width="42" height="46"/>
+                                <rect key="frame" x="217" y="414" width="42" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="sms.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2107,34 +2107,6 @@
                                 <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mHz-XP-QOr" userLabel="Email Button">
-                                <rect key="frame" x="179" y="47" width="42" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="email.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite People" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jcd-iG-CnV">
-                                <rect key="frame" x="200" y="31" width="100" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0JQ-Q0-ZLQ" userLabel="Twitter Button">
-                                <rect key="frame" x="278" y="47" width="42" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="twitter.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ya9-Yy-2nA" userLabel="Facebook Button">
-                                <rect key="frame" x="210" y="47" width="61" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="fb.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rgF-J4-ZWJ">
                                 <rect key="frame" x="24" y="135" width="84" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2357,6 +2329,8 @@
         <image name="joingame_button.png" width="79" height="40"/>
         <image name="locate.png" width="25" height="25"/>
         <image name="login_button.png" width="108" height="40"/>
+        <image name="login_facebook.png" width="55" height="55"/>
+        <image name="login_twitter.png" width="55" height="55"/>
         <image name="logout_button.png" width="91" height="29"/>
         <image name="map_overlay_green.png" width="320" height="255"/>
         <image name="map_overlay_yellow.png" width="320" height="255"/>
@@ -2365,12 +2339,14 @@
         <image name="refresh.png" width="25" height="25"/>
         <image name="reset_button.png" width="149" height="40"/>
         <image name="savechanges_button.png" width="158" height="40"/>
+        <image name="share_email.png" width="33" height="33"/>
+        <image name="share_facebook.png" width="33" height="33"/>
+        <image name="share_twitter.png" width="33" height="33"/>
         <image name="signmeup_button.png" width="138" height="40"/>
         <image name="sms.png" width="25" height="25"/>
         <image name="startgame_button.png" width="128" height="40"/>
         <image name="tape.png" width="320" height="15"/>
         <image name="twitter.png" width="25" height="25"/>
-        <image name="twt.png" width="55" height="55"/>
         <image name="user.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

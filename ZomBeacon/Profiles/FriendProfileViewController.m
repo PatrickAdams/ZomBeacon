@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad
 {
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
+    self.profileImage.layer.masksToBounds = YES;
+    self.profileImage.layer.borderWidth = 0;
+    
     [self refreshImage];
     [super viewDidLoad];
     self.realName.text = self.realNameString;

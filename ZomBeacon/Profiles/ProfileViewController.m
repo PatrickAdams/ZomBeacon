@@ -19,6 +19,10 @@
     //GameCenter user authentication
     [self authenticateLocalUser];
     
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
+    self.profileImage.layer.masksToBounds = YES;
+    self.profileImage.layer.borderWidth = 0;
+    
     currentUser = [PFUser currentUser];
     [self refreshImage];
     [super viewDidLoad];

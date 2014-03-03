@@ -72,11 +72,11 @@
     cell.nameLabel.text = playerName;
     
     if ([player[@"publicStatus"] isEqualToString:@"zombie"]) {
-        cell.nameLabel.textColor = [UIColor redColor];
+        cell.nameLabel.textColor = [UIColor colorWithRed:0 green:0.79 blue:0.49 alpha:1];
     }
     else
     {
-        cell.nameLabel.textColor = [UIColor blueColor];
+        cell.nameLabel.textColor = [UIColor colorWithRed:1 green:0.74 blue:0.27 alpha:1];
     }
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
