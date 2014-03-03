@@ -233,7 +233,7 @@
         
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = [NSString stringWithFormat:@"You just got headshotted by %@ bitch!", userThatInfected.username];
+        notification.alertBody = [NSString stringWithFormat:@"You just got headshotted by %@!", userThatInfected.username];
         notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
