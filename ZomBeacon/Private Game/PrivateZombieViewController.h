@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, weak) IBOutlet UILabel *survivorCount;
 @property (nonatomic, weak) IBOutlet UILabel *zombieCount;
+@property (nonatomic, weak) IBOutlet UIButton *biteButton;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

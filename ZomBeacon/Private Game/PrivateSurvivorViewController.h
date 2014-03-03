@@ -31,16 +31,15 @@
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, strong) NSTimer *shieldTimer;
-@property (nonatomic, weak) IBOutlet UIButton *shieldButton;
 @property (nonatomic, weak) IBOutlet UILabel *survivorCount;
 @property (nonatomic, weak) IBOutlet UILabel *zombieCount;
+@property (nonatomic, weak) IBOutlet UIButton *headshotButton;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;
 - (IBAction)startCounter;
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
-- (IBAction)activateShield;
 - (IBAction)headshotTheZombie:(id)sender;
 
 @end

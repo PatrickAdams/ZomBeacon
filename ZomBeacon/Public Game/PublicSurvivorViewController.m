@@ -26,6 +26,7 @@
     [super viewDidLoad];
     
     self.mapView.delegate = self;
+    self.navigationItem.hidesBackButton = YES;
     
     //Beacon & MapView stuff
     self.locationManager = [[CLLocationManager alloc] init];
@@ -45,6 +46,21 @@
     
     for (UILabel * label in self.titilliumSemiBoldFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style: UIBarButtonItemStyleBordered target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (void)goBack
+{
+    for (UIViewController *controller in [self.navigationController viewControllers])
+    {
+        if ([controller isKindOfClass:[MainMenuViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+            break;
+        }
     }
 }
 
@@ -90,7 +106,7 @@
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
                     NSString *nameOfNearbyUser = users[i][@"username"];
-        [self queryNearbyUsers];            NSString *statusOfNearbyUser = users[i][@"publicStatus"];
+                    NSString *statusOfNearbyUser = users[i][@"publicStatus"];
                     
                     // Set some coordinates for our position
                     CLLocationCoordinate2D location;
@@ -207,15 +223,24 @@
 //Method that starts advertising the headshot
 - (IBAction)headshotTheZombie:(id)sender
 {
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     self.beaconPeripheralData = [self.beaconRegion2 peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
+    [self.headshotButton setEnabled:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
 }
 
 //Method that stops advertising the headshot beacon
 - (void)stopTheHeadshot
 {
     [self.peripheralManager stopAdvertising];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+}
+
+- (void)enableHeadshot
+{
+    [self.headshotButton setEnabled:YES];
 }
 
 //Method that tracks the beacon activity
@@ -229,38 +254,6 @@
     {
         [self.peripheralManager stopAdvertising];
     }
-}
-
-#pragma mark - Time Counter Management
-
-//Method to start a countdown timer
-- (IBAction)startCounter
-{
-    secondsLeft = 600;
-    [self countdownTimer];
-}
-
-//Method that refreshes and updates the countdown timer
-- (void)updateCounter:(NSTimer *)theTimer
-{
-    if(secondsLeft > 0 )
-    {
-        secondsLeft -- ;
-        minutes = (secondsLeft % 3600) / 60;
-        seconds = (secondsLeft %3600) % 60;
-        self.myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
-    }
-    else
-    {
-        secondsLeft = 600;
-    }
-}
-
-//Method that does the setup for the countdown timer
-- (void)countdownTimer
-{
-    secondsLeft = minutes = seconds = 0;
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
 #pragma mark - Closing Methods

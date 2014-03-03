@@ -19,6 +19,8 @@
     [super viewDidLoad];
     currentUser = [PFUser currentUser];
     
+    self.navigationItem.hidesBackButton = YES;
+    
     self.mapView.delegate = self;
     [self queryNearbyUsers];
     
@@ -46,7 +48,20 @@
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
     
-    self.biteButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.biteButton.titleLabel.font.pointSize];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style: UIBarButtonItemStyleBordered target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (void)goBack
+{
+    for (UIViewController *controller in [self.navigationController viewControllers])
+    {
+        if ([controller isKindOfClass:[MainMenuViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+            break;
+        }
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -241,14 +256,23 @@
 //Method that starts the transmission of the beacon
 - (IBAction)startInfecting:(id)sender
 {
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
+    [self.biteButton setEnabled:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableBite) userInfo:nil repeats:NO];
 }
 
 - (void)stopInfecting
 {
     [self.peripheralManager stopAdvertising];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
+}
+
+- (void)enableBite
+{
+    [self.biteButton setEnabled:YES];
 }
 
 //Method that tracks the beacon activity

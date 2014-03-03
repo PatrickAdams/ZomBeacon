@@ -63,13 +63,6 @@
     [self.queryTimer invalidate];
 }
 
-- (IBAction)activateShield
-{
-//    [self.shieldButton setEnabled:NO];
-//    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-//    self.shieldTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f target:self selector:@selector(startRangingAgain) userInfo:nil repeats:NO];
-}
-
 - (void)startRangingAgain
 {
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
@@ -254,12 +247,19 @@
 {
     self.beaconPeripheralData = [self.beaconRegion2 peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
+    [self.headshotButton setEnabled:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
 }
 
 - (void)stopTheHeadshot
 {
     [self.peripheralManager stopAdvertising];
+}
+
+- (void)enableHeadshot
+{
+    [self.headshotButton setEnabled:YES];
 }
 
 //Method that tracks the beacon activity

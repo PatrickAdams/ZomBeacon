@@ -236,12 +236,19 @@
 {
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
+    [self.biteButton setEnabled:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableBite) userInfo:nil repeats:NO];
 }
 
 - (void)stopInfecting
 {
     [self.peripheralManager stopAdvertising];
+}
+
+- (void)enableBite
+{
+    [self.biteButton setEnabled:YES];
 }
 
 //Method that tracks the beacon activity
