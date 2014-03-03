@@ -298,9 +298,81 @@
 
 #pragma mark - Share Methods for Twitter, Facebook, and Email
 
-- (IBAction)shareViaEmail
+- (IBAction)showShareActionSheet
 {
-    [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game open the app and tap on 'Find Private Game' and paste in the following code:</br></br><strong>%@</strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString]];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"INVITE FRIENDS"
+                                  delegate:self
+                                  cancelButtonTitle:@"Cancel"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:@"Email", @"SMS", @"Facebook", @"Twitter", nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if  ([buttonTitle isEqualToString:@"Email"])
+    {
+       [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game open the app and tap on 'Find Private Game' and paste in the following code:</br></br><strong>%@</strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString]];
+    }
+    if ([buttonTitle isEqualToString:@"SMS"])
+    {
+        MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
+        if([MFMessageComposeViewController canSendText])
+        {
+            vc.body = [NSString stringWithFormat:@"You've been invited to a game of ZomBeacon! To join this game open the app and tap on 'Find Private Game' and paste in the following code: %@   Game Details - Name: %@ Time: %@ Host: %@ Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString];
+            vc.messageComposeDelegate = self;
+            [self presentViewController:vc animated:YES completion:nil];
+        }
+    }
+    if ([buttonTitle isEqualToString:@"Facebook"])
+    {
+        SLComposeViewController *facebookComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        facebookComposer.completionHandler = ^(SLComposeViewControllerResult result) {
+            switch(result) {
+                    //  This means the user cancelled without sending the Tweet
+                case SLComposeViewControllerResultCancelled:
+                    break;
+                    //  This means the user hit 'Send'
+                case SLComposeViewControllerResultDone:
+                    break;
+            }
+        };
+        
+        [facebookComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
+        
+        //    if (![facebookComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
+        //        NSLog(@"Unable to add the image!");
+        //    }
+        
+        [self presentViewController:facebookComposer animated:YES completion:nil];
+    }
+    if ([buttonTitle isEqualToString:@"Twitter"])
+    {
+        SLComposeViewController *tweetComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        tweetComposer.completionHandler = ^(SLComposeViewControllerResult result) {
+            switch(result) {
+                    //  This means the user cancelled without sending the Tweet
+                case SLComposeViewControllerResultCancelled:
+                    break;
+                    //  This means the user hit 'Send'
+                case SLComposeViewControllerResultDone:
+                    break;
+            }
+        };
+        
+        [tweetComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
+        
+        //    if (![tweetComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
+        //        NSLog(@"Unable to add the image!");
+        //    }
+        
+        [self presentViewController:tweetComposer animated:YES completion:nil];
+    }
 }
 
 // Displays an email composition interface inside the application. Populates all the Mail fields.
@@ -343,58 +415,29 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)shareViaTwitter
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {
-    SLComposeViewController *tweetComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    
-    tweetComposer.completionHandler = ^(SLComposeViewControllerResult result) {
-        switch(result) {
-                //  This means the user cancelled without sending the Tweet
-            case SLComposeViewControllerResultCancelled:
-                break;
-                //  This means the user hit 'Send'
-            case SLComposeViewControllerResultDone:
-                break;
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+            
+        case MessageComposeResultFailed:
+        {
+            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to send SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningAlert show];
+            break;
         }
-    };
+            
+        case MessageComposeResultSent:
+            break;
+            
+        default:
+            break;
+    }
     
-    [tweetComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
-    
-    //    if (![tweetComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
-    //        NSLog(@"Unable to add the image!");
-    //    }
-    
-    [self presentViewController:tweetComposer animated:YES completion:nil];
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)shareViaFacebook
-{
-    SLComposeViewController *facebookComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-    
-    facebookComposer.completionHandler = ^(SLComposeViewControllerResult result) {
-        switch(result) {
-                //  This means the user cancelled without sending the Tweet
-            case SLComposeViewControllerResultCancelled:
-                break;
-                //  This means the user hit 'Send'
-            case SLComposeViewControllerResultDone:
-                break;
-        }
-    };
-    
-    [facebookComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
-    
-    //    if (![facebookComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
-    //        NSLog(@"Unable to add the image!");
-    //    }
-    
-    [self presentViewController:facebookComposer animated:YES completion:nil];
-}
-
-- (IBAction)shareViaSMS
-{
-    
-}
 
 #pragma mark - Open In Maps Method
 

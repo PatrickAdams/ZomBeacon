@@ -37,6 +37,11 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self zoomToUserLocation:self.mapView.userLocation];
+}
+
 #pragma mark - Game Creation Methods
 
 //Method to put pin on map and save it's coordinates
@@ -149,6 +154,23 @@
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     NSString *formattedDate = [dateFormatter stringFromDate:date];
     return formattedDate;
+}
+
+#pragma mark - Map Stuff
+
+//Method to zoom to the user location
+- (void)zoomToUserLocation:(MKUserLocation *)userLocation
+{
+    if (!userLocation)
+    {
+        return;
+    }
+    
+    MKCoordinateRegion region;
+    region.center = userLocation.location.coordinate;
+    region.span = MKCoordinateSpanMake(0.050, 0.050); //Zoom distance
+    region = [self.mapView regionThatFits:region];
+    [self.mapView setRegion:region animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

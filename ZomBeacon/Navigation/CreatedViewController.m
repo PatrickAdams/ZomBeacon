@@ -168,7 +168,7 @@
     MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
-        vc.body = [NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString];
+        vc.body = [NSString stringWithFormat:@"You've been invited to a game of ZomBeacon! To join this game open the app and tap on 'Find Private Game' and paste in the following code: %@   Game Details - Name: %@ Time: %@ Host: %@ Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString];
         vc.messageComposeDelegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     }

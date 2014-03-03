@@ -18,7 +18,7 @@
 #import "PrivateZombieViewController.h"
 #import "PrivateSurvivorViewController.h"
 
-@interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate, MBProgressHUDDelegate>
+@interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MBProgressHUDDelegate, UIActionSheetDelegate>
 {
     MBProgressHUD *HUD;
     PFUser *currentUser;
@@ -47,14 +47,11 @@
 
 
 - (NSArray *)getPlayersInCurrentGame;
-- (IBAction)shareViaEmail;
-- (IBAction)shareViaTwitter;
-- (IBAction)shareViaFacebook;
-- (IBAction)shareViaSMS;
 - (IBAction)refreshList;
 - (IBAction)openInMaps;
 - (IBAction)startGameCountdown;
 - (IBAction)assignTeams;
+- (IBAction)showShareActionSheet;
 
 
 @end
