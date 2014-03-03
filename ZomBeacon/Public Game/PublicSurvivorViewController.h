@@ -31,6 +31,7 @@
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, weak) IBOutlet UIButton *headshotButton;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

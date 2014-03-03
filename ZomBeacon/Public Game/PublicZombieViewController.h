@@ -30,6 +30,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;
 @property PKManager *proximityKitManager;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

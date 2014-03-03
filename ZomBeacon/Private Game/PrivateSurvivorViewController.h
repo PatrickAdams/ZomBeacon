@@ -34,6 +34,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *survivorCount;
 @property (nonatomic, weak) IBOutlet UILabel *zombieCount;
 @property (nonatomic, weak) IBOutlet UIButton *headshotButton;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;

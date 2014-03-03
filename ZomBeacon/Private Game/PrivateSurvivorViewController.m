@@ -47,6 +47,14 @@
     CLBeaconMajorValue major = [currentUser[@"major"] unsignedShortValue];
     CLBeaconMajorValue minor = [currentUser[@"minor"] unsignedShortValue];
     self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:major minor:minor identifier:@"com.zombeacon.privateRegion"];
+    
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    for (UILabel * label in self.titilliumRegularFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

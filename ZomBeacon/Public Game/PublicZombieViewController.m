@@ -48,11 +48,15 @@
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style: UIBarButtonItemStyleBordered target:self action:@selector(goBack)];
+    for (UILabel * label in self.titilliumRegularFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style: UIBarButtonItemStyleBordered target:self action:@selector(backHome)];
     self.navigationItem.leftBarButtonItem = backButton;
 }
 
-- (void)goBack
+- (void)backHome
 {
     for (UIViewController *controller in [self.navigationController viewControllers])
     {

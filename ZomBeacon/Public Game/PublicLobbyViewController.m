@@ -23,6 +23,10 @@
     for (UILabel * label in self.titilliumSemiBoldFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
+    
+    for (UILabel * label in self.titilliumRegularFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

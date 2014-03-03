@@ -43,6 +43,14 @@
     self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 identifier:@"com.zombeacon.privateRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion2];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
+    
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    for (UILabel * label in self.titilliumRegularFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

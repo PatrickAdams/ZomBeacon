@@ -29,6 +29,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *survivorCount;
 @property (nonatomic, weak) IBOutlet UILabel *zombieCount;
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
