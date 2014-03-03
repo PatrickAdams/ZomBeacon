@@ -30,7 +30,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSTimer *queryTimer;
-@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *customFont;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 
 - (void)updateCounter:(NSTimer *)theTimer;
 - (void)countdownTimer;

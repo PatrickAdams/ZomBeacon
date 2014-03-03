@@ -20,8 +20,8 @@
     
     currentUser = [PFUser currentUser];
     
-    for (UILabel * label in self.customFont) {
-        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
 }
 

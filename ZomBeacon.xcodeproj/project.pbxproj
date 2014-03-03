@@ -95,6 +95,7 @@
 		E7AB10CD18C4D59600A54850 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10CC18C4D59600A54850 /* refresh@2x.png */; };
 		E7AB10D018C4D59C00A54850 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10CE18C4D59C00A54850 /* sms.png */; };
 		E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10CF18C4D59C00A54850 /* sms@2x.png */; };
+		E7AB10D318C4E45300A54850 /* bg_green.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10D218C4E45300A54850 /* bg_green.png */; };
 		E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */; };
 		E7C8653F18B6594F00D80BD1 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */; };
 		E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */; };
@@ -219,6 +220,7 @@
 		E7AB10CC18C4D59600A54850 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh@2x.png"; path = "Images/refresh@2x.png"; sourceTree = "<group>"; };
 		E7AB10CE18C4D59C00A54850 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sms.png; path = Images/sms.png; sourceTree = "<group>"; };
 		E7AB10CF18C4D59C00A54850 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sms@2x.png"; path = "Images/sms@2x.png"; sourceTree = "<group>"; };
+		E7AB10D218C4E45300A54850 /* bg_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_green.png; path = Images/bg_green.png; sourceTree = "<group>"; };
 		E7C8653818B6594F00D80BD1 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = Profiles/EditProfileViewController.h; sourceTree = "<group>"; };
 		E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = Profiles/EditProfileViewController.m; sourceTree = "<group>"; };
 		E7C8653A18B6594F00D80BD1 /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendProfileViewController.h; path = Profiles/FriendProfileViewController.h; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E7AB10D218C4E45300A54850 /* bg_green.png */,
 				E7F9C0AB18C12B240023D10F /* logout_button@2x.png */,
 				E786A2D918C11CCC00942576 /* startgame_button@2x.png */,
 				E786A2D718C11CC400942576 /* assignteams_button@2x.png */,
@@ -598,6 +601,7 @@
 				E786A2AF18C0E96800942576 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				E705A9F018AE728700CFE7B6 /* fb@2x.png in Resources */,
 				E786A2D418C112C400942576 /* savechanges_button@2x.png in Resources */,
+				E7AB10D318C4E45300A54850 /* bg_green.png in Resources */,
 				E786A2D018C10EEE00942576 /* home_button@2x.png in Resources */,
 				E705A9F318AE728700CFE7B6 /* locate@2x.png in Resources */,
 				E705A9FA18AE728700CFE7B6 /* twitter@2x.png in Resources */,

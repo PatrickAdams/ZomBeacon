@@ -22,8 +22,8 @@
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *customFont;
 @property (nonatomic, strong) NSMutableArray *thePlayers;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 
 - (NSMutableArray *)getPlayersInCurrentGame;
 

@@ -42,8 +42,8 @@
     [self.locationManager startMonitoringForRegion:self.beaconRegion2];
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
     
-    for (UILabel * label in self.customFont) {
-        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
     
     self.biteButton.titleLabel.font = [UIFont fontWithName:@"04B_19" size:self.biteButton.titleLabel.font.pointSize];

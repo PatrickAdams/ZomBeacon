@@ -43,9 +43,8 @@
     CLBeaconMajorValue minor = [currentUser[@"minor"] unsignedShortValue];
     self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 major:major minor:minor identifier:@"com.zombeacon.publicRegion"];
     
-    //Custom font outlet collection
-    for (UILabel * label in self.customFont) {
-        label.font = [UIFont fontWithName:@"04B_19" size:label.font.pointSize];
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
 }
 
