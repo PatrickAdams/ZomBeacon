@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
 		CDB2533A18C633B800F49FC3 /* MyFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */; };
+		CDB2533C18C6533E00F49FC3 /* gamecenter_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */; };
+		CDB2533E18C6538000F49FC3 /* friends_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533D18C6538000F49FC3 /* friends_button@2x.png */; };
+		CDB2534018C6607100F49FC3 /* addasfriend_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533F18C6607100F49FC3 /* addasfriend_button@2x.png */; };
 		CDD32BD318C57778005CA4E0 /* tape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD32BD218C57778005CA4E0 /* tape@2x.png */; };
 		E70028C118BBE4AA00036E1B /* PublicDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */; };
 		E70028C418BBF3F100036E1B /* PrivateDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */; };
@@ -115,6 +118,9 @@
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		CDB2533818C633B800F49FC3 /* MyFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFriendsViewController.h; path = Profiles/MyFriendsViewController.h; sourceTree = "<group>"; };
 		CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFriendsViewController.m; path = Profiles/MyFriendsViewController.m; sourceTree = "<group>"; };
+		CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gamecenter_button@2x.png"; path = "Images/gamecenter_button@2x.png"; sourceTree = "<group>"; };
+		CDB2533D18C6538000F49FC3 /* friends_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "friends_button@2x.png"; path = "Images/friends_button@2x.png"; sourceTree = "<group>"; };
+		CDB2533F18C6607100F49FC3 /* addasfriend_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addasfriend_button@2x.png"; path = "Images/addasfriend_button@2x.png"; sourceTree = "<group>"; };
 		CDD32BD218C57778005CA4E0 /* tape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tape@2x.png"; sourceTree = "<group>"; };
 		E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicDeadViewController.h; path = Navigation/PublicDeadViewController.h; sourceTree = "<group>"; };
 		E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicDeadViewController.m; path = Navigation/PublicDeadViewController.m; sourceTree = "<group>"; };
@@ -279,6 +285,9 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CDB2533F18C6607100F49FC3 /* addasfriend_button@2x.png */,
+				CDB2533D18C6538000F49FC3 /* friends_button@2x.png */,
+				CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */,
 				E703935C18C517CF005B0E84 /* share_facebook@2x.png */,
 				E703935A18C5177C005B0E84 /* share_email@2x.png */,
 				E703935818C51724005B0E84 /* share_twitter@2x.png */,
@@ -586,8 +595,10 @@
 				E705A9E718AE728700CFE7B6 /* blue@2x.png in Resources */,
 				E786A2CC18C1091400942576 /* bg2@2x.png in Resources */,
 				E705A9F618AE728700CFE7B6 /* red.png in Resources */,
+				CDB2533E18C6538000F49FC3 /* friends_button@2x.png in Resources */,
 				E786A2D618C11B0F00942576 /* bg4@2x.png in Resources */,
 				E786A2DA18C11CCC00942576 /* startgame_button@2x.png in Resources */,
+				CDB2534018C6607100F49FC3 /* addasfriend_button@2x.png in Resources */,
 				E7AB10E118C4F59F00A54850 /* bite_button@2x.png in Resources */,
 				E705C71C18BCDD1400CFA0CD /* ProximityKit.plist in Resources */,
 				E7F9C0AC18C12B240023D10F /* logout_button@2x.png in Resources */,
@@ -620,6 +631,7 @@
 				E786A2D418C112C400942576 /* savechanges_button@2x.png in Resources */,
 				E7AB10D318C4E45300A54850 /* bg_green.png in Resources */,
 				E786A2D018C10EEE00942576 /* home_button@2x.png in Resources */,
+				CDB2533C18C6533E00F49FC3 /* gamecenter_button@2x.png in Resources */,
 				E705A9F318AE728700CFE7B6 /* locate@2x.png in Resources */,
 				E705A9F518AE728700CFE7B6 /* profile@2x.png in Resources */,
 				E703935B18C5177C005B0E84 /* share_email@2x.png in Resources */,

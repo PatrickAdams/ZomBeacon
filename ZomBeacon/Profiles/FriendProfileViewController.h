@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "GameCell.h"
+#import "PrivateLobbyViewController.h"
 
-@interface FriendProfileViewController : UIViewController
+
+@interface FriendProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *userName;
 @property (nonatomic, weak) IBOutlet UILabel *realName;
@@ -21,6 +24,9 @@
 @property (nonatomic, strong) NSString *currentGameString;
 @property (nonatomic, strong) PFUser *myFriend;
 @property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *privateGames;
+@property (nonatomic, weak) IBOutlet UIButton *addAsFriendButton;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 

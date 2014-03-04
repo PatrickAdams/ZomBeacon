@@ -17,7 +17,6 @@
 - (void)viewDidLoad
 {
     self.currentUser = [PFUser currentUser];
-    [self getFriends];
     [super viewDidLoad];
 	
     for (UILabel * label in self.titilliumSemiBoldFonts) {
@@ -27,7 +26,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
+    [self getFriends];
     [self.tableView reloadData];
     
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
@@ -76,7 +75,7 @@
     PFObject *friendship = self.myFriends[indexPath.row];
     PFObject *friend = friendship[@"personFollowing"];
     cell.nameLabel.text = friend[@"name"];
-    NSString *theScore = [[self.theScores objectAtIndex:[indexPath row]] stringValue];
+    NSString *theScore = [NSString stringWithFormat:@"%@ pts", [[self.theScores objectAtIndex:[indexPath row]] stringValue]];
     cell.scoreLabel.text = theScore;
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];

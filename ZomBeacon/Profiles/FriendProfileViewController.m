@@ -36,6 +36,15 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    PFQuery *friendshipQuery = [PFQuery queryWithClassName:@"Friendships"];
+    [friendshipQuery whereKey:@"user" equalTo:self.currentUser];
+    [friendshipQuery whereKey:@"personFollowing" equalTo:self.myFriend];
+    [friendshipQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (objects.count == 1) {
+            [self.addAsFriendButton setEnabled:NO];
+        }
+    }];
 }
 
 - (IBAction)followUser
@@ -55,7 +64,12 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [self getGamesUserHasCreated];
+    [self.tableView reloadData];
     [self refreshImage];
+    
+    NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }
 
 - (void)refreshImage
@@ -67,6 +81,62 @@
     self.profileImage.file = file;
     [self.profileImage loadInBackground];
 }
+
+#pragma mark - TableView Methods
+
+- (NSMutableArray *)getGamesUserHasCreated
+{
+    self.privateGames = nil;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+    [query whereKey:@"hostUser" equalTo:self.myFriend];
+    [query includeKey:@"hostUser"];
+    [query orderByAscending:@"dateTime"];
+    self.privateGames = [[query findObjects] mutableCopy];
+    
+    return self.privateGames;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.privateGames.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"gameCell";
+    GameCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    PFObject *game = self.privateGames[indexPath.row];
+    cell.gameName.text = game[@"gameName"];
+    cell.gameDate.text = game[@"dateTime"];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    PFObject *game = self.privateGames[indexPath.row];
+    
+    [self.currentUser setObject:game.objectId forKey:@"currentGame"];
+    [self.currentUser saveInBackground];
+    
+    PFGeoPoint *gameLocation = game[@"location"];
+    CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+    
+    PFObject *hostUser = game[@"hostUser"];
+    
+    vc.gameNameString = game[@"gameName"];
+    vc.gameDateString = game[@"dateTime"];
+    vc.gameHostString = hostUser[@"name"];
+    vc.gameIdString = game.objectId;
+    vc.gameLocationCoord = gameLocationCoords;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -151,7 +151,6 @@
     [actionSheet showInView:self.view];
 }
 
-//Lets you sort by Alphabetical, Score Descending, and Score Ascending
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
