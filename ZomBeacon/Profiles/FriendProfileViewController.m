@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad
 {
+    self.currentUser = [PFUser currentUser];
+    
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
     self.profileImage.layer.masksToBounds = YES;
     self.profileImage.layer.borderWidth = 2.0f;
@@ -34,6 +36,21 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+}
+
+- (IBAction)followUser
+{
+    PFObject *friendship = [PFObject objectWithClassName:@"Friendships"];
+    
+    friendship[@"user"] = self.currentUser;
+    friendship[@"personFollowing"] = self.myFriend;
+    [friendship saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:[NSString stringWithFormat:@"You are now following %@", self.myFriend.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated

@@ -20,9 +20,11 @@
 @property (nonatomic, strong) NSString *shortBioString;
 @property (nonatomic, strong) NSString *currentGameString;
 @property (nonatomic, strong) PFUser *myFriend;
+@property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (void)refreshImage;
+- (IBAction)followUser;
 
 @end

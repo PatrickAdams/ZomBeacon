@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
+		CDB2533A18C633B800F49FC3 /* MyFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */; };
 		CDD32BD318C57778005CA4E0 /* tape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD32BD218C57778005CA4E0 /* tape@2x.png */; };
 		E70028C118BBE4AA00036E1B /* PublicDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */; };
 		E70028C418BBF3F100036E1B /* PrivateDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */; };
@@ -112,6 +113,8 @@
 
 /* Begin PBXFileReference section */
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
+		CDB2533818C633B800F49FC3 /* MyFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFriendsViewController.h; path = Profiles/MyFriendsViewController.h; sourceTree = "<group>"; };
+		CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFriendsViewController.m; path = Profiles/MyFriendsViewController.m; sourceTree = "<group>"; };
 		CDD32BD218C57778005CA4E0 /* tape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tape@2x.png"; sourceTree = "<group>"; };
 		E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicDeadViewController.h; path = Navigation/PublicDeadViewController.h; sourceTree = "<group>"; };
 		E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicDeadViewController.m; path = Navigation/PublicDeadViewController.m; sourceTree = "<group>"; };
@@ -478,6 +481,8 @@
 			children = (
 				E7C8653C18B6594F00D80BD1 /* ProfileViewController.h */,
 				E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */,
+				CDB2533818C633B800F49FC3 /* MyFriendsViewController.h */,
+				CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */,
 				E7C8653818B6594F00D80BD1 /* EditProfileViewController.h */,
 				E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */,
 				E7C8653A18B6594F00D80BD1 /* FriendProfileViewController.h */,
@@ -645,6 +650,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB2533A18C633B800F49FC3 /* MyFriendsViewController.m in Sources */,
 				E705AA1818AE735600CFE7B6 /* CreatedViewController.m in Sources */,
 				E70028C418BBF3F100036E1B /* PrivateDeadViewController.m in Sources */,
 				E705AA3E18AE741000CFE7B6 /* MBProgressHUD.m in Sources */,

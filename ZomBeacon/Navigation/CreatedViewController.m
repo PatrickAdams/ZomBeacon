@@ -131,7 +131,6 @@
     };
     
     [tweetComposer setInitialText:@"You've been invited to a game of ZomBeacon, click the link to join! #ZomBeacon"];
-    
     [tweetComposer addURL:[NSURL URLWithString:[NSString stringWithFormat:@"ZomBeacon://?invite=%@", self.gameIdString]]];
     
     //    if (![tweetComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
@@ -157,7 +156,6 @@
     };
     
     [facebookComposer setInitialText:@"You've been invited to a game of ZomBeacon, click the link to join! #ZomBeacon"];
-    
     [facebookComposer addURL:[NSURL URLWithString:[NSString stringWithFormat:@"ZomBeacon://?invite=%@", self.gameIdString]]];
     
     //    if (![facebookComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
