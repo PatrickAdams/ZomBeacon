@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
+		CDD32BD318C57778005CA4E0 /* tape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD32BD218C57778005CA4E0 /* tape@2x.png */; };
 		E70028C118BBE4AA00036E1B /* PublicDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */; };
 		E70028C418BBF3F100036E1B /* PrivateDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */; };
 		E703935918C51724005B0E84 /* share_twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E703935818C51724005B0E84 /* share_twitter@2x.png */; };
@@ -71,7 +72,7 @@
 		E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */; };
 		E786A2AE18C0E96800942576 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E786A2A318C0E96800942576 /* TitilliumWeb-Regular.ttf */; };
 		E786A2AF18C0E96800942576 /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E786A2A418C0E96800942576 /* TitilliumWeb-SemiBold.ttf */; };
-		E786A2B218C0EAF800942576 /* tape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2B118C0EAF800942576 /* tape@2x.png */; };
+		E786A2B218C0EAF800942576 /* tape1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2B118C0EAF800942576 /* tape1@2x.png */; };
 		E786A2B418C0EEA600942576 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2B318C0EEA600942576 /* bg@2x.png */; };
 		E786A2B618C0F19800942576 /* login_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2B518C0F19800942576 /* login_button@2x.png */; };
 		E786A2B818C0F36E00942576 /* login_twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2B718C0F36E00942576 /* login_twitter@2x.png */; };
@@ -111,6 +112,7 @@
 
 /* Begin PBXFileReference section */
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
+		CDD32BD218C57778005CA4E0 /* tape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tape@2x.png"; sourceTree = "<group>"; };
 		E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicDeadViewController.h; path = Navigation/PublicDeadViewController.h; sourceTree = "<group>"; };
 		E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicDeadViewController.m; path = Navigation/PublicDeadViewController.m; sourceTree = "<group>"; };
 		E70028C218BBF3F100036E1B /* PrivateDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrivateDeadViewController.h; path = Navigation/PrivateDeadViewController.h; sourceTree = "<group>"; };
@@ -199,7 +201,7 @@
 		E78107E71860CB6000B19DB9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E786A2A318C0E96800942576 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		E786A2A418C0E96800942576 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
-		E786A2B118C0EAF800942576 /* tape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tape@2x.png"; path = "Images/tape@2x.png"; sourceTree = "<group>"; };
+		E786A2B118C0EAF800942576 /* tape1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tape1@2x.png"; path = "Images/tape1@2x.png"; sourceTree = "<group>"; };
 		E786A2B318C0EEA600942576 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg@2x.png"; path = "Images/bg@2x.png"; sourceTree = "<group>"; };
 		E786A2B518C0F19800942576 /* login_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_button@2x.png"; path = "Images/login_button@2x.png"; sourceTree = "<group>"; };
 		E786A2B718C0F36E00942576 /* login_twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_twitter@2x.png"; path = "Images/login_twitter@2x.png"; sourceTree = "<group>"; };
@@ -304,7 +306,8 @@
 				E786A2B518C0F19800942576 /* login_button@2x.png */,
 				E7AB10CC18C4D59600A54850 /* refresh@2x.png */,
 				E786A2B318C0EEA600942576 /* bg@2x.png */,
-				E786A2B118C0EAF800942576 /* tape@2x.png */,
+				E786A2B118C0EAF800942576 /* tape1@2x.png */,
+				CDD32BD218C57778005CA4E0 /* tape@2x.png */,
 				E76B2C1218BE82E700B5E45D /* splash_long.png */,
 				E76B2C1418BE83F300B5E45D /* splash_short.png */,
 				E705A9CA18AE728700CFE7B6 /* app_icon.png */,
@@ -587,7 +590,7 @@
 				E705A9EA18AE728700CFE7B6 /* Default-568h@2x.png in Resources */,
 				E786A2BC18C0F74F00942576 /* creategame_button@2x.png in Resources */,
 				E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */,
-				E786A2B218C0EAF800942576 /* tape@2x.png in Resources */,
+				E786A2B218C0EAF800942576 /* tape1@2x.png in Resources */,
 				E786A2B818C0F36E00942576 /* login_twitter@2x.png in Resources */,
 				E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */,
 				E786A2C418C0FB4B00942576 /* findgame_button2@2x.png in Resources */,
@@ -626,6 +629,7 @@
 				E705A9E818AE728700CFE7B6 /* compass.png in Resources */,
 				E7AB10D018C4D59C00A54850 /* sms.png in Resources */,
 				E76B2C1318BE82E700B5E45D /* splash_long.png in Resources */,
+				CDD32BD318C57778005CA4E0 /* tape@2x.png in Resources */,
 				E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */,
 				E786A2CA18C104F200942576 /* creategame_button2@2x.png in Resources */,
 				E7AB10DF18C4F1F100A54850 /* map_overlay_yellow.png in Resources */,
