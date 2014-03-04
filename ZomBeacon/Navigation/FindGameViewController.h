@@ -13,6 +13,7 @@
 @interface FindGameViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UITextField *findGameField;
+@property (nonatomic, strong) NSString *inviteCodeFromURL;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 
 - (IBAction)findGame;

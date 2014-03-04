@@ -33,8 +33,11 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.weblinc.ZomBeacon</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>ZomBeacon</string>
 				<string>fb1403593909894721</string>
 			</array>
 		</dict>

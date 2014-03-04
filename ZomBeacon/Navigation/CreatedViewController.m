@@ -73,7 +73,7 @@
 
 - (IBAction)shareViaEmail
 {
-    [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game open the app and tap on 'Find Private Game' and paste in the following code:</br></br><strong>%@</strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString]];
+    [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game tap the code below:</br></br><strong><a href='ZomBeacon://?invite=%@'>%@</a></strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>Address: %@", self.gameIdString, self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString]];
 }
 
 // Displays an email composition interface inside the application. Populates all the Mail fields.
@@ -130,7 +130,9 @@
         }
     };
     
-    [tweetComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
+    [tweetComposer setInitialText:@"You've been invited to a game of ZomBeacon, click the link to join! #ZomBeacon"];
+    
+    [tweetComposer addURL:[NSURL URLWithString:[NSString stringWithFormat:@"ZomBeacon://?invite=%@", self.gameIdString]]];
     
     //    if (![tweetComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
     //        NSLog(@"Unable to add the image!");
@@ -154,7 +156,9 @@
         }
     };
     
-    [facebookComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #zombeacon", self.gameIdString]];
+    [facebookComposer setInitialText:@"You've been invited to a game of ZomBeacon, click the link to join! #ZomBeacon"];
+    
+    [facebookComposer addURL:[NSURL URLWithString:[NSString stringWithFormat:@"ZomBeacon://?invite=%@", self.gameIdString]]];
     
     //    if (![facebookComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
     //        NSLog(@"Unable to add the image!");
@@ -168,7 +172,7 @@
     MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
     if([MFMessageComposeViewController canSendText])
     {
-        vc.body = [NSString stringWithFormat:@"You've been invited to a game of ZomBeacon! To join this game open the app and tap on 'Find Private Game' and paste in the following code: %@   Game Details - Name: %@ Time: %@ Host: %@ Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString];
+        vc.body = [NSString stringWithFormat:@"You've been invited to a game of ZomBeacon! To join this game click the following link: ZomBeacon://?invite=%@ Game Details - Name: %@ Time: %@ Host: %@ Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString];
         vc.messageComposeDelegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     }

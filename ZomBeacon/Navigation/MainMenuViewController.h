@@ -24,10 +24,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *findPrivateGameButton;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *customFont;
 
 - (IBAction)startPublicGame;
 //- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
-
 
 @end

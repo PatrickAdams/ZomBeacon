@@ -11,6 +11,8 @@
 #import <ProximityKit/ProximityKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "PublicZombieViewController.h"
+#import "FindGameViewController.h"
+#import "MainMenuViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate>
 {

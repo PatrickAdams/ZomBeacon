@@ -1745,7 +1745,7 @@
         <!--Find Game View Controller - FIND A GAME-->
         <scene sceneID="cj4-m3-8kG">
             <objects>
-                <viewController id="mtJ-S4-uvy" customClass="FindGameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="findgame" id="mtJ-S4-uvy" customClass="FindGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jEt-VU-2vh">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1788,6 +1788,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="FIND A GAME" id="geP-XL-muA"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="findGameField" destination="qaj-gG-qn0" id="SeP-wh-ZX3"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="cXE-6O-H8g" id="cDz-Fj-dBK"/>
