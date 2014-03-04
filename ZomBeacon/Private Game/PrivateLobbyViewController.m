@@ -71,7 +71,7 @@
     else
     {
         [self.startGameButton setEnabled:YES];
-        self.assignTeamsButton.hidden = YES;
+        [self.assignTeamsButton setEnabled:NO];
         [self.startGameButton isEnabled];
     }
     
