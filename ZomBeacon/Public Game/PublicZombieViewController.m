@@ -168,7 +168,7 @@
     }
 }
 
-//Will notify you when someone is within 100 feet of you if they are on the opposite team
+//Will notify you when someone is within 70 feet of you if they are on the opposite team
 - (void)queryNearbySurvivors
 {
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
@@ -181,7 +181,7 @@
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"publicStatus" equalTo:@"survivor"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.018868];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.014];
         [query findObjectsInBackgroundWithBlock:^(NSArray *survivors, NSError *error) {
             if (!error)
             {
