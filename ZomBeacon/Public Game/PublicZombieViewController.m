@@ -73,6 +73,7 @@
     [self.locationManager startUpdatingLocation];
     
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    self.survivorScanner = [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(queryNearbySurvivors) userInfo:nil repeats:YES];
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
@@ -166,6 +167,42 @@
         }];
     }
 }
+
+//Will notify you when someone is within 100 feet of you if they are on the opposite team
+- (void)queryNearbySurvivors
+{
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
+    [currentUser setObject:point forKey:@"location"];
+    [currentUser saveInBackground];
+    
+    if (currentUser[@"location"])
+    {
+        PFGeoPoint *userGeoPoint = currentUser[@"location"];
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"joinedPublic" equalTo:@"YES"];
+        [query whereKey:@"publicStatus" equalTo:@"survivor"];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.018868];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *survivors, NSError *error) {
+            if (!error)
+            {
+                //Presents the local notification
+                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                if (survivors.count == 1)
+                {
+                    notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There is %lu survivor very close to you. Check your map!", (unsigned long)survivors.count];
+                }
+                else
+                {
+                    notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There are %lu survivors very close to you. Check your map!", (unsigned long)survivors.count];
+                }
+                
+                notification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            }
+        }];
+    }
+}
+
 
 //Adds annotations to the mapView
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation

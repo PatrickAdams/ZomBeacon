@@ -72,7 +72,7 @@
 {
     [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
-    
+    self.zombieScanner = [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(queryNearbyZombies) userInfo:nil repeats:YES];
     //MapView stuff
     [self.locationManager startUpdatingLocation];
     [self zoomToUserLocation:self.mapView.userLocation];
@@ -127,6 +127,38 @@
                     }
                     
                     [self.mapView addAnnotation:newAnnotation];
+                }
+            }
+        }];
+    }
+}
+
+//Will notify you when someone is within 100 feet of you if they are on the opposite team
+- (void)queryNearbyZombies
+{
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
+    [currentUser setObject:point forKey:@"location"];
+    [currentUser saveInBackground];
+    
+    if (currentUser[@"location"])
+    {
+        PFGeoPoint *userGeoPoint = currentUser[@"location"];
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"joinedPublic" equalTo:@"YES"];
+        [query whereKey:@"publicStatus" equalTo:@"zombie"];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.018868];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *zombies, NSError *error) {
+            if (!error)
+            {
+                //Presents the local notification
+                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                if (zombies.count == 1)
+                {
+                    notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There is %lu zombie very close to you. Check your map!", (unsigned long)zombies.count];
+                }
+                else
+                {
+                    notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There are %lu zombies very close to you. Check your map!", (unsigned long)zombies.count];
                 }
             }
         }];

@@ -27,6 +27,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSTimer *queryTimer;
+@property (nonatomic, strong) NSTimer *survivorScanner;
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;
 @property PKManager *proximityKitManager;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;

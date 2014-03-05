@@ -29,6 +29,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSTimer *queryTimer;
+@property (nonatomic, strong) NSTimer *zombieScanner;
 @property (nonatomic, weak) IBOutlet UIButton *headshotButton;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
