@@ -15,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *findGameField;
 @property (nonatomic, strong) NSString *inviteCodeFromURL;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UITextField)NSArray *textFieldSpacers;
 
 - (IBAction)findGame;
 

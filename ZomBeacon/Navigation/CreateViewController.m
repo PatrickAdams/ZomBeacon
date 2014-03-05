@@ -35,6 +35,13 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    //Provides indentation for the textfields
+    for (UITextField * textField in self.textFieldSpacers) {
+        UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+        [textField setLeftViewMode:UITextFieldViewModeAlways];
+        [textField setLeftView:spacerView];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

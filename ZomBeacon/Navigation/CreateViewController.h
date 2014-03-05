@@ -26,6 +26,7 @@
 @property (nonatomic, strong) UIPickerView *pickerView;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
+@property (nonatomic, strong) IBOutletCollection (UITextField)NSArray *textFieldSpacers;
 
 - (IBAction)createNewGame;
 

@@ -349,6 +349,8 @@
                         <outlet property="usernameField" destination="fOF-p3-1lT" id="gq9-Rw-1CU"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="yXZ-1n-1C8" id="V2S-TG-Thg"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="2UB-Mo-J6w" id="NHx-UA-M1W"/>
+                        <outletCollection property="textFieldSpacers" destination="fOF-p3-1lT" id="1jE-lU-hDz"/>
+                        <outletCollection property="textFieldSpacers" destination="cuF-zX-qaM" id="JIr-Xz-hPi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPO-Vf-oDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,6 +510,11 @@
                         <outletCollection property="titilliumSemiBoldFonts" destination="y96-m8-yzX" id="rnP-I3-TxR"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="b6Y-LM-pr2" id="9JP-uT-rD0"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="dSS-de-oUO" id="EJI-Aw-YI5"/>
+                        <outletCollection property="textFieldSpacers" destination="6uI-bC-8qH" id="U2Z-ho-X4M"/>
+                        <outletCollection property="textFieldSpacers" destination="gvR-6J-COj" id="gt6-9y-tzM"/>
+                        <outletCollection property="textFieldSpacers" destination="BE3-vo-WgD" id="6CZ-yI-9wO"/>
+                        <outletCollection property="textFieldSpacers" destination="bUi-xX-IpM" id="LJU-gr-lrL"/>
+                        <outletCollection property="textFieldSpacers" destination="pAw-oL-IcX" id="kvT-NY-Fek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8I-pr-4sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,7 +604,7 @@
                                 <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.png" id="Ez3-cu-ngS" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile.png" id="Ez3-cu-ngS" customClass="PFImageView">
                                 <rect key="frame" x="26" y="70" width="81" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -847,7 +854,7 @@
                                                     <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.png" id="5X4-RD-HNt" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile.png" id="5X4-RD-HNt" customClass="PFImageView">
                                                     <rect key="frame" x="20" y="6" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -946,7 +953,7 @@
                                 <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.png" id="fTd-tx-0JG" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile.png" id="fTd-tx-0JG" customClass="PFImageView">
                                 <rect key="frame" x="20" y="76" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1603,6 +1610,10 @@
                         <outletCollection property="titilliumSemiBoldFonts" destination="RhZ-YZ-ig4" id="G5r-pa-sju"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="naf-PH-dPR" id="nGs-aU-y88"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="NMk-dE-Ufd" id="HBq-qb-Cvz"/>
+                        <outletCollection property="textFieldSpacers" destination="YDv-Jp-Agy" id="R84-Jj-Mpj"/>
+                        <outletCollection property="textFieldSpacers" destination="icS-fI-Pjp" id="2HA-pA-xpY"/>
+                        <outletCollection property="textFieldSpacers" destination="GsT-qG-2Pg" id="dnz-8c-l3U"/>
+                        <outletCollection property="textFieldSpacers" destination="tGH-JC-E1F" id="Ty0-4P-Hdm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r99-zy-Fo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1705,6 +1716,8 @@
                         <outletCollection property="titilliumSemiBoldFonts" destination="wJL-uB-0G1" id="6NN-zh-HZ0"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="7Kd-gc-mAD" id="ShJ-ap-Izu"/>
                         <outletCollection property="titilliumRegularFonts" destination="SBw-AS-Vve" id="Kbd-ub-cI1"/>
+                        <outletCollection property="textFieldSpacers" destination="Wyy-rq-oJm" id="Hdm-1E-oSB"/>
+                        <outletCollection property="textFieldSpacers" destination="Lg3-2F-wSI" id="scA-cT-eFM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4R-qf-eGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1923,6 +1936,7 @@
                     <connections>
                         <outlet property="emailField" destination="jNr-Tn-6bo" id="gOG-V1-NG1"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="g4p-i2-9QF" id="Sch-Za-ohd"/>
+                        <outletCollection property="textFieldSpacers" destination="jNr-Tn-6bo" id="c4c-34-sMK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCj-Ai-bxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1979,6 +1993,7 @@
                     <connections>
                         <outlet property="findGameField" destination="qaj-gG-qn0" id="SeP-wh-ZX3"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="cXE-6O-H8g" id="cDz-Fj-dBK"/>
+                        <outletCollection property="textFieldSpacers" destination="qaj-gG-qn0" id="DX0-ac-fok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxa-a3-A6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2195,7 +2210,7 @@
                                                     <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.png" id="At0-gM-WbO" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile.png" id="At0-gM-WbO" customClass="PFImageView">
                                                     <rect key="frame" x="25" y="6" width="24" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -2349,7 +2364,7 @@
                                                     <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.png" id="pqr-9A-LzD" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile.png" id="pqr-9A-LzD" customClass="PFImageView">
                                                     <rect key="frame" x="23" y="6" width="24" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -2502,13 +2517,37 @@
         <image name="addasfriend_button.png" width="102" height="29"/>
         <image name="assignteams_button.png" width="128" height="40"/>
         <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg2.png" width="320" height="568"/>
+        <image name="bg2.png" width="320" height="568"/>
         <image name="bg2.png" width="320" height="568"/>
         <image name="bg3.png" width="320" height="568"/>
+        <image name="bg3.png" width="320" height="568"/>
+        <image name="bg3.png" width="320" height="568"/>
+        <image name="bg3.png" width="320" height="568"/>
+        <image name="bg4.png" width="320" height="568"/>
         <image name="bg4.png" width="320" height="568"/>
         <image name="bite_button.png" width="100" height="40"/>
+        <image name="bite_button.png" width="100" height="40"/>
+        <image name="compass.png" width="25" height="25"/>
+        <image name="compass.png" width="25" height="25"/>
+        <image name="compass.png" width="25" height="25"/>
         <image name="compass.png" width="25" height="25"/>
         <image name="creategame_button.png" width="180" height="181"/>
         <image name="creategame_button2.png" width="138" height="40"/>
+        <image name="default_profile.png" width="181" height="181"/>
+        <image name="default_profile.png" width="181" height="181"/>
+        <image name="default_profile.png" width="181" height="181"/>
+        <image name="default_profile.png" width="181" height="181"/>
+        <image name="default_profile.png" width="181" height="181"/>
         <image name="email.png" width="25" height="25"/>
         <image name="fb.png" width="55" height="55"/>
         <image name="findgame_button.png" width="122" height="123"/>
@@ -2516,14 +2555,20 @@
         <image name="friends_button.png" width="91" height="29"/>
         <image name="gamecenter_button.png" width="91" height="29"/>
         <image name="headshot_button.png" width="124" height="40"/>
+        <image name="headshot_button.png" width="124" height="40"/>
         <image name="home_button.png" width="79" height="40"/>
         <image name="joingame_button.png" width="79" height="40"/>
+        <image name="locate.png" width="25" height="25"/>
+        <image name="locate.png" width="25" height="25"/>
+        <image name="locate.png" width="25" height="25"/>
         <image name="locate.png" width="25" height="25"/>
         <image name="login_button.png" width="108" height="40"/>
         <image name="login_facebook.png" width="55" height="55"/>
         <image name="login_twitter.png" width="55" height="55"/>
         <image name="logout_button.png" width="91" height="29"/>
         <image name="map_overlay_green.png" width="320" height="255"/>
+        <image name="map_overlay_green.png" width="320" height="255"/>
+        <image name="map_overlay_yellow.png" width="320" height="255"/>
         <image name="map_overlay_yellow.png" width="320" height="255"/>
         <image name="profile.png" width="25" height="25"/>
         <image name="publicgame_button.png" width="251" height="253"/>
@@ -2537,8 +2582,22 @@
         <image name="sms.png" width="25" height="25"/>
         <image name="startgame_button.png" width="128" height="40"/>
         <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
         <image name="twitter.png" width="25" height="25"/>
-        <image name="user.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

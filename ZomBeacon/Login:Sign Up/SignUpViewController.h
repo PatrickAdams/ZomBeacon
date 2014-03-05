@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *nameField;
 @property (nonatomic, weak) IBOutlet UITextField *bioField;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UITextField)NSArray *textFieldSpacers;
 
 - (IBAction)signUpNewUser;
 - (BOOL)fieldsAreValid;

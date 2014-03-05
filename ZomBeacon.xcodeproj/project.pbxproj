@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
+		CD6FA4D118C77FB000510581 /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D018C77FB000510581 /* default_profile.png */; };
 		CDB2533A18C633B800F49FC3 /* MyFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */; };
 		CDB2533C18C6533E00F49FC3 /* gamecenter_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */; };
 		CDB2533E18C6538000F49FC3 /* friends_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533D18C6538000F49FC3 /* friends_button@2x.png */; };
@@ -33,7 +34,6 @@
 		E705A9F518AE728700CFE7B6 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9DC18AE728700CFE7B6 /* profile@2x.png */; };
 		E705A9F618AE728700CFE7B6 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9DD18AE728700CFE7B6 /* red.png */; };
 		E705A9F718AE728700CFE7B6 /* red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9DE18AE728700CFE7B6 /* red@2x.png */; };
-		E705A9FB18AE728700CFE7B6 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9E218AE728700CFE7B6 /* user.png */; };
 		E705AA0218AE72DA00CFE7B6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E705A9FD18AE72DA00CFE7B6 /* LoginViewController.m */; };
 		E705AA0318AE72DA00CFE7B6 /* PasswordResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E705A9FF18AE72DA00CFE7B6 /* PasswordResetViewController.m */; };
 		E705AA0418AE72DA00CFE7B6 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA0118AE72DA00CFE7B6 /* SignUpViewController.m */; };
@@ -116,6 +116,7 @@
 
 /* Begin PBXFileReference section */
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
+		CD6FA4D018C77FB000510581 /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_profile.png; path = Images/default_profile.png; sourceTree = "<group>"; };
 		CDB2533818C633B800F49FC3 /* MyFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFriendsViewController.h; path = Profiles/MyFriendsViewController.h; sourceTree = "<group>"; };
 		CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFriendsViewController.m; path = Profiles/MyFriendsViewController.m; sourceTree = "<group>"; };
 		CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gamecenter_button@2x.png"; path = "Images/gamecenter_button@2x.png"; sourceTree = "<group>"; };
@@ -144,7 +145,6 @@
 		E705A9DC18AE728700CFE7B6 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile@2x.png"; path = "Images/profile@2x.png"; sourceTree = "<group>"; };
 		E705A9DD18AE728700CFE7B6 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red.png; path = Images/red.png; sourceTree = "<group>"; };
 		E705A9DE18AE728700CFE7B6 /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red@2x.png"; path = "Images/red@2x.png"; sourceTree = "<group>"; };
-		E705A9E218AE728700CFE7B6 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = Images/user.png; sourceTree = "<group>"; };
 		E705A9FC18AE72DA00CFE7B6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "Login:Sign Up/LoginViewController.h"; sourceTree = "<group>"; };
 		E705A9FD18AE72DA00CFE7B6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "Login:Sign Up/LoginViewController.m"; sourceTree = "<group>"; };
 		E705A9FE18AE72DA00CFE7B6 /* PasswordResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PasswordResetViewController.h; path = "Login:Sign Up/PasswordResetViewController.h"; sourceTree = "<group>"; };
@@ -285,6 +285,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CD6FA4D018C77FB000510581 /* default_profile.png */,
 				CDB2533F18C6607100F49FC3 /* addasfriend_button@2x.png */,
 				CDB2533D18C6538000F49FC3 /* friends_button@2x.png */,
 				CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */,
@@ -338,7 +339,6 @@
 				E705A9DC18AE728700CFE7B6 /* profile@2x.png */,
 				E705A9DD18AE728700CFE7B6 /* red.png */,
 				E705A9DE18AE728700CFE7B6 /* red@2x.png */,
-				E705A9E218AE728700CFE7B6 /* user.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -623,7 +623,6 @@
 				E786A2D218C1125600942576 /* bg3@2x.png in Resources */,
 				E703935D18C517CF005B0E84 /* share_facebook@2x.png in Resources */,
 				E7AB10CD18C4D59600A54850 /* refresh@2x.png in Resources */,
-				E705A9FB18AE728700CFE7B6 /* user.png in Resources */,
 				E786A2C618C0FE2400942576 /* signmeup_button@2x.png in Resources */,
 				E786A2AF18C0E96800942576 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				E705A9F018AE728700CFE7B6 /* login_facebook@2x.png in Resources */,
@@ -650,6 +649,7 @@
 				E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */,
 				E786A2CA18C104F200942576 /* creategame_button2@2x.png in Resources */,
 				E7AB10DF18C4F1F100A54850 /* map_overlay_yellow.png in Resources */,
+				CD6FA4D118C77FB000510581 /* default_profile.png in Resources */,
 				E786A2C818C1014000942576 /* reset_button@2x.png in Resources */,
 				E705A9E918AE728700CFE7B6 /* compass@2x.png in Resources */,
 			);

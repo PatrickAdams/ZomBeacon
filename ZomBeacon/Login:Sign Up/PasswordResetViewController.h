@@ -17,5 +17,6 @@
 - (IBAction)dismissView;
 
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UITextField)NSArray *textFieldSpacers;
 
 @end

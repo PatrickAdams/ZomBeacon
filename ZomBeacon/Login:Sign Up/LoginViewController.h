@@ -21,6 +21,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *passwordField;
 @property (nonatomic, strong) NSMutableData *imageData;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UITextField)NSArray *textFieldSpacers;
 @property (nonatomic, weak) IBOutlet UIButton *forgotPasswordButton;
 @property (nonatomic, weak) IBOutlet UIButton *signUpButton;
 
