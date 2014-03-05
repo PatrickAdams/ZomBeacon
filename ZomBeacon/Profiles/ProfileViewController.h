@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
-#import "PrivateLobbyViewController.h"
+#import "GameDetailsViewController.h"
 #import "GameCell.h"
 #import <GameKit/GameKit.h>
 

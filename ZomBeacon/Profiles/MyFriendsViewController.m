@@ -106,26 +106,25 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-////Allowing the deletion of cells
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return YES;
-//}
+//Allowing the deletion of cells
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
 
-////Setting up what happens when you tap delete on a cell
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (editingStyle == UITableViewCellEditingStyleDelete)
-//    {
-//        PFObject *gameToBeDeleted = [self.privateGames objectAtIndex:indexPath.row];
-//        [gameToBeDeleted deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (succeeded) {
-//                [self getGamesUserHasCreated];
-//                [self.tableView reloadData];
-//            }
-//        }];
-//    }
-//}
+//Setting up what happens when you tap delete on a cell
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        PFObject *friendship = self.myFriends[indexPath.row];
+        
+        [friendship deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [self getFriends];
+            [self.tableView reloadData];
+        }];
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

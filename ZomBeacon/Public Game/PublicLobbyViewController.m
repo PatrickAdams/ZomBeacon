@@ -68,7 +68,7 @@
     UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     PFObject *player = self.thePlayers[indexPath.row];
-    NSString *playerName = player[@"name"];
+    NSString *playerName = player[@"username"];
     cell.nameLabel.text = playerName;
     
     if ([player[@"publicStatus"] isEqualToString:@"zombie"]) {

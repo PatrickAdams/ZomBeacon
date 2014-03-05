@@ -116,25 +116,22 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
     PFObject *game = self.privateGames[indexPath.row];
     
-    [self.currentUser setObject:game.objectId forKey:@"currentGame"];
-    [self.currentUser saveInBackground];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GameDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamedetails"];
     
+    vc.gameDateString = game[@"dateTime"];
+    vc.gameNameString = game[@"gameName"];
     PFGeoPoint *gameLocation = game[@"location"];
     CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+    vc.gameLocationCoord = gameLocationCoords;
+    vc.gameIdString = game.objectId;
     
     PFObject *hostUser = game[@"hostUser"];
-    
-    vc.gameNameString = game[@"gameName"];
-    vc.gameDateString = game[@"dateTime"];
     vc.gameHostString = hostUser[@"name"];
-    vc.gameIdString = game.objectId;
-    vc.gameLocationCoord = gameLocationCoords;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
