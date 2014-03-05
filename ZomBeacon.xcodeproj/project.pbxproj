@@ -28,7 +28,6 @@
 		E703935918C51724005B0E84 /* share_twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E703935818C51724005B0E84 /* share_twitter@2x.png */; };
 		E703935B18C5177C005B0E84 /* share_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E703935A18C5177C005B0E84 /* share_email@2x.png */; };
 		E703935D18C517CF005B0E84 /* share_facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E703935C18C517CF005B0E84 /* share_facebook@2x.png */; };
-		E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CA18AE728700CFE7B6 /* app_icon.png */; };
 		E705A9E918AE728700CFE7B6 /* compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D018AE728700CFE7B6 /* compass@2x.png */; };
 		E705A9EA18AE728700CFE7B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D118AE728700CFE7B6 /* Default-568h@2x.png */; };
 		E705A9F018AE728700CFE7B6 /* login_facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D718AE728700CFE7B6 /* login_facebook@2x.png */; };
@@ -613,7 +612,6 @@
 				E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */,
 				E786A2C418C0FB4B00942576 /* findgame_button2@2x.png in Resources */,
 				E786A2C018C0F7D900942576 /* bg_mainmenu@2x.png in Resources */,
-				E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */,
 				E786A2D818C11CC400942576 /* assignteams_button@2x.png in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E786A2CE18C10B3600942576 /* joingame_button@2x.png in Resources */,

@@ -92,7 +92,7 @@
                          [MBProgressHUD hideHUDForView:self.view animated:YES];
                      });
                      
-                     [self.navigationController popViewControllerAnimated:YES];
+                     [self dismissViewControllerAnimated:YES completion:nil];
                  }
                  else
                  {

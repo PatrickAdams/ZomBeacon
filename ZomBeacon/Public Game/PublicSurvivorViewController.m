@@ -156,7 +156,7 @@
                 {
                     notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There is %lu zombie very close to you. Check your map!", (unsigned long)zombies.count];
                 }
-                else
+                else if (zombies.count > 1)
                 {
                     notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There are %lu zombies very close to you. Check your map!", (unsigned long)zombies.count];
                 }
