@@ -153,11 +153,11 @@
                     
                     if ([statusOfNearbyUser isEqualToString:@"survivor"])
                     {
-                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"blue"]];
+                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"survivor_annotation"]];
                     }
                     else if ([statusOfNearbyUser isEqualToString:@"zombie"])
                     {
-                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"red"]];
+                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"zombie_annotation"]];
                     }
                     
                     [self.mapView addAnnotation:newAnnotation];

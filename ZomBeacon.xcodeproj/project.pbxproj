@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
 		CD6FA4D118C77FB000510581 /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D018C77FB000510581 /* default_profile.png */; };
+		CD6FA4D518C793FA00510581 /* bite_wave@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D418C793FA00510581 /* bite_wave@2x.png */; };
+		CD6FA4D718C797A200510581 /* zombie_status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D618C797A200510581 /* zombie_status@2x.png */; };
+		CD6FA4DB18C79F9400510581 /* app_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D818C79F9400510581 /* app_icon_large.png */; };
+		CD6FA4DC18C79F9400510581 /* app_icon_medium.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D918C79F9400510581 /* app_icon_medium.png */; };
+		CD6FA4DD18C79F9400510581 /* app_icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4DA18C79F9400510581 /* app_icon_small.png */; };
+		CD6FA4DF18C7A33700510581 /* zombie_annotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4DE18C7A33700510581 /* zombie_annotation@2x.png */; };
+		CD6FA4E118C7A33C00510581 /* survivor_annotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4E018C7A33C00510581 /* survivor_annotation@2x.png */; };
 		CDB2533A18C633B800F49FC3 /* MyFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */; };
 		CDB2533C18C6533E00F49FC3 /* gamecenter_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */; };
 		CDB2533E18C6538000F49FC3 /* friends_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533D18C6538000F49FC3 /* friends_button@2x.png */; };
@@ -22,13 +29,11 @@
 		E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CA18AE728700CFE7B6 /* app_icon.png */; };
 		E705A9E618AE728700CFE7B6 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CD18AE728700CFE7B6 /* blue.png */; };
 		E705A9E718AE728700CFE7B6 /* blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CE18AE728700CFE7B6 /* blue@2x.png */; };
-		E705A9E818AE728700CFE7B6 /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9CF18AE728700CFE7B6 /* compass.png */; };
 		E705A9E918AE728700CFE7B6 /* compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D018AE728700CFE7B6 /* compass@2x.png */; };
 		E705A9EA18AE728700CFE7B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D118AE728700CFE7B6 /* Default-568h@2x.png */; };
 		E705A9EB18AE728700CFE7B6 /* dotImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D218AE728700CFE7B6 /* dotImage@2x.png */; };
 		E705A9F018AE728700CFE7B6 /* login_facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D718AE728700CFE7B6 /* login_facebook@2x.png */; };
 		E705A9F118AE728700CFE7B6 /* hole.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D818AE728700CFE7B6 /* hole.png */; };
-		E705A9F218AE728700CFE7B6 /* locate.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9D918AE728700CFE7B6 /* locate.png */; };
 		E705A9F318AE728700CFE7B6 /* locate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9DA18AE728700CFE7B6 /* locate@2x.png */; };
 		E705A9F418AE728700CFE7B6 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9DB18AE728700CFE7B6 /* profile.png */; };
 		E705A9F518AE728700CFE7B6 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E705A9DC18AE728700CFE7B6 /* profile@2x.png */; };
@@ -117,6 +122,13 @@
 /* Begin PBXFileReference section */
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		CD6FA4D018C77FB000510581 /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_profile.png; path = Images/default_profile.png; sourceTree = "<group>"; };
+		CD6FA4D418C793FA00510581 /* bite_wave@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bite_wave@2x.png"; path = "Images/bite_wave@2x.png"; sourceTree = "<group>"; };
+		CD6FA4D618C797A200510581 /* zombie_status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zombie_status@2x.png"; path = "Images/zombie_status@2x.png"; sourceTree = "<group>"; };
+		CD6FA4D818C79F9400510581 /* app_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_large.png; path = Images/app_icon_large.png; sourceTree = "<group>"; };
+		CD6FA4D918C79F9400510581 /* app_icon_medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_medium.png; path = Images/app_icon_medium.png; sourceTree = "<group>"; };
+		CD6FA4DA18C79F9400510581 /* app_icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_small.png; path = Images/app_icon_small.png; sourceTree = "<group>"; };
+		CD6FA4DE18C7A33700510581 /* zombie_annotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zombie_annotation@2x.png"; path = "Images/zombie_annotation@2x.png"; sourceTree = "<group>"; };
+		CD6FA4E018C7A33C00510581 /* survivor_annotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "survivor_annotation@2x.png"; path = "Images/survivor_annotation@2x.png"; sourceTree = "<group>"; };
 		CDB2533818C633B800F49FC3 /* MyFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFriendsViewController.h; path = Profiles/MyFriendsViewController.h; sourceTree = "<group>"; };
 		CDB2533918C633B800F49FC3 /* MyFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFriendsViewController.m; path = Profiles/MyFriendsViewController.m; sourceTree = "<group>"; };
 		CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gamecenter_button@2x.png"; path = "Images/gamecenter_button@2x.png"; sourceTree = "<group>"; };
@@ -133,13 +145,11 @@
 		E705A9CA18AE728700CFE7B6 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon.png; path = Images/app_icon.png; sourceTree = "<group>"; };
 		E705A9CD18AE728700CFE7B6 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue.png; path = Images/blue.png; sourceTree = "<group>"; };
 		E705A9CE18AE728700CFE7B6 /* blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue@2x.png"; path = "Images/blue@2x.png"; sourceTree = "<group>"; };
-		E705A9CF18AE728700CFE7B6 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass.png; path = Images/compass.png; sourceTree = "<group>"; };
 		E705A9D018AE728700CFE7B6 /* compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compass@2x.png"; path = "Images/compass@2x.png"; sourceTree = "<group>"; };
 		E705A9D118AE728700CFE7B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		E705A9D218AE728700CFE7B6 /* dotImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dotImage@2x.png"; path = "Images/dotImage@2x.png"; sourceTree = "<group>"; };
 		E705A9D718AE728700CFE7B6 /* login_facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_facebook@2x.png"; path = "Images/login_facebook@2x.png"; sourceTree = "<group>"; };
 		E705A9D818AE728700CFE7B6 /* hole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hole.png; path = Images/hole.png; sourceTree = "<group>"; };
-		E705A9D918AE728700CFE7B6 /* locate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locate.png; path = Images/locate.png; sourceTree = "<group>"; };
 		E705A9DA18AE728700CFE7B6 /* locate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "locate@2x.png"; path = "Images/locate@2x.png"; sourceTree = "<group>"; };
 		E705A9DB18AE728700CFE7B6 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = Images/profile.png; sourceTree = "<group>"; };
 		E705A9DC18AE728700CFE7B6 /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile@2x.png"; path = "Images/profile@2x.png"; sourceTree = "<group>"; };
@@ -285,6 +295,13 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CD6FA4E018C7A33C00510581 /* survivor_annotation@2x.png */,
+				CD6FA4DE18C7A33700510581 /* zombie_annotation@2x.png */,
+				CD6FA4D818C79F9400510581 /* app_icon_large.png */,
+				CD6FA4D918C79F9400510581 /* app_icon_medium.png */,
+				CD6FA4DA18C79F9400510581 /* app_icon_small.png */,
+				CD6FA4D618C797A200510581 /* zombie_status@2x.png */,
+				CD6FA4D418C793FA00510581 /* bite_wave@2x.png */,
 				CD6FA4D018C77FB000510581 /* default_profile.png */,
 				CDB2533F18C6607100F49FC3 /* addasfriend_button@2x.png */,
 				CDB2533D18C6538000F49FC3 /* friends_button@2x.png */,
@@ -328,12 +345,10 @@
 				E705A9CE18AE728700CFE7B6 /* blue@2x.png */,
 				E7AB10CE18C4D59C00A54850 /* sms.png */,
 				E7AB10CF18C4D59C00A54850 /* sms@2x.png */,
-				E705A9CF18AE728700CFE7B6 /* compass.png */,
 				E705A9D018AE728700CFE7B6 /* compass@2x.png */,
 				E705A9D118AE728700CFE7B6 /* Default-568h@2x.png */,
 				E705A9D218AE728700CFE7B6 /* dotImage@2x.png */,
 				E705A9D818AE728700CFE7B6 /* hole.png */,
-				E705A9D918AE728700CFE7B6 /* locate.png */,
 				E705A9DA18AE728700CFE7B6 /* locate@2x.png */,
 				E705A9DB18AE728700CFE7B6 /* profile.png */,
 				E705A9DC18AE728700CFE7B6 /* profile@2x.png */,
@@ -610,7 +625,6 @@
 				E786A2B818C0F36E00942576 /* login_twitter@2x.png in Resources */,
 				E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */,
 				E786A2C418C0FB4B00942576 /* findgame_button2@2x.png in Resources */,
-				E705A9F218AE728700CFE7B6 /* locate.png in Resources */,
 				E786A2C018C0F7D900942576 /* bg_mainmenu@2x.png in Resources */,
 				E705A9EB18AE728700CFE7B6 /* dotImage@2x.png in Resources */,
 				E705A9E318AE728700CFE7B6 /* app_icon.png in Resources */,
@@ -619,10 +633,13 @@
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
 				E705A9F118AE728700CFE7B6 /* hole.png in Resources */,
 				E786A2CE18C10B3600942576 /* joingame_button@2x.png in Resources */,
+				CD6FA4E118C7A33C00510581 /* survivor_annotation@2x.png in Resources */,
 				E705A9F418AE728700CFE7B6 /* profile.png in Resources */,
 				E786A2D218C1125600942576 /* bg3@2x.png in Resources */,
 				E703935D18C517CF005B0E84 /* share_facebook@2x.png in Resources */,
+				CD6FA4D718C797A200510581 /* zombie_status@2x.png in Resources */,
 				E7AB10CD18C4D59600A54850 /* refresh@2x.png in Resources */,
+				CD6FA4DD18C79F9400510581 /* app_icon_small.png in Resources */,
 				E786A2C618C0FE2400942576 /* signmeup_button@2x.png in Resources */,
 				E786A2AF18C0E96800942576 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				E705A9F018AE728700CFE7B6 /* login_facebook@2x.png in Resources */,
@@ -638,16 +655,19 @@
 				E786A2BA18C0F6C000942576 /* publicgame_button@2x.png in Resources */,
 				E786A2B418C0EEA600942576 /* bg@2x.png in Resources */,
 				E786A2AE18C0E96800942576 /* TitilliumWeb-Regular.ttf in Resources */,
+				CD6FA4DC18C79F9400510581 /* app_icon_medium.png in Resources */,
 				E7AB10DD18C4F08D00A54850 /* map_overlay_green.png in Resources */,
+				CD6FA4DB18C79F9400510581 /* app_icon_large.png in Resources */,
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
 				E705A9E618AE728700CFE7B6 /* blue.png in Resources */,
 				E786A2BE18C0F79E00942576 /* findgame_button@2x.png in Resources */,
-				E705A9E818AE728700CFE7B6 /* compass.png in Resources */,
 				E7AB10D018C4D59C00A54850 /* sms.png in Resources */,
 				E76B2C1318BE82E700B5E45D /* splash_long.png in Resources */,
 				CDD32BD318C57778005CA4E0 /* tape@2x.png in Resources */,
 				E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */,
+				CD6FA4D518C793FA00510581 /* bite_wave@2x.png in Resources */,
 				E786A2CA18C104F200942576 /* creategame_button2@2x.png in Resources */,
+				CD6FA4DF18C7A33700510581 /* zombie_annotation@2x.png in Resources */,
 				E7AB10DF18C4F1F100A54850 /* map_overlay_yellow.png in Resources */,
 				CD6FA4D118C77FB000510581 /* default_profile.png in Resources */,
 				E786A2C818C1014000942576 /* reset_button@2x.png in Resources */,

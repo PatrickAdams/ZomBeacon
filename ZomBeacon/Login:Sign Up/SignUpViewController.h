@@ -23,5 +23,6 @@
 
 - (IBAction)signUpNewUser;
 - (BOOL)fieldsAreValid;
+- (IBAction)dismissView;
 
 @end

@@ -109,6 +109,11 @@
     }
 }
 
+- (IBAction)dismissView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 //Method that chooses a random number
 -(int)getRandomNumberBetween:(int)from to:(int)to
 {

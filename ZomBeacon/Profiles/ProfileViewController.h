@@ -34,10 +34,6 @@
 
 - (NSMutableArray *)getGamesUserHasCreated;
 - (IBAction)cameraButtonTapped;
-- (IBAction)linkAccountWithFacebook;
-- (IBAction)unlinkFromFacebook;
-- (IBAction)linkAccountWithTwitter;
-- (IBAction)unlinkFromTwitter;
 - (IBAction)logUserOut;
 - (IBAction)showLeaderboards;
 - (void)uploadImage:(NSData *)imageData;

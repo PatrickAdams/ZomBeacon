@@ -18,9 +18,16 @@
 @property (nonatomic, weak) IBOutlet UITextField *emailField;
 @property (nonatomic, weak) IBOutlet UITextField *nameField;
 @property (nonatomic, weak) IBOutlet UITextField *bioField;
+@property (nonatomic, weak) IBOutlet UIButton *facebookButton;
+@property (nonatomic, weak) IBOutlet UIButton *twitterButton;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UITextField)NSArray *textFieldSpacers;
 
 - (IBAction)saveProfileChanges;
+- (IBAction)dismissView;
+- (IBAction)linkAccountWithFacebook;
+- (IBAction)linkAccountWithTwitter;
+//- (IBAction)unlinkFromFacebook;
+//- (IBAction)unlinkFromTwitter;
 
 @end
