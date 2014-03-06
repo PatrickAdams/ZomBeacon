@@ -40,49 +40,55 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
-    
-//    NSDictionary *dict = [self parseQueryString:[url query]];
-//    
-//    if (dict !=nil)
-//    {
-//        PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
-//        [query whereKey:@"objectId" equalTo:[dict valueForKey:@"invite"]];
-//        [query includeKey:@"hostUser"];
-//        NSArray *privateGames = [query findObjects];
-//        
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        GameDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamedetails"];
-//        
-//        if (privateGames.count > 0)
-//        {
-//            for (int i = 0; i < privateGames.count; i++)
-//            {
-//                PFObject *privateGame = [privateGames objectAtIndex:0];
-//                vc.gameDateString = privateGame[@"dateTime"];
-//                vc.gameNameString = privateGame[@"gameName"];
-//                PFGeoPoint *gameLocation = privateGame[@"location"];
-//                CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
-//                vc.gameLocationCoord = gameLocationCoords;
-//                vc.gameIdString = privateGame.objectId;
-//                
-//                PFObject *hostUser = privateGame[@"hostUser"];
-//                vc.gameHostString = hostUser[@"name"];
-//            }
-//            
-//            UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
-//            [navCon pushViewController:vc animated:NO];
-//        }
-//        else
-//        {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Games Found" message:@"No games were found that match your code." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//            
-//            [alert show];
-//        }
-//    }
-    
+    if ([FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]])
+    {
+        [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
+    }
+    else
+    {
+        NSDictionary *dict = [self parseQueryString:[url query]];
+        
+        if (dict !=nil)
+        {
+            PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+            [query whereKey:@"objectId" equalTo:[dict valueForKey:@"invite"]];
+            [query includeKey:@"hostUser"];
+            NSArray *privateGames = [query findObjects];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            GameDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamedetails"];
+            
+            if (privateGames.count > 0)
+            {
+                for (int i = 0; i < privateGames.count; i++)
+                {
+                    PFObject *privateGame = [privateGames objectAtIndex:0];
+                    vc.gameDateString = privateGame[@"dateTime"];
+                    vc.gameNameString = privateGame[@"gameName"];
+                    PFGeoPoint *gameLocation = privateGame[@"location"];
+                    CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+                    vc.gameLocationCoord = gameLocationCoords;
+                    vc.gameIdString = privateGame.objectId;
+                    
+                    PFObject *hostUser = privateGame[@"hostUser"];
+                    vc.gameHostString = hostUser[@"name"];
+                }
+                
+                UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+                [navCon pushViewController:vc animated:NO];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Games Found" message:@"No games were found that match your code." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
+            }
+        }
+    }
+
     return YES;
 }
+
 
 - (NSDictionary *)parseQueryString:(NSString *)query {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:6];
