@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD4380FF18C8CCA1009A8D5F /* share_sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */; };
+		CD43810118C8CE30009A8D5F /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD43810018C8CE2F009A8D5F /* arrow@2x.png */; };
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
 		CD6FA4D118C77FB000510581 /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D018C77FB000510581 /* default_profile.png */; };
 		CD6FA4D518C793FA00510581 /* bite_wave@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D418C793FA00510581 /* bite_wave@2x.png */; };
@@ -115,6 +117,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_sms@2x.png"; path = "Images/share_sms@2x.png"; sourceTree = "<group>"; };
+		CD43810018C8CE2F009A8D5F /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow@2x.png"; path = "Images/arrow@2x.png"; sourceTree = "<group>"; };
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		CD6FA4D018C77FB000510581 /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_profile.png; path = Images/default_profile.png; sourceTree = "<group>"; };
 		CD6FA4D418C793FA00510581 /* bite_wave@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bite_wave@2x.png"; path = "Images/bite_wave@2x.png"; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CD43810018C8CE2F009A8D5F /* arrow@2x.png */,
 				CD6FA4E018C7A33C00510581 /* survivor_annotation@2x.png */,
 				CD6FA4DE18C7A33700510581 /* zombie_annotation@2x.png */,
 				CD6FA4D818C79F9400510581 /* app_icon_large.png */,
@@ -300,6 +305,7 @@
 				E703935C18C517CF005B0E84 /* share_facebook@2x.png */,
 				E703935A18C5177C005B0E84 /* share_email@2x.png */,
 				E703935818C51724005B0E84 /* share_twitter@2x.png */,
+				CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */,
 				E7AB10E218C4F61B00A54850 /* headshot_button@2x.png */,
 				E7AB10E018C4F59F00A54850 /* bite_button@2x.png */,
 				E7AB10DE18C4F1F100A54850 /* map_overlay_yellow.png */,
@@ -595,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E786A2CC18C1091400942576 /* bg2@2x.png in Resources */,
+				CD4380FF18C8CCA1009A8D5F /* share_sms@2x.png in Resources */,
 				CDB2533E18C6538000F49FC3 /* friends_button@2x.png in Resources */,
 				E786A2D618C11B0F00942576 /* bg4@2x.png in Resources */,
 				E786A2DA18C11CCC00942576 /* startgame_button@2x.png in Resources */,
@@ -633,6 +640,7 @@
 				E705A9F318AE728700CFE7B6 /* locate@2x.png in Resources */,
 				E705A9F518AE728700CFE7B6 /* profile@2x.png in Resources */,
 				E703935B18C5177C005B0E84 /* share_email@2x.png in Resources */,
+				CD43810118C8CE30009A8D5F /* arrow@2x.png in Resources */,
 				CD6FA4E318C7BA3F00510581 /* splash_short_yellow.png in Resources */,
 				E703935918C51724005B0E84 /* share_twitter@2x.png in Resources */,
 				E786A2BA18C0F6C000942576 /* publicgame_button@2x.png in Resources */,

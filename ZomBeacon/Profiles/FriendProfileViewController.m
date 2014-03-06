@@ -58,6 +58,7 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:[NSString stringWithFormat:@"You are now following %@", self.myFriend.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
             [alert show];
+            [self.addAsFriendButton setEnabled:NO];
         }
     }];
 }
