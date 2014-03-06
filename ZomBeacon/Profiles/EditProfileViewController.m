@@ -86,6 +86,8 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Facebook!" message:@"You have successfully linked your ZomBeacon account with Facebook" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
+                
+                [self.facebookButton setEnabled:NO];
             }
             else
             {
@@ -121,6 +123,8 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Twitter!" message:@"You have successfully linked your ZomBeacon account with Twitter" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
+                
+                [self.twitterButton setEnabled:NO];
             }
             else
             {

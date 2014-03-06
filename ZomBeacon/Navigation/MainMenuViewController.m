@@ -21,18 +21,6 @@
 
     currentUser = [PFUser currentUser];
     
-    PFQuery *userScoreQuery = [PFQuery queryWithClassName:@"UserScore"];
-    [userScoreQuery whereKey:@"user" equalTo:currentUser];
-    PFObject *userScore = [userScoreQuery getFirstObject];
-    
-    if (userScore == 0)
-    {
-        //Create the UserScore row for the currentUser
-        PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
-        [userScore setObject:currentUser forKey:@"user"];
-        [userScore saveInBackground];
-    }
-    
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:22],
@@ -56,6 +44,12 @@
     
     //When user is on the menu, checks every minute for their location
     self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(saveLocation) userInfo:nil repeats:YES];
+}
+
+- (IBAction)inviteFriends
+{
+    //To-Do for Version 2.0 (once we have the link)
+    //Bring up Twitter/Facebook with link to download the app in the AppStore.
 }
 
 - (void)saveLocation

@@ -15,9 +15,6 @@
 #import "MainMenuViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate>
-{
-    PFUser *currentUser;
-}
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) CBCentralManager *centralManager;

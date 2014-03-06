@@ -26,6 +26,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 - (IBAction)startPublicGame;
+- (IBAction)inviteFriends;
 //- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
 
 @end

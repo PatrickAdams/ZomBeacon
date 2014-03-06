@@ -1245,17 +1245,21 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU ARE DEAD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RtK-tS-g7h">
-                                <rect key="frame" x="98" y="98" width="125" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="IXk-8B-zNj">
+                                <rect key="frame" x="0.0" y="-63" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU'VE BEEN HEADSHOTTED AND ARE NOW DEAD" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RtK-tS-g7h">
+                                <rect key="frame" x="29" y="101" width="262" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.74901962280000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uXb-gS-dzO">
-                                <rect key="frame" x="70" y="142" width="180" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uXb-gS-dzO">
+                                <rect key="frame" x="84" y="173" width="153" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Rejoin Game? (-5,000 pts)">
+                                <state key="normal" image="rejoingame_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1263,19 +1267,31 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rdv-kM-IMx">
-                                <rect key="frame" x="140" y="196" width="41" height="30"/>
+                                <rect key="frame" x="130" y="291" width="61" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Home">
+                                    <color key="titleColor" red="0.0" green="0.76862752440000004" blue="0.45490199329999997" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="goHome" destination="brW-n8-4WY" eventType="touchUpInside" id="tuN-7Z-V4W"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(-5,000 points)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aUm-2X-BeP">
+                                <rect key="frame" x="105" y="223" width="111" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.78924186860000001" green="0.78924186860000001" blue="0.78924186860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.17669802300000001" green="0.17669802300000001" blue="0.17669802300000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="RtK-tS-g7h" id="cYW-N5-ZaN"/>
+                        <outletCollection property="titilliumRegularFonts" destination="aUm-2X-BeP" id="jrm-gK-Inn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4m-F5-X4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1289,31 +1305,47 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU ARE DEAD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NAh-lf-q0A">
-                                <rect key="frame" x="98" y="102" width="125" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="Pwo-pB-vW8">
+                                <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU'VE BEEN HEADSHOTTED AND ARE NOW DEAD" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NAh-lf-q0A">
+                                <rect key="frame" x="26" y="71" width="269" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.74901962280000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qYY-yY-UKV">
-                                <rect key="frame" x="140" y="162" width="41" height="30"/>
+                                <rect key="frame" x="132" y="204" width="56" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Home">
+                                    <color key="titleColor" red="0.0" green="0.76862752440000004" blue="0.45490199329999997" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="goHome" destination="8Lm-J4-94L" eventType="touchUpInside" id="DYh-bC-jaM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return to where the game started." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qVs-y9-9gV">
+                                <rect key="frame" x="8" y="141" width="305" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.78924186860000001" green="0.78924186860000001" blue="0.78924186860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.17669802300000001" green="0.17669802300000001" blue="0.17669802300000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outletCollection property="titilliumRegularFonts" destination="qVs-y9-9gV" id="4XZ-60-LQZ"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="NAh-lf-q0A" id="WTY-D0-cvx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vpy-h0-wZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="-480"/>
+            <point key="canvasLocation" x="203" y="-477"/>
         </scene>
         <!--Bluetooth View Controller-->
         <scene sceneID="W5M-pC-seI">
@@ -1436,6 +1468,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="MAIN" id="LPh-lr-fUw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="UV2-6i-tU7"/>
                         <barButtonItem key="rightBarButtonItem" image="profile.png" id="Dzc-p5-2Og">
                             <color key="tintColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
@@ -2203,7 +2236,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" id="hRu-ZC-nvS">
-                                                    <rect key="frame" x="286" y="12" width="8" height="12"/>
+                                                    <rect key="frame" x="282" y="12" width="8" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -2514,15 +2547,44 @@
     <resources>
         <image name="addasfriend_button.png" width="102" height="29"/>
         <image name="arrow.png" width="15" height="24"/>
+        <image name="arrow.png" width="15" height="24"/>
+        <image name="arrow.png" width="15" height="24"/>
+        <image name="arrow.png" width="15" height="24"/>
+        <image name="arrow.png" width="15" height="24"/>
         <image name="assignteams_button.png" width="128" height="40"/>
         <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg.png" width="320" height="568"/>
+        <image name="bg2.png" width="320" height="568"/>
+        <image name="bg2.png" width="320" height="568"/>
         <image name="bg2.png" width="320" height="568"/>
         <image name="bg3.png" width="320" height="568"/>
+        <image name="bg3.png" width="320" height="568"/>
+        <image name="bg3.png" width="320" height="568"/>
+        <image name="bg3.png" width="320" height="568"/>
+        <image name="bg4.png" width="320" height="568"/>
         <image name="bg4.png" width="320" height="568"/>
         <image name="bite_button.png" width="100" height="40"/>
+        <image name="bite_button.png" width="100" height="40"/>
+        <image name="compass.png" width="25" height="25"/>
+        <image name="compass.png" width="25" height="25"/>
+        <image name="compass.png" width="25" height="25"/>
         <image name="compass.png" width="25" height="25"/>
         <image name="creategame_button.png" width="180" height="181"/>
         <image name="creategame_button2.png" width="138" height="40"/>
+        <image name="default_profile.png" width="181" height="181"/>
+        <image name="default_profile.png" width="181" height="181"/>
+        <image name="default_profile.png" width="181" height="181"/>
+        <image name="default_profile.png" width="181" height="181"/>
         <image name="default_profile.png" width="181" height="181"/>
         <image name="email.png" width="25" height="25"/>
         <image name="fb.png" width="55" height="55"/>
@@ -2531,16 +2593,23 @@
         <image name="friends_button.png" width="91" height="29"/>
         <image name="gamecenter_button.png" width="91" height="29"/>
         <image name="headshot_button.png" width="124" height="40"/>
+        <image name="headshot_button.png" width="124" height="40"/>
         <image name="home_button.png" width="79" height="40"/>
         <image name="joingame_button.png" width="79" height="40"/>
         <image name="locate.png" width="25" height="25"/>
+        <image name="locate.png" width="25" height="25"/>
+        <image name="locate.png" width="25" height="25"/>
+        <image name="locate.png" width="25" height="25"/>
         <image name="login_button.png" width="108" height="40"/>
         <image name="login_facebook.png" width="55" height="55"/>
+        <image name="login_facebook.png" width="55" height="55"/>
+        <image name="login_twitter.png" width="55" height="55"/>
         <image name="login_twitter.png" width="55" height="55"/>
         <image name="logout_button.png" width="91" height="29"/>
         <image name="profile.png" width="25" height="25"/>
         <image name="publicgame_button.png" width="251" height="253"/>
         <image name="refresh.png" width="25" height="25"/>
+        <image name="rejoingame_button.png" width="134" height="40"/>
         <image name="reset_button.png" width="149" height="40"/>
         <image name="savechanges_button.png" width="158" height="40"/>
         <image name="share_email.png" width="33" height="33"/>
@@ -2550,6 +2619,20 @@
         <image name="signmeup_button.png" width="138" height="40"/>
         <image name="startgame_button.png" width="128" height="40"/>
         <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
+        <image name="tape.png" width="320" height="20"/>
         <image name="twitter.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -2558,7 +2641,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kx5-jM-uCj"/>
+        <segue reference="Hiy-XA-NFh"/>
         <segue reference="2tQ-oh-ysy"/>
     </inferredMetricsTieBreakers>
 </document>

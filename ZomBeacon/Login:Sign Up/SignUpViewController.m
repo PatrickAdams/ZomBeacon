@@ -80,6 +80,11 @@
             user[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
             user[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
             
+            //Create the UserScore row for the currentUser
+            PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
+            [userScore setObject:user forKey:@"user"];
+            [userScore saveInBackground];
+            
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
              {
                  if (!error)

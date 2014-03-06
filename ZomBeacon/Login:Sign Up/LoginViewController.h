@@ -13,9 +13,7 @@
 #import "SignUpViewController.h"
 
 @interface LoginViewController : UIViewController <NSURLConnectionDelegate>
-{
-    PFUser *currentUser;
-}
+
 
 @property (nonatomic, weak) IBOutlet UITextField *usernameField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordField;

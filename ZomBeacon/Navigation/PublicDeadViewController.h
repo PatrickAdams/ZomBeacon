@@ -15,6 +15,9 @@
     PFUser *currentUser;
 }
 
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
+
 - (IBAction)rejoinGame;
 - (IBAction)goHome;
 

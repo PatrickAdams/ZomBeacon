@@ -20,7 +20,7 @@
     
     [super viewDidLoad];
     
-    currentUser = [PFUser currentUser];
+    PFUser *currentUser = [PFUser currentUser];
     
     //Checks to make sure a user is logged in, if so, it skips the login screen
     if (currentUser)
@@ -156,13 +156,20 @@
                           // result is a dictionary with the user's Facebook data
                           NSDictionary *userData = (NSDictionary *)result;
                           
-                          PFUser *user = currentUser;
-                          user.username = userData[@"username"];
-                          user.email = userData[@"email"];
-                          user[@"name"] = userData[@"name"];
-                          user[@"bio"] = userData[@"bio"];
+                          PFUser *currentUser = [PFUser currentUser];
+                          currentUser.username = userData[@"username"];
+                          currentUser.email = userData[@"email"];
+                          currentUser[@"name"] = userData[@"name"];
+                          currentUser[@"bio"] = userData[@"bio"];
+                          currentUser[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+                          currentUser[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
                           
-                          [user saveInBackground];
+                          //Create the UserScore row for the currentUser
+                          PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
+                          [userScore setObject:currentUser forKey:@"user"];
+                          [userScore saveInBackground];
+                          
+                          [currentUser saveInBackground];
                           
                           // Download the user's facebook profile picture
                           self.imageData = [[NSMutableData alloc] init];
@@ -232,13 +239,19 @@
                 {
                     NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
                     
-                    NSLog(@"%@", result);
-                    
+                    PFUser *currentUser = [PFUser currentUser];
                     currentUser.username = [result objectForKey:@"screen_name"];
                     currentUser[@"name"] = [result objectForKey:@"name"];
                     currentUser[@"bio"] = [result objectForKey:@"description"];
+                    currentUser[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+                    currentUser[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
                     
-                    [user saveInBackground];
+                    //Create the UserScore row for the currentUser
+                    PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
+                    [userScore setObject:currentUser forKey:@"user"];
+                    [userScore saveInBackground];
+                    
+                    [currentUser saveInBackground];
                     
                     // Download the user's twitter profile picture
                     self.imageData = [[NSMutableData alloc] init];
@@ -280,7 +293,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    [query whereKey:@"user" equalTo:currentUser];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
     PFFile *file = [[query getFirstObject] objectForKey:@"imageFile"];
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:self.imageData];
     
@@ -293,13 +306,19 @@
              {
                  PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
                  [userPhoto setObject:imageFile forKey:@"imageFile"];
-                 [userPhoto setObject:currentUser forKey:@"user"];
+                 [userPhoto setObject:[PFUser currentUser] forKey:@"user"];
                  [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                      
                  }];
              }
          }];
     }
+}
+
+//Method that chooses a random number
+-(int)getRandomNumberBetween:(int)from to:(int)to
+{
+    return (int)from + arc4random() % (to-from+1);
 }
 
 - (void)didReceiveMemoryWarning

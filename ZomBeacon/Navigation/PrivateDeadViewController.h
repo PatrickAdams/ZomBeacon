@@ -11,6 +11,9 @@
 
 @interface PrivateDeadViewController : UIViewController
 
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
+
 - (IBAction)goHome;
 
 @end

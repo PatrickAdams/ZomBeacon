@@ -18,6 +18,14 @@
 {
     [super viewDidLoad];
 	currentUser = [PFUser currentUser];
+    
+    for (UILabel * label in self.titilliumRegularFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
+    
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
 }
 
 //Lets you rejoin the game for 5,000 points docked off your overall score

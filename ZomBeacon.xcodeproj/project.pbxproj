@@ -10,6 +10,8 @@
 		CD4380FF18C8CCA1009A8D5F /* share_sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */; };
 		CD43810118C8CE30009A8D5F /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD43810018C8CE2F009A8D5F /* arrow@2x.png */; };
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
+		CD6BF18E18C8E067006CC73F /* rejoingame_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6BF18D18C8E067006CC73F /* rejoingame_button@2x.png */; };
+		CD6BF19018C8E2F7006CC73F /* zombiehead.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6BF18F18C8E2F7006CC73F /* zombiehead.png */; };
 		CD6FA4D118C77FB000510581 /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D018C77FB000510581 /* default_profile.png */; };
 		CD6FA4D518C793FA00510581 /* bite_wave@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D418C793FA00510581 /* bite_wave@2x.png */; };
 		CD6FA4D718C797A200510581 /* zombie_status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D618C797A200510581 /* zombie_status@2x.png */; };
@@ -120,6 +122,8 @@
 		CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_sms@2x.png"; path = "Images/share_sms@2x.png"; sourceTree = "<group>"; };
 		CD43810018C8CE2F009A8D5F /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow@2x.png"; path = "Images/arrow@2x.png"; sourceTree = "<group>"; };
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
+		CD6BF18D18C8E067006CC73F /* rejoingame_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rejoingame_button@2x.png"; path = "Images/rejoingame_button@2x.png"; sourceTree = "<group>"; };
+		CD6BF18F18C8E2F7006CC73F /* zombiehead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zombiehead.png; path = Images/zombiehead.png; sourceTree = "<group>"; };
 		CD6FA4D018C77FB000510581 /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_profile.png; path = Images/default_profile.png; sourceTree = "<group>"; };
 		CD6FA4D418C793FA00510581 /* bite_wave@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bite_wave@2x.png"; path = "Images/bite_wave@2x.png"; sourceTree = "<group>"; };
 		CD6FA4D618C797A200510581 /* zombie_status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zombie_status@2x.png"; path = "Images/zombie_status@2x.png"; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CD6BF18F18C8E2F7006CC73F /* zombiehead.png */,
+				CD6BF18D18C8E067006CC73F /* rejoingame_button@2x.png */,
 				CD43810018C8CE2F009A8D5F /* arrow@2x.png */,
 				CD6FA4E018C7A33C00510581 /* survivor_annotation@2x.png */,
 				CD6FA4DE18C7A33700510581 /* zombie_annotation@2x.png */,
@@ -606,11 +612,13 @@
 				E786A2D618C11B0F00942576 /* bg4@2x.png in Resources */,
 				E786A2DA18C11CCC00942576 /* startgame_button@2x.png in Resources */,
 				CDB2534018C6607100F49FC3 /* addasfriend_button@2x.png in Resources */,
+				CD6BF19018C8E2F7006CC73F /* zombiehead.png in Resources */,
 				E7AB10E118C4F59F00A54850 /* bite_button@2x.png in Resources */,
 				E705C71C18BCDD1400CFA0CD /* ProximityKit.plist in Resources */,
 				CD6FA4E518C7BA4500510581 /* splash_long_yellow.png in Resources */,
 				E7F9C0AC18C12B240023D10F /* logout_button@2x.png in Resources */,
 				E786A2B618C0F19800942576 /* login_button@2x.png in Resources */,
+				CD6BF18E18C8E067006CC73F /* rejoingame_button@2x.png in Resources */,
 				E705A9EA18AE728700CFE7B6 /* Default-568h@2x.png in Resources */,
 				E786A2BC18C0F74F00942576 /* creategame_button@2x.png in Resources */,
 				E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */,
