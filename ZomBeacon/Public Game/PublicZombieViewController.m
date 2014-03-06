@@ -190,14 +190,15 @@
                 if (survivors.count == 1)
                 {
                     notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There is %lu survivor very close to you. Check your map!", (unsigned long)survivors.count];
+                    notification.soundName = UILocalNotificationDefaultSoundName;
+                    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
                 }
                 else if (survivors.count > 1)
                 {
                     notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There are %lu survivors very close to you. Check your map!", (unsigned long)survivors.count];
+                    notification.soundName = UILocalNotificationDefaultSoundName;
+                    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
                 }
-                
-                notification.soundName = UILocalNotificationDefaultSoundName;
-                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
             }
         }];
     }
