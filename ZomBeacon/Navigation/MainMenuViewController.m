@@ -115,7 +115,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         int randomNumber = [self getRandomNumberBetween:1 to:100];
         
-        if (randomNumber < 20)
+        if (randomNumber < 30)
         {
             PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
             [self.navigationController pushViewController:vc animated:YES];

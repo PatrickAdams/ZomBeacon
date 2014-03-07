@@ -75,6 +75,7 @@
     //Sets the score values in the GameCenter leaderboards
     [self reportScore:[publicScore intValue] forLeaderboardID:@"publicScore"];
     [self reportScore:[privateScore intValue] forLeaderboardID:@"privateScore"];
+    [self reportScore:[scoreTotal intValue] forLeaderboardID:@"overallScore"];
 }
 
 #pragma mark - Camera Methods

@@ -90,7 +90,7 @@
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:2.0];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error)
             {
@@ -257,7 +257,7 @@
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.headshotButton setEnabled:NO];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
 }
 
 - (void)stopTheHeadshot

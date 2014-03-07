@@ -147,7 +147,6 @@
 		E703935818C51724005B0E84 /* share_twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_twitter@2x.png"; path = "Images/share_twitter@2x.png"; sourceTree = "<group>"; };
 		E703935A18C5177C005B0E84 /* share_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_email@2x.png"; path = "Images/share_email@2x.png"; sourceTree = "<group>"; };
 		E703935C18C517CF005B0E84 /* share_facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_facebook@2x.png"; path = "Images/share_facebook@2x.png"; sourceTree = "<group>"; };
-		E705A9CA18AE728700CFE7B6 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon.png; path = Images/app_icon.png; sourceTree = "<group>"; };
 		E705A9D018AE728700CFE7B6 /* compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "compass@2x.png"; path = "Images/compass@2x.png"; sourceTree = "<group>"; };
 		E705A9D118AE728700CFE7B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		E705A9D718AE728700CFE7B6 /* login_facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_facebook@2x.png"; path = "Images/login_facebook@2x.png"; sourceTree = "<group>"; };
@@ -345,7 +344,6 @@
 				E76B2C1418BE83F300B5E45D /* splash_short.png */,
 				CD6FA4E218C7BA3F00510581 /* splash_short_yellow.png */,
 				CD6FA4E418C7BA4500510581 /* splash_long_yellow.png */,
-				E705A9CA18AE728700CFE7B6 /* app_icon.png */,
 				E7AB10CE18C4D59C00A54850 /* sms.png */,
 				E7AB10CF18C4D59C00A54850 /* sms@2x.png */,
 				E705A9D018AE728700CFE7B6 /* compass@2x.png */,

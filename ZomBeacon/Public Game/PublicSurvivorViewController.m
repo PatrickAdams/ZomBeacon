@@ -72,7 +72,7 @@
 {
     [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
-    self.zombieScanner = [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(queryNearbyZombies) userInfo:nil repeats:YES];
+    
     //MapView stuff
     [self.locationManager startUpdatingLocation];
     [self zoomToUserLocation:self.mapView.userLocation];
@@ -97,7 +97,7 @@
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error)
             {
@@ -127,42 +127,6 @@
                     }
                     
                     [self.mapView addAnnotation:newAnnotation];
-                }
-            }
-        }];
-    }
-}
-
-//Will notify you when someone is within 70 feet of you if they are on the opposite team
-- (void)queryNearbyZombies
-{
-    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [currentUser setObject:point forKey:@"location"];
-    [currentUser saveInBackground];
-    
-    if (currentUser[@"location"])
-    {
-        PFGeoPoint *userGeoPoint = currentUser[@"location"];
-        PFQuery *query = [PFUser query];
-        [query whereKey:@"joinedPublic" equalTo:@"YES"];
-        [query whereKey:@"publicStatus" equalTo:@"zombie"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.014];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *zombies, NSError *error) {
-            if (!error)
-            {
-                //Presents the local notification
-                UILocalNotification *notification = [[UILocalNotification alloc] init];
-                if (zombies.count == 1)
-                {
-                    notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There is %lu zombie very close to you. Check your map!", (unsigned long)zombies.count];
-                    notification.soundName = UILocalNotificationDefaultSoundName;
-                    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                }
-                else if (zombies.count > 1)
-                {
-                    notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There are %lu zombies very close to you. Check your map!", (unsigned long)zombies.count];
-                    notification.soundName = UILocalNotificationDefaultSoundName;
-                    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
                 }
             }
         }];
@@ -200,10 +164,16 @@
 {
     if (userLocation)
     {
+        double miles = 0.5;
+        double scalingFactor = ABS( (cos(2 * M_PI * userLocation.coordinate.latitude / 360.0) ));
+        
+        MKCoordinateSpan span;
+        span.latitudeDelta = miles/69.0;
+        span.longitudeDelta = miles/(scalingFactor * 69.0);
+        
         MKCoordinateRegion region;
-        region.center = userLocation.location.coordinate;
-        region.span = MKCoordinateSpanMake(0.004, 0.004); //Zoom distance
-        region = [self.mapView regionThatFits:region];
+        region.center = userLocation.coordinate;
+        region.span = span;
         [self.mapView setRegion:region animated:YES];
     }
 }
@@ -268,7 +238,7 @@
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.headshotButton setEnabled:NO];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
 }
 
 //Method that stops advertising the headshot beacon

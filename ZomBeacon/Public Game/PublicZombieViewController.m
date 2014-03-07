@@ -73,7 +73,6 @@
     [self.locationManager startUpdatingLocation];
     
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
-    self.survivorScanner = [NSTimer scheduledTimerWithTimeInterval:30.0f target:self selector:@selector(queryNearbySurvivors) userInfo:nil repeats:YES];
     
     //Zoom to user location once
     [self zoomToUserLocation:self.mapView.userLocation];
@@ -132,7 +131,7 @@
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error)
             {
@@ -168,43 +167,6 @@
     }
 }
 
-//Will notify you when someone is within 70 feet of you if they are on the opposite team
-- (void)queryNearbySurvivors
-{
-    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
-    [currentUser setObject:point forKey:@"location"];
-    [currentUser saveInBackground];
-    
-    if (currentUser[@"location"])
-    {
-        PFGeoPoint *userGeoPoint = currentUser[@"location"];
-        PFQuery *query = [PFUser query];
-        [query whereKey:@"joinedPublic" equalTo:@"YES"];
-        [query whereKey:@"publicStatus" equalTo:@"survivor"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.014];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *survivors, NSError *error) {
-            if (!error)
-            {
-                //Presents the local notification
-                UILocalNotification *notification = [[UILocalNotification alloc] init];
-                if (survivors.count == 1)
-                {
-                    notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There is %lu survivor very close to you. Check your map!", (unsigned long)survivors.count];
-                    notification.soundName = UILocalNotificationDefaultSoundName;
-                    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                }
-                else if (survivors.count > 1)
-                {
-                    notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There are %lu survivors very close to you. Check your map!", (unsigned long)survivors.count];
-                    notification.soundName = UILocalNotificationDefaultSoundName;
-                    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                }
-            }
-        }];
-    }
-}
-
-
 //Adds annotations to the mapView
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -234,13 +196,16 @@
 //Method to zoom to the user location
 - (void)zoomToUserLocation:(MKUserLocation *)userLocation
 {
-    if (!userLocation)
-        return;
+    double miles = 0.5;
+    double scalingFactor = ABS( (cos(2 * M_PI * userLocation.coordinate.latitude / 360.0) ));
+    
+    MKCoordinateSpan span;
+    span.latitudeDelta = miles/69.0;
+    span.longitudeDelta = miles/(scalingFactor * 69.0);
     
     MKCoordinateRegion region;
-    region.center = userLocation.location.coordinate;
-    region.span = MKCoordinateSpanMake(0.004, 0.004); //Zoom distance
-    region = [self.mapView regionThatFits:region];
+    region.center = userLocation.coordinate;
+    region.span = span;
     [self.mapView setRegion:region animated:YES];
 }
 
@@ -280,6 +245,7 @@
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PublicDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicdead"];
+        vc.navigationItem.hidesBackButton = YES;
         [self.navigationController pushViewController:vc animated:YES];
         
         PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];

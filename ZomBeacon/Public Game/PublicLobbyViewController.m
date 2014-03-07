@@ -48,8 +48,10 @@
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
+        [query whereKey:@"publicStatus" notEqualTo:@"dead"];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         self.thePlayers = (NSMutableArray *)[query findObjects];
+        [self.thePlayers removeObjectAtIndex:0];
     }
     
     return self.thePlayers;
@@ -71,10 +73,11 @@
     NSString *playerName = player[@"username"];
     cell.nameLabel.text = playerName;
     
-    if ([player[@"publicStatus"] isEqualToString:@"zombie"]) {
+    if ([player[@"publicStatus"] isEqualToString:@"zombie"])
+    {
         cell.nameLabel.textColor = [UIColor colorWithRed:0 green:0.79 blue:0.49 alpha:1];
     }
-    else
+    else if ([player[@"publicStatus"] isEqualToString:@"survivor"])
     {
         cell.nameLabel.textColor = [UIColor colorWithRed:1 green:0.74 blue:0.27 alpha:1];
     }
