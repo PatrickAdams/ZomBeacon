@@ -97,6 +97,7 @@
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
+        [query whereKey:@"objectId" notEqualTo:currentUser.objectId];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
             if (!error)
@@ -106,7 +107,7 @@
                 [self.mapView removeAnnotations:self.mapView.annotations];
                 
                 //Start at int = 1 so that the query doesn't include yourself
-                for (int i = 1; i < users.count ; i++)
+                for (int i = 0; i < users.count ; i++)
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
                     NSString *nameOfNearbyUser = users[i][@"username"];

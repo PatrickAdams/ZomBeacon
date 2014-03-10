@@ -123,6 +123,7 @@
     [self.datePicker setDate:[NSDate date]];
     [self.datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     self.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    [self.datePicker setMinimumDate:[NSDate date]];
     self.datePicker.minuteInterval = 5;
     [self.dateTimeTextField setInputView:self.datePicker];
     self.dateTimeTextField.inputAccessoryView = keyboardDoneButtonView;

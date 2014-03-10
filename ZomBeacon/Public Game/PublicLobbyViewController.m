@@ -49,9 +49,9 @@
         PFQuery *query = [PFUser query];
         [query whereKey:@"joinedPublic" equalTo:@"YES"];
         [query whereKey:@"publicStatus" notEqualTo:@"dead"];
+        [query whereKey:@"objectId" notEqualTo:currentUser.objectId];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
         self.thePlayers = (NSMutableArray *)[query findObjects];
-        [self.thePlayers removeObjectAtIndex:0];
     }
     
     return self.thePlayers;
