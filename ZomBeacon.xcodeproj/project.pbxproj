@@ -26,7 +26,7 @@
 		CDB2533C18C6533E00F49FC3 /* gamecenter_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */; };
 		CDB2533E18C6538000F49FC3 /* friends_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533D18C6538000F49FC3 /* friends_button@2x.png */; };
 		CDB2534018C6607100F49FC3 /* addasfriend_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB2533F18C6607100F49FC3 /* addasfriend_button@2x.png */; };
-		CDD32BD318C57778005CA4E0 /* tape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD32BD218C57778005CA4E0 /* tape@2x.png */; };
+		CDFBBFB818CF83AA005763C8 /* tape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFBBFB718CF83AA005763C8 /* tape@2x.png */; };
 		E70028C118BBE4AA00036E1B /* PublicDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */; };
 		E70028C418BBF3F100036E1B /* PrivateDeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */; };
 		E703935918C51724005B0E84 /* share_twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E703935818C51724005B0E84 /* share_twitter@2x.png */; };
@@ -139,7 +139,7 @@
 		CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gamecenter_button@2x.png"; path = "Images/gamecenter_button@2x.png"; sourceTree = "<group>"; };
 		CDB2533D18C6538000F49FC3 /* friends_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "friends_button@2x.png"; path = "Images/friends_button@2x.png"; sourceTree = "<group>"; };
 		CDB2533F18C6607100F49FC3 /* addasfriend_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addasfriend_button@2x.png"; path = "Images/addasfriend_button@2x.png"; sourceTree = "<group>"; };
-		CDD32BD218C57778005CA4E0 /* tape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tape@2x.png"; sourceTree = "<group>"; };
+		CDFBBFB718CF83AA005763C8 /* tape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tape@2x.png"; path = "Images/tape@2x.png"; sourceTree = "<group>"; };
 		E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicDeadViewController.h; path = Navigation/PublicDeadViewController.h; sourceTree = "<group>"; };
 		E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublicDeadViewController.m; path = Navigation/PublicDeadViewController.m; sourceTree = "<group>"; };
 		E70028C218BBF3F100036E1B /* PrivateDeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrivateDeadViewController.h; path = Navigation/PrivateDeadViewController.h; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 				E7AB10CC18C4D59600A54850 /* refresh@2x.png */,
 				E786A2B318C0EEA600942576 /* bg@2x.png */,
 				E786A2B118C0EAF800942576 /* tape1@2x.png */,
-				CDD32BD218C57778005CA4E0 /* tape@2x.png */,
+				CDFBBFB718CF83AA005763C8 /* tape@2x.png */,
 				E76B2C1218BE82E700B5E45D /* splash_long.png */,
 				E76B2C1418BE83F300B5E45D /* splash_short.png */,
 				CD6FA4E218C7BA3F00510581 /* splash_short_yellow.png */,
@@ -622,6 +622,7 @@
 				E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */,
 				E786A2B218C0EAF800942576 /* tape1@2x.png in Resources */,
 				E786A2B818C0F36E00942576 /* login_twitter@2x.png in Resources */,
+				CDFBBFB818CF83AA005763C8 /* tape@2x.png in Resources */,
 				E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */,
 				E786A2C418C0FB4B00942576 /* findgame_button2@2x.png in Resources */,
 				E786A2C018C0F7D900942576 /* bg_mainmenu@2x.png in Resources */,
@@ -659,7 +660,6 @@
 				E786A2BE18C0F79E00942576 /* findgame_button@2x.png in Resources */,
 				E7AB10D018C4D59C00A54850 /* sms.png in Resources */,
 				E76B2C1318BE82E700B5E45D /* splash_long.png in Resources */,
-				CDD32BD318C57778005CA4E0 /* tape@2x.png in Resources */,
 				E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */,
 				CD6FA4D518C793FA00510581 /* bite_wave@2x.png in Resources */,
 				E786A2CA18C104F200942576 /* creategame_button2@2x.png in Resources */,
@@ -825,7 +825,10 @@
 				INFOPLIST_FILE = "ZomBeacon/Supporting Files/ZomBeacon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -852,7 +855,10 @@
 				INFOPLIST_FILE = "ZomBeacon/Supporting Files/ZomBeacon-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
