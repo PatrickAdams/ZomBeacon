@@ -44,6 +44,15 @@
     
     //When user is on the menu, checks every minute for their location
     self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(saveLocation) userInfo:nil repeats:YES];
+    
+    PFQuery *userQuery = [PFUser query];
+    [userQuery whereKey:@"objectId" equalTo:currentUser.objectId];
+    PFObject *theUserId = [userQuery getFirstObject];
+    
+    if (theUserId == nil)
+    {
+        [PFUser logOut];
+    }
 }
 
 - (IBAction)inviteFriends

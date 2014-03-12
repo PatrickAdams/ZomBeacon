@@ -80,15 +80,15 @@
             user[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
             user[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
             
-            //Create the UserScore row for the currentUser
-            PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
-            [userScore setObject:user forKey:@"user"];
-            [userScore saveInBackground];
-            
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
              {
                  if (!error)
                  {
+                     //Create the UserScore row for the currentUser
+                     PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
+                     [userScore setObject:user forKey:@"user"];
+                     [userScore saveInBackground];
+                     
                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!" message:@"You will receive an email to confirm your account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                      
                      [alert show];
