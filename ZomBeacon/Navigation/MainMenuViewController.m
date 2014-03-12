@@ -52,6 +52,9 @@
     if (theUserId == nil)
     {
         [PFUser logOut];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Logged Out" message:@"Your account has been deleted. Please sign up again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
     }
 }
 
