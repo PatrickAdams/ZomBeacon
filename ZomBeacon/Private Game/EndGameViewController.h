@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PrivateLobbyViewController.h"
 
 @interface EndGameViewController : UIViewController
+
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
+
+- (IBAction)goHome;
 
 @end

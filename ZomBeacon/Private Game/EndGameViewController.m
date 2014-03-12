@@ -14,19 +14,29 @@
 
 @implementation EndGameViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    for (UILabel * label in self.titilliumRegularFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
+}
+
+- (IBAction)goHome
+{
+    for (UIViewController *controller in [self.navigationController viewControllers])
+    {
+        if ([controller isKindOfClass:[PrivateLobbyViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+            break;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

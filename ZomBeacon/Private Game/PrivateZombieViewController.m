@@ -51,8 +51,6 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
-    
-    endGame = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -93,9 +91,6 @@
                 UserAnnotations *newAnnotation;
                 [self.mapView removeAnnotations:self.mapView.annotations];
                 
-                int zombieCount = 0;
-                int survivorCount = 0;
-                
                 //Start at int = 1 so that the query doesn't include yourself
                 for (int i = 0; i < users.count ; i++)
                 {
@@ -115,38 +110,29 @@
                     
                     if ([statusOfNearbyUser isEqualToString:@"survivor"])
                     {
-                        survivorCount++;
                         newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"survivor_annotation"]];
                     }
                     else if ([statusOfNearbyUser isEqualToString:@"zombie"])
                     {
-                        zombieCount++;
                         newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"zombie_annotation"]];
                     }
                     
                     [self.mapView addAnnotation:newAnnotation];
                 }
                 
-                //Adds in the current user to the score tally also
-                PFQuery *currentUserPrivateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
-                [currentUserPrivateStatusQuery whereKey:@"user" equalTo:currentUser];
-                PFObject *currentUserPrivateStatus = [currentUserPrivateStatusQuery getFirstObject];
                 
-                if ([currentUserPrivateStatus[@"status"] isEqualToString:@"zombie"])
-                {
-                    zombieCount++;
-                }
-                else if ([currentUserPrivateStatus[@"status"] isEqualToString:@"survivor"])
-                {
-                    survivorCount++;
-                }
+                //TODO: Need to only show people who are nearby!!!
+                PFQuery *survivorQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
+                [survivorQuery whereKey:@"privateGame" equalTo:self.gameIdString];
+                [survivorQuery whereKey:@"status" equalTo:@"survivor"];
+                NSArray *survivors = [survivorQuery findObjects];
                 
-                if (zombieCount > 0 && survivorCount > 0)
-                {
-                    endGame = YES;
-                }
+                PFQuery *zombieQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
+                [zombieQuery whereKey:@"privateGame" equalTo:self.gameIdString];
+                [zombieQuery whereKey:@"status" equalTo:@"zombie"];
+                NSArray *zombies = [zombieQuery findObjects];
                 
-                if ((zombieCount == 0 || survivorCount == 0) && endGame == YES)
+                if (zombies.count == 0 || survivors.count == 0)
                 {
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                     EndGameViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"endgame"];
@@ -154,9 +140,8 @@
                     [self.navigationController pushViewController:vc animated:YES];
                 }
                 
-                self.zombieCount.text = [NSString stringWithFormat:@"%d", zombieCount];
-                self.survivorCount.text = [NSString stringWithFormat:@"%d", survivorCount];
-                
+                self.zombieCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)zombies.count];
+                self.survivorCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)survivors.count];
             }
         }];
     }
@@ -212,8 +197,8 @@
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PrivateDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privatedead"];
-        vc.navigationItem.hidesBackButton = YES;
         [self.navigationController pushViewController:vc animated:YES];
+        vc.navigationItem.hidesBackButton = YES;
         
         PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
         [query2 whereKey:@"user" equalTo:userThatInfected];

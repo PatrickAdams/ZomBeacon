@@ -13,10 +13,6 @@
 @end
 
 @implementation PrivateSurvivorViewController
-{
-    int minutes, seconds;
-    int secondsLeft;
-}
 
 - (void)viewDidLoad
 {
@@ -55,8 +51,6 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
-    
-    endGame = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -71,11 +65,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.queryTimer invalidate];
-}
-
-- (void)startRangingAgain
-{
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -100,11 +89,7 @@
                 // First remove all annotations to refresh the status of them
                 UserAnnotations *newAnnotation;
                 [self.mapView removeAnnotations:self.mapView.annotations];
-                
-                int zombieCount = 0;
-                int survivorCount = 0;
-                
-                //Start at int = 1 so that the query doesn't include yourself
+
                 for (int i = 0; i < users.count ; i++)
                 {
                     PFGeoPoint *geoPointsForNearbyUser = users[i][@"location"];
@@ -123,46 +108,37 @@
                     
                     if ([statusOfNearbyUser isEqualToString:@"survivor"])
                     {
-                        survivorCount++;
                         newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"survivor_annotation"]];
                     }
                     else if ([statusOfNearbyUser isEqualToString:@"zombie"])
                     {
-                        zombieCount++;
                         newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"zombie_annotation"]];
                     }
                     
                     [self.mapView addAnnotation:newAnnotation];
                 }
                 
-                PFQuery *currentUserPrivateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
-                [currentUserPrivateStatusQuery whereKey:@"user" equalTo:currentUser];
-                PFObject *currentUserPrivateStatus = [currentUserPrivateStatusQuery getFirstObject];
+                //TODO: Need to only show people who are nearby!!!
+                PFQuery *survivorQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
+                [survivorQuery whereKey:@"privateGame" equalTo:self.gameIdString];
+                [survivorQuery whereKey:@"status" equalTo:@"survivor"];
+                NSArray *survivors = [survivorQuery findObjects];
                 
-                if ([currentUserPrivateStatus[@"status"] isEqualToString:@"zombie"])
-                {
-                    zombieCount++;
-                }
-                else if ([currentUserPrivateStatus[@"status"] isEqualToString:@"survivor"])
-                {
-                    survivorCount++;
-                }
+                PFQuery *zombieQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
+                [zombieQuery whereKey:@"privateGame" equalTo:self.gameIdString];
+                [zombieQuery whereKey:@"status" equalTo:@"zombie"];
+                NSArray *zombies = [zombieQuery findObjects];
                 
-                if (zombieCount > 0 && survivorCount > 0)
-                {
-                    endGame = YES;
-                }
-                
-                if ((zombieCount == 0 || survivorCount == 0) && endGame == YES)
+                if (zombies.count == 0 || survivors.count == 0)
                 {
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                     EndGameViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"endgame"];
                     vc.navigationItem.hidesBackButton = YES;
                     [self.navigationController pushViewController:vc animated:YES];
                 }
-
-                self.zombieCount.text = [NSString stringWithFormat:@"%d", zombieCount];
-                self.survivorCount.text = [NSString stringWithFormat:@"%d", survivorCount];
+                
+                self.zombieCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)zombies.count];
+                self.survivorCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)survivors.count];
             }
         }];
     }
@@ -250,6 +226,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
         vc.navigationItem.hidesBackButton = YES;
+        vc.gameIdString = self.gameIdString;
         [self.navigationController pushViewController:vc animated:YES];
         
         //Adds 250 pts to the user's publicScore for a bite
@@ -297,38 +274,6 @@
     {
         [self.peripheralManager stopAdvertising];
     }
-}
-
-#pragma mark - Time Counter Management
-
-//Method to start a countdown timer
-- (IBAction)startCounter
-{
-    secondsLeft = 600;
-    [self countdownTimer];
-}
-
-//Method that refreshes and updates the countdown timer
-- (void)updateCounter:(NSTimer *)theTimer
-{
-    if(secondsLeft > 0 )
-    {
-        secondsLeft -- ;
-        minutes = (secondsLeft % 3600) / 60;
-        seconds = (secondsLeft %3600) % 60;
-        self.myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
-    }
-    else
-    {
-        secondsLeft = 600;
-    }
-}
-
-//Method that does the setup for the countdown timer
-- (void)countdownTimer
-{
-    secondsLeft = minutes = seconds = 0;
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
 
 #pragma mark - Closing Methods

@@ -38,7 +38,7 @@
             self.gameAddressString = [NSString stringWithFormat:@"%@ %@. %@, %@ %@", self.placemark.subThoroughfare, self.placemark.thoroughfare, self.placemark.locality, self.placemark.administrativeArea, self.placemark.postalCode];
         }
     }];
-
+    
     PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
     [privateStatusQuery whereKey:@"user" equalTo:currentUser];
     [privateStatusQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -67,6 +67,7 @@
     {
         self.assignTeamsButton.hidden = NO;
         [self.startGameButton setEnabled:NO];
+        isHost = YES;
     }
     else
     {
@@ -86,6 +87,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    if (isHost)
+    {
+        self.assignTeamsButton.hidden = NO;
+        [self.startGameButton setEnabled:NO];
+    }
+    
+    [self refreshList];
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }
@@ -93,11 +101,12 @@
 //Method to get players in game and add them to an array
 - (NSArray *)getPlayersInCurrentGame
 {
+    self.thePlayers = nil;
     PFQuery *query = [PFUser query];
     [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-    NSArray *thePlayers = [query findObjects];
+    self.thePlayers = [query findObjects];
     
-    return thePlayers;
+    return self.thePlayers;
 }
 
 //Refreshes lobby
@@ -125,24 +134,31 @@
             NSUInteger totalPlayers = playersArray.count;
             NSUInteger totalZombies = ceil(totalPlayers * 0.2);
             
-            for (int i = 0; i < playersArray.count; i++)
+            if (playersArray.count < 2)
             {
-                PFUser *player = playersArray[i];
                 
-                PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
-                [query whereKey:@"user" equalTo:player];
-                PFObject *theStatus = [query getFirstObject];
-                
-                if (i < totalZombies)
+            }
+            else
+            {
+                for (int i = 0; i < playersArray.count; i++)
                 {
-                    [theStatus setObject:@"zombie" forKey:@"status"];
+                    PFUser *player = playersArray[i];
+                    
+                    PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+                    [query whereKey:@"user" equalTo:player];
+                    PFObject *theStatus = [query getFirstObject];
+                    
+                    if (i < totalZombies)
+                    {
+                        [theStatus setObject:@"zombie" forKey:@"status"];
+                    }
+                    else
+                    {
+                        [theStatus setObject:@"survivor" forKey:@"status"];
+                    }
+                    
+                    [theStatus save];
                 }
-                else
-                {
-                    [theStatus setObject:@"survivor" forKey:@"status"];
-                }
-                
-                [theStatus save];
             }
         }];
         
@@ -156,23 +172,41 @@
 
 - (IBAction)startGameCountdown
 {
-    HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    // Configure for text only and offset down
-    HUD.mode = MBProgressHUDModeText;
-    HUD.dimBackground = YES;
-    HUD.backgroundColor = [UIColor grayColor];
-    HUD.margin = 10.f;
-    HUD.removeFromSuperViewOnHide = YES;
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+    [query whereKey:@"user" equalTo:currentUser];
+    PFObject *privateStatus = [query getFirstObject];
     
-    HUD.labelFont = [UIFont fontWithName:@"04B_19" size:20.0f];
-    HUD.labelText = @"GAME STARTS IN";
-    HUD.detailsLabelFont = [UIFont fontWithName:@"04B_19" size:40.0f];
-    HUD.detailsLabelText = @"00:20";
-
-    
-    secondsLeft = 20;
-    
-    [self countdownTimer];
+    if ([privateStatus[@"status"] isEqualToString:@"dead"])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"You cannot rejoin this game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    else if ([privateStatus[@"status"] isEqualToString:@"survivor"] || [privateStatus[@"status"] isEqualToString:@"zombie"])
+    {
+        HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        // Configure for text only and offset down
+        HUD.mode = MBProgressHUDModeText;
+        HUD.dimBackground = YES;
+        HUD.backgroundColor = [UIColor grayColor];
+        HUD.margin = 10.f;
+        HUD.removeFromSuperViewOnHide = YES;
+        
+        HUD.labelFont = [UIFont fontWithName:@"04B_19" size:20.0f];
+        HUD.labelText = @"GAME STARTS IN";
+        HUD.detailsLabelFont = [UIFont fontWithName:@"04B_19" size:40.0f];
+        HUD.detailsLabelText = @"00:20";
+        
+        secondsLeft = 20;
+        
+        [self countdownTimer];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Teams Not Yet Assigned" message:@"Host must assign teams before you can start." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 #pragma mark - Time Counter Management
@@ -226,26 +260,15 @@
         PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
         [self.navigationController pushViewController:vc animated:YES];
         vc.navigationItem.hidesBackButton = YES;
+        vc.gameIdString = self.gameIdString;
     }
     else if ([privateStatus[@"status"] isEqualToString:@"survivor"])
     {
         PrivateSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateSurvivor"];
         [self.navigationController pushViewController:vc animated:YES];
         vc.navigationItem.hidesBackButton = YES;
+        vc.gameIdString = self.gameIdString;
     }
-    else if ([privateStatus[@"status"] isEqualToString:@"dead"])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"You cannot rejoin this game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [alert show];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Teams Not Yet Assigned" message:@"Host must assign teams before you can start." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [alert show];
-    }
-
 }
 
 //Method that chooses a random number
@@ -258,7 +281,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self getPlayersInCurrentGame].count;
+    return self.thePlayers.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -266,7 +289,7 @@
     static NSString *CellIdentifier = @"userCell";
     UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    PFObject *player = [self getPlayersInCurrentGame][indexPath.row];
+    PFObject *player = self.thePlayers[indexPath.row];
     NSString *playerName = player[@"name"];
     cell.nameLabel.text = playerName;
     
@@ -286,7 +309,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FriendProfileViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friendprofile"];
     
-    PFUser *player = [self getPlayersInCurrentGame][indexPath.row];
+    PFUser *player = self.thePlayers[indexPath.row];
     vc.realNameString = player[@"name"];
     vc.userNameString = player[@"username"];
     vc.shortBioString = player[@"bio"];
@@ -374,7 +397,7 @@
         //    }
         
         [self presentViewController:tweetComposer animated:YES completion:nil];
-
+        
     }
 }
 

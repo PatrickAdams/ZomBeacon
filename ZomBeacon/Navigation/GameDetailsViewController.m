@@ -71,6 +71,13 @@
     currentUser[@"currentGame"] = self.gameIdString;
     [currentUser saveInBackground];
     
+    //Save value in PrivateStatus table as well
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+    [query whereKey:@"user" equalTo:currentUser];
+    PFObject *theStatus = [query getFirstObject];
+    theStatus[@"privateGame"] = self.gameIdString;
+    [theStatus saveInBackground];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
     

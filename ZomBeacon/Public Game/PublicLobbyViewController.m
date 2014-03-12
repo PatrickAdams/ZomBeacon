@@ -31,11 +31,22 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self getPlayersInCurrentGame];
-    [self.tableView reloadData];
+    [self refreshList];
     
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
+}
+
+- (void)refreshList
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [self getPlayersInCurrentGame];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 //Method to get players in game and add them to an array
@@ -51,7 +62,7 @@
         [query whereKey:@"publicStatus" notEqualTo:@"dead"];
         [query whereKey:@"objectId" notEqualTo:currentUser.objectId];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
-        self.thePlayers = (NSMutableArray *)[query findObjects];
+        self.thePlayers = [[query findObjects] mutableCopy];
     }
     
     return self.thePlayers;

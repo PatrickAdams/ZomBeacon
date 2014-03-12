@@ -65,12 +65,23 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self getGamesUserHasCreated];
-    [self.tableView reloadData];
+    [self refreshList];
     [self refreshImage];
     
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
+}
+
+- (void)refreshList
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [self getGamesUserHasCreated];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 - (void)refreshImage

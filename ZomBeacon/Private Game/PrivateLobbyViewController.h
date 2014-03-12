@@ -25,6 +25,7 @@
     int minutes, seconds;
     int secondsLeft;
     NSTimer *timer;
+    BOOL isHost;
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -42,6 +43,7 @@
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 @property (nonatomic, strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) MKPlacemark *placemark;
+@property (nonatomic, strong) NSArray *thePlayers;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 

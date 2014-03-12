@@ -246,8 +246,8 @@
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PublicDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicdead"];
-        vc.navigationItem.hidesBackButton = YES;
         [self.navigationController pushViewController:vc animated:YES];
+        vc.navigationItem.hidesBackButton = YES;
         
         PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
         [query whereKey:@"user" equalTo:userThatInfected];

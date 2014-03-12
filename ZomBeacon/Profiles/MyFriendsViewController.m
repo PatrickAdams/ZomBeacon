@@ -26,11 +26,22 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self getFriends];
-    [self.tableView reloadData];
+    [self refreshList];
     
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
+}
+
+- (void)refreshList
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        [self getFriends];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    });
 }
 
 - (NSMutableArray *)getFriends
@@ -100,7 +111,6 @@
     vc.realNameString = friend[@"name"];
     vc.userNameString = friend[@"username"];
     vc.shortBioString = friend[@"bio"];
-    vc.currentGameString = friend[@"currentGame"];
     vc.myFriend = (PFUser *)friend;
     
     [self.navigationController pushViewController:vc animated:YES];
