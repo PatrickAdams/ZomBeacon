@@ -13,10 +13,12 @@
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
 #import "PrivateDeadViewController.h"
+#import "EndGameViewController.h"
 
 @interface PrivateZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
     PFUser *currentUser;
+    BOOL endGame;
 }
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;

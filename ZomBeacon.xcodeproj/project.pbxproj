@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD013BFE18D0A2DD0020FF5C /* EndGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD013BFD18D0A2DD0020FF5C /* EndGameViewController.m */; };
 		CD4380FF18C8CCA1009A8D5F /* share_sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */; };
 		CD43810118C8CE30009A8D5F /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD43810018C8CE2F009A8D5F /* arrow@2x.png */; };
 		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
@@ -119,6 +120,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD013BFC18D0A2DD0020FF5C /* EndGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EndGameViewController.h; path = "Private Game/EndGameViewController.h"; sourceTree = "<group>"; };
+		CD013BFD18D0A2DD0020FF5C /* EndGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EndGameViewController.m; path = "Private Game/EndGameViewController.m"; sourceTree = "<group>"; };
 		CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_sms@2x.png"; path = "Images/share_sms@2x.png"; sourceTree = "<group>"; };
 		CD43810018C8CE2F009A8D5F /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow@2x.png"; path = "Images/arrow@2x.png"; sourceTree = "<group>"; };
 		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
@@ -478,6 +481,8 @@
 				E705AA2918AE739900CFE7B6 /* PrivateSurvivorViewController.m */,
 				E705AA2A18AE739900CFE7B6 /* PrivateZombieViewController.h */,
 				E705AA2B18AE739900CFE7B6 /* PrivateZombieViewController.m */,
+				CD013BFC18D0A2DD0020FF5C /* EndGameViewController.h */,
+				CD013BFD18D0A2DD0020FF5C /* EndGameViewController.m */,
 			);
 			name = "Private Game";
 			sourceTree = "<group>";
@@ -684,6 +689,7 @@
 				E705AA3E18AE741000CFE7B6 /* MBProgressHUD.m in Sources */,
 				E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */,
 				E705AA2518AE739000CFE7B6 /* PublicZombieViewController.m in Sources */,
+				CD013BFE18D0A2DD0020FF5C /* EndGameViewController.m in Sources */,
 				E705AA2D18AE739900CFE7B6 /* PrivateSurvivorViewController.m in Sources */,
 				E705AA2418AE739000CFE7B6 /* PublicSurvivorViewController.m in Sources */,
 				E7F9C0AF18C194DE0023D10F /* BluetoothViewController.m in Sources */,

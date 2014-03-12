@@ -55,6 +55,8 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    endGame = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -146,6 +148,19 @@
                     survivorCount++;
                 }
                 
+                if (zombieCount > 0 && survivorCount > 0)
+                {
+                    endGame = YES;
+                }
+                
+                if ((zombieCount == 0 || survivorCount == 0) && endGame == YES)
+                {
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    EndGameViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"endgame"];
+                    vc.navigationItem.hidesBackButton = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+
                 self.zombieCount.text = [NSString stringWithFormat:@"%d", zombieCount];
                 self.survivorCount.text = [NSString stringWithFormat:@"%d", survivorCount];
             }

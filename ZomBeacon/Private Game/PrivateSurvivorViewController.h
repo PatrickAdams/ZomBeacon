@@ -19,6 +19,7 @@
 {
     NSTimer *timer;
     PFUser *currentUser;
+    BOOL endGame;
 }
 
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
