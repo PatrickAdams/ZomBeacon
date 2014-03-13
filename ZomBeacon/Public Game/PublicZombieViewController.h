@@ -15,7 +15,7 @@
 #import "PublicDeadViewController.h"
 #import <ProximityKit/ProximityKit.h>
 
-@interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate, PKManagerDelegate>
+@interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
     PFUser *currentUser;
 }
@@ -28,7 +28,6 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;
-@property PKManager *proximityKitManager;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 

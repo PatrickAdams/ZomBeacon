@@ -83,6 +83,7 @@
         privateGame[@"dateTime"] = self.dateTimeTextField.text;
         privateGame[@"location"] = gameLocation;
         privateGame[@"uuid"] = [[NSUUID UUID] UUIDString];
+        privateGame[@"uuid2"] = [[NSUUID UUID] UUIDString];
         [privateGame save];
         
         vc.gameNameString = privateGame[@"gameName"];

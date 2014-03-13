@@ -24,10 +24,6 @@
     self.mapView.delegate = self;
     [self queryNearbyUsers];
     
-    // create and start to sync the manager with the Proximity Kit backend
-    self.proximityKitManager = [PKManager managerWithDelegate:self];
-    [self.proximityKitManager start];
-    
     //MapView Stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -81,38 +77,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.queryTimer invalidate];
-}
-
-#pragma mark - Proximity Kit Methods
-
-//Presents local notification when user enters proximity kit geofence
-- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
-{
-    if (currentUser != nil && [currentUser[@"publicStatus"] isEqualToString:@"zombie"])
-    {
-        [currentUser setObject:@"survivor" forKey:@"publicStatus"];
-        [currentUser saveInBackground];
-        
-        [self performSegueWithIdentifier: @"publicSurvivor" sender: self];
-    }
-    
-    // present local notification
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"You have entered the quarantine zone! - If you were a zombie you are no longer infected.";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-}
-
-//Presents local notification when user exits proximity kit geofence
-- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
-{
-    // present local notification
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"You've just exited the quarantine zone. Watch out for Zombies!";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -228,6 +192,8 @@
         
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
+        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+        
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];
         [userQuery whereKey:@"major" equalTo:beacon.major];
@@ -252,8 +218,6 @@
         NSNumber *sum = [NSNumber numberWithFloat:score + points];
         [theUserScore setObject:sum forKey:@"publicScore"];
         [theUserScore saveInBackground];
-        
-        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
     }
 }
 

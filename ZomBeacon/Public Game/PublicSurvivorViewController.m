@@ -199,6 +199,8 @@
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
+        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+        
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];
         [userQuery whereKey:@"major" equalTo:beacon.major];
@@ -213,7 +215,7 @@
         [currentUser setObject:@"zombie" forKey:@"publicStatus"];
         [currentUser saveInBackground];
         
-        [self performSegueWithIdentifier: @"publicZombie" sender: self];
+        [self performSegueWithIdentifier:@"publicZombie" sender:self];
         
         //Adds 250 pts to the user's publicScore for a bite
         PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
@@ -224,8 +226,6 @@
         NSNumber *sum = [NSNumber numberWithFloat:score + points];
         [theUserScore setObject:sum forKey:@"publicScore"];
         [theUserScore saveInBackground];
-        
-        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
     }
 }
 

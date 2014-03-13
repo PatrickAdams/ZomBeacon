@@ -65,7 +65,7 @@
     
     if ([theHost.objectId isEqual:currentUser.objectId])
     {
-        self.assignTeamsButton.hidden = NO;
+        [self.assignTeamsButton setEnabled:YES];;
         [self.startGameButton setEnabled:NO];
         isHost = YES;
     }
@@ -73,7 +73,6 @@
     {
         [self.startGameButton setEnabled:YES];
         [self.assignTeamsButton setEnabled:NO];
-        [self.startGameButton isEnabled];
     }
     
     for (UILabel * label in self.titilliumSemiBoldFonts) {
@@ -89,7 +88,7 @@
 {
     if (isHost)
     {
-        self.assignTeamsButton.hidden = NO;
+        [self.assignTeamsButton setEnabled:YES];
         [self.startGameButton setEnabled:NO];
     }
     
@@ -136,7 +135,9 @@
             
             if (playersArray.count < 2)
             {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need at least two players to start a game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
+                [alert show];
             }
             else
             {
@@ -160,6 +161,14 @@
                     [theStatus save];
                 }
             }
+            
+            PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+            [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+            PFObject *currentGame = [countsQuery getFirstObject];
+            currentGame[@"survivorCount"] = [NSNumber numberWithInteger:(totalPlayers - totalZombies)];
+            currentGame[@"zombieCount"] = [NSNumber numberWithInteger:totalZombies];
+            [currentGame saveInBackground];
+            
         }];
         
         dispatch_async(dispatch_get_main_queue(), ^{

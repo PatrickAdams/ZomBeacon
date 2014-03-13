@@ -16,16 +16,16 @@
 
 - (void)viewDidLoad
 {
+    currentUser = [PFUser currentUser];
+    
+    [self queryNearbyUsers];
     [super viewDidLoad];
     
     self.mapView.delegate = self;
-    [self queryNearbyUsers];
     
     //MapView Stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    
-    currentUser = [PFUser currentUser];
     
     //Grabs UUID from game so that the iBeacon is unique to the game
     PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
@@ -57,11 +57,10 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self.locationManager startUpdatingLocation];
-    
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
-    //Zoom to user location once
+    //MapView stuff
+    [self.locationManager startUpdatingLocation];
     [self zoomToUserLocation:self.mapView.userLocation];
 }
 
@@ -78,6 +77,20 @@
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
     [currentUser setObject:point forKey:@"location"];
     [currentUser saveInBackground];
+    
+    PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+    [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+    PFObject *currentGame = [countsQuery getFirstObject];
+    NSNumber *zombieCount = currentGame[@"zombieCount"];
+    NSNumber *survivorCount = currentGame[@"survivorCount"];
+    
+    if ([zombieCount intValue] < 1 || [survivorCount intValue] < 1)
+    {
+        [self performSegueWithIdentifier: @"endGamePrivateZombie" sender:self];
+    }
+    
+    self.zombieCount.text = [NSString stringWithFormat:@"%@", currentGame[@"zombieCount"]];
+    self.survivorCount.text = [NSString stringWithFormat:@"%@", currentGame[@"survivorCount"]];
     
     if (currentUser[@"location"])
     {
@@ -121,26 +134,6 @@
                     
                     [self.mapView addAnnotation:newAnnotation];
                 }
-                
-                
-                //TODO: Need to only show people who are nearby!!!
-                PFQuery *survivorQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
-                [survivorQuery whereKey:@"privateGame" equalTo:self.gameIdString];
-                [survivorQuery whereKey:@"status" equalTo:@"survivor"];
-                NSArray *survivors = [survivorQuery findObjects];
-                
-                PFQuery *zombieQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
-                [zombieQuery whereKey:@"privateGame" equalTo:self.gameIdString];
-                [zombieQuery whereKey:@"status" equalTo:@"zombie"];
-                NSArray *zombies = [zombieQuery findObjects];
-                
-                if (zombies.count == 0 || survivors.count == 0)
-                {
-                    [self performSegueWithIdentifier: @"endGame" sender: self];
-                }
-                
-                self.zombieCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)zombies.count];
-                self.survivorCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)survivors.count];
             }
         }];
     }
@@ -176,6 +169,12 @@
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
+        PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+        [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+        PFObject *currentGame = [countsQuery getFirstObject];
+        int survivorCount = [currentGame[@"survivorCount"] intValue];
+        int zombieCount = [currentGame[@"zombieCount"] intValue];
+        
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];
         [userQuery whereKey:@"major" equalTo:beacon.major];
@@ -190,11 +189,8 @@
         PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
         [query whereKey:@"user" equalTo:currentUser];
         PFObject *theStatus = [query getFirstObject];
-        
         [theStatus setObject:@"dead" forKey:@"status"];
         [theStatus saveInBackground];
-        
-        [self performSegueWithIdentifier: @"privateDead" sender: self];
         
         PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
         [query2 whereKey:@"user" equalTo:userThatInfected];
@@ -204,8 +200,23 @@
         NSNumber *sum = [NSNumber numberWithFloat:score + points];
         [theUserScore setObject:sum forKey:@"publicScore"];
         [theUserScore saveInBackground];
+
+        zombieCount--;
         
-        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+        currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
+        currentGame[@"zombieCount"] = [NSNumber numberWithInt:zombieCount];
+        [currentGame save];
+        
+        if (zombieCount < 1)
+        {
+            [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+            [self performSegueWithIdentifier:@"endGamePrivateZombie" sender: self];
+        }
+        else
+        {
+            [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+            [self performSegueWithIdentifier:@"privateDead" sender: self];
+        }
     }
 }
 
@@ -241,6 +252,7 @@
 //Method that starts the transmission of the beacon
 - (IBAction)startInfecting:(id)sender
 {
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.biteButton setEnabled:NO];
@@ -251,6 +263,7 @@
 - (void)stopInfecting
 {
     [self.peripheralManager stopAdvertising];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
 }
 
 - (void)enableBite

@@ -80,7 +80,7 @@
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
                  
-                 [self performSegueWithIdentifier:@"test" sender:self];
+                 [self performSegueWithIdentifier:@"mainmenu" sender:self];
                  
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                  
