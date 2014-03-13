@@ -25,6 +25,8 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (IBAction)goHome

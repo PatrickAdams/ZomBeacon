@@ -30,10 +30,7 @@
 //Sends you back to the main menu
 - (IBAction)goHome
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-    vc.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self performSegueWithIdentifier:@"mainmenu" sender:self];
 }
 
 - (void)didReceiveMemoryWarning

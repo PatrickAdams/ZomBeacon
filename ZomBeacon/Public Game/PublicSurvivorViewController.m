@@ -213,9 +213,7 @@
         [currentUser setObject:@"zombie" forKey:@"publicStatus"];
         [currentUser saveInBackground];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self performSegueWithIdentifier: @"publicZombie" sender: self];
         
         //Adds 250 pts to the user's publicScore for a bite
         PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];

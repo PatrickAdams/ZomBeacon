@@ -93,9 +93,7 @@
         [currentUser setObject:@"survivor" forKey:@"publicStatus"];
         [currentUser saveInBackground];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self performSegueWithIdentifier: @"publicSurvivor" sender: self];
     }
     
     // present local notification
@@ -244,10 +242,7 @@
         [currentUser setObject:@"dead" forKey:@"publicStatus"];
         [currentUser saveInBackground];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        PublicDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicdead"];
-        [self.navigationController pushViewController:vc animated:YES];
-        vc.navigationItem.hidesBackButton = YES;
+        [self performSegueWithIdentifier: @"publicDead" sender: self];
         
         PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
         [query whereKey:@"user" equalTo:userThatInfected];

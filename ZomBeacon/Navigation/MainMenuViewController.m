@@ -67,17 +67,13 @@
 
 - (IBAction)startPublicGame
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
     if ([currentUser[@"publicStatus"] isEqualToString:@"zombie"])
     {
-        PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self performSegueWithIdentifier: @"publicZombie" sender: self];
     }
     else if ([currentUser[@"publicStatus"] isEqualToString:@"survivor"])
     {
-        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self performSegueWithIdentifier: @"publicSurvivor" sender: self];
     }
     else if ([currentUser[@"publicStatus"] isEqualToString:@"dead"])
     {
@@ -91,16 +87,14 @@
         
         if (randomNumber < 20)
         {
-            PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self performSegueWithIdentifier: @"publicZombie" sender: self];
             [currentUser setObject:@"zombie" forKey:@"publicStatus"];
             [currentUser setObject:@"YES" forKey:@"joinedPublic"];
             [currentUser saveInBackground];
         }
         else
         {
-            PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self performSegueWithIdentifier: @"publicSurvivor" sender: self];
             [currentUser setObject:@"survivor" forKey:@"publicStatus"];
             [currentUser setObject:@"YES" forKey:@"joinedPublic"];
             [currentUser saveInBackground];
@@ -112,21 +106,18 @@
 {
     if (buttonIndex == 1)
     {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         int randomNumber = [self getRandomNumberBetween:1 to:100];
         
         if (randomNumber < 30)
         {
-            PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self performSegueWithIdentifier: @"publicZombie" sender: self];
             [currentUser setObject:@"zombie" forKey:@"publicStatus"];
             [currentUser setObject:@"YES" forKey:@"joinedPublic"];
             [currentUser saveInBackground];
         }
         else
         {
-            PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-            [self.navigationController pushViewController:vc animated:YES];
+            [self performSegueWithIdentifier: @"publicSurvivor" sender: self];
             [currentUser setObject:@"survivor" forKey:@"publicStatus"];
             [currentUser setObject:@"YES" forKey:@"joinedPublic"];
             [currentUser saveInBackground];

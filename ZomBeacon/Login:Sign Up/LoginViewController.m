@@ -25,9 +25,7 @@
     //Checks to make sure a user is logged in, if so, it skips the login screen
     if (currentUser)
     {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-        [self.navigationController pushViewController:vc animated:NO];
+        [self performSegueWithIdentifier:@"mainmenu" sender:self];
     }
     
     for (UILabel * label in self.titilliumSemiBoldFonts) {
@@ -82,9 +80,7 @@
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
                  
-                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                 MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-                 [self.navigationController pushViewController:vc animated:YES];
+                 [self performSegueWithIdentifier:@"test" sender:self];
                  
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                  
@@ -133,9 +129,7 @@
              }
              else if (user.isNew)
              {
-                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                 MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-                 [self.navigationController pushViewController:vc animated:YES];
+                 [self performSegueWithIdentifier:@"mainmenu" sender:self];
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -185,9 +179,7 @@
              }
              else
              {
-                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                 MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-                 [self.navigationController pushViewController:vc animated:NO];
+                 [self performSegueWithIdentifier:@"mainmenu" sender:self];
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -216,9 +208,7 @@
             }
             else if(user.isNew)
             {
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-                [self.navigationController pushViewController:vc animated:YES];
+                [self performSegueWithIdentifier:@"mainmenu" sender:self];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -266,9 +256,7 @@
             }
             else
             {
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-                [self.navigationController pushViewController:vc animated:NO];
+                [self performSegueWithIdentifier:@"mainmenu" sender:self];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [MBProgressHUD hideHUDForView:self.view animated:YES];

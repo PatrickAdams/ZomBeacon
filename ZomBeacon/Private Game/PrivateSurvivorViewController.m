@@ -131,10 +131,7 @@
                 
                 if (zombies.count == 0 || survivors.count == 0)
                 {
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    EndGameViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"endgame"];
-                    vc.navigationItem.hidesBackButton = YES;
-                    [self.navigationController pushViewController:vc animated:YES];
+                    [self performSegueWithIdentifier: @"endGame" sender: self];
                 }
                 
                 self.zombieCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)zombies.count];
@@ -225,7 +222,6 @@
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         PrivateZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateZombie"];
-        vc.navigationItem.hidesBackButton = YES;
         vc.gameIdString = self.gameIdString;
         [self.navigationController pushViewController:vc animated:YES];
         

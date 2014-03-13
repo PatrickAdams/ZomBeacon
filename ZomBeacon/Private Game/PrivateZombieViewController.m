@@ -51,6 +51,8 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -134,10 +136,7 @@
                 
                 if (zombies.count == 0 || survivors.count == 0)
                 {
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    EndGameViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"endgame"];
-                    vc.navigationItem.hidesBackButton = YES;
-                    [self.navigationController pushViewController:vc animated:YES];
+                    [self performSegueWithIdentifier: @"endGame" sender: self];
                 }
                 
                 self.zombieCount.text = [NSString stringWithFormat:@"%lu", (unsigned long)zombies.count];
@@ -195,10 +194,7 @@
         [theStatus setObject:@"dead" forKey:@"status"];
         [theStatus saveInBackground];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        PrivateDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privatedead"];
-        [self.navigationController pushViewController:vc animated:YES];
-        vc.navigationItem.hidesBackButton = YES;
+        [self performSegueWithIdentifier: @"privateDead" sender: self];
         
         PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
         [query2 whereKey:@"user" equalTo:userThatInfected];

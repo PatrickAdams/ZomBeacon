@@ -26,27 +26,25 @@
     for (UILabel * label in self.titilliumSemiBoldFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 //Lets you rejoin the game for 5,000 points docked off your overall score
 - (IBAction)rejoinGame
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
     int randomNumber = [self getRandomNumberBetween:1 to:100];
     
     if (randomNumber < 20)
     {
-        PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self performSegueWithIdentifier:@"publicZombie" sender:self];
         [currentUser setObject:@"zombie" forKey:@"publicStatus"];
         [currentUser setObject:@"YES" forKey:@"joinedPublic"];
         [currentUser saveInBackground];
     }
     else
     {
-        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self performSegueWithIdentifier:@"publicSurvivor" sender:self];
         [currentUser setObject:@"survivor" forKey:@"publicStatus"];
         [currentUser setObject:@"YES" forKey:@"joinedPublic"];
         [currentUser saveInBackground];
@@ -65,10 +63,7 @@
 //Sends you back to the main menu
 - (IBAction)goHome
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MainMenuViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"mainmenu"];
-    vc.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self performSegueWithIdentifier:@"mainmenu" sender:self];
 }
 
 //Method that chooses a random number
