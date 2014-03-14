@@ -16,8 +16,6 @@
 
 - (void)viewDidLoad
 {
-    self.navigationItem.hidesBackButton = YES;
-    
     PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
     [countsQuery whereKey:@"objectId" equalTo:[PFUser currentUser][@"currentGame"]];
     PFObject *currentGame = [countsQuery getFirstObject];
@@ -32,6 +30,12 @@
     {
         self.winnerLabel.text = @"Survivors Win!!";
     }
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    PFObject *theStatus = [query getFirstObject];
+    [theStatus setObject:@"" forKey:@"status"];
+    [theStatus saveInBackground];
     
     [super viewDidLoad];
 	
