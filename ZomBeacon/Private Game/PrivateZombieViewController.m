@@ -169,6 +169,8 @@
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
+        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+        
         PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
         [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
         PFObject *currentGame = [countsQuery getFirstObject];
@@ -209,12 +211,10 @@
         
         if (zombieCount < 1)
         {
-            [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
             [self performSegueWithIdentifier:@"endGamePrivateZombie" sender: self];
         }
         else
         {
-            [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
             [self performSegueWithIdentifier:@"privateDead" sender: self];
         }
     }
