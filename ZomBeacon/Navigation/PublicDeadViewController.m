@@ -33,11 +33,11 @@
 //Lets you rejoin the game for 5,000 points docked off your overall score
 - (IBAction)rejoinGame
 {
+    [self dismissViewControllerAnimated:YES completion:nil];
     int randomNumber = [self getRandomNumberBetween:1 to:100];
     
     if (randomNumber < 20)
     {
-        [self dismissViewControllerAnimated:YES completion:nil];
         [self performSegueWithIdentifier:@"publicZombie" sender:self];
         [currentUser setObject:@"zombie" forKey:@"publicStatus"];
         [currentUser setObject:@"YES" forKey:@"joinedPublic"];
@@ -45,7 +45,6 @@
     }
     else
     {
-        [self dismissViewControllerAnimated:YES completion:nil];
         [self performSegueWithIdentifier:@"publicSurvivor" sender:self];
         [currentUser setObject:@"survivor" forKey:@"publicStatus"];
         [currentUser setObject:@"YES" forKey:@"joinedPublic"];

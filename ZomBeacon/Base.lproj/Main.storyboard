@@ -1351,8 +1351,6 @@
                     <connections>
                         <outletCollection property="titilliumSemiBoldFonts" destination="RtK-tS-g7h" id="cYW-N5-ZaN"/>
                         <outletCollection property="titilliumRegularFonts" destination="aUm-2X-BeP" id="jrm-gK-Inn"/>
-                        <segue destination="5w5-oG-fwH" kind="push" identifier="publicSurvivor" id="4ck-fm-5UI"/>
-                        <segue destination="it5-Tg-ZWA" kind="push" identifier="publicZombie" id="g7u-Q8-5KZ"/>
                         <segue destination="NGH-f2-ute" kind="push" identifier="mainmenu" id="INN-uV-51U"/>
                     </connections>
                 </viewController>
@@ -2661,8 +2659,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="IYc-0s-nDh"/>
         <segue reference="Vlj-fE-lzi"/>
+        <segue reference="PsZ-ht-oAZ"/>
+        <segue reference="CM6-mk-yUd"/>
         <segue reference="xhs-QU-DpM"/>
-        <segue reference="g7u-Q8-5KZ"/>
-        <segue reference="4ck-fm-5UI"/>
     </inferredMetricsTieBreakers>
 </document>
