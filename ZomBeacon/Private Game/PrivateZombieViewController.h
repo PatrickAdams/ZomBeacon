@@ -20,11 +20,11 @@
     PFUser *currentUser;
 }
 
-@property (strong, nonatomic) CLBeaconRegion *beaconRegion;
+@property (nonatomic, strong) CLBeaconRegion *beaconRegion;
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion2;
-@property (strong, nonatomic) NSDictionary *beaconPeripheralData;
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSDictionary *beaconPeripheralData;
+@property (nonatomic, strong) CBPeripheralManager *peripheralManager;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, weak) IBOutlet UILabel *survivorCount;

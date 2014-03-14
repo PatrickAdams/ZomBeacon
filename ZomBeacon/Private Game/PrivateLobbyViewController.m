@@ -86,6 +86,11 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        [currentUser setObject:geoPoint forKey:@"location"];
+        [currentUser saveInBackground];
+    }];
+
     if (isHost)
     {
         [self.assignTeamsButton setEnabled:YES];
@@ -101,8 +106,10 @@
 - (NSArray *)getPlayersInCurrentGame
 {
     self.thePlayers = nil;
+    PFGeoPoint *userGeoPoint = currentUser[@"location"];
     PFQuery *query = [PFUser query];
     [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
+    [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
     self.thePlayers = [query findObjects];
     
     return self.thePlayers;
@@ -125,56 +132,53 @@
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        PFQuery *query = [PFUser query];
-        [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *players, NSError *error) {
+        
+        NSArray *players = self.thePlayers;
+        NSMutableArray *playersArray = [players mutableCopy];
+        NSUInteger totalPlayers = playersArray.count;
+        NSUInteger totalZombies = ceil(totalPlayers * 0.2);
+        
+        if (playersArray.count < 2)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need at least two players to start a game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
-            NSMutableArray *playersArray = [players mutableCopy];
-            NSUInteger totalPlayers = playersArray.count;
-            NSUInteger totalZombies = ceil(totalPlayers * 0.2);
-            
-            if (playersArray.count < 2)
+            [alert show];
+        }
+        else
+        {
+            for (int i = 0; i < playersArray.count; i++)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need at least two players to start a game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                PFUser *player = playersArray[i];
                 
-                [alert show];
-            }
-            else
-            {
-                for (int i = 0; i < playersArray.count; i++)
+                PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+                [query whereKey:@"user" equalTo:player];
+                PFObject *theStatus = [query getFirstObject];
+                
+                if (i < totalZombies)
                 {
-                    PFUser *player = playersArray[i];
-                    
-                    PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
-                    [query whereKey:@"user" equalTo:player];
-                    PFObject *theStatus = [query getFirstObject];
-                    
-                    if (i < totalZombies)
-                    {
-                        [theStatus setObject:@"zombie" forKey:@"status"];
-                    }
-                    else
-                    {
-                        [theStatus setObject:@"survivor" forKey:@"status"];
-                    }
-                    
-                    [theStatus save];
+                    [theStatus setObject:@"zombie" forKey:@"status"];
                 }
+                else
+                {
+                    [theStatus setObject:@"survivor" forKey:@"status"];
+                }
+                
+                [theStatus save];
             }
-            
-            PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
-            [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
-            PFObject *currentGame = [countsQuery getFirstObject];
-            currentGame[@"survivorCount"] = [NSNumber numberWithInteger:(totalPlayers - totalZombies)];
-            currentGame[@"zombieCount"] = [NSNumber numberWithInteger:totalZombies];
-            [currentGame saveInBackground];
-            
-        }];
+        }
+        
+        PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+        [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+        PFObject *currentGame = [countsQuery getFirstObject];
+        currentGame[@"survivorCount"] = [NSNumber numberWithInteger:(totalPlayers - totalZombies)];
+        currentGame[@"zombieCount"] = [NSNumber numberWithInteger:totalZombies];
+        [currentGame saveInBackground];
+        
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.assignTeamsButton setEnabled:NO];
             [self.startGameButton setEnabled:YES];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [self.assignTeamsButton setEnabled:NO];
         });
     });
 }

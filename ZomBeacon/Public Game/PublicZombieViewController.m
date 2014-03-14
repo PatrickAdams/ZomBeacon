@@ -193,6 +193,7 @@
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+        [self performSegueWithIdentifier: @"publicDead" sender: self];
         
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];
@@ -207,8 +208,6 @@
         
         [currentUser setObject:@"dead" forKey:@"publicStatus"];
         [currentUser saveInBackground];
-        
-        [self performSegueWithIdentifier: @"publicDead" sender: self];
         
         PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
         [query whereKey:@"user" equalTo:userThatInfected];

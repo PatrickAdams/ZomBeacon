@@ -118,7 +118,7 @@
                         <outletCollection property="titilliumSemiBoldFonts" destination="OqK-vS-Dgy" id="8PJ-E0-m2R"/>
                         <outletCollection property="titilliumRegularFonts" destination="xpt-qT-jRZ" id="mYy-pq-s7W"/>
                         <segue destination="8Lm-J4-94L" kind="push" identifier="privateDead" id="8g8-QB-AFg"/>
-                        <segue destination="ma0-pm-TZg" kind="push" identifier="endGamePrivateZombie" id="IYc-0s-nDh"/>
+                        <segue destination="ma0-pm-TZg" kind="modal" identifier="endGamePrivateZombie" id="IYc-0s-nDh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5s-0A-vdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -266,6 +266,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="STr-Wp-P0b"/>
                     <connections>
+                        <outlet property="winnerLabel" destination="a1N-aM-RmO" id="rEP-lx-LcB"/>
                         <outletCollection property="titilliumRegularFonts" destination="a1N-aM-RmO" id="rPB-vc-TRm"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="rrl-WR-0I7" id="H7A-4Z-yYg"/>
                     </connections>
@@ -1192,7 +1193,7 @@
                         <outletCollection property="titilliumSemiBoldFonts" destination="1xi-Np-wQr" id="bhZ-ae-M2r"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="ZLH-xU-xjO" id="VFy-6X-sYy"/>
                         <outletCollection property="titilliumRegularFonts" destination="84e-7y-KJH" id="aso-IC-7yj"/>
-                        <segue destination="ma0-pm-TZg" kind="push" identifier="endGamePrivateSurvivor" id="uzd-0d-SvP"/>
+                        <segue destination="ma0-pm-TZg" kind="modal" identifier="endGamePrivateSurvivor" id="uzd-0d-SvP"/>
                         <segue destination="WSR-Ds-yNc" kind="push" identifier="privateZombie" id="AGh-p7-CAG"/>
                     </connections>
                 </viewController>
@@ -2698,12 +2699,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Vlj-fE-lzi"/>
         <segue reference="8g8-QB-AFg"/>
         <segue reference="IYc-0s-nDh"/>
-        <segue reference="Vlj-fE-lzi"/>
         <segue reference="rQe-am-agg"/>
         <segue reference="dNx-FP-4rN"/>
-        <segue reference="xhs-QU-DpM"/>
         <segue reference="p62-S6-Ehq"/>
+        <segue reference="xhs-QU-DpM"/>
     </inferredMetricsTieBreakers>
 </document>

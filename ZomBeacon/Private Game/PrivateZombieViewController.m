@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     currentUser = [PFUser currentUser];
+    self.navigationItem.hidesBackButton = YES;
     
     [self queryNearbyUsers];
     [super viewDidLoad];
@@ -51,8 +52,6 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
-    
-    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -87,6 +86,14 @@
     if ([zombieCount intValue] < 1 || [survivorCount intValue] < 1)
     {
         [self performSegueWithIdentifier: @"endGamePrivateZombie" sender:self];
+        for (UIViewController *controller in [self.navigationController viewControllers])
+        {
+            if ([controller isKindOfClass:[PrivateLobbyViewController class]])
+            {
+                [self.navigationController popToViewController:controller animated:YES];
+                break;
+            }
+        }
     }
     
     self.zombieCount.text = [NSString stringWithFormat:@"%@", currentGame[@"zombieCount"]];
@@ -165,57 +172,68 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon *beacon = [beacons firstObject];
+    CLBeacon *beacon = [beacons lastObject];
     
-    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+    if (beacon != nil)
     {
-        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+        [manager stopRangingBeaconsInRegion:region];
         
-        PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
-        [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
-        PFObject *currentGame = [countsQuery getFirstObject];
-        int survivorCount = [currentGame[@"survivorCount"] intValue];
-        int zombieCount = [currentGame[@"zombieCount"] intValue];
-        
-        PFQuery *userQuery = [PFUser query];
-        [userQuery whereKey:@"minor" equalTo:beacon.minor];
-        [userQuery whereKey:@"major" equalTo:beacon.major];
-        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
-        
-        // present local notification
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = [NSString stringWithFormat:@"You just got headshotted by %@!", userThatInfected.username];
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
-        [query whereKey:@"user" equalTo:currentUser];
-        PFObject *theStatus = [query getFirstObject];
-        [theStatus setObject:@"dead" forKey:@"status"];
-        [theStatus saveInBackground];
-        
-        PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
-        [query2 whereKey:@"user" equalTo:userThatInfected];
-        PFObject *theUserScore = [query2 getFirstObject];
-        float score = [theUserScore[@"publicScore"] floatValue];
-        float points = 500.0f;
-        NSNumber *sum = [NSNumber numberWithFloat:score + points];
-        [theUserScore setObject:sum forKey:@"publicScore"];
-        [theUserScore saveInBackground];
-
-        zombieCount--;
-        
-        currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
-        currentGame[@"zombieCount"] = [NSNumber numberWithInt:zombieCount];
-        [currentGame save];
-        
-        if (zombieCount < 1)
+        if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
         {
-            [self performSegueWithIdentifier:@"endGamePrivateZombie" sender: self];
-        }
-        else
-        {
-            [self performSegueWithIdentifier:@"privateDead" sender: self];
+            PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+            [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+            PFObject *currentGame = [countsQuery getFirstObject];
+            int survivorCount = [currentGame[@"survivorCount"] intValue];
+            int zombieCount = [currentGame[@"zombieCount"] intValue];
+            
+            PFQuery *userQuery = [PFUser query];
+            [userQuery whereKey:@"minor" equalTo:beacon.minor];
+            [userQuery whereKey:@"major" equalTo:beacon.major];
+            PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+            
+            // present local notification
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = [NSString stringWithFormat:@"You just got headshotted by %@!", userThatInfected.username];
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            
+            PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+            [query whereKey:@"user" equalTo:currentUser];
+            PFObject *theStatus = [query getFirstObject];
+            [theStatus setObject:@"dead" forKey:@"status"];
+            [theStatus saveInBackground];
+            
+            PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
+            [query2 whereKey:@"user" equalTo:userThatInfected];
+            PFObject *theUserScore = [query2 getFirstObject];
+            float score = [theUserScore[@"publicScore"] floatValue];
+            float points = 500.0f;
+            NSNumber *sum = [NSNumber numberWithFloat:score + points];
+            [theUserScore setObject:sum forKey:@"publicScore"];
+            [theUserScore saveInBackground];
+            
+            zombieCount--;
+            
+            currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
+            currentGame[@"zombieCount"] = [NSNumber numberWithInt:zombieCount];
+            [currentGame save];
+            
+            if (zombieCount < 1)
+            {
+                [self performSegueWithIdentifier:@"endGamePrivateZombie" sender: self];
+                for (UIViewController *controller in [self.navigationController viewControllers])
+                {
+                    if ([controller isKindOfClass:[PrivateLobbyViewController class]])
+                    {
+                        [self.navigationController popToViewController:controller animated:YES];
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                [self performSegueWithIdentifier:@"privateDead" sender: self];
+            }
         }
     }
 }

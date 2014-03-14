@@ -16,6 +16,23 @@
 
 - (void)viewDidLoad
 {
+    self.navigationItem.hidesBackButton = YES;
+    
+    PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+    [countsQuery whereKey:@"objectId" equalTo:[PFUser currentUser][@"currentGame"]];
+    PFObject *currentGame = [countsQuery getFirstObject];
+    NSNumber *zombieCount = currentGame[@"zombieCount"];
+    NSNumber *survivorCount = currentGame[@"survivorCount"];
+    
+    if ([zombieCount intValue] > [survivorCount intValue])
+    {
+        self.winnerLabel.text = @"Zombies Win!!";
+    }
+    else
+    {
+        self.winnerLabel.text = @"Survivors Win!!";
+    }
+    
     [super viewDidLoad];
 	
     for (UILabel * label in self.titilliumSemiBoldFonts) {
@@ -25,20 +42,11 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
-    
-    self.navigationItem.hidesBackButton = YES;
 }
 
 - (IBAction)goHome
 {
-    for (UIViewController *controller in [self.navigationController viewControllers])
-    {
-        if ([controller isKindOfClass:[PrivateLobbyViewController class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-            break;
-        }
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
