@@ -193,7 +193,7 @@
             
             // present local notification
             UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = [NSString stringWithFormat:@"You just got headshotted by %@!", userThatInfected.username];
+            notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@!", userThatInfected.username];
             notification.soundName = UILocalNotificationDefaultSoundName;
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
             
@@ -233,6 +233,14 @@
             else
             {
                 [self performSegueWithIdentifier:@"privateDead" sender: self];
+                for (UIViewController *controller in [self.navigationController viewControllers])
+                {
+                    if ([controller isKindOfClass:[PrivateLobbyViewController class]])
+                    {
+                        [self.navigationController popToViewController:controller animated:YES];
+                        break;
+                    }
+                }
             }
         }
     }

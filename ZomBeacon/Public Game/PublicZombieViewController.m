@@ -193,7 +193,15 @@
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
-        [self performSegueWithIdentifier: @"publicDead" sender: self];
+        [self performSegueWithIdentifier:@"publicDead" sender:self];
+        for (UIViewController *controller in [self.navigationController viewControllers])
+        {
+            if ([controller isKindOfClass:[MainMenuViewController class]])
+            {
+                [self.navigationController popToViewController:controller animated:YES];
+                break;
+            }
+        }
         
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];

@@ -30,7 +30,7 @@
 //Sends you back to the main menu
 - (IBAction)goHome
 {
-    [self performSegueWithIdentifier:@"mainmenu" sender:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -33,6 +33,7 @@
 //Lets you rejoin the game for 5,000 points docked off your overall score
 - (IBAction)rejoinGame
 {
+    [self dismissViewControllerAnimated:YES completion:nil];
     int randomNumber = [self getRandomNumberBetween:1 to:100];
     
     if (randomNumber < 20)
@@ -63,7 +64,7 @@
 //Sends you back to the main menu
 - (IBAction)goHome
 {
-    [self performSegueWithIdentifier:@"mainmenu" sender:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //Method that chooses a random number

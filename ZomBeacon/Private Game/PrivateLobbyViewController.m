@@ -47,6 +47,7 @@
         {
             PFObject *privateStatus = [PFObject objectWithClassName:@"PrivateStatus"];
             [privateStatus setObject:currentUser forKey:@"user"];
+            [privateStatus setObject:@"" forKey:@"status"];
             [privateStatus saveInBackground];
         }
         else
@@ -109,7 +110,7 @@
     PFGeoPoint *userGeoPoint = currentUser[@"location"];
     PFQuery *query = [PFUser query];
     [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-    [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:1.0];
+    [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.5];
     self.thePlayers = [query findObjects];
     
     return self.thePlayers;
@@ -154,16 +155,19 @@
                 [query whereKey:@"user" equalTo:player];
                 PFObject *theStatus = [query getFirstObject];
                 
-                if (i < totalZombies)
+                if ([theStatus[@"status"] isEqualToString:@""])
                 {
-                    [theStatus setObject:@"zombie" forKey:@"status"];
+                    if (i < totalZombies)
+                    {
+                        [theStatus setObject:@"zombie" forKey:@"status"];
+                    }
+                    else
+                    {
+                        [theStatus setObject:@"survivor" forKey:@"status"];
+                    }
+                    
+                    [theStatus save];
                 }
-                else
-                {
-                    [theStatus setObject:@"survivor" forKey:@"status"];
-                }
-                
-                [theStatus save];
             }
         }
         

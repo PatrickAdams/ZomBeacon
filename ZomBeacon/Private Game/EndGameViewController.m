@@ -31,11 +31,19 @@
         self.winnerLabel.text = @"Survivors Win!!";
     }
     
+    //Deletes user's private status when game is over
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     PFObject *theStatus = [query getFirstObject];
     [theStatus setObject:@"" forKey:@"status"];
     [theStatus saveInBackground];
+    
+    //Checks if anyone is dead, deletes their status as well
+    PFQuery *query2 = [PFQuery queryWithClassName:@"PrivateStatus"];
+    [query2 whereKey:@"status" equalTo:@"dead"];
+    PFObject *theStatus2 = [query getFirstObject];
+    [theStatus2 setObject:@"" forKey:@"status"];
+    [theStatus2 saveInBackground];
     
     [super viewDidLoad];
 	

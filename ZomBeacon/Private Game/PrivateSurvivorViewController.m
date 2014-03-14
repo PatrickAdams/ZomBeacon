@@ -206,10 +206,10 @@
     
     if (beacon != nil)
     {
+        [manager stopRangingBeaconsInRegion:region];
+        
         if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
         {
-            [manager stopRangingBeaconsInRegion:region];
-            
             PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
             [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
             PFObject *currentGame = [countsQuery getFirstObject];
