@@ -55,7 +55,7 @@
 
 - (void)saveLocation
 {
-    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.latitude];
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
     [currentUser setObject:point forKey:@"location"];
     [currentUser saveInBackground];
 }

@@ -229,7 +229,7 @@
             
             if (zombieCount < 1)
             {
-                [self performSegueWithIdentifier:@"endGamePrivateZombie" sender: self];
+                [self performSegueWithIdentifier:@"endGamePrivateZombie" sender:self];
                 for (UIViewController *controller in [self.navigationController viewControllers])
                 {
                     if ([controller isKindOfClass:[PrivateLobbyViewController class]])

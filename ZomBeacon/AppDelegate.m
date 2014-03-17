@@ -139,10 +139,9 @@
 {
     if ([PFUser currentUser] != nil)
     {
-        [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-            [[PFUser currentUser] setObject:geoPoint forKey:@"location"];
-            [[PFUser currentUser] saveInBackground];
-        }];
+        PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
+        [[PFUser currentUser] setObject:point forKey:@"location"];
+        [[PFUser currentUser] saveInBackground];
     }
     else
     {

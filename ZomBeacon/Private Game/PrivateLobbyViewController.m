@@ -147,6 +147,9 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need at least two players to start a game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
             [alert show];
+            
+            [self.assignTeamsButton setEnabled:YES];
+            [self.startGameButton setEnabled:NO];
         }
         else
         {
