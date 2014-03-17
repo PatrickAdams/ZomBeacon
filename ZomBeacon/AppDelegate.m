@@ -126,91 +126,13 @@
     //Starts location manager to track user location in the background
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 1.3f;
     [self.locationManager startUpdatingLocation];
-    
-    if ([PFUser currentUser] != nil)
-    {
-        //Will save user's location every 3 seconds when enters background
-        self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(saveLocation) userInfo:nil repeats:YES];
-        
-        self.queryEnemiesTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryEnemies) userInfo:nil repeats:YES];
-    }
 }
 
-- (void)queryEnemies
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    if ([PFUser currentUser] != nil)
-    {
-        if ([PFUser currentUser][@"location"] && [[PFUser currentUser][@"publicStatus"] isEqualToString:@"survivor"])
-        {
-            PFGeoPoint *userGeoPoint = [PFUser currentUser][@"location"];
-            PFQuery *query = [PFUser query];
-            [query whereKey:@"joinedPublic" equalTo:@"YES"];
-            [query whereKey:@"publicStatus" equalTo:@"zombie"];
-            [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.004];
-            [query findObjectsInBackgroundWithBlock:^(NSArray *zombies, NSError *error) {
-                if (!error)
-                {
-                    //Presents the local notification
-                    UILocalNotification *notification = [[UILocalNotification alloc] init];
-                    if (zombies.count == 1 && notified1 == NO)
-                    {
-                        notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There is %lu zombie very close to you. Check your map!", (unsigned long)zombies.count];
-                        notification.soundName = UILocalNotificationDefaultSoundName;
-                        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                        notified1 = YES;
-                    }
-                    else if (zombies.count > 1 && notifiedMore == NO)
-                    {
-                        notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There are %lu zombies very close to you. Check your map!", (unsigned long)zombies.count];
-                        notification.soundName = UILocalNotificationDefaultSoundName;
-                        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                        notifiedMore = YES;
-                    }
-                    else if (zombies.count == 0)
-                    {
-                        notified1 = NO;
-                        notifiedMore = NO;
-                    }
-                    
-                }
-            }];
-        }
-        else if ([PFUser currentUser][@"location"] && [[PFUser currentUser][@"publicStatus"] isEqualToString:@"zombie"])
-        {
-            PFGeoPoint *userGeoPoint = [PFUser currentUser][@"location"];
-            PFQuery *query = [PFUser query];
-            [query whereKey:@"joinedPublic" equalTo:@"YES"];
-            [query whereKey:@"publicStatus" equalTo:@"survivor"];
-            [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.004];
-            [query findObjectsInBackgroundWithBlock:^(NSArray *survivors, NSError *error) {
-                if (!error)
-                {
-                    //Presents the local notification
-                    UILocalNotification *notification = [[UILocalNotification alloc] init];
-                    if (survivors.count == 1 && notified1 == NO)
-                    {
-                        notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There is %lu survivor very close to you. Check your map!", (unsigned long)survivors.count];
-                        notification.soundName = UILocalNotificationDefaultSoundName;
-                        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                        notified1 = YES;
-                    }
-                    else if (survivors.count > 1 && notifiedMore == NO)
-                    {
-                        notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: There are %lu survivors very close to you. Check your map!", (unsigned long)survivors.count];
-                        notification.soundName = UILocalNotificationDefaultSoundName;
-                        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                        notifiedMore = YES;
-                    }
-                    else if (survivors.count == 0)
-                    {
-                        notified1 = NO;
-                        notifiedMore = NO;
-                    }
-                }
-            }];
-        }
-    }
+    [self saveLocation];
 }
 
 - (void)saveLocation

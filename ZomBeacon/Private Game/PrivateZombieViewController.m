@@ -27,6 +27,8 @@
     //MapView Stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 1.3f;
+    [self.locationManager startUpdatingLocation];
     
     //Grabs UUID from game so that the iBeacon is unique to the game
     PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
@@ -59,7 +61,6 @@
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
-    [self.locationManager startUpdatingLocation];
     [self zoomToUserLocation:self.mapView.userLocation];
 }
 
@@ -70,13 +71,21 @@
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
 
-//Queries all nearby users and adds them to the mapView
-- (void)queryNearbyUsers
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.mapView.userLocation.coordinate.latitude longitude:self.mapView.userLocation.coordinate.longitude];
+    [self saveLocation];
+}
+
+- (void)saveLocation
+{
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
     [currentUser setObject:point forKey:@"location"];
     [currentUser saveInBackground];
-    
+}
+
+//Queries all nearby users and adds them to the mapView
+- (void)queryNearbyUsers
+{    
     PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
     [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
     PFObject *currentGame = [countsQuery getFirstObject];

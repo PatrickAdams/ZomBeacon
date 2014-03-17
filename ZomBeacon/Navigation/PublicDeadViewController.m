@@ -55,7 +55,7 @@
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
     PFObject *theUserScore = [query getFirstObject];
     float score = [theUserScore[@"publicScore"] floatValue];
-    float points = 5000.0f;
+    float points = 3000.0f;
     NSNumber *sum = [NSNumber numberWithFloat:score - points];
     [theUserScore setObject:sum forKey:@"publicScore"];
     [theUserScore saveInBackground];

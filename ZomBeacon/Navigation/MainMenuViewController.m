@@ -38,12 +38,8 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = 1.3f;
     [self.locationManager startUpdatingLocation];
-    
-    [self saveLocation];
-    
-    //When user is on the menu, checks every minute for their location
-    self.locationTimer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(saveLocation) userInfo:nil repeats:YES];
 }
 
 - (IBAction)inviteFriends
@@ -52,12 +48,16 @@
     //Bring up Twitter/Facebook with link to download the app in the AppStore.
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    [self saveLocation];
+}
+
 - (void)saveLocation
 {
-    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-        [currentUser setObject:geoPoint forKey:@"location"];
-        [currentUser saveInBackground];
-    }];
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.latitude];
+    [currentUser setObject:point forKey:@"location"];
+    [currentUser saveInBackground];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -77,7 +77,7 @@
     }
     else if ([currentUser[@"publicStatus"] isEqualToString:@"dead"])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"Do you want to rejoin this game for -5,000 points?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"Do you want to rejoin this game for -3,000 points?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
         
         [alert show];
     }
@@ -127,7 +127,7 @@
         [query whereKey:@"user" equalTo:[PFUser currentUser]];
         PFObject *theUserScore = [query getFirstObject];
         float score = [theUserScore[@"publicScore"] floatValue];
-        float points = 5000.0f;
+        float points = 3000.0f;
         NSNumber *sum = [NSNumber numberWithFloat:score - points];
         [theUserScore setObject:sum forKey:@"publicScore"];
         [theUserScore saveInBackground];
