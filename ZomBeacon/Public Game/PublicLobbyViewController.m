@@ -15,7 +15,7 @@
 @implementation PublicLobbyViewController
 
 - (void)viewDidLoad
-{
+{    
     [super viewDidLoad];
     
     currentUser = [PFUser currentUser];

@@ -525,8 +525,8 @@
 		E7F7999F18A5772A007C1477 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */,
-				E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */,
+				E705AA1618AE735600CFE7B6 /* MainMenuViewController.h */,
+				E705AA1718AE735600CFE7B6 /* MainMenuViewController.m */,
 				E705AA1018AE735600CFE7B6 /* CreateViewController.h */,
 				E705AA1118AE735600CFE7B6 /* CreateViewController.m */,
 				E705AA0E18AE735600CFE7B6 /* CreatedViewController.h */,
@@ -535,8 +535,8 @@
 				E705AA1318AE735600CFE7B6 /* FindGameViewController.m */,
 				E705AA1418AE735600CFE7B6 /* GameDetailsViewController.h */,
 				E705AA1518AE735600CFE7B6 /* GameDetailsViewController.m */,
-				E705AA1618AE735600CFE7B6 /* MainMenuViewController.h */,
-				E705AA1718AE735600CFE7B6 /* MainMenuViewController.m */,
+				E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */,
+				E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";

@@ -45,6 +45,8 @@
             [self.addAsFriendButton setEnabled:NO];
         }
     }];
+    
+    self.title = self.userNameString;
 }
 
 - (IBAction)followUser

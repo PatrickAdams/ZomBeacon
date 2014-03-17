@@ -44,8 +44,7 @@
 
 - (IBAction)inviteFriends
 {
-    //To-Do for Version 2.0 (once we have the link)
-    //Bring up Twitter/Facebook with link to download the app in the AppStore.
+    //To-Do - Add iTunes store link
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

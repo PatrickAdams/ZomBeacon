@@ -107,7 +107,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="ZOMBIE" id="YUQ-r8-PSc"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="biteButton" destination="pnf-jb-R9t" id="wuk-Em-CgM"/>
                         <outlet property="mapView" destination="bDp-Aq-bB1" id="WlZ-jm-ZAY"/>
@@ -123,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5s-0A-vdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3515" y="38"/>
+            <point key="canvasLocation" x="2755" y="982"/>
         </scene>
         <!--Public Zombie View Controller - ZOMBIE-->
         <scene sceneID="riS-2O-UHS">
@@ -209,7 +209,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="biteButton" destination="vK1-Bk-qtU" id="2Ol-ud-hbp"/>
                         <outlet property="mapView" destination="6wc-Qr-BpL" id="lVi-I7-56f"/>
@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezR-RE-byV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3879" y="38"/>
+            <point key="canvasLocation" x="3119" y="982"/>
         </scene>
         <!--Private Dead View Controller - DEAD-->
         <scene sceneID="RrY-HX-xxo">
@@ -327,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f25-hN-Act" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3515" y="714"/>
+            <point key="canvasLocation" x="2755" y="1658"/>
         </scene>
         <!--End Game View Controller-->
         <scene sceneID="sam-wm-O2N">
@@ -379,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvi-Ql-aOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4467" y="532"/>
+            <point key="canvasLocation" x="3653" y="1414"/>
         </scene>
         <!--Login View Controller - LOGIN-->
         <scene sceneID="xO3-Hg-agc">
@@ -924,33 +924,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtG-G3-AZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2137" y="197"/>
-        </scene>
-        <!--My Friends View Controller - Item-->
-        <scene sceneID="xPv-fr-g99">
-            <objects>
-                <viewController id="i7k-Ak-dAv" customClass="MyFriendsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TNB-hM-uYS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="V5W-Xg-FJo"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UMz-FX-mWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3049" y="2301"/>
+            <point key="canvasLocation" x="1751" y="193"/>
         </scene>
         <!--My Friends View Controller - Friends-->
         <scene sceneID="ugx-D9-Rmr">
             <objects>
-                <viewController id="23z-qn-eLr" customClass="MyFriendsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="friendslist" id="23z-qn-eLr" customClass="MyFriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yDK-0q-2Vo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="MwB-lQ-zvb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="617"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="553"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="4TA-2t-wqs">
@@ -958,7 +943,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tva-A8-jfM">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="484"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1022,7 +1007,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4iO-ZL-Gx0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2137" y="889"/>
+            <point key="canvasLocation" x="2171" y="923"/>
         </scene>
         <!--Friend Profile View Controller-->
         <scene sceneID="eeM-xz-Sbe">
@@ -1165,7 +1150,7 @@
                         <color key="backgroundColor" white="0.2218008668" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="addAsFriendButton" destination="aAG-Nk-6Zt" id="F6l-hJ-E19"/>
                         <outlet property="profileImage" destination="fTd-tx-0JG" id="9YP-nK-Anc"/>
@@ -1183,7 +1168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aor-YC-9l1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3071" y="-500"/>
+            <point key="canvasLocation" x="2983" y="-500"/>
         </scene>
         <!--Private Survivor View Controller - SURVIVOR-->
         <scene sceneID="DX5-Vd-ZQZ">
@@ -1305,7 +1290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z1B-V7-arh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3521" y="-664"/>
+            <point key="canvasLocation" x="2761" y="280"/>
         </scene>
         <!--Public Survivor View Controller - SURVIVOR-->
         <scene sceneID="Z4f-gx-E22">
@@ -1401,7 +1386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpO-0e-uc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3873" y="-664"/>
+            <point key="canvasLocation" x="3113" y="280"/>
         </scene>
         <!--Public Dead View Controller-->
         <scene sceneID="LYG-fE-c4F">
@@ -1444,7 +1429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4m-F5-X4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4053" y="1029"/>
+            <point key="canvasLocation" x="3119" y="1658"/>
         </scene>
         <!--Bluetooth View Controller-->
         <scene sceneID="W5M-pC-seI">
@@ -1575,7 +1560,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="createPrivateGameButton" destination="J0F-7N-lF8" id="Oxt-2W-QLT"/>
                         <outlet property="findPrivateGameButton" destination="g4z-Gj-hMp" id="Ybd-vK-bZv"/>
@@ -1586,12 +1570,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yk7-oS-TCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="197"/>
+            <point key="canvasLocation" x="1289" y="193"/>
         </scene>
         <!--Edit Profile View Controller - Edit Profile-->
         <scene sceneID="d6O-uF-Unq">
             <objects>
-                <viewController id="ovM-FO-Wqw" customClass="EditProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editprofile" id="ovM-FO-Wqw" customClass="EditProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OT0-HP-N96">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1741,12 +1725,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r99-zy-Fo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2549" y="201"/>
+            <point key="canvasLocation" x="2171" y="197"/>
         </scene>
         <!--Create View Controller - CREATE A GAME-->
         <scene sceneID="gGr-zk-AS0">
             <objects>
-                <viewController id="jIF-Br-8W4" customClass="CreateViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="creategame" id="jIF-Br-8W4" customClass="CreateViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ap-xW-4Dg">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1845,7 +1829,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4R-qf-eGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="883"/>
+            <point key="canvasLocation" x="1289" y="923"/>
         </scene>
         <!--Created View Controller - GAME DETAILS-->
         <scene sceneID="DQ2-lX-tNm">
@@ -1983,7 +1967,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="GAME DETAILS" id="fl7-9v-Q3C"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="gameDateLabel" destination="jxa-8N-Pg6" id="Y18-lK-aRE"/>
                         <outlet property="gameHostLabel" destination="3Cu-kM-3dF" id="v2F-4M-lC4"/>
@@ -2002,12 +1986,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiX-3o-tY5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="883"/>
+            <point key="canvasLocation" x="1751" y="915"/>
         </scene>
         <!--Password Reset View Controller-->
         <scene sceneID="Sdc-n6-TWf">
             <objects>
-                <viewController id="ToL-0M-vxJ" customClass="PasswordResetViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resetpassword" id="ToL-0M-vxJ" customClass="PasswordResetViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EFO-6u-LhJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2140,7 +2124,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vso-gr-PwC">
-                                <rect key="frame" x="110" y="346" width="101" height="50"/>
+                                <rect key="frame" x="110" y="337" width="101" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" image="joingame_button.png">
@@ -2223,11 +2207,56 @@
                                     <action selector="openInMaps" destination="biA-0h-TG7" eventType="touchUpInside" id="wMa-ra-Rl0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mJz-lp-ft2">
+                                <rect key="frame" x="77" y="423" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="share_email.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareViaEmail" destination="biA-0h-TG7" eventType="touchUpInside" id="QQd-k9-W3b"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITE FRIENDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kqv-np-vrY">
+                                <rect key="frame" x="101" y="395" width="117" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.74901962280000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WJC-I0-qtS">
+                                <rect key="frame" x="120" y="423" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="share_twitter.png"/>
+                                <connections>
+                                    <action selector="shareViaTwitter" destination="biA-0h-TG7" eventType="touchUpInside" id="Zxz-lt-52x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mTk-cT-HVH">
+                                <rect key="frame" x="163" y="423" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="share_facebook.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareViaFacebook" destination="biA-0h-TG7" eventType="touchUpInside" id="LG2-q1-QQF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tfg-rm-hfL">
+                                <rect key="frame" x="206" y="423" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="share_sms.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareViaSMS" destination="biA-0h-TG7" eventType="touchUpInside" id="tRX-Yx-WOf"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="GAME DETAILS" id="tf4-p9-TrQ"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="gameDateLabel" destination="RsT-CZ-V4c" id="USH-Xa-AMz"/>
                         <outlet property="gameHostLabel" destination="SBO-EN-hLc" id="Dqv-ZT-rb8"/>
@@ -2245,7 +2274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Top-Mv-Xod" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2192" y="-499"/>
+            <point key="canvasLocation" x="2171" y="-499"/>
         </scene>
         <!--Public Lobby View Controller - Public Lobby-->
         <scene sceneID="c18-Og-QJX">
@@ -2370,7 +2399,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="PUBLIC LOBBY" id="3lh-jw-lwf"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="er8-bw-UCx" id="3Jp-zK-2Bw"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="Is9-06-tmO" id="ipd-xt-oGA"/>
@@ -2385,7 +2414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Kg-K7-C4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4413" y="-295"/>
+            <point key="canvasLocation" x="3653" y="649"/>
         </scene>
         <!--Private Lobby View Controller - Private Lobby-->
         <scene sceneID="c0x-kO-imF">
@@ -2567,7 +2596,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="assignTeamsButton" destination="Ron-Yq-C6V" id="wqk-x2-5PW"/>
                         <outlet property="gameDateLabel" destination="0Fv-bR-cNf" id="ju5-Vh-H0Q"/>
@@ -2589,34 +2618,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4b-DC-BkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2663" y="-500"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="7o5-wC-7dx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mg7-eI-ZAD" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="7Lp-bP-fh6"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0jn-sD-Mcf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="tintColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="barTintColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="NGH-f2-ute" kind="relationship" relationship="rootViewController" id="Hiy-XA-NFh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HCO-Y9-hqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1225" y="197"/>
+            <point key="canvasLocation" x="2575" y="-500"/>
         </scene>
     </scenes>
     <resources>
@@ -2664,10 +2666,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="IYc-0s-nDh"/>
+        <segue reference="uzd-0d-SvP"/>
         <segue reference="dNx-FP-4rN"/>
         <segue reference="rQe-am-agg"/>
         <segue reference="xhs-QU-DpM"/>
-        <segue reference="INN-uV-51U"/>
+        <segue reference="kx5-jM-uCj"/>
     </inferredMetricsTieBreakers>
 </document>

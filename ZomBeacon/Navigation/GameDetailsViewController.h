@@ -11,7 +11,7 @@
 #import <Parse/Parse.h>
 #import "PrivateLobbyViewController.h"
 
-@interface GameDetailsViewController : UIViewController <MKMapViewDelegate>
+@interface GameDetailsViewController : UIViewController <MKMapViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 {
     PFUser *currentUser;
 }
@@ -24,14 +24,22 @@
 @property (nonatomic, strong) NSString *gameDateString;
 @property (nonatomic, strong) NSString *gameNameString;
 @property (nonatomic, strong) NSString *gameIdString;
+@property (nonatomic, strong) NSString *gameAddressString;
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 @property (nonatomic, readwrite) double gameLocationLat;
 @property (nonatomic, readwrite) double gameLocationLong;
+@property (nonatomic, strong) CLGeocoder *geocoder;
+@property (nonatomic, strong) MKPlacemark *placemark;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (IBAction)openInMaps;
 - (IBAction)joinGame;
+
+- (IBAction)shareViaEmail;
+- (IBAction)shareViaTwitter;
+- (IBAction)shareViaFacebook;
+- (IBAction)shareViaSMS;
 
 
 @end
