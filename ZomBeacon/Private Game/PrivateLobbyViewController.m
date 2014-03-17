@@ -41,20 +41,15 @@
     
     PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
     [privateStatusQuery whereKey:@"user" equalTo:currentUser];
-    [privateStatusQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (objects.count == 0)
-        {
-            PFObject *privateStatus = [PFObject objectWithClassName:@"PrivateStatus"];
-            [privateStatus setObject:currentUser forKey:@"user"];
-            [privateStatus setObject:@"" forKey:@"status"];
-            [privateStatus saveInBackground];
-        }
-        else
-        {
-            //Do nothing
-        }
-    }];
+    PFObject *userStatus = [privateStatusQuery getFirstObject];
+    
+    if (userStatus == nil)
+    {
+        PFObject *privateStatus = [PFObject objectWithClassName:@"PrivateStatus"];
+        [privateStatus setObject:currentUser forKey:@"user"];
+        [privateStatus setObject:@"" forKey:@"status"];
+        [privateStatus saveInBackground];
+    }
     
     //Checks if you are the host of the current game or not
     NSString *currentGame = currentUser[@"currentGame"];
@@ -120,7 +115,7 @@
 - (IBAction)refreshList
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [self getPlayersInCurrentGame];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
@@ -132,10 +127,18 @@
 - (void)assignTeams
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         
         NSArray *players = self.thePlayers;
         NSMutableArray *playersArray = [players mutableCopy];
+        
+        //Shuffles array of players
+        for (int i = 0; i < playersArray.count; i++)
+        {
+            int randInt = (arc4random() % (playersArray.count - i)) + i;
+            [playersArray exchangeObjectAtIndex:i withObjectAtIndex:randInt];
+        }
+        
         NSUInteger totalPlayers = playersArray.count;
         NSUInteger totalZombies = ceil(totalPlayers * 0.2);
         

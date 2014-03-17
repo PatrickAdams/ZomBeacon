@@ -241,15 +241,7 @@
             }
             else
             {
-                [self performSegueWithIdentifier:@"privateDead" sender: self];
-                for (UIViewController *controller in [self.navigationController viewControllers])
-                {
-                    if ([controller isKindOfClass:[PrivateLobbyViewController class]])
-                    {
-                        [self.navigationController popToViewController:controller animated:YES];
-                        break;
-                    }
-                }
+                [self performSegueWithIdentifier:@"privateDead" sender:self];
             }
         }
     }

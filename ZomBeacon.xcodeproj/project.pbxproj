@@ -481,6 +481,8 @@
 				E705AA2918AE739900CFE7B6 /* PrivateSurvivorViewController.m */,
 				E705AA2A18AE739900CFE7B6 /* PrivateZombieViewController.h */,
 				E705AA2B18AE739900CFE7B6 /* PrivateZombieViewController.m */,
+				E70028C218BBF3F100036E1B /* PrivateDeadViewController.h */,
+				E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */,
 				CD013BFC18D0A2DD0020FF5C /* EndGameViewController.h */,
 				CD013BFD18D0A2DD0020FF5C /* EndGameViewController.m */,
 			);
@@ -522,8 +524,6 @@
 			children = (
 				E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */,
 				E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */,
-				E70028C218BBF3F100036E1B /* PrivateDeadViewController.h */,
-				E70028C318BBF3F100036E1B /* PrivateDeadViewController.m */,
 				E705AA1018AE735600CFE7B6 /* CreateViewController.h */,
 				E705AA1118AE735600CFE7B6 /* CreateViewController.m */,
 				E705AA0E18AE735600CFE7B6 /* CreatedViewController.h */,

@@ -38,19 +38,6 @@
     [theStatus setObject:@"" forKey:@"status"];
     [theStatus saveInBackground];
     
-    //Checks if anyone is dead, deletes their status as well
-    PFQuery *query2 = [PFQuery queryWithClassName:@"PrivateStatus"];
-    [query2 whereKey:@"status" equalTo:@"dead"];
-    [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        for (int i = 0; i < objects.count; i++) {
-            PFObject *deadHead = objects[i];
-            [deadHead setObject:@"" forKey:@"status"];
-            [deadHead saveInBackground];
-        }
-    }];
-    
-    
     [super viewDidLoad];
 	
     for (UILabel * label in self.titilliumSemiBoldFonts) {

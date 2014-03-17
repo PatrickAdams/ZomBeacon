@@ -9,11 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "MainMenuViewController.h"
 
-@interface PrivateDeadViewController : UIViewController
+@interface PrivateDeadViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
+{
+    PFUser *currentUser;
+}
 
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) NSTimer *queryTimer;
+@property (nonatomic, weak) IBOutlet UILabel *survivorCount;
+@property (nonatomic, weak) IBOutlet UILabel *zombieCount;
+@property (nonatomic, strong) NSString *gameIdString;
 
-- (IBAction)goHome;
+- (IBAction)trackMyOrientation;
+- (IBAction)centerMapOnLocation;
 
 @end
