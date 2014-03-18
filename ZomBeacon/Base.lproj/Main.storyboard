@@ -1748,7 +1748,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="MAIN" id="LPh-lr-fUw">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="UV2-6i-tU7"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="UV2-6i-tU7">
+                            <connections>
+                                <action selector="inviteFriends" destination="NGH-f2-ute" id="UpT-bQ-DLg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="profile.png" id="Dzc-p5-2Og">
                             <color key="tintColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
@@ -2867,8 +2871,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="Qrh-1m-sYU"/>
         <segue reference="kx5-jM-uCj"/>
-        <segue reference="dNx-FP-4rN"/>
-        <segue reference="rQe-am-agg"/>
+        <segue reference="PsZ-ht-oAZ"/>
+        <segue reference="CM6-mk-yUd"/>
         <segue reference="xhs-QU-DpM"/>
     </inferredMetricsTieBreakers>
 </document>

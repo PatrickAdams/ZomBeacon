@@ -44,7 +44,38 @@
 
 - (IBAction)inviteFriends
 {
-    //To-Do - Add iTunes store link
+    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+//    params.link = [NSURL URLWithString:[NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString]];
+    params.name = @"Deep linking tutorial";
+    params.caption = @"Learn how to direct users to a relevant experience within your app.";
+    params.picture = [NSURL URLWithString:@"http://i.imgur.com/g3Qc1HN.png"];
+    params.description = @"How to handle incoming links when users engage with your app's posts on Facebook.";
+    params.ref = @"tutorial";
+    
+    // If the Facebook app is installed and we can present the share dialog
+    if ([FBDialogs canPresentShareDialogWithParams:params]) {
+        // Present share dialog
+        [FBDialogs presentShareDialogWithLink:params.link
+                                         name:params.name
+                                      caption:params.caption
+                                  description:params.description
+                                      picture:params.picture
+                                  clientState:nil
+                                      handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                          if(error) {
+                                              // There was an error
+                                              NSLog(@"%@",[NSString stringWithFormat:@"Error publishing story: %@", error.description]);
+                                          } else {
+                                              // Success
+                                              NSLog(@"result %@", results);
+                                          }
+                                      }
+         ];
+    } else {
+        // Fallback
+        // Learn more about available fallbacks in our sharing tutorial:
+        // https://developers.facebook.com/docs/ios/share/
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

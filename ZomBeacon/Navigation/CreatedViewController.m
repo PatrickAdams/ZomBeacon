@@ -137,22 +137,37 @@
 
 - (IBAction)shareViaFacebook
 {
-    SLComposeViewController *facebookComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+    params.link = [NSURL URLWithString:[NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString]];
+    params.name = @"ZomBeacon Invite";
+    params.caption = @"Come play ZomBeacon with me!";
+    params.picture = [NSURL URLWithString:@"http://i.imgur.com/SadmerX.png"];
+    params.description = @"You've been invited to my private game of ZomBeacon.";
     
-    facebookComposer.completionHandler = ^(SLComposeViewControllerResult result) {
-        switch(result) {
-                //  This means the user cancelled without sending the Tweet
-            case SLComposeViewControllerResultCancelled:
-                break;
-                //  This means the user hit 'Send'
-            case SLComposeViewControllerResultDone:
-                break;
-        }
-    };
-    
-    [facebookComposer setInitialText:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon, click the link to join! #ZomBeacon ZomBeacon://?invite=%@", self.gameIdString]];
-    
-    [self presentViewController:facebookComposer animated:YES completion:nil];
+    // If the Facebook app is installed and we can present the share dialog
+    if ([FBDialogs canPresentShareDialogWithParams:params]) {
+        // Present share dialog
+        [FBDialogs presentShareDialogWithLink:params.link
+                                         name:params.name
+                                      caption:params.caption
+                                  description:params.description
+                                      picture:nil
+                                  clientState:nil
+                                      handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                          if(error) {
+                                              // There was an error
+                                              NSLog(@"%@",[NSString stringWithFormat:@"Error publishing story: %@", error.description]);
+                                          } else {
+                                              // Success
+                                              NSLog(@"result %@", results);
+                                          }
+                                      }
+         ];
+    } else {
+        // Fallback
+        // Learn more about available fallbacks in our sharing tutorial:
+        // https://developers.facebook.com/docs/ios/share/
+    }
 }
 
 - (IBAction)shareViaSMS
