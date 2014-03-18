@@ -375,27 +375,35 @@
     }
     if ([buttonTitle isEqualToString:@"Facebook"])
     {
-        SLComposeViewController *facebookComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+        params.link = [NSURL URLWithString:[NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString]];
+        params.name = [NSString stringWithFormat:@"ZomBeacon Invite: %@, When: %@", self.gameNameString, self.gameDateString];
+        params.caption = @"Come play ZomBeacon with me!";
+        params.picture = [NSURL URLWithString:@"http://i.imgur.com/SadmerX.png"];
+        params.description = @"Come join my private game of ZomBeacon";
         
-        facebookComposer.completionHandler = ^(SLComposeViewControllerResult result) {
-            switch(result) {
-                    //  This means the user cancelled without sending the Tweet
-                case SLComposeViewControllerResultCancelled:
-                    break;
-                    //  This means the user hit 'Send'
-                case SLComposeViewControllerResultDone:
-                    break;
-            }
-        };
-        
-        [facebookComposer setInitialText:@"You've been invited to a game of ZomBeacon, click the link to join! #ZomBeacon"];
-        [facebookComposer addURL:[NSURL URLWithString:[NSString stringWithFormat:@"ZomBeacon://?invite=%@", self.gameIdString]]];
-        
-        //    if (![facebookComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
-        //        NSLog(@"Unable to add the image!");
-        //    }
-        
-        [self presentViewController:facebookComposer animated:YES completion:nil];
+        // If the Facebook app is installed and we can present the share dialog
+        if ([FBDialogs canPresentShareDialogWithParams:params]) {
+            // Present share dialog
+            [FBDialogs presentShareDialogWithLink:params.link
+                                             name:params.name
+                                          caption:params.caption
+                                      description:params.description
+                                          picture:params.picture
+                                      clientState:nil
+                                          handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                              if(error) {
+                                                  // There was an error
+                                                  NSLog(@"%@",[NSString stringWithFormat:@"Error publishing story: %@", error.description]);
+                                              } else {
+                                                  // Success
+                                                  NSLog(@"result %@", results);
+                                              }
+                                          }
+             ];
+        } else {
+            
+        }
     }
     if ([buttonTitle isEqualToString:@"Twitter"])
     {

@@ -175,10 +175,10 @@
 {
     FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
     params.link = [NSURL URLWithString:[NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString]];
-    params.name = @"ZomBeacon Invite";
+    params.name = [NSString stringWithFormat:@"ZomBeacon Invite: %@, When: %@", self.gameNameString, self.gameDateString];
     params.caption = @"Come play ZomBeacon with me!";
     params.picture = [NSURL URLWithString:@"http://i.imgur.com/SadmerX.png"];
-    params.description = @"You've been invited to my private game of ZomBeacon.";
+    params.description = @"Come join my private game of ZomBeacon";
     
     // If the Facebook app is installed and we can present the share dialog
     if ([FBDialogs canPresentShareDialogWithParams:params]) {
@@ -200,9 +200,7 @@
                                       }
          ];
     } else {
-        // Fallback
-        // Learn more about available fallbacks in our sharing tutorial:
-        // https://developers.facebook.com/docs/ios/share/
+
     }
 }
 
