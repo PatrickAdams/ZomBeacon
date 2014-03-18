@@ -38,7 +38,7 @@
     
     //Provides indentation for the textfields
     for (UITextField * textField in self.textFieldSpacers) {
-        UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+        UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 7.5, 7.5)];
         [textField setLeftViewMode:UITextFieldViewModeAlways];
         [textField setLeftView:spacerView];
     }

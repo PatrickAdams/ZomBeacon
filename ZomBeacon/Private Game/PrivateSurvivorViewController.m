@@ -247,7 +247,7 @@
             [query2 whereKey:@"user" equalTo:userThatInfected];
             PFObject *theUserScore = [query2 getFirstObject];
             float score = [theUserScore[@"privateScore"] floatValue];
-            float points = 250.0f;
+            float points = 100.0f;
             NSNumber *sum = [NSNumber numberWithFloat:score + points];
             [theUserScore setObject:sum forKey:@"privateScore"];
             [theUserScore saveInBackground];
