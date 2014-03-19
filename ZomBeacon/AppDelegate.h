@@ -25,6 +25,8 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CBPeripheralManager *peripheralManager;
 @property (nonatomic, strong) CBPeripheral *thePeripheral;
+@property (nonatomic, strong) CBMutableCharacteristic *peripheralCharacteristic;
+@property (nonatomic, strong) CBMutableService *peripheralService;
 @property (nonatomic, strong) PFGeoPoint *point;
 @property (nonatomic, strong) NSTimer *locationTimer;
 @property (nonatomic, strong) NSTimer *queryEnemiesTimer;

@@ -68,12 +68,40 @@
         
         if ([userStatus isEqualToString:@"survivor"])
         {
-            [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]]}];
+            self.peripheralCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:@"23B1DEB4-5061-423A-A341-C5FFDB2CDE36"] properties:CBCharacteristicPropertyNotify|CBCharacteristicPropertyWrite|CBCharacteristicPropertyRead value:nil permissions:CBAttributePermissionsReadable|CBAttributePermissionsWriteable];
+            
+            self.peripheralService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"] primary:YES];
+            [self.peripheralService setCharacteristics:@[self.peripheralCharacteristic]];
+            
+            [self.peripheralManager addService:self.peripheralService];
         }
         else if ([userStatus isEqualToString:@"zombie"])
         {
-            [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"]]}];
+            self.peripheralCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:@"23B1DEB4-5061-423A-A341-C5FFDB2CDE36"] properties:CBCharacteristicPropertyNotify|CBCharacteristicPropertyWrite|CBCharacteristicPropertyRead value:nil permissions:CBAttributePermissionsReadable|CBAttributePermissionsWriteable];
+            
+            self.peripheralService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"] primary:YES];
+            [self.peripheralService setCharacteristics:@[self.peripheralCharacteristic]];
+            
+            [self.peripheralManager addService:self.peripheralService];
         }
+    }
+}
+
+- (void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error
+{
+    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+    
+    if (error)
+    {
+        NSLog(@"Error publishing service: %@", [error localizedDescription]);
+    }
+    else if ([userStatus isEqualToString:@"survivor"])
+    {
+        [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]]}];
+    }
+    else if ([userStatus isEqualToString:@"zombie"])
+    {
+        [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"]]}];
     }
 }
 
