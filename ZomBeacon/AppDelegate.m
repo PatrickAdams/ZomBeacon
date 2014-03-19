@@ -29,11 +29,95 @@
     [PFTwitterUtils initializeWithConsumerKey:@"4Oj2HtCnI9e8ALYhApmEyg"
                                consumerSecret:@"q0wXLhwm6qSdEiM1BmnPEcfYYJ36HbASJ62WENgEBo"];
     
-    //Bluetooth
+    //Bluetooth Central Manager
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-    [self centralManagerDidUpdateState:self.centralManager];
+    
+    //Bluetooth Peripheral Manager
+    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     
     return YES;
+}
+
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+{
+    NSLog(@"Discovered %@ with RSSI of %@", [[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0], RSSI);
+    
+    if (self.thePeripheral != peripheral)
+    {
+        self.thePeripheral = peripheral;
+        [self.centralManager connectPeripheral:peripheral options:nil];
+    }
+}
+
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
+{
+    NSLog(@"connected to peripheral: %@", peripheral);
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"PUBLIC GAME: There is an enemy nearby Open your map!";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    self.thePeripheral = nil;
+    NSLog(@"disconnected peripheral: %@", peripheral);
+}
+
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
+{
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
+    {
+        NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+        
+        if ([userStatus isEqualToString:@"survivor"])
+        {
+            CBUUID *peripheralUUID = [CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"];
+            NSDictionary *advertisment = @{CBAdvertisementDataServiceUUIDsKey:@[peripheralUUID]};
+            [self.peripheralManager startAdvertising:advertisment];
+        }
+        else if ([userStatus isEqualToString:@"zombie"])
+        {
+            CBUUID *peripheralUUID = [CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"];
+            NSDictionary *advertisment = @{CBAdvertisementDataServiceUUIDsKey:@[peripheralUUID]};
+            [self.peripheralManager startAdvertising:advertisment];
+        }
+        else
+        {
+            //Do nothing, the user is dead
+        }
+    }
+}
+
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central
+{
+    //Shows blue tooth warning view controller if bluetooth is not enabled
+    if (central.state == CBCentralManagerStatePoweredOff)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"bluetooth"];
+        [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
+    }
+    
+    if (central.state == CBCentralManagerStatePoweredOn)
+    {
+        [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+        
+        NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+        
+        if ([userStatus isEqualToString:@"survivor"])
+        {
+            [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"]] options:nil];
+        }
+        else if ([userStatus isEqualToString:@"zombie"])
+        {
+            [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]] options:nil];
+        }
+        else
+        {
+            //Do nothing, the user is dead
+        }
+    }
 }
 
 #pragma mark - Custom URL Implementation
@@ -229,23 +313,6 @@
     else
     {
         return;
-    }
-}
-
-#pragma mark - Bluetooth Check
-
-- (void)centralManagerDidUpdateState:(CBCentralManager *)central
-{
-    //Shows blue tooth warning view controller if bluetooth is not enabled
-    if (central.state == CBCentralManagerStatePoweredOff)
-    {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"bluetooth"];
-        [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
-    }
-    
-    if (central.state == CBCentralManagerStatePoweredOn) {
-        [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
     }
 }
 
