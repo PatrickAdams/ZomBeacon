@@ -18,6 +18,8 @@
 {
     self.currentUser = [PFUser currentUser];
     [super viewDidLoad];
+    
+    [self refreshList];
 	
     for (UILabel * label in self.titilliumSemiBoldFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
@@ -26,8 +28,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self refreshList];
-    
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }
@@ -44,10 +44,10 @@
     });
 }
 
-- (NSMutableArray *)getFriends
+- (NSArray *)getFriends
 {
-    self.myFriends = nil;
-    self.theScores  = [[NSMutableArray alloc] init];
+    self.myFriends = [[NSMutableArray alloc] init];
+    self.nameAndScoreArray = [[NSMutableArray alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Friendships"];
     [query whereKey:@"user" equalTo:self.currentUser];
@@ -64,10 +64,30 @@
         NSNumber *privateScore = theUserScore[@"privateScore"];
         NSNumber *scoreTotal = [NSNumber numberWithFloat:([publicScore floatValue] + [privateScore floatValue])];
         
-        [self.theScores addObject:scoreTotal];
+        PFObject *friendship = [self.myFriends objectAtIndex:i];
+        PFObject *friend = friendship[@"personFollowing"];
+        
+        NSLog(@"FRIENDSHIP %@ ------", friendship);
+        NSLog(@"FRIEND %@ -------", friend[@"objectId"]);
+        
+        NSMutableDictionary *friendDict = [[NSMutableDictionary alloc] init];
+        [friendDict setValue:friendship[@"personFollowing"] forKey:@"pointer"];
+        [friendDict setValue:scoreTotal forKey:@"score"];
+        [friendDict setValue:friend[@"name"] forKey:@"name"];
+        [friendDict setValue:friend[@"username"] forKey:@"username"];
+        [friendDict setValue:friend[@"bio"] forKey:@"bio"];
+        
+        [self.nameAndScoreArray addObject:friendDict];
     }
     
-    return self.myFriends;
+    NSSortDescriptor *sortDescriptorScore = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
+    NSArray *descriptors = [NSArray arrayWithObjects:sortDescriptorScore, nil];
+    
+    self.friendsArray =[self.nameAndScoreArray sortedArrayUsingDescriptors:descriptors];
+    
+    NSLog(@"%@", self.friendsArray);
+    
+    return self.friendsArray;
 }
 
 
@@ -75,22 +95,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.myFriends.count;
+    return self.friendsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"userCell";
     UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    PFObject *friendship = self.myFriends[indexPath.row];
-    PFObject *friend = friendship[@"personFollowing"];
-    cell.nameLabel.text = friend[@"name"];
-    NSString *theScore = [NSString stringWithFormat:@"%@ pts", [[self.theScores objectAtIndex:[indexPath row]] stringValue]];
+
+    NSObject *friend = [self.friendsArray objectAtIndex:[indexPath row]];
+    cell.nameLabel.text = [friend valueForKey:@"name"];
+    NSString *theScore = [NSString stringWithFormat:@"%@ pts", [[friend valueForKey:@"score"] stringValue]];
     cell.scoreLabel.text = theScore;
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    [query whereKey:@"user" equalTo:friend];
+    [query whereKey:@"user" equalTo:[friend valueForKey:@"pointer"]];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         PFFile *file = object[@"imageFile"];
         cell.profileImage.file = file;
@@ -106,12 +125,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FriendProfileViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friendprofile"];
     
-    PFObject *friendship = self.myFriends[indexPath.row];
-    PFObject *friend = friendship[@"personFollowing"];
-    vc.realNameString = friend[@"name"];
-    vc.userNameString = friend[@"username"];
-    vc.shortBioString = friend[@"bio"];
-    vc.myFriend = (PFUser *)friend;
+    NSObject *friend = [self.friendsArray objectAtIndex:[indexPath row]];
+
+    vc.realNameString = [friend valueForKey:@"name"];
+    vc.userNameString = [friend valueForKey:@"username"];
+    vc.shortBioString = [friend valueForKey:@"bio"];
+    vc.myFriend = [friend valueForKey:@"pointer"];
     
     [self.navigationController pushViewController:vc animated:YES];
 }
