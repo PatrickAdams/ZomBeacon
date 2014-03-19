@@ -45,14 +45,17 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
-    [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
-    
     //GameCenter user authentication
     [self authenticateLocalUser];
     
     [self refreshImage];
     [self setProfileValues];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }
 
 - (void)refreshList

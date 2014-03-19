@@ -26,7 +26,7 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
@@ -67,9 +67,6 @@
         PFObject *friendship = [self.myFriends objectAtIndex:i];
         PFObject *friend = friendship[@"personFollowing"];
         
-        NSLog(@"FRIENDSHIP %@ ------", friendship);
-        NSLog(@"FRIEND %@ -------", friend[@"objectId"]);
-        
         NSMutableDictionary *friendDict = [[NSMutableDictionary alloc] init];
         [friendDict setValue:friendship[@"personFollowing"] forKey:@"pointer"];
         [friendDict setValue:scoreTotal forKey:@"score"];
@@ -84,8 +81,6 @@
     NSArray *descriptors = [NSArray arrayWithObjects:sortDescriptorScore, nil];
     
     self.friendsArray =[self.nameAndScoreArray sortedArrayUsingDescriptors:descriptors];
-    
-    NSLog(@"%@", self.friendsArray);
     
     return self.friendsArray;
 }

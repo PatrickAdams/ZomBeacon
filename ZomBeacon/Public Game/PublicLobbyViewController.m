@@ -32,7 +32,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self refreshList];
-    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }

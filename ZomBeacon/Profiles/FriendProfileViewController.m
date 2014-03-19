@@ -24,6 +24,7 @@
     self.profileImage.layer.borderColor = [[UIColor colorWithRed:1 green:0.74 blue:0.27 alpha:1] CGColor];
     
     [self refreshImage];
+    
     [super viewDidLoad];
     
     [self refreshList];
@@ -68,10 +69,12 @@
     }];
 }
 
--(void)viewDidAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [self refreshImage];
-    
+}
+ - (void)viewDidDisappear:(BOOL)animated
+{
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }
