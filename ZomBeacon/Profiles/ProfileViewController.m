@@ -28,6 +28,8 @@
     [self refreshImage];
     [super viewDidLoad];
     
+    [self refreshList];
+    
     [self setProfileValues];
     
     for (UILabel * label in self.titilliumSemiBoldFonts) {
@@ -49,7 +51,6 @@
     //GameCenter user authentication
     [self authenticateLocalUser];
     
-    [self refreshList];
     [self refreshImage];
     [self setProfileValues];
 }

@@ -25,6 +25,9 @@
     
     [self refreshImage];
     [super viewDidLoad];
+    
+    [self refreshList];
+    
     self.realName.text = self.realNameString;
     self.userName.text = self.userNameString;
     self.shortBio.text = self.shortBioString;
@@ -67,7 +70,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self refreshList];
     [self refreshImage];
     
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
