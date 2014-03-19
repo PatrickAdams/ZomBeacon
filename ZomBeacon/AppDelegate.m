@@ -40,28 +40,24 @@
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
-    NSLog(@"Discovered %@ with RSSI of %@", [[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0], RSSI);
+    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
     
-    if (self.thePeripheral != peripheral)
+    if ([userStatus isEqualToString:@"zombie"])
     {
         self.thePeripheral = peripheral;
-        [self.centralManager connectPeripheral:peripheral options:nil];
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"PUBLIC GAME: A survivor is nearby, bite them!";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
-}
-
-- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
-{
-    NSLog(@"connected to peripheral: %@", peripheral);
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"PUBLIC GAME: There is an enemy nearby Open your map!";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-}
-
-- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
-{
-    self.thePeripheral = nil;
-    NSLog(@"disconnected peripheral: %@", peripheral);
+    else if ([userStatus isEqualToString:@"survivor"])
+    {
+        self.thePeripheral = peripheral;
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"PUBLIC GAME: A zombie is nearby, headshot them!";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 }
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
@@ -72,19 +68,11 @@
         
         if ([userStatus isEqualToString:@"survivor"])
         {
-            CBUUID *peripheralUUID = [CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"];
-            NSDictionary *advertisment = @{CBAdvertisementDataServiceUUIDsKey:@[peripheralUUID]};
-            [self.peripheralManager startAdvertising:advertisment];
+            [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]]}];
         }
         else if ([userStatus isEqualToString:@"zombie"])
         {
-            CBUUID *peripheralUUID = [CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"];
-            NSDictionary *advertisment = @{CBAdvertisementDataServiceUUIDsKey:@[peripheralUUID]};
-            [self.peripheralManager startAdvertising:advertisment];
-        }
-        else
-        {
-            //Do nothing, the user is dead
+            [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"]]}];
         }
     }
 }
@@ -112,10 +100,6 @@
         else if ([userStatus isEqualToString:@"zombie"])
         {
             [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]] options:nil];
-        }
-        else
-        {
-            //Do nothing, the user is dead
         }
     }
 }
