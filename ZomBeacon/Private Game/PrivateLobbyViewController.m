@@ -457,18 +457,19 @@
             }
         };
         
-        [tweetComposer setInitialText:@"You've been invited to a game of ZomBeacon, click the link to join! #ZomBeacon"];
-        [tweetComposer addURL:[NSURL URLWithString:[NSString stringWithFormat:@"ZomBeacon://?invite=%@", self.gameIdString]]];
+        [tweetComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #ZomBeacon", self.gameIdString]];
+        [tweetComposer addURL:[NSURL URLWithString:@"http://bit.ly/zombeacon"]];
         
         [self presentViewController:tweetComposer animated:YES completion:nil];
-        
     }
 }
 
-- (NSDictionary*)parseURLParams:(NSString *)query {
+- (NSDictionary*)parseURLParams:(NSString *)query
+{
     NSArray *pairs = [query componentsSeparatedByString:@"&"];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    for (NSString *pair in pairs) {
+    for (NSString *pair in pairs)
+    {
         NSArray *kv = [pair componentsSeparatedByString:@"="];
         NSString *val =
         [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

@@ -474,6 +474,8 @@
 				E705AA2018AE739000CFE7B6 /* PublicSurvivorViewController.m */,
 				E705AA2118AE739000CFE7B6 /* PublicZombieViewController.h */,
 				E705AA2218AE739000CFE7B6 /* PublicZombieViewController.m */,
+				E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */,
+				E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */,
 			);
 			name = "Public Game";
 			sourceTree = "<group>";
@@ -538,8 +540,6 @@
 				E705AA1318AE735600CFE7B6 /* FindGameViewController.m */,
 				E705AA1418AE735600CFE7B6 /* GameDetailsViewController.h */,
 				E705AA1518AE735600CFE7B6 /* GameDetailsViewController.m */,
-				E70028BF18BBE4AA00036E1B /* PublicDeadViewController.h */,
-				E70028C018BBE4AA00036E1B /* PublicDeadViewController.m */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
