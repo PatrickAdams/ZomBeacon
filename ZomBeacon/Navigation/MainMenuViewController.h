@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 #import "LoginViewController.h"
 
-@interface MainMenuViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate>
+@interface MainMenuViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
 {
     PFUser *currentUser;
 }
@@ -26,7 +26,5 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 - (IBAction)startPublicGame;
-- (IBAction)inviteFriends;
-//- (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime;
 
 @end

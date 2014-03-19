@@ -401,8 +401,45 @@
                                               }
                                           }
              ];
-        } else {
+        }
+        else
+        {
+            // Put together the dialog parameters
+            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                           [NSString stringWithFormat:@"ZomBeacon Invite: %@, When: %@", self.gameNameString, self.gameDateString], @"name",
+                                           @"Come join my private game of ZomBeacon", @"description",
+                                           [NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString], @"link",
+                                           @"http://i.imgur.com/SadmerX.png", @"picture",
+                                           nil];
             
+            // Show the feed dialog
+            [FBWebDialogs presentFeedDialogModallyWithSession:nil parameters:params handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+                if (error)
+                {
+                    NSLog(@"%@",[NSString stringWithFormat:@"Error publishing story: %@", error.description]);
+                }
+                else
+                {
+                    if (result == FBWebDialogResultDialogNotCompleted)
+                    {
+                        NSLog(@"User cancelled.");
+                    }
+                    else
+                    {
+                        NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                        
+                        if (![urlParams valueForKey:@"post_id"])
+                        {
+                            NSLog(@"User cancelled.");
+                        }
+                        else
+                        {
+                            NSString *result = [NSString stringWithFormat: @"Posted story, id: %@", [urlParams valueForKey:@"post_id"]];
+                            NSLog(@"result %@", result);
+                        }
+                    }
+                }
+            }];
         }
     }
     if ([buttonTitle isEqualToString:@"Twitter"])
@@ -423,13 +460,21 @@
         [tweetComposer setInitialText:@"You've been invited to a game of ZomBeacon, click the link to join! #ZomBeacon"];
         [tweetComposer addURL:[NSURL URLWithString:[NSString stringWithFormat:@"ZomBeacon://?invite=%@", self.gameIdString]]];
         
-        //    if (![tweetComposer addImage:[UIImage imageNamed:@"app_icon.png"]]) {
-        //        NSLog(@"Unable to add the image!");
-        //    }
-        
         [self presentViewController:tweetComposer animated:YES completion:nil];
         
     }
+}
+
+- (NSDictionary*)parseURLParams:(NSString *)query {
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val =
+        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        params[kv[0]] = val;
+    }
+    return params;
 }
 
 // Displays an email composition interface inside the application. Populates all the Mail fields.

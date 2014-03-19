@@ -155,6 +155,9 @@
                         <outletCollection property="titilliumSemiBoldFonts" destination="rUw-3i-mEF" id="wiW-0o-qTh"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="OqK-vS-Dgy" id="8PJ-E0-m2R"/>
                         <outletCollection property="titilliumRegularFonts" destination="xpt-qT-jRZ" id="mYy-pq-s7W"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="NrO-eV-fPb" id="ncH-rD-MoW"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="YaU-9l-XeJ" id="fFe-G7-wQz"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="L4Y-fM-JOz" id="1WW-xR-t6Y"/>
                         <segue destination="ma0-pm-TZg" kind="modal" identifier="endGamePrivateZombie" id="IYc-0s-nDh"/>
                         <segue destination="9s2-k5-xEA" kind="push" identifier="privateDead" id="cd9-h2-hA0"/>
                     </connections>
@@ -291,6 +294,9 @@
                         <outlet property="mapView" destination="6wc-Qr-BpL" id="lVi-I7-56f"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="LQw-Rq-3ST" id="vCN-gn-inJ"/>
                         <outletCollection property="titilliumRegularFonts" destination="HG9-s2-Fac" id="Ju4-rt-8Q7"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="T5t-B7-A4U" id="Elj-bP-ofe"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="pbk-5r-dgW" id="u9C-xn-m09"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="8Dy-Qy-2g4" id="Fqy-4u-tjg"/>
                         <segue destination="5w5-oG-fwH" kind="push" identifier="publicSurvivor" id="rQe-am-agg"/>
                         <segue destination="brW-n8-4WY" kind="modal" identifier="publicDead" id="p62-S6-Ehq"/>
                     </connections>
@@ -436,6 +442,9 @@
                         <outletCollection property="titilliumSemiBoldFonts" destination="SLW-rs-0oC" id="pPs-qw-Tf8"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="dbS-uV-w7V" id="DsU-Ry-MOj"/>
                         <outletCollection property="titilliumRegularFonts" destination="Gly-eV-QQb" id="4e9-6w-jOL"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="wTP-tn-Me1" id="d3W-id-JSe"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="ihm-Ix-g3O" id="qjL-Hb-ThG"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="KI2-Aw-srf" id="kyG-st-Lpd"/>
                         <segue destination="ma0-pm-TZg" kind="modal" identifier="endGamePrivateDead" id="Qrh-1m-sYU"/>
                     </connections>
                 </viewController>
@@ -1750,7 +1759,7 @@
                     <navigationItem key="navigationItem" title="MAIN" id="LPh-lr-fUw">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="UV2-6i-tU7">
                             <connections>
-                                <action selector="inviteFriends" destination="NGH-f2-ute" id="UpT-bQ-DLg"/>
+                                <action selector="showShareActionSheet" destination="NGH-f2-ute" id="ER7-2d-gHP"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="profile.png" id="Dzc-p5-2Og">
@@ -2869,10 +2878,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Qrh-1m-sYU"/>
         <segue reference="kx5-jM-uCj"/>
         <segue reference="PsZ-ht-oAZ"/>
         <segue reference="CM6-mk-yUd"/>
         <segue reference="xhs-QU-DpM"/>
+        <segue reference="Qrh-1m-sYU"/>
     </inferredMetricsTieBreakers>
 </document>
