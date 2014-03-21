@@ -29,9 +29,6 @@
     [PFTwitterUtils initializeWithConsumerKey:@"4Oj2HtCnI9e8ALYhApmEyg"
                                consumerSecret:@"q0wXLhwm6qSdEiM1BmnPEcfYYJ36HbASJ62WENgEBo"];
     
-    //Bluetooth Central Manager
-    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-    
     //Bluetooth Peripheral Manager
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     
@@ -67,40 +64,12 @@
         
         if ([userStatus isEqualToString:@"survivor"])
         {
-            self.peripheralCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:@"23B1DEB4-5061-423A-A341-C5FFDB2CDE36"] properties:CBCharacteristicPropertyNotify|CBCharacteristicPropertyWrite|CBCharacteristicPropertyRead value:nil permissions:CBAttributePermissionsReadable|CBAttributePermissionsWriteable];
-            
-            self.peripheralService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"] primary:YES];
-            [self.peripheralService setCharacteristics:@[self.peripheralCharacteristic]];
-            
-            [self.peripheralManager addService:self.peripheralService];
+            [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]]}];
         }
         else if ([userStatus isEqualToString:@"zombie"])
         {
-            self.peripheralCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:@"23B1DEB4-5061-423A-A341-C5FFDB2CDE36"] properties:CBCharacteristicPropertyNotify|CBCharacteristicPropertyWrite|CBCharacteristicPropertyRead value:nil permissions:CBAttributePermissionsReadable|CBAttributePermissionsWriteable];
-            
-            self.peripheralService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"] primary:YES];
-            [self.peripheralService setCharacteristics:@[self.peripheralCharacteristic]];
-            
-            [self.peripheralManager addService:self.peripheralService];
+            [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"]]}];
         }
-    }
-}
-
-- (void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error
-{
-    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
-    
-    if (error)
-    {
-        NSLog(@"Error publishing service: %@", [error localizedDescription]);
-    }
-    else if ([userStatus isEqualToString:@"survivor"])
-    {
-        [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]]}];
-    }
-    else if ([userStatus isEqualToString:@"zombie"])
-    {
-        [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"]]}];
     }
 }
 
@@ -281,6 +250,9 @@
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = 1.3f;
     [self.locationManager startUpdatingLocation];
+    
+    //Bluetooth Central Manager
+    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
