@@ -32,12 +32,35 @@
     //Bluetooth Peripheral Manager
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     
+    //Proximity Kit
+    self.proximityKitManager = [PKManager managerWithDelegate:self];
+    [self.proximityKitManager start];
+    
     return YES;
 }
 
+#pragma mark - ProximityKit delegate methods
+
+- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
+{
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Entered a safe zone!";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
+{
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Exited a safe zone!";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+#pragma mark - Core Bluetooth
+
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
-    NSLog(@"%@", peripheral);
     NSString *userStatus = [PFUser currentUser][@"publicStatus"];
     
     if ([userStatus isEqualToString:@"zombie"])

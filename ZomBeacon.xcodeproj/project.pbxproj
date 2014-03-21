@@ -59,8 +59,8 @@
 		E705AA3B18AE740200CFE7B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E705AA3A18AE740200CFE7B6 /* FacebookSDK.framework */; };
 		E705AA3E18AE741000CFE7B6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3D18AE741000CFE7B6 /* MBProgressHUD.m */; };
 		E705AA4318AE744500CFE7B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E705AA3F18AE744500CFE7B6 /* main.m */; };
-		E705C71C18BCDD1400CFA0CD /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E705C71B18BCDD1400CFA0CD /* ProximityKit.plist */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
+		E74E5DB018DCD79900DE7245 /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E74E5DAF18DCD79900DE7245 /* ProximityKit.plist */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
 		E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4881858BF15004E8874 /* UIKit.framework */; };
@@ -209,8 +209,8 @@
 		E705AA4118AE744500CFE7B6 /* ZomBeacon-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ZomBeacon-Info.plist"; path = "Supporting Files/ZomBeacon-Info.plist"; sourceTree = "<group>"; };
 		E705AA4218AE744500CFE7B6 /* ZomBeacon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ZomBeacon-Prefix.pch"; path = "Supporting Files/ZomBeacon-Prefix.pch"; sourceTree = "<group>"; };
 		E705AA4618AE74A100CFE7B6 /* ZomBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E705C71B18BCDD1400CFA0CD /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProximityKit.plist; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E74E5DAF18DCD79900DE7245 /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProximityKit.plist; sourceTree = "<group>"; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E751E4881858BF15004E8874 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -502,8 +502,8 @@
 				E7D596A518B7CC4100E8844E /* Fonts */,
 				E7446985185B81E9007F6817 /* Images */,
 				E74E2D0C18898FCA0080D5A3 /* MBProgressHUD */,
+				E74E5DAF18DCD79900DE7245 /* ProximityKit.plist */,
 				E705AA3F18AE744500CFE7B6 /* main.m */,
-				E705C71B18BCDD1400CFA0CD /* ProximityKit.plist */,
 				E705AA4118AE744500CFE7B6 /* ZomBeacon-Info.plist */,
 				E705AA4218AE744500CFE7B6 /* ZomBeacon-Prefix.pch */,
 				E751E48D1858BF15004E8874 /* InfoPlist.strings */,
@@ -748,8 +748,8 @@
 				CD6BF19018C8E2F7006CC73F /* zombiehead.png in Resources */,
 				E7AB10E118C4F59F00A54850 /* bite_button@2x.png in Resources */,
 				E7DE4A0018DCB9340007F9E1 /* uv_heart.png in Resources */,
-				E705C71C18BCDD1400CFA0CD /* ProximityKit.plist in Resources */,
 				CD6FA4E518C7BA4500510581 /* splash_long_yellow.png in Resources */,
+				E74E5DB018DCD79900DE7245 /* ProximityKit.plist in Resources */,
 				E7F9C0AC18C12B240023D10F /* logout_button@2x.png in Resources */,
 				E786A2B618C0F19800942576 /* login_button@2x.png in Resources */,
 				CD6BF18E18C8E067006CC73F /* rejoingame_button@2x.png in Resources */,
