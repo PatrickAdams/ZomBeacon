@@ -222,9 +222,9 @@
         HUD.labelFont = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:20.0f];
         HUD.labelText = @"GAME STARTS IN";
         HUD.detailsLabelFont = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:40.0f];
-        HUD.detailsLabelText = @"00:20";
+        HUD.detailsLabelText = @"00:30";
         
-        secondsLeft = 20;
+        secondsLeft = 30;
         
         [self countdownTimer];
     }

@@ -114,6 +114,7 @@
 		E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */; };
 		E7C8653F18B6594F00D80BD1 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */; };
 		E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */; };
+		E7DE48BE18DCB2F80007F9E1 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE48BD18DCB2F80007F9E1 /* AboutViewController.m */; };
 		E7EBC23318B66007005D8AA6 /* ProximityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EBC23218B66007005D8AA6 /* ProximityKit.framework */; };
 		E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF88918A12CF400DEE521 /* GameKit.framework */; };
 		E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF89718A136E900DEE521 /* Social.framework */; };
@@ -260,6 +261,8 @@
 		E7C8653C18B6594F00D80BD1 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = Profiles/ProfileViewController.h; sourceTree = "<group>"; };
 		E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Profiles/ProfileViewController.m; sourceTree = "<group>"; };
 		E7C8654118B659DC00D80BD1 /* Pods.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = "<group>"; };
+		E7DE48BC18DCB2F80007F9E1 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Navigation/AboutViewController.h; sourceTree = "<group>"; };
+		E7DE48BD18DCB2F80007F9E1 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Navigation/AboutViewController.m; sourceTree = "<group>"; };
 		E7EBC23218B66007005D8AA6 /* ProximityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProximityKit.framework; path = ZomBeacon/Frameworks/ProximityKit.framework; sourceTree = "<group>"; };
 		E7EFF88918A12CF400DEE521 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E7EFF89718A136E900DEE521 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -532,6 +535,8 @@
 			children = (
 				E705AA1618AE735600CFE7B6 /* MainMenuViewController.h */,
 				E705AA1718AE735600CFE7B6 /* MainMenuViewController.m */,
+				E7DE48BC18DCB2F80007F9E1 /* AboutViewController.h */,
+				E7DE48BD18DCB2F80007F9E1 /* AboutViewController.m */,
 				E705AA1018AE735600CFE7B6 /* CreateViewController.h */,
 				E705AA1118AE735600CFE7B6 /* CreateViewController.m */,
 				E705AA0E18AE735600CFE7B6 /* CreatedViewController.h */,
@@ -701,6 +706,7 @@
 				E705AA2D18AE739900CFE7B6 /* PrivateSurvivorViewController.m in Sources */,
 				E705AA2418AE739000CFE7B6 /* PublicSurvivorViewController.m in Sources */,
 				E7F9C0AF18C194DE0023D10F /* BluetoothViewController.m in Sources */,
+				E7DE48BE18DCB2F80007F9E1 /* AboutViewController.m in Sources */,
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
 				E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */,
 				E705AA0218AE72DA00CFE7B6 /* LoginViewController.m in Sources */,
