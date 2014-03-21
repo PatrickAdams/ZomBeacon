@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 #import "LoginViewController.h"
 
-@interface MainMenuViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
+@interface MainMenuViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 {
     PFUser *currentUser;
 }
