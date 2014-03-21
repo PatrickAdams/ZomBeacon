@@ -16,13 +16,13 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     currentUser = [PFUser currentUser];
     
-    self.navigationItem.hidesBackButton = YES;
-    
-    self.mapView.delegate = self;
     [self queryNearbyUsers];
+    [super viewDidLoad];
+    
+    self.navigationItem.hidesBackButton = YES;
+    self.mapView.delegate = self;
     
     //MapView Stuff
     self.locationManager = [[CLLocationManager alloc] init];
@@ -193,7 +193,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon *beacon = [beacons firstObject];
+    CLBeacon *beacon = [beacons lastObject];
         
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
@@ -215,7 +215,7 @@
         
         // present local notification
         UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = [NSString stringWithFormat:@"You just got headshotted by %@!", userThatInfected.username];
+        notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You just got headshotted by %@!", userThatInfected.username];
         notification.soundName = UILocalNotificationDefaultSoundName;
         [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         

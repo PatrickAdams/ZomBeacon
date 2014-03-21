@@ -40,11 +40,11 @@
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
+    NSLog(@"%@", peripheral);
     NSString *userStatus = [PFUser currentUser][@"publicStatus"];
     
     if ([userStatus isEqualToString:@"zombie"])
     {
-        self.thePeripheral = peripheral;
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.alertBody = @"PUBLIC GAME: A survivor is nearby, bite them!";
         notification.soundName = UILocalNotificationDefaultSoundName;
@@ -52,7 +52,6 @@
     }
     else if ([userStatus isEqualToString:@"survivor"])
     {
-        self.thePeripheral = peripheral;
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         notification.alertBody = @"PUBLIC GAME: A zombie is nearby, headshot them!";
         notification.soundName = UILocalNotificationDefaultSoundName;
@@ -233,7 +232,6 @@
     return YES;
 }
 
-
 - (NSDictionary *)parseQueryString:(NSString *)query {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:6];
     NSArray *pairs = [query componentsSeparatedByString:@"&"];
@@ -263,7 +261,6 @@
     return dict;
 }
 
-
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
@@ -279,9 +276,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    notified1 = NO;
-    notifiedMore = NO;
-    
     //Starts location manager to track user location in the background
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;

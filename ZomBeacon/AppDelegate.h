@@ -14,11 +14,7 @@
 #import "FindGameViewController.h"
 #import "MainMenuViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, CBPeripheralManagerDelegate>
-{
-    BOOL notified1;
-    BOOL notifiedMore;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, CBPeripheralManagerDelegate, CBPeripheralDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) CBCentralManager *centralManager;
@@ -30,5 +26,6 @@
 @property (nonatomic, strong) PFGeoPoint *point;
 @property (nonatomic, strong) NSTimer *locationTimer;
 @property (nonatomic, strong) NSTimer *queryEnemiesTimer;
+@property (nonatomic, strong) NSMutableArray *peripheralsArray;
 
 @end

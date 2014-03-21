@@ -13,20 +13,17 @@
 @end
 
 @implementation PublicSurvivorViewController
-{
-    int minutes, seconds;
-    int secondsLeft;
-}
 
 - (void)viewDidLoad
 {
-    currentUser = [PFUser currentUser];
-    
-    [self queryNearbyUsers];
     [super viewDidLoad];
+    
+    currentUser = [PFUser currentUser];
     
     self.mapView.delegate = self;
     self.navigationItem.hidesBackButton = YES;
+    
+    [self queryNearbyUsers];
     
     //Beacon & MapView stuff
     self.locationManager = [[CLLocationManager alloc] init];
@@ -72,7 +69,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
@@ -202,36 +198,42 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon *beacon = [beacons firstObject];
+    CLBeacon *beacon = [beacons lastObject];
     
-    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+    if (beacon != nil)
     {
-        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-        [self performSegueWithIdentifier:@"publicZombie" sender:self];
+        [manager stopRangingBeaconsInRegion:region];
         
-        PFQuery *userQuery = [PFUser query];
-        [userQuery whereKey:@"minor" equalTo:beacon.minor];
-        [userQuery whereKey:@"major" equalTo:beacon.major];
-        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+        if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+        {
+            [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+            [self performSegueWithIdentifier:@"publicZombie" sender:self];
+            
+            PFQuery *userQuery = [PFUser query];
+            [userQuery whereKey:@"minor" equalTo:beacon.minor];
+            [userQuery whereKey:@"major" equalTo:beacon.major];
+            PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+            
+            //Presents the local notification
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            
+            [currentUser setObject:@"zombie" forKey:@"publicStatus"];
+            [currentUser saveInBackground];
+            
+            //Adds 250 pts to the user's publicScore for a bite
+            PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
+            [query whereKey:@"user" equalTo:userThatInfected];
+            PFObject *theUserScore = [query getFirstObject];
+            float score = [theUserScore[@"publicScore"] floatValue];
+            float points = 250.0f;
+            NSNumber *sum = [NSNumber numberWithFloat:score + points];
+            [theUserScore setObject:sum forKey:@"publicScore"];
+            [theUserScore saveInBackground];
+        }
         
-        //Presents the local notification
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-        
-        [currentUser setObject:@"zombie" forKey:@"publicStatus"];
-        [currentUser saveInBackground];
-        
-        //Adds 250 pts to the user's publicScore for a bite
-        PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
-        [query whereKey:@"user" equalTo:userThatInfected];
-        PFObject *theUserScore = [query getFirstObject];
-        float score = [theUserScore[@"publicScore"] floatValue];
-        float points = 250.0f;
-        NSNumber *sum = [NSNumber numberWithFloat:score + points];
-        [theUserScore setObject:sum forKey:@"publicScore"];
-        [theUserScore saveInBackground];
     }
 }
 
