@@ -52,6 +52,7 @@
     }
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Home" style: UIBarButtonItemStyleBordered target:self action:@selector(backHome)];
+    
     self.navigationItem.leftBarButtonItem = backButton;
 }
 

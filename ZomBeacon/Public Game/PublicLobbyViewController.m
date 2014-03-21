@@ -15,7 +15,7 @@
 @implementation PublicLobbyViewController
 
 - (void)viewDidLoad
-{    
+{
     [super viewDidLoad];
     
     currentUser = [PFUser currentUser];
@@ -27,6 +27,8 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated

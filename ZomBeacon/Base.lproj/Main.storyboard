@@ -2542,10 +2542,10 @@
             </objects>
             <point key="canvasLocation" x="2171" y="-499"/>
         </scene>
-        <!--Public Lobby View Controller - Public Lobby-->
+        <!--Public Lobby View Controller - PUBLIC LOBBY-->
         <scene sceneID="c18-Og-QJX">
             <objects>
-                <viewController storyboardIdentifier="publicLobby" title="Public Lobby" id="Zzc-PN-9nm" customClass="PublicLobbyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="publicLobby" id="Zzc-PN-9nm" customClass="PublicLobbyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rB4-om-EBF">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2664,7 +2664,9 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="PUBLIC LOBBY" id="3lh-jw-lwf"/>
+                    <navigationItem key="navigationItem" title="PUBLIC LOBBY" id="3lh-jw-lwf">
+                        <barButtonItem key="backBarButtonItem" title="fasfasfas" id="6tP-AO-J4Z"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="er8-bw-UCx" id="3Jp-zK-2Bw"/>
@@ -2682,10 +2684,10 @@
             </objects>
             <point key="canvasLocation" x="3653" y="649"/>
         </scene>
-        <!--Private Lobby View Controller - Private Lobby-->
+        <!--Private Lobby View Controller - PRIVATE LOBBY-->
         <scene sceneID="c0x-kO-imF">
             <objects>
-                <viewController storyboardIdentifier="privateLobby" title="Private Lobby" id="tVY-1o-Iu1" customClass="PrivateLobbyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="privateLobby" id="tVY-1o-Iu1" customClass="PrivateLobbyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dm-gw-x1o">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2936,10 +2938,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nKY-JK-UEu"/>
-        <segue reference="PsZ-ht-oAZ"/>
-        <segue reference="CM6-mk-yUd"/>
-        <segue reference="xhs-QU-DpM"/>
-        <segue reference="Qrh-1m-sYU"/>
+        <segue reference="uzd-0d-SvP"/>
+        <segue reference="rQe-am-agg"/>
+        <segue reference="dNx-FP-4rN"/>
+        <segue reference="2tQ-oh-ysy"/>
+        <segue reference="kx5-jM-uCj"/>
     </inferredMetricsTieBreakers>
 </document>
