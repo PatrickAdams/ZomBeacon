@@ -38,6 +38,11 @@
 		E7023DCE18E0615B003FA5F4 /* uv_heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7023DC318E0615B003FA5F4 /* uv_heart@2x.png */; };
 		E7023DCF18E0615B003FA5F4 /* uv_idea.png in Resources */ = {isa = PBXBuildFile; fileRef = E7023DC418E0615B003FA5F4 /* uv_idea.png */; };
 		E7023DD018E0615B003FA5F4 /* uv_idea@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7023DC518E0615B003FA5F4 /* uv_idea@2x.png */; };
+		E7023DD218E0818F003FA5F4 /* send_message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7023DD118E0818F003FA5F4 /* send_message@2x.png */; };
+		E7023DD418E081E9003FA5F4 /* share_app_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7023DD318E081E9003FA5F4 /* share_app_button@2x.png */; };
+		E7023DD618E085B2003FA5F4 /* share_ideas_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7023DD518E085B2003FA5F4 /* share_ideas_button@2x.png */; };
+		E7023DD818E08624003FA5F4 /* help_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7023DD718E08624003FA5F4 /* help_button@2x.png */; };
+		E7023DDE18E0886D003FA5F4 /* weblinc_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7023DDD18E0886D003FA5F4 /* weblinc_logo@2x.png */; };
 		E703935918C51724005B0E84 /* share_twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E703935818C51724005B0E84 /* share_twitter@2x.png */; };
 		E703935B18C5177C005B0E84 /* share_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E703935A18C5177C005B0E84 /* share_email@2x.png */; };
 		E703935D18C517CF005B0E84 /* share_facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E703935C18C517CF005B0E84 /* share_facebook@2x.png */; };
@@ -203,6 +208,11 @@
 		E7023DC618E0615B003FA5F4 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/UserVoice.strings; sourceTree = "<group>"; };
 		E7023DC718E0615B003FA5F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UserVoice.strings"; sourceTree = "<group>"; };
 		E7023DC818E0615B003FA5F4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/UserVoice.strings"; sourceTree = "<group>"; };
+		E7023DD118E0818F003FA5F4 /* send_message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "send_message@2x.png"; path = "Images/send_message@2x.png"; sourceTree = "<group>"; };
+		E7023DD318E081E9003FA5F4 /* share_app_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_app_button@2x.png"; path = "Images/share_app_button@2x.png"; sourceTree = "<group>"; };
+		E7023DD518E085B2003FA5F4 /* share_ideas_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_ideas_button@2x.png"; path = "Images/share_ideas_button@2x.png"; sourceTree = "<group>"; };
+		E7023DD718E08624003FA5F4 /* help_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "help_button@2x.png"; path = "Images/help_button@2x.png"; sourceTree = "<group>"; };
+		E7023DDD18E0886D003FA5F4 /* weblinc_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "weblinc_logo@2x.png"; path = "Images/weblinc_logo@2x.png"; sourceTree = "<group>"; };
 		E703935818C51724005B0E84 /* share_twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_twitter@2x.png"; path = "Images/share_twitter@2x.png"; sourceTree = "<group>"; };
 		E703935A18C5177C005B0E84 /* share_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_email@2x.png"; path = "Images/share_email@2x.png"; sourceTree = "<group>"; };
 		E703935C18C517CF005B0E84 /* share_facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_facebook@2x.png"; path = "Images/share_facebook@2x.png"; sourceTree = "<group>"; };
@@ -394,6 +404,11 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E7023DDD18E0886D003FA5F4 /* weblinc_logo@2x.png */,
+				E7023DD718E08624003FA5F4 /* help_button@2x.png */,
+				E7023DD518E085B2003FA5F4 /* share_ideas_button@2x.png */,
+				E7023DD318E081E9003FA5F4 /* share_app_button@2x.png */,
+				E7023DD118E0818F003FA5F4 /* send_message@2x.png */,
 				E7B0380E18DCE048003FB291 /* contact@2x.png */,
 				E7B037CD18DCDE2D003FB291 /* follow_button@2x.png */,
 				CD6BF18F18C8E2F7006CC73F /* zombiehead.png */,
@@ -760,6 +775,7 @@
 				E7F9C0AC18C12B240023D10F /* logout_button@2x.png in Resources */,
 				E786A2B618C0F19800942576 /* login_button@2x.png in Resources */,
 				CD6BF18E18C8E067006CC73F /* rejoingame_button@2x.png in Resources */,
+				E7023DD818E08624003FA5F4 /* help_button@2x.png in Resources */,
 				E705A9EA18AE728700CFE7B6 /* Default-568h@2x.png in Resources */,
 				E786A2BC18C0F74F00942576 /* creategame_button@2x.png in Resources */,
 				E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */,
@@ -791,11 +807,13 @@
 				E705A9F318AE728700CFE7B6 /* locate@2x.png in Resources */,
 				E705A9F518AE728700CFE7B6 /* profile@2x.png in Resources */,
 				E703935B18C5177C005B0E84 /* share_email@2x.png in Resources */,
+				E7023DD418E081E9003FA5F4 /* share_app_button@2x.png in Resources */,
 				CD43810118C8CE30009A8D5F /* arrow@2x.png in Resources */,
 				E7B0381118DCE058003FB291 /* ProximityKit.plist in Resources */,
 				E7B0380F18DCE048003FB291 /* contact@2x.png in Resources */,
 				E7B8908118D77574002082F8 /* bg_gray@2x.png in Resources */,
 				CD6FA4E318C7BA3F00510581 /* splash_short_yellow.png in Resources */,
+				E7023DD618E085B2003FA5F4 /* share_ideas_button@2x.png in Resources */,
 				E703935918C51724005B0E84 /* share_twitter@2x.png in Resources */,
 				E786A2BA18C0F6C000942576 /* publicgame_button@2x.png in Resources */,
 				E786A2B418C0EEA600942576 /* bg@2x.png in Resources */,
@@ -809,6 +827,7 @@
 				E7AB10D018C4D59C00A54850 /* sms.png in Resources */,
 				E76B2C1318BE82E700B5E45D /* splash_long.png in Resources */,
 				E7B8908318D77964002082F8 /* bg_red@2x.png in Resources */,
+				E7023DDE18E0886D003FA5F4 /* weblinc_logo@2x.png in Resources */,
 				E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */,
 				CD6FA4D518C793FA00510581 /* bite_wave@2x.png in Resources */,
 				E7023DCC18E0615B003FA5F4 /* uv_article@2x.png in Resources */,
@@ -818,6 +837,7 @@
 				CD6FA4D118C77FB000510581 /* default_profile.png in Resources */,
 				E786A2C818C1014000942576 /* reset_button@2x.png in Resources */,
 				E705A9E918AE728700CFE7B6 /* compass@2x.png in Resources */,
+				E7023DD218E0818F003FA5F4 /* send_message@2x.png in Resources */,
 				E7023DCF18E0615B003FA5F4 /* uv_idea.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

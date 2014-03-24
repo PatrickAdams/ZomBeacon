@@ -13,11 +13,16 @@
 @end
 
 @implementation PrivateLobbyViewController
+{
+    BOOL shareOpen;
+}
 
 - (void)viewDidLoad
 {
     currentUser = [PFUser currentUser];
     [super viewDidLoad];
+    
+    shareOpen = NO;
     
     // Create a geocoder and save it for later.
     self.geocoder = [[CLGeocoder alloc] init];
@@ -78,6 +83,8 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -100,6 +107,26 @@
 {
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
+}
+
+- (IBAction)inviteFriends
+{
+    if (shareOpen == NO)
+    {
+        [UIView animateWithDuration:.6 animations:^{
+            self.shareView.center = CGPointMake(232, self.shareView.center.y);
+        }];
+        
+        shareOpen = YES;
+    }
+    else
+    {
+        [UIView animateWithDuration:.6 animations:^{
+            self.shareView.center = CGPointMake(411, self.shareView.center.y);
+        }];
+        
+        shareOpen = NO;
+    }
 }
 
 //Method to get players in game and add them to an array
@@ -348,157 +375,27 @@
 
 #pragma mark - Share Methods for Twitter, Facebook, and Email
 
-- (IBAction)showShareActionSheet
+- (IBAction)shareViaEmail
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:@"INVITE FRIENDS"
-                                  delegate:self
-                                  cancelButtonTitle:@"Cancel"
-                                  destructiveButtonTitle:nil
-                                  otherButtonTitles:@"Email", @"SMS", @"Facebook", @"Twitter", nil];
-    
-    [actionSheet showInView:self.view];
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if  ([buttonTitle isEqualToString:@"Email"])
-    {
-        [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game tap the code below:</br></br><strong><a href='ZomBeacon://?invite=%@'>%@</a></strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>Address: %@", self.gameIdString, self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString]];
-    }
-    if ([buttonTitle isEqualToString:@"SMS"])
-    {
-        MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
-        if([MFMessageComposeViewController canSendText])
-        {
-            vc.body = [NSString stringWithFormat:@"You've been invited to a game of ZomBeacon! To join this game click the following link: ZomBeacon://?invite=%@ Game Details - Name: %@ Time: %@ Host: %@ Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString];
-            vc.messageComposeDelegate = self;
-            [self presentViewController:vc animated:YES completion:nil];
-        }
-    }
-    if ([buttonTitle isEqualToString:@"Facebook"])
-    {
-        FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
-        params.link = [NSURL URLWithString:[NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString]];
-        params.name = [NSString stringWithFormat:@"ZomBeacon Invite: %@, When: %@", self.gameNameString, self.gameDateString];
-        params.caption = @"Come play ZomBeacon with me!";
-        params.picture = [NSURL URLWithString:@"http://i.imgur.com/SadmerX.png"];
-        params.description = @"Come join my private game of ZomBeacon";
-        
-        // If the Facebook app is installed and we can present the share dialog
-        if ([FBDialogs canPresentShareDialogWithParams:params]) {
-            // Present share dialog
-            [FBDialogs presentShareDialogWithLink:params.link
-                                             name:params.name
-                                          caption:params.caption
-                                      description:params.description
-                                          picture:params.picture
-                                      clientState:nil
-                                          handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-                                              if(error) {
-                                                  // There was an error
-                                                  NSLog(@"%@",[NSString stringWithFormat:@"Error publishing story: %@", error.description]);
-                                              } else {
-                                                  // Success
-                                                  NSLog(@"result %@", results);
-                                              }
-                                          }
-             ];
-        }
-        else
-        {
-            // Put together the dialog parameters
-            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                           [NSString stringWithFormat:@"ZomBeacon Invite: %@, When: %@", self.gameNameString, self.gameDateString], @"name",
-                                           @"Come join my private game of ZomBeacon", @"description",
-                                           [NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString], @"link",
-                                           @"http://i.imgur.com/SadmerX.png", @"picture",
-                                           nil];
-            
-            // Show the feed dialog
-            [FBWebDialogs presentFeedDialogModallyWithSession:nil parameters:params handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
-                if (error)
-                {
-                    NSLog(@"%@",[NSString stringWithFormat:@"Error publishing story: %@", error.description]);
-                }
-                else
-                {
-                    if (result == FBWebDialogResultDialogNotCompleted)
-                    {
-                        NSLog(@"User cancelled.");
-                    }
-                    else
-                    {
-                        NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
-                        
-                        if (![urlParams valueForKey:@"post_id"])
-                        {
-                            NSLog(@"User cancelled.");
-                        }
-                        else
-                        {
-                            NSString *result = [NSString stringWithFormat: @"Posted story, id: %@", [urlParams valueForKey:@"post_id"]];
-                            NSLog(@"result %@", result);
-                        }
-                    }
-                }
-            }];
-        }
-    }
-    if ([buttonTitle isEqualToString:@"Twitter"])
-    {
-        SLComposeViewController *tweetComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        
-        tweetComposer.completionHandler = ^(SLComposeViewControllerResult result) {
-            switch(result) {
-                    //  This means the user cancelled without sending the Tweet
-                case SLComposeViewControllerResultCancelled:
-                    break;
-                    //  This means the user hit 'Send'
-                case SLComposeViewControllerResultDone:
-                    break;
-            }
-        };
-        
-        [tweetComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #ZomBeacon", self.gameIdString]];
-        [tweetComposer addURL:[NSURL URLWithString:@"http://bit.ly/zombeacon"]];
-        
-        [self presentViewController:tweetComposer animated:YES completion:nil];
-    }
-}
-
-- (NSDictionary*)parseURLParams:(NSString *)query
-{
-    NSArray *pairs = [query componentsSeparatedByString:@"&"];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    for (NSString *pair in pairs)
-    {
-        NSArray *kv = [pair componentsSeparatedByString:@"="];
-        NSString *val =
-        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        params[kv[0]] = val;
-    }
-    return params;
+    [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to a game of ZomBeacon!</br></br>To join this game tap the code below:</br></br><strong><a href='ZomBeacon://?invite=%@'>%@</a></strong></br></br><b>Game Details</b></br>Name: <i>%@</i></br>Time: <i>%@</i></br>Host: <i>%@</i></br>Address: %@", self.gameIdString, self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString]];
 }
 
 // Displays an email composition interface inside the application. Populates all the Mail fields.
-- (void)displayComposerSheet:(NSString *)body {
+- (void)displayComposerSheet:(NSString *)body
+{
+	MFMailComposeViewController *tempMailCompose = [[MFMailComposeViewController alloc] init];
     
-	MFMailComposeViewController *mailComposerView = [[MFMailComposeViewController alloc] init];
+	tempMailCompose.mailComposeDelegate = self;
     
-    if ([MFMailComposeViewController canSendMail])
-    {
-        mailComposerView.mailComposeDelegate = self;
-        [mailComposerView setSubject:@"You've Been Invited to a ZomBeacon Game!"];
-        [mailComposerView setMessageBody:body isHTML:YES];
-        
-        [self presentViewController:mailComposerView animated:YES completion:nil];
-    }
+	[tempMailCompose setSubject:@"You've Been Invited to a ZomBeacon Game!"];
+	[tempMailCompose setMessageBody:body isHTML:YES];
+    
+	[self presentViewController:tempMailCompose animated:YES completion:nil];
 }
 
 // Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
 	// Notifies users about errors associated with the interface
 	switch (result)
 	{
@@ -520,6 +417,122 @@
 	}
     
 	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)shareViaTwitter
+{
+    SLComposeViewController *tweetComposer = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    
+    tweetComposer.completionHandler = ^(SLComposeViewControllerResult result) {
+        switch(result) {
+                //  This means the user cancelled without sending the Tweet
+            case SLComposeViewControllerResultCancelled:
+                break;
+                //  This means the user hit 'Send'
+            case SLComposeViewControllerResultDone:
+                break;
+        }
+    };
+    
+    [tweetComposer setInitialText:[NSString stringWithFormat:@"Join my game of ZomBeacon! Enter code %@ in the 'Find Game' menu of the app to join. #ZomBeacon", self.gameIdString]];
+    [tweetComposer addURL:[NSURL URLWithString:@"http://bit.ly/zombeacon"]];
+    
+    [self presentViewController:tweetComposer animated:YES completion:nil];
+}
+
+- (IBAction)shareViaFacebook
+{
+    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+    params.link = [NSURL URLWithString:[NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString]];
+    params.name = [NSString stringWithFormat:@"ZomBeacon Invite: %@, When: %@", self.gameNameString, self.gameDateString];
+    params.caption = @"Come play ZomBeacon with me!";
+    params.picture = [NSURL URLWithString:@"http://i.imgur.com/SadmerX.png"];
+    params.description = @"Come join my private game of ZomBeacon";
+    
+    // If the Facebook app is installed and we can present the share dialog
+    if ([FBDialogs canPresentShareDialogWithParams:params]) {
+        // Present share dialog
+        [FBDialogs presentShareDialogWithLink:params.link
+                                         name:params.name
+                                      caption:params.caption
+                                  description:params.description
+                                      picture:params.picture
+                                  clientState:nil
+                                      handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                          if(error) {
+                                              // There was an error
+                                              NSLog(@"%@",[NSString stringWithFormat:@"Error publishing story: %@", error.description]);
+                                          } else {
+                                              // Success
+                                              NSLog(@"result %@", results);
+                                          }
+                                      }
+         ];
+    }
+    else
+    {
+        // Put together the dialog parameters
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       [NSString stringWithFormat:@"ZomBeacon Invite: %@, When: %@", self.gameNameString, self.gameDateString], @"name",
+                                       @"Come join my private game of ZomBeacon", @"description",
+                                       [NSString stringWithFormat:@"http://zombeacon.com/?invite=%@", self.gameIdString], @"link",
+                                       @"http://i.imgur.com/SadmerX.png", @"picture",
+                                       nil];
+        
+        // Show the feed dialog
+        [FBWebDialogs presentFeedDialogModallyWithSession:nil parameters:params handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+            if (error)
+            {
+                NSLog(@"%@",[NSString stringWithFormat:@"Error publishing story: %@", error.description]);
+            }
+            else
+            {
+                if (result == FBWebDialogResultDialogNotCompleted)
+                {
+                    NSLog(@"User cancelled.");
+                }
+                else
+                {
+                    NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                    
+                    if (![urlParams valueForKey:@"post_id"])
+                    {
+                        NSLog(@"User cancelled.");
+                    }
+                    else
+                    {
+                        NSString *result = [NSString stringWithFormat: @"Posted story, id: %@", [urlParams valueForKey:@"post_id"]];
+                        NSLog(@"result %@", result);
+                    }
+                }
+            }
+        }];
+    }
+}
+
+- (NSDictionary*)parseURLParams:(NSString *)query
+{
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs)
+    {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val =
+        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        params[kv[0]] = val;
+    }
+    return params;
+}
+
+- (IBAction)shareViaSMS
+{
+    MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
+    if([MFMessageComposeViewController canSendText])
+    {
+        vc.body = [NSString stringWithFormat:@"You've been invited to a game of ZomBeacon! To join this game click the following link: ZomBeacon://?invite=%@ Game Details - Name: %@ Time: %@ Host: %@ Address: %@", self.gameIdString, self.gameNameString, self.gameDateString, self.gameHostString, self.gameAddressString];
+        vc.messageComposeDelegate = self;
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
@@ -544,7 +557,6 @@
     
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 #pragma mark - Open In Maps Method
 

@@ -32,6 +32,7 @@
 @property (nonatomic, readwrite) CLLocationCoordinate2D gameLocationCoord;
 @property (nonatomic, strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) MKPlacemark *placemark;
+@property (nonatomic, weak) IBOutlet UIView *shareView;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 

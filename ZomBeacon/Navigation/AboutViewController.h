@@ -15,7 +15,11 @@
 @interface AboutViewController : UIViewController <UIActionSheetDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (IBAction)leaveFeedback;
+- (IBAction)helpDocs;
+- (IBAction)forums;
 
 @end

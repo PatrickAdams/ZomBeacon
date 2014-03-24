@@ -20,13 +20,13 @@
     
     self.currentUser = [PFUser currentUser];
     
-    // Set this up once when your application launches
-    UVConfig *config = [UVConfig configWithSite:@"zombeacon.uservoice.com"];
-    config.showKnowledgeBase = NO;
-    config.showForum = NO;
-    config.showPostIdea = NO;
-    [config identifyUserWithEmail:self.currentUser[@"email"] name:self.currentUser[@"name"] guid:self.currentUser[@"username"]];
-    [UserVoice initialize:config];
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    for (UILabel * label in self.titilliumRegularFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -237,7 +237,43 @@
 
 - (IBAction)leaveFeedback
 {
+    // Set this up once when your application launches
+    UVConfig *config = [UVConfig configWithSite:@"zombeacon.uservoice.com"];
+    config.showKnowledgeBase = NO;
+    config.showForum = NO;
+    config.showPostIdea = NO;
+    [config identifyUserWithEmail:self.currentUser[@"email"] name:self.currentUser[@"name"] guid:self.currentUser[@"username"]];
+    [UserVoice initialize:config];
+    
     [UserVoice presentUserVoiceContactUsFormForParentViewController:self];
+}
+
+- (IBAction)helpDocs
+{
+    // Set this up once when your application launches
+    UVConfig *config = [UVConfig configWithSite:@"zombeacon.uservoice.com"];
+    config.showContactUs = NO;
+    config.showForum = NO;
+    config.showPostIdea = NO;
+    [config identifyUserWithEmail:self.currentUser[@"email"] name:self.currentUser[@"name"] guid:self.currentUser[@"username"]];
+    [UserVoice initialize:config];
+    
+    // Call this wherever you want to launch UserVoice
+    [UserVoice presentUserVoiceInterfaceForParentViewController:self];
+}
+
+- (IBAction)forums
+{
+    // Set this up once when your application launches
+    UVConfig *config = [UVConfig configWithSite:@"zombeacon.uservoice.com"];
+    config.showContactUs = NO;
+    config.showKnowledgeBase = NO;
+    config.forumId = 245753;
+    [config identifyUserWithEmail:self.currentUser[@"email"] name:self.currentUser[@"name"] guid:self.currentUser[@"username"]];
+    [UserVoice initialize:config];
+    
+    // Call this wherever you want to launch UserVoice
+    [UserVoice presentUserVoiceForumForParentViewController:self];
 }
 
 @end

@@ -16,6 +16,27 @@
 
 - (void)viewDidLoad
 {
+    if (IS_IPHONE4S)
+    {
+        CGRect frame = self.startPublicGameButton.frame;
+        frame.size.width = 224;
+        frame.size.height = 222;
+        self.startPublicGameButton.frame = frame;
+        self.startPublicGameButton.center = CGPointMake(121, 135);
+        
+        CGRect frame2 = self.createPrivateGameButton.frame;
+        frame2.size.width = 154;
+        frame2.size.height = 154;
+        self.createPrivateGameButton.frame = frame2;
+        self.createPrivateGameButton.center = CGPointMake(232, 289);
+        
+        CGRect frame3 = self.findPrivateGameButton.frame;
+        frame3.size.width = 107;
+        frame3.size.height = 107;
+        self.findPrivateGameButton.frame = frame3;
+        self.findPrivateGameButton.center = CGPointMake(128, 352);
+    }
+    
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
 

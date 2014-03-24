@@ -13,10 +13,15 @@
 @end
 
 @implementation GameDetailsViewController
+{
+    BOOL shareOpen;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    shareOpen = NO;
     
     // Create a geocoder and save it for later.
     self.geocoder = [[CLGeocoder alloc] init];
@@ -52,6 +57,28 @@
     
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
+    }
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
+- (IBAction)inviteFriends
+{
+    if (shareOpen == NO)
+    {
+        [UIView animateWithDuration:.6 animations:^{
+            self.shareView.center = CGPointMake(232, self.shareView.center.y);
+        }];
+        
+        shareOpen = YES;
+    }
+    else
+    {
+        [UIView animateWithDuration:.6 animations:^{
+            self.shareView.center = CGPointMake(411, self.shareView.center.y);
+        }];
+        
+        shareOpen = NO;
     }
 }
 
