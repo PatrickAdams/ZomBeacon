@@ -42,18 +42,13 @@
 
     currentUser = [PFUser currentUser];
     
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:22],
-      NSFontAttributeName, [UIColor colorWithRed:0.13 green:0.13 blue:0.13 alpha:1], NSForegroundColorAttributeName, nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"TitilliumWeb-SemiBold" size:22], NSFontAttributeName, [UIColor colorWithRed:0.13 green:0.13 blue:0.13 alpha:1], NSForegroundColorAttributeName, nil]];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.navigationItem.hidesBackButton = YES;
-    
     //Refreshes currentUser data
     [currentUser refresh];
     
@@ -73,11 +68,6 @@
     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
     [currentUser setObject:point forKey:@"location"];
     [currentUser saveInBackground];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.locationTimer invalidate];
 }
 
 - (IBAction)startPublicGame
@@ -123,7 +113,7 @@
     {
         int randomNumber = [self getRandomNumberBetween:1 to:100];
         
-        if (randomNumber < 30)
+        if (randomNumber < 20)
         {
             [self performSegueWithIdentifier: @"publicZombie" sender: self];
             [currentUser setObject:@"zombie" forKey:@"publicStatus"];
@@ -142,7 +132,7 @@
         [query whereKey:@"user" equalTo:[PFUser currentUser]];
         PFObject *theUserScore = [query getFirstObject];
         float score = [theUserScore[@"publicScore"] floatValue];
-        float points = 3000.0f;
+        float points = 2000.0f;
         NSNumber *sum = [NSNumber numberWithFloat:score - points];
         [theUserScore setObject:sum forKey:@"publicScore"];
         [theUserScore saveInBackground];

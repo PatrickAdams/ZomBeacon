@@ -228,6 +228,8 @@
     }];
 }
 
+#pragma mark - Table View Methods
+
 - (NSMutableArray *)getGamesUserHasCreated
 {
     self.privateGames = nil;
@@ -240,8 +242,6 @@
     
     return self.privateGames;
 }
-
-#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

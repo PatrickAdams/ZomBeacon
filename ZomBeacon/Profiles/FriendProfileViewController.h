@@ -18,15 +18,15 @@
 @property (nonatomic, weak) IBOutlet UILabel *realName;
 @property (nonatomic, weak) IBOutlet UILabel *shortBio;
 @property (nonatomic, weak) IBOutlet PFImageView *profileImage;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIButton *addAsFriendButton;
 @property (nonatomic, strong) NSString *userNameString;
 @property (nonatomic, strong) NSString *realNameString;
 @property (nonatomic, strong) NSString *shortBioString;
 @property (nonatomic, strong) NSString *currentGameString;
 @property (nonatomic, strong) PFUser *myFriend;
 @property (nonatomic, strong) PFUser *currentUser;
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *privateGames;
-@property (nonatomic, weak) IBOutlet UIButton *addAsFriendButton;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 

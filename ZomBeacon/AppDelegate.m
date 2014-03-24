@@ -41,6 +41,7 @@
 
 #pragma mark - ProximityKit delegate methods
 
+//Gets called when user enters any of the geo-fence locations
 - (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
 {
     NSString *userStatus = [PFUser currentUser][@"publicStatus"];
@@ -62,6 +63,7 @@
     }
 }
 
+//Gets called when user exits any of the geo-fence locations
 - (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
 {
     NSString *userStatus = [PFUser currentUser][@"publicStatus"];
@@ -77,9 +79,9 @@
 
 #pragma mark - Core Bluetooth
 
+//Method that gets called when a bluetooth peripheral is detected
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
-    NSLog(@"%@", peripheral);
     NSString *userStatus = [PFUser currentUser][@"publicStatus"];
     
     if ([userStatus isEqualToString:@"zombie"])

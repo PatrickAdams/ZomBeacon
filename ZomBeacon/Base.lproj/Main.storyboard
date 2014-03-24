@@ -4,12 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Private Zombie View Controller - Zombie-->
+        <!--Private Zombie View Controller - Private Game-->
         <scene sceneID="rWl-qE-Oji">
             <objects>
                 <viewController storyboardIdentifier="privateZombie" id="WSR-Ds-yNc" customClass="PrivateZombieViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TdW-6R-T4x">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green.png" id="o4t-mC-WKf">
@@ -149,7 +149,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Zombie" id="YUQ-r8-PSc"/>
+                    <navigationItem key="navigationItem" title="Private Game" id="YUQ-r8-PSc"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="biteButton" destination="pnf-jb-R9t" id="wuk-Em-CgM"/>
@@ -173,12 +173,12 @@
             </objects>
             <point key="canvasLocation" x="2755" y="982"/>
         </scene>
-        <!--Public Zombie View Controller - Zombie-->
+        <!--Public Zombie View Controller - Public Game-->
         <scene sceneID="riS-2O-UHS">
             <objects>
                 <viewController storyboardIdentifier="publicZombie" id="it5-Tg-ZWA" customClass="PublicZombieViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9hW-4k-Fw5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green.png" id="Uui-dc-gza">
@@ -288,8 +288,8 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Zombie" id="c9M-7b-1VW">
-                        <barButtonItem key="rightBarButtonItem" title="Players" id="QJg-ZS-VIs">
+                    <navigationItem key="navigationItem" title="Public Game" id="c9M-7b-1VW">
+                        <barButtonItem key="rightBarButtonItem" image="users.png" id="QJg-ZS-VIs">
                             <connections>
                                 <segue destination="Zzc-PN-9nm" kind="push" id="xhs-QU-DpM"/>
                             </connections>
@@ -312,12 +312,12 @@
             </objects>
             <point key="canvasLocation" x="3119" y="982"/>
         </scene>
-        <!--Private Dead View Controller - Dead-->
+        <!--Private Dead View Controller - Private Game-->
         <scene sceneID="RrY-HX-xxo">
             <objects>
                 <viewController storyboardIdentifier="privatedead" id="9s2-k5-xEA" customClass="PrivateDeadViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c5C-cA-gye">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_red.png" id="EeJ-6K-wzb">
@@ -445,7 +445,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Dead" id="nQN-Qs-QFj"/>
+                    <navigationItem key="navigationItem" title="Private Game" id="nQN-Qs-QFj"/>
                     <connections>
                         <outlet property="mapView" destination="H2L-r1-eYf" id="4AQ-XQ-b7o"/>
                         <outlet property="survivorCount" destination="VqQ-JP-IQQ" id="wp7-tl-c5s"/>
@@ -471,11 +471,11 @@
             <objects>
                 <viewController storyboardIdentifier="endgame" id="ma0-pm-TZg" customClass="EndGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LUd-Rg-G7q">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="xm0-Ar-NKx">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAME OVER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rrl-WR-0I7">
@@ -523,7 +523,7 @@
             <objects>
                 <viewController storyboardIdentifier="login" id="C6C-zQ-YDX" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9RI-9X-rc8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="IVi-dN-FnY">
@@ -662,7 +662,7 @@
             <objects>
                 <viewController storyboardIdentifier="signup" id="gYI-9p-ec8" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TK2-iY-rvv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="dIJ-Kx-SgO">
@@ -834,7 +834,7 @@
             <objects>
                 <viewController storyboardIdentifier="profile" id="KmB-En-GMb" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sse-aS-leA">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="hW4-zG-2NL">
@@ -917,7 +917,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="1tz-Cy-jbl">
-                                <rect key="frame" x="0.0" y="287" width="320" height="117"/>
+                                <rect key="frame" x="0.0" y="293" width="320" height="199"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1028,6 +1028,13 @@
                                     <segue destination="23z-qn-eLr" kind="push" id="rm0-p9-Mud"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Swipe to delete)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yQc-vV-cVz">
+                                <rect key="frame" x="26" y="274" width="251" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                <color key="textColor" red="0.76086956520000004" green="0.76086956520000004" blue="0.76086956520000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.2218008668" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1069,11 +1076,11 @@
             <objects>
                 <viewController storyboardIdentifier="friendslist" id="23z-qn-eLr" customClass="MyFriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yDK-0q-2Vo">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="MwB-lQ-zvb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="465"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="553"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="4TA-2t-wqs">
@@ -1081,7 +1088,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tva-A8-jfM">
-                                <rect key="frame" x="0.0" y="20" width="320" height="396"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="484"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1152,7 +1159,7 @@
             <objects>
                 <viewController storyboardIdentifier="friendprofile" id="WzA-Tt-CCQ" customClass="FriendProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yad-a7-vdk">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="Kdm-Jn-NIn">
@@ -1220,7 +1227,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" id="r9c-tt-xfk">
-                                <rect key="frame" x="0.0" y="228" width="320" height="188"/>
+                                <rect key="frame" x="0.0" y="228" width="320" height="276"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1308,12 +1315,12 @@
             </objects>
             <point key="canvasLocation" x="2983" y="-500"/>
         </scene>
-        <!--Private Survivor View Controller - Survivor-->
+        <!--Private Survivor View Controller - Private Game-->
         <scene sceneID="DX5-Vd-ZQZ">
             <objects>
                 <viewController storyboardIdentifier="privateSurvivor" id="SOP-YH-psb" customClass="PrivateSurvivorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oQp-cf-XeN">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_yellow.png" id="NU9-AA-udO">
@@ -1454,7 +1461,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Survivor" id="hqh-gY-YiN"/>
+                    <navigationItem key="navigationItem" title="Private Game" id="hqh-gY-YiN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="headshotButton" destination="drL-fN-zDn" id="TwS-UU-3Jt"/>
@@ -1478,12 +1485,12 @@
             </objects>
             <point key="canvasLocation" x="2755" y="324"/>
         </scene>
-        <!--Public Survivor View Controller - Survivor-->
+        <!--Public Survivor View Controller - Public Game-->
         <scene sceneID="Z4f-gx-E22">
             <objects>
                 <viewController storyboardIdentifier="publicSurvivor" id="5w5-oG-fwH" customClass="PublicSurvivorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VIT-vd-SFm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_yellow.png" id="Q0C-HE-PJe">
@@ -1592,8 +1599,8 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Survivor" id="Axl-g2-NZc">
-                        <barButtonItem key="rightBarButtonItem" title="Players" id="aGe-Kc-8Ry">
+                    <navigationItem key="navigationItem" title="Public Game" id="Axl-g2-NZc">
+                        <barButtonItem key="rightBarButtonItem" image="users.png" id="aGe-Kc-8Ry">
                             <connections>
                                 <segue destination="Zzc-PN-9nm" kind="push" id="2tQ-oh-ysy"/>
                             </connections>
@@ -1620,7 +1627,7 @@
             <objects>
                 <viewController storyboardIdentifier="publicdead" id="brW-n8-4WY" customClass="PublicDeadViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="579-Ep-OPW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="IXk-8B-zNj">
@@ -1663,7 +1670,7 @@
             <objects>
                 <viewController storyboardIdentifier="bluetooth" id="3us-iS-5cs" customClass="BluetoothViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vwh-YA-Irs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="xcR-f5-DkG">
@@ -1723,12 +1730,12 @@
             </objects>
             <point key="canvasLocation" x="319" y="201"/>
         </scene>
-        <!--Main Menu View Controller - Main-->
+        <!--Main Menu View Controller - Home-->
         <scene sceneID="pFc-Rc-3MZ">
             <objects>
                 <viewController storyboardIdentifier="mainmenu" id="NGH-f2-ute" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ncy-Yl-BE7">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_mainmenu.png" id="tbM-2P-kv5">
@@ -1778,13 +1785,13 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Main" id="LPh-lr-fUw">
-                        <barButtonItem key="leftBarButtonItem" image="contact.png" id="UV2-6i-tU7">
+                    <navigationItem key="navigationItem" title="Home" id="LPh-lr-fUw">
+                        <barButtonItem key="leftBarButtonItem" image="weblinc_nav_item.png" id="UV2-6i-tU7">
                             <connections>
                                 <segue destination="vCa-IU-3GU" kind="modal" id="r6f-u4-8qZ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="profile.png" id="Dzc-p5-2Og">
+                        <barButtonItem key="rightBarButtonItem" image="user.png" id="Dzc-p5-2Og">
                             <color key="tintColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
                                 <segue destination="KmB-En-GMb" kind="push" id="XAd-uo-p02"/>
@@ -1808,7 +1815,7 @@
             <objects>
                 <viewController storyboardIdentifier="editprofile" id="ovM-FO-Wqw" customClass="EditProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OT0-HP-N96">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="eKz-vR-joB">
@@ -1963,7 +1970,7 @@
             <objects>
                 <viewController storyboardIdentifier="creategame" id="jIF-Br-8W4" customClass="CreateViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ap-xW-4Dg">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="w9X-uc-na2">
@@ -2067,7 +2074,7 @@
             <objects>
                 <viewController storyboardIdentifier="createdview" id="o9z-do-yd5" customClass="CreatedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h8m-qu-NO8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="6ou-vm-Vic">
@@ -2239,11 +2246,11 @@
             <objects>
                 <viewController storyboardIdentifier="about" id="vCa-IU-3GU" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MZl-8o-3qT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="iZp-bw-663">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something broken? Have an idea? Want to collaborate to take ZomBeacon to the next level? We'd love to hear from you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yx6-Uo-rbX">
@@ -2329,8 +2336,8 @@
                     <navigationItem key="navigationItem" title="About Us" id="dLL-D5-K0S"/>
                     <connections>
                         <outletCollection property="titilliumSemiBoldFonts" destination="OG6-Ba-hSn" id="L6A-Zv-dwE"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="DrI-Qj-Ng5" id="fXd-OM-49e"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="yx6-Uo-rbX" id="g8D-uW-eDI"/>
+                        <outletCollection property="titilliumRegularFonts" destination="DrI-Qj-Ng5" id="eDO-2Y-NzZ"/>
+                        <outletCollection property="titilliumRegularFonts" destination="yx6-Uo-rbX" id="veR-un-zll"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0e-dP-czM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2342,7 +2349,7 @@
             <objects>
                 <viewController storyboardIdentifier="resetpassword" id="ToL-0M-vxJ" customClass="PasswordResetViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EFO-6u-LhJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="XZe-qM-WyJ">
@@ -2404,7 +2411,7 @@
             <objects>
                 <viewController storyboardIdentifier="findgame" id="mtJ-S4-uvy" customClass="FindGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jEt-VU-2vh">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="kEz-Dh-nZn">
@@ -2461,7 +2468,7 @@
             <objects>
                 <viewController storyboardIdentifier="gamedetails" id="biA-0h-TG7" customClass="GameDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Djv-Ga-hcu">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="PYi-da-KGi">
@@ -2642,7 +2649,7 @@
             <objects>
                 <viewController storyboardIdentifier="publicLobby" id="Zzc-PN-9nm" customClass="PublicLobbyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rB4-om-EBF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="Ew6-Dg-bCm">
@@ -2675,7 +2682,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="er8-bw-UCx">
-                                <rect key="frame" x="0.0" y="190" width="320" height="226"/>
+                                <rect key="frame" x="0.0" y="190" width="320" height="314"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2782,7 +2789,7 @@
             <objects>
                 <viewController storyboardIdentifier="privateLobby" id="tVY-1o-Iu1" customClass="PrivateLobbyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dm-gw-x1o">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="1D2-1B-we2">
@@ -2834,7 +2841,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="XXs-5h-c35">
-                                <rect key="frame" x="0.0" y="213" width="320" height="136.5"/>
+                                <rect key="frame" x="0.0" y="213" width="320" height="224.5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2915,7 +2922,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8hr-Ps-nOG">
-                                <rect key="frame" x="168" y="364" width="128" height="40"/>
+                                <rect key="frame" x="168" y="452" width="128" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" image="startgame_button.png">
@@ -2927,7 +2934,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ron-Yq-C6V">
-                                <rect key="frame" x="25" y="364" width="128" height="40"/>
+                                <rect key="frame" x="25" y="452" width="128" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" image="assignteams_button.png">
@@ -3055,7 +3062,6 @@
         <image name="bg_yellow.png" width="320" height="568"/>
         <image name="bite_button.png" width="285" height="52"/>
         <image name="compass.png" width="25" height="25"/>
-        <image name="contact.png" width="25" height="25"/>
         <image name="creategame_button.png" width="180" height="181"/>
         <image name="creategame_button2.png" width="250" height="40"/>
         <image name="default_profile.png" width="181" height="181"/>
@@ -3072,7 +3078,6 @@
         <image name="login_button.png" width="231" height="40"/>
         <image name="login_facebook.png" width="55" height="55"/>
         <image name="login_twitter.png" width="55" height="55"/>
-        <image name="profile.png" width="25" height="25"/>
         <image name="publicgame_button.png" width="251" height="253"/>
         <image name="refresh.png" width="25" height="25"/>
         <image name="reset_button.png" width="230" height="40"/>
@@ -3088,20 +3093,23 @@
         <image name="startgame_button.png" width="128" height="40"/>
         <image name="survivor_annotation.png" width="20" height="20"/>
         <image name="tape.png" width="320" height="20"/>
+        <image name="user.png" width="25" height="25"/>
         <image name="user_annotation.png" width="20" height="20"/>
+        <image name="users.png" width="25" height="25"/>
         <image name="weblinc_logo.png" width="252" height="45"/>
+        <image name="weblinc_nav_item.png" width="23" height="20"/>
         <image name="zombie_annotation.png" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kx5-jM-uCj"/>
+        <segue reference="PsZ-ht-oAZ"/>
         <segue reference="CM6-mk-yUd"/>
-        <segue reference="dNx-FP-4rN"/>
-        <segue reference="2tQ-oh-ysy"/>
-        <segue reference="uzd-0d-SvP"/>
+        <segue reference="xhs-QU-DpM"/>
+        <segue reference="Qrh-1m-sYU"/>
     </inferredMetricsTieBreakers>
 </document>

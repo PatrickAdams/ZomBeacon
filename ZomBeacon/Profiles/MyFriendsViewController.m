@@ -20,10 +20,6 @@
     [super viewDidLoad];
     
     [self refreshList];
-	
-    for (UILabel * label in self.titilliumSemiBoldFonts) {
-        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
-    }
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }

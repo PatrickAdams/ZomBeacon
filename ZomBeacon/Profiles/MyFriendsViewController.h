@@ -18,7 +18,6 @@
 @property (nonatomic, strong) NSMutableArray *myFriends;
 @property (nonatomic, strong) NSMutableArray *nameAndScoreArray;
 @property (nonatomic, strong) PFUser *currentUser;
-@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 
 - (NSMutableArray *)getFriends;
 

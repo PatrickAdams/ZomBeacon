@@ -18,12 +18,10 @@
 }
 
 @property (nonatomic, strong) PFGeoPoint *point;
-@property (nonatomic, strong) NSTimer *locationTimer;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UIButton *startPublicGameButton;
 @property (nonatomic, weak) IBOutlet UIButton *createPrivateGameButton;
 @property (nonatomic, weak) IBOutlet UIButton *findPrivateGameButton;
-
-@property (nonatomic, strong) CLLocationManager *locationManager;
 
 - (IBAction)startPublicGame;
 
