@@ -15,7 +15,6 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) UIButton *infoButton;
 
 - (id)initWithTitle:(NSString *)ttl andCoordinate:(CLLocationCoordinate2D)c2d andImage:(UIImage *)img;
 - (MKAnnotationView *)annotationView;

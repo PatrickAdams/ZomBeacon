@@ -129,6 +129,7 @@
                 if ([statusOfNearbyUser isEqualToString:@"survivor"])
                 {
                     newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"survivor_annotation"]];
+                    
                 }
                 else if ([statusOfNearbyUser isEqualToString:@"zombie"])
                 {

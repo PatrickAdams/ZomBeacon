@@ -30,7 +30,7 @@
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     annotationView.image = _image;
-        
+
     return annotationView;
 }
 
