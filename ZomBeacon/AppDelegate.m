@@ -64,6 +64,8 @@
 
 - (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
 {
+    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+    
     if ([userStatus isEqualToString:@"survivor"])
     {
         UILocalNotification *notification = [[UILocalNotification alloc] init];
