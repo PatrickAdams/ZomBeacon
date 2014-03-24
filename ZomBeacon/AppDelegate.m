@@ -43,18 +43,34 @@
 
 - (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
 {
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"Entered a safe zone!";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+    
+    if ([userStatus isEqualToString:@"zombie"])
+    {
+        [[PFUser currentUser] setObject:@"survivor" forKey:@"publicStatus"];
+        [[PFUser currentUser] saveInBackground];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
+        UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+        [navCon pushViewController:vc animated:NO];
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"PUBLIC GAME: You've entered a quarantine zone. You've been cured. You are now a Survivor.";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 }
 
 - (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
 {
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"Exited a safe zone!";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    if ([userStatus isEqualToString:@"survivor"])
+    {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"You've left the quarantine zone. If you become infected come back to this spot to be cured.";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 }
 
 #pragma mark - Core Bluetooth
