@@ -69,6 +69,8 @@
 - (IBAction)signUpNewUser
 {
     if ([self fieldsAreValid] && [self noWhiteSpaceInUsername]) {
+        [self.bioField resignFirstResponder];
+        
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             

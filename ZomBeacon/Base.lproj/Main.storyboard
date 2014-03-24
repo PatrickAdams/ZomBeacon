@@ -9,7 +9,7 @@
             <objects>
                 <viewController storyboardIdentifier="privateZombie" id="WSR-Ds-yNc" customClass="PrivateZombieViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TdW-6R-T4x">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green.png" id="o4t-mC-WKf">
@@ -178,7 +178,7 @@
             <objects>
                 <viewController storyboardIdentifier="publicZombie" id="it5-Tg-ZWA" customClass="PublicZombieViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9hW-4k-Fw5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green.png" id="Uui-dc-gza">
@@ -317,7 +317,7 @@
             <objects>
                 <viewController storyboardIdentifier="privatedead" id="9s2-k5-xEA" customClass="PrivateDeadViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c5C-cA-gye">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_red.png" id="EeJ-6K-wzb">
@@ -471,11 +471,11 @@
             <objects>
                 <viewController storyboardIdentifier="endgame" id="ma0-pm-TZg" customClass="EndGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LUd-Rg-G7q">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="xm0-Ar-NKx">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAME OVER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rrl-WR-0I7">
@@ -523,7 +523,7 @@
             <objects>
                 <viewController storyboardIdentifier="login" id="C6C-zQ-YDX" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9RI-9X-rc8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="IVi-dN-FnY">
@@ -662,7 +662,7 @@
             <objects>
                 <viewController storyboardIdentifier="signup" id="gYI-9p-ec8" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TK2-iY-rvv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="dIJ-Kx-SgO">
@@ -834,7 +834,7 @@
             <objects>
                 <viewController storyboardIdentifier="profile" id="KmB-En-GMb" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sse-aS-leA">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="hW4-zG-2NL">
@@ -917,7 +917,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="1tz-Cy-jbl">
-                                <rect key="frame" x="0.0" y="287" width="320" height="205"/>
+                                <rect key="frame" x="0.0" y="287" width="320" height="117"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1069,11 +1069,11 @@
             <objects>
                 <viewController storyboardIdentifier="friendslist" id="23z-qn-eLr" customClass="MyFriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yDK-0q-2Vo">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="MwB-lQ-zvb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="553"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="465"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="4TA-2t-wqs">
@@ -1081,7 +1081,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tva-A8-jfM">
-                                <rect key="frame" x="0.0" y="20" width="320" height="484"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="396"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1152,7 +1152,7 @@
             <objects>
                 <viewController storyboardIdentifier="friendprofile" id="WzA-Tt-CCQ" customClass="FriendProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yad-a7-vdk">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="Kdm-Jn-NIn">
@@ -1220,7 +1220,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" id="r9c-tt-xfk">
-                                <rect key="frame" x="0.0" y="228" width="320" height="276"/>
+                                <rect key="frame" x="0.0" y="228" width="320" height="188"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1313,7 +1313,7 @@
             <objects>
                 <viewController storyboardIdentifier="privateSurvivor" id="SOP-YH-psb" customClass="PrivateSurvivorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oQp-cf-XeN">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_yellow.png" id="NU9-AA-udO">
@@ -1483,7 +1483,7 @@
             <objects>
                 <viewController storyboardIdentifier="publicSurvivor" id="5w5-oG-fwH" customClass="PublicSurvivorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VIT-vd-SFm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_yellow.png" id="Q0C-HE-PJe">
@@ -1620,7 +1620,7 @@
             <objects>
                 <viewController storyboardIdentifier="publicdead" id="brW-n8-4WY" customClass="PublicDeadViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="579-Ep-OPW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="IXk-8B-zNj">
@@ -1663,7 +1663,7 @@
             <objects>
                 <viewController storyboardIdentifier="bluetooth" id="3us-iS-5cs" customClass="BluetoothViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vwh-YA-Irs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="xcR-f5-DkG">
@@ -1728,7 +1728,7 @@
             <objects>
                 <viewController storyboardIdentifier="mainmenu" id="NGH-f2-ute" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ncy-Yl-BE7">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_mainmenu.png" id="tbM-2P-kv5">
@@ -1781,7 +1781,7 @@
                     <navigationItem key="navigationItem" title="Main" id="LPh-lr-fUw">
                         <barButtonItem key="leftBarButtonItem" image="contact.png" id="UV2-6i-tU7">
                             <connections>
-                                <segue destination="vCa-IU-3GU" kind="push" id="r6f-u4-8qZ"/>
+                                <segue destination="vCa-IU-3GU" kind="modal" id="r6f-u4-8qZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="profile.png" id="Dzc-p5-2Og">
@@ -1808,7 +1808,7 @@
             <objects>
                 <viewController storyboardIdentifier="editprofile" id="ovM-FO-Wqw" customClass="EditProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OT0-HP-N96">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="eKz-vR-joB">
@@ -1963,7 +1963,7 @@
             <objects>
                 <viewController storyboardIdentifier="creategame" id="jIF-Br-8W4" customClass="CreateViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ap-xW-4Dg">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="w9X-uc-na2">
@@ -2067,7 +2067,7 @@
             <objects>
                 <viewController storyboardIdentifier="createdview" id="o9z-do-yd5" customClass="CreatedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h8m-qu-NO8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="6ou-vm-Vic">
@@ -2239,29 +2239,29 @@
             <objects>
                 <viewController storyboardIdentifier="about" id="vCa-IU-3GU" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MZl-8o-3qT">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="iZp-bw-663">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something broken? Have an idea? Want to collaborate to take ZomBeacon to the next level? We'd love to hear from you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yx6-Uo-rbX">
-                                <rect key="frame" x="13" y="194" width="295" height="72"/>
+                                <rect key="frame" x="13" y="246" width="295" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZomBeacon is better when more people play. Please help us spread the word!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DrI-Qj-Ng5">
-                                <rect key="frame" x="13" y="101" width="295" height="53"/>
+                                <rect key="frame" x="13" y="131" width="295" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0uu-uV-xme">
-                                <rect key="frame" x="35" y="156" width="250" height="40"/>
+                                <rect key="frame" x="35" y="186" width="250" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="share_app_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2271,7 +2271,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v3F-K7-5uo">
-                                <rect key="frame" x="-47" y="272" width="414" height="40"/>
+                                <rect key="frame" x="-47" y="324" width="414" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="send_message.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2281,7 +2281,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mf0-MG-oZg">
-                                <rect key="frame" x="35" y="368" width="250" height="40"/>
+                                <rect key="frame" x="35" y="420" width="250" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="help_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2291,7 +2291,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W1n-cI-BWa">
-                                <rect key="frame" x="20" y="320" width="280" height="40"/>
+                                <rect key="frame" x="20" y="372" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="share_ideas_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2301,16 +2301,28 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weblinc_logo.png" id="FXp-br-1pv">
-                                <rect key="frame" x="32" y="48" width="256" height="46"/>
+                                <rect key="frame" x="32" y="72" width="256" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A PROJECT BY:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OG6-Ba-hSn">
-                                <rect key="frame" x="105" y="20" width="124" height="21"/>
+                                <rect key="frame" x="105" y="43" width="124" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qag-oe-wI8">
+                                <rect key="frame" x="284" y="10" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissView" destination="vCa-IU-3GU" eventType="touchUpInside" id="Mlh-jD-mxQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2330,7 +2342,7 @@
             <objects>
                 <viewController storyboardIdentifier="resetpassword" id="ToL-0M-vxJ" customClass="PasswordResetViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EFO-6u-LhJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="XZe-qM-WyJ">
@@ -2392,7 +2404,7 @@
             <objects>
                 <viewController storyboardIdentifier="findgame" id="mtJ-S4-uvy" customClass="FindGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jEt-VU-2vh">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="kEz-Dh-nZn">
@@ -2449,7 +2461,7 @@
             <objects>
                 <viewController storyboardIdentifier="gamedetails" id="biA-0h-TG7" customClass="GameDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Djv-Ga-hcu">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="PYi-da-KGi">
@@ -2630,7 +2642,7 @@
             <objects>
                 <viewController storyboardIdentifier="publicLobby" id="Zzc-PN-9nm" customClass="PublicLobbyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rB4-om-EBF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="Ew6-Dg-bCm">
@@ -2663,7 +2675,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="er8-bw-UCx">
-                                <rect key="frame" x="0.0" y="190" width="320" height="314"/>
+                                <rect key="frame" x="0.0" y="190" width="320" height="226"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2770,7 +2782,7 @@
             <objects>
                 <viewController storyboardIdentifier="privateLobby" id="tVY-1o-Iu1" customClass="PrivateLobbyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4dm-gw-x1o">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="1D2-1B-we2">
@@ -2822,7 +2834,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="37" sectionHeaderHeight="22" sectionFooterHeight="22" id="XXs-5h-c35">
-                                <rect key="frame" x="0.0" y="213" width="320" height="224.5"/>
+                                <rect key="frame" x="0.0" y="213" width="320" height="136.5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2903,7 +2915,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8hr-Ps-nOG">
-                                <rect key="frame" x="168" y="452" width="128" height="40"/>
+                                <rect key="frame" x="168" y="364" width="128" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" image="startgame_button.png">
@@ -2915,7 +2927,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ron-Yq-C6V">
-                                <rect key="frame" x="25" y="452" width="128" height="40"/>
+                                <rect key="frame" x="25" y="364" width="128" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" image="assignteams_button.png">
@@ -3083,7 +3095,7 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kx5-jM-uCj"/>
