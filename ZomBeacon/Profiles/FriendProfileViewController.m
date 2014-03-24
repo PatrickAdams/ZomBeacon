@@ -51,6 +51,8 @@
     }];
     
     self.title = self.userNameString;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (IBAction)followUser

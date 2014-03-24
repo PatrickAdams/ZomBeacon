@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Private Zombie View Controller - ZOMBIE-->
+        <!--Private Zombie View Controller - Zombie-->
         <scene sceneID="rWl-qE-Oji">
             <objects>
                 <viewController storyboardIdentifier="privateZombie" id="WSR-Ds-yNc" customClass="PrivateZombieViewController" sceneMemberID="viewController">
@@ -144,7 +144,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="ZOMBIE" id="YUQ-r8-PSc"/>
+                    <navigationItem key="navigationItem" title="Zombie" id="YUQ-r8-PSc"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="biteButton" destination="pnf-jb-R9t" id="wuk-Em-CgM"/>
@@ -166,7 +166,7 @@
             </objects>
             <point key="canvasLocation" x="2755" y="982"/>
         </scene>
-        <!--Public Zombie View Controller - ZOMBIE-->
+        <!--Public Zombie View Controller - Zombie-->
         <scene sceneID="riS-2O-UHS">
             <objects>
                 <viewController storyboardIdentifier="publicZombie" id="it5-Tg-ZWA" customClass="PublicZombieViewController" sceneMemberID="viewController">
@@ -281,7 +281,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="ZOMBIE" id="c9M-7b-1VW">
+                    <navigationItem key="navigationItem" title="Zombie" id="c9M-7b-1VW">
                         <barButtonItem key="rightBarButtonItem" title="Players" id="QJg-ZS-VIs">
                             <connections>
                                 <segue destination="Zzc-PN-9nm" kind="push" id="xhs-QU-DpM"/>
@@ -305,7 +305,7 @@
             </objects>
             <point key="canvasLocation" x="3119" y="982"/>
         </scene>
-        <!--Private Dead View Controller - DEAD-->
+        <!--Private Dead View Controller - Dead-->
         <scene sceneID="RrY-HX-xxo">
             <objects>
                 <viewController storyboardIdentifier="privatedead" id="9s2-k5-xEA" customClass="PrivateDeadViewController" sceneMemberID="viewController">
@@ -433,7 +433,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="DEAD" id="nQN-Qs-QFj"/>
+                    <navigationItem key="navigationItem" title="Dead" id="nQN-Qs-QFj"/>
                     <connections>
                         <outlet property="mapView" destination="H2L-r1-eYf" id="4AQ-XQ-b7o"/>
                         <outlet property="survivorCount" destination="VqQ-JP-IQQ" id="wp7-tl-c5s"/>
@@ -504,7 +504,7 @@
             </objects>
             <point key="canvasLocation" x="3653" y="1414"/>
         </scene>
-        <!--Login View Controller - LOGIN-->
+        <!--Login View Controller - Login-->
         <scene sceneID="xO3-Hg-agc">
             <objects>
                 <viewController storyboardIdentifier="login" id="C6C-zQ-YDX" customClass="LoginViewController" sceneMemberID="viewController">
@@ -625,7 +625,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="LOGIN" id="i7k-Yp-XQU"/>
+                    <navigationItem key="navigationItem" title="Login" id="i7k-Yp-XQU"/>
                     <connections>
                         <outlet property="forgotPasswordButton" destination="IpP-4L-len" id="2zz-Xj-7AH"/>
                         <outlet property="passwordField" destination="cuF-zX-qaM" id="0yi-T4-ZB8"/>
@@ -815,7 +815,7 @@
             </objects>
             <point key="canvasLocation" x="763" y="883"/>
         </scene>
-        <!--Profile View Controller - PROFILE-->
+        <!--Profile View Controller - My Profile-->
         <scene sceneID="RcS-U8-dbX">
             <objects>
                 <viewController storyboardIdentifier="profile" id="KmB-En-GMb" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -1019,7 +1019,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Item" id="OqS-VK-sar"/>
-                    <navigationItem key="navigationItem" title="PROFILE" id="QpK-1R-D6p">
+                    <navigationItem key="navigationItem" title="My Profile" id="QpK-1R-D6p">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hF8-Ba-60z">
                             <connections>
                                 <segue destination="ovM-FO-Wqw" kind="modal" id="cyK-UW-VgD"/>
@@ -1294,7 +1294,7 @@
             </objects>
             <point key="canvasLocation" x="2983" y="-500"/>
         </scene>
-        <!--Private Survivor View Controller - SURVIVOR-->
+        <!--Private Survivor View Controller - Survivor-->
         <scene sceneID="DX5-Vd-ZQZ">
             <objects>
                 <viewController storyboardIdentifier="privateSurvivor" id="SOP-YH-psb" customClass="PrivateSurvivorViewController" sceneMemberID="viewController">
@@ -1435,7 +1435,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="SURVIVOR" id="hqh-gY-YiN"/>
+                    <navigationItem key="navigationItem" title="Survivor" id="hqh-gY-YiN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="headshotButton" destination="drL-fN-zDn" id="TwS-UU-3Jt"/>
@@ -1457,7 +1457,7 @@
             </objects>
             <point key="canvasLocation" x="2761" y="280"/>
         </scene>
-        <!--Public Survivor View Controller - SURVIVOR-->
+        <!--Public Survivor View Controller - Survivor-->
         <scene sceneID="Z4f-gx-E22">
             <objects>
                 <viewController storyboardIdentifier="publicSurvivor" id="5w5-oG-fwH" customClass="PublicSurvivorViewController" sceneMemberID="viewController">
@@ -1571,7 +1571,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="SURVIVOR" id="Axl-g2-NZc">
+                    <navigationItem key="navigationItem" title="Survivor" id="Axl-g2-NZc">
                         <barButtonItem key="rightBarButtonItem" title="Players" id="aGe-Kc-8Ry">
                             <connections>
                                 <segue destination="Zzc-PN-9nm" kind="push" id="2tQ-oh-ysy"/>
@@ -1702,7 +1702,7 @@
             </objects>
             <point key="canvasLocation" x="319" y="201"/>
         </scene>
-        <!--Main Menu View Controller - MAIN-->
+        <!--Main Menu View Controller - Main-->
         <scene sceneID="pFc-Rc-3MZ">
             <objects>
                 <viewController storyboardIdentifier="mainmenu" id="NGH-f2-ute" customClass="MainMenuViewController" sceneMemberID="viewController">
@@ -1757,7 +1757,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="MAIN" id="LPh-lr-fUw">
+                    <navigationItem key="navigationItem" title="Main" id="LPh-lr-fUw">
                         <barButtonItem key="leftBarButtonItem" image="contact.png" id="UV2-6i-tU7">
                             <connections>
                                 <segue destination="vCa-IU-3GU" kind="push" id="r6f-u4-8qZ"/>
@@ -1937,7 +1937,7 @@
             </objects>
             <point key="canvasLocation" x="2171" y="197"/>
         </scene>
-        <!--Create View Controller - CREATE A GAME-->
+        <!--Create View Controller - Create A Game-->
         <scene sceneID="gGr-zk-AS0">
             <objects>
                 <viewController storyboardIdentifier="creategame" id="jIF-Br-8W4" customClass="CreateViewController" sceneMemberID="viewController">
@@ -2024,7 +2024,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="CREATE A GAME" id="cdw-MK-pBg"/>
+                    <navigationItem key="navigationItem" title="Create A Game" id="cdw-MK-pBg"/>
                     <connections>
                         <outlet property="dateTimeTextField" destination="Lg3-2F-wSI" id="r8g-Wu-XXS"/>
                         <outlet property="gameNameTextField" destination="Wyy-rq-oJm" id="dM8-f8-3fR"/>
@@ -2041,7 +2041,7 @@
             </objects>
             <point key="canvasLocation" x="1289" y="923"/>
         </scene>
-        <!--Created View Controller - GAME DETAILS-->
+        <!--Created View Controller - Game Details-->
         <scene sceneID="DQ2-lX-tNm">
             <objects>
                 <viewController storyboardIdentifier="createdview" id="o9z-do-yd5" customClass="CreatedViewController" sceneMemberID="viewController">
@@ -2176,7 +2176,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="GAME DETAILS" id="fl7-9v-Q3C"/>
+                    <navigationItem key="navigationItem" title="Game Details" id="fl7-9v-Q3C"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="gameDateLabel" destination="jxa-8N-Pg6" id="Y18-lK-aRE"/>
@@ -2198,7 +2198,7 @@
             </objects>
             <point key="canvasLocation" x="1751" y="915"/>
         </scene>
-        <!--About View Controller-->
+        <!--About View Controller - About Us-->
         <scene sceneID="hZe-AV-hra">
             <objects>
                 <viewController storyboardIdentifier="about" id="vCa-IU-3GU" customClass="AboutViewController" sceneMemberID="viewController">
@@ -2248,7 +2248,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dLL-D5-K0S"/>
+                    <navigationItem key="navigationItem" title="About Us" id="dLL-D5-K0S"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0e-dP-czM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2316,7 +2316,7 @@
             </objects>
             <point key="canvasLocation" x="1289" y="-499"/>
         </scene>
-        <!--Find Game View Controller - FIND A GAME-->
+        <!--Find Game View Controller - Find A Game-->
         <scene sceneID="cj4-m3-8kG">
             <objects>
                 <viewController storyboardIdentifier="findgame" id="mtJ-S4-uvy" customClass="FindGameViewController" sceneMemberID="viewController">
@@ -2361,7 +2361,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="FIND A GAME" id="geP-XL-muA"/>
+                    <navigationItem key="navigationItem" title="Find A Game" id="geP-XL-muA"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="findGameField" destination="qaj-gG-qn0" id="SeP-wh-ZX3"/>
@@ -2373,7 +2373,7 @@
             </objects>
             <point key="canvasLocation" x="1751" y="-500"/>
         </scene>
-        <!--Game Details View Controller - GAME DETAILS-->
+        <!--Game Details View Controller - Game Details-->
         <scene sceneID="KxG-yq-DNG">
             <objects>
                 <viewController storyboardIdentifier="gamedetails" id="biA-0h-TG7" customClass="GameDetailsViewController" sceneMemberID="viewController">
@@ -2521,7 +2521,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="GAME DETAILS" id="tf4-p9-TrQ"/>
+                    <navigationItem key="navigationItem" title="Game Details" id="tf4-p9-TrQ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="gameDateLabel" destination="RsT-CZ-V4c" id="USH-Xa-AMz"/>
@@ -2542,7 +2542,7 @@
             </objects>
             <point key="canvasLocation" x="2171" y="-499"/>
         </scene>
-        <!--Public Lobby View Controller - PUBLIC LOBBY-->
+        <!--Public Lobby View Controller - Public Lobby-->
         <scene sceneID="c18-Og-QJX">
             <objects>
                 <viewController storyboardIdentifier="publicLobby" id="Zzc-PN-9nm" customClass="PublicLobbyViewController" sceneMemberID="viewController">
@@ -2664,9 +2664,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="PUBLIC LOBBY" id="3lh-jw-lwf">
-                        <barButtonItem key="backBarButtonItem" title="fasfasfas" id="6tP-AO-J4Z"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Public Lobby" id="3lh-jw-lwf"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="er8-bw-UCx" id="3Jp-zK-2Bw"/>
@@ -2684,7 +2682,7 @@
             </objects>
             <point key="canvasLocation" x="3653" y="649"/>
         </scene>
-        <!--Private Lobby View Controller - PRIVATE LOBBY-->
+        <!--Private Lobby View Controller - Private Lobby-->
         <scene sceneID="c0x-kO-imF">
             <objects>
                 <viewController storyboardIdentifier="privateLobby" id="tVY-1o-Iu1" customClass="PrivateLobbyViewController" sceneMemberID="viewController">
@@ -2857,7 +2855,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="PRIVATE LOBBY" id="Dc4-PD-n7G">
+                    <navigationItem key="navigationItem" title="Private Lobby" id="Dc4-PD-n7G">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="cSO-op-fM7">
                             <connections>
                                 <action selector="showShareActionSheet" destination="tVY-1o-Iu1" id="8yz-kM-1fw"/>
@@ -2938,10 +2936,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uzd-0d-SvP"/>
-        <segue reference="rQe-am-agg"/>
-        <segue reference="dNx-FP-4rN"/>
-        <segue reference="2tQ-oh-ysy"/>
         <segue reference="kx5-jM-uCj"/>
+        <segue reference="xhs-QU-DpM"/>
+        <segue reference="dNx-FP-4rN"/>
+        <segue reference="rQe-am-agg"/>
+        <segue reference="Qrh-1m-sYU"/>
     </inferredMetricsTieBreakers>
 </document>
