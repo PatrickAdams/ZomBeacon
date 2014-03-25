@@ -24,6 +24,8 @@
     self.navigationItem.hidesBackButton = YES;
     self.mapView.delegate = self;
     
+    mapKeyShowing = NO;
+    
     //MapView Stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -200,6 +202,21 @@
     [UIView animateWithDuration:0.5 animations:^{self.locationButton.alpha = 1.0;}];
     [UIView animateWithDuration:0.5 animations:^{self.compassButton.alpha = 0.0;}];
 }
+
+- (IBAction)showMapKey
+{
+    if (mapKeyShowing == NO)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.mapKeyView.alpha = 1.0;}];
+        mapKeyShowing = YES;
+    }
+    else if (mapKeyShowing == YES)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.mapKeyView.alpha = 0.0;}];
+        mapKeyShowing = NO;
+    }
+}
+
 #pragma mark - Beacon Management
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region

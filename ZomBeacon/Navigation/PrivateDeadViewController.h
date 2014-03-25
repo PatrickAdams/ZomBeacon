@@ -12,6 +12,7 @@
 @interface PrivateDeadViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 {
     PFUser *currentUser;
+    BOOL mapKeyShowing;
 }
 
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
@@ -24,8 +25,10 @@
 @property (nonatomic, strong) NSString *gameIdString;
 @property (nonatomic, weak) IBOutlet UIButton *locationButton;
 @property (nonatomic, weak) IBOutlet UIButton *compassButton;
+@property (nonatomic, weak) IBOutlet UIView *mapKeyView;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
+- (IBAction)showMapKey;
 
 @end

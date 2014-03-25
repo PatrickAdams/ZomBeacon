@@ -18,6 +18,7 @@
 @interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
     PFUser *currentUser;
+    BOOL mapKeyShowing;
 }
 
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion;
@@ -30,11 +31,13 @@
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;
 @property (nonatomic, weak) IBOutlet UIButton *locationButton;
 @property (nonatomic, weak) IBOutlet UIButton *compassButton;
+@property (nonatomic, weak) IBOutlet UIView *mapKeyView;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
 - (IBAction)startInfecting:(id)sender;
+- (IBAction)showMapKey;
 
 @end

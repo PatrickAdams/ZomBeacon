@@ -23,7 +23,7 @@
     self.mapView.delegate = self;
     self.navigationItem.hidesBackButton = YES;
     
-    locationActive = NO;
+    mapKeyShowing = NO;
     
     [self queryNearbyUsers];
     
@@ -187,6 +187,20 @@
         region.center = userLocation.coordinate;
         region.span = span;
         [self.mapView setRegion:region animated:YES];
+    }
+}
+
+- (IBAction)showMapKey
+{
+    if (mapKeyShowing == NO)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.mapKeyView.alpha = 1.0;}];
+        mapKeyShowing = YES;
+    }
+    else if (mapKeyShowing == YES)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.mapKeyView.alpha = 0.0;}];
+        mapKeyShowing = NO;
     }
 }
 
