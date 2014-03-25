@@ -60,6 +60,11 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home"] style:UIBarButtonItemStylePlain target:self action:@selector(backHome)];
     
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(invalidateTimer)
+                                                 name: @"didEnterBackground"
+                                               object: nil];
 }
 
 - (void)backHome
@@ -83,6 +88,11 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated
+{
+    [self invalidateTimer];
+}
+
+- (void)invalidateTimer
 {
     [self.queryTimer invalidate];
 }

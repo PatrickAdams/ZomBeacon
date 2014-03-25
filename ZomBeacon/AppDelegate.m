@@ -325,6 +325,8 @@
     
     //Bluetooth Central Manager
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didEnterBackground" object:nil userInfo:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

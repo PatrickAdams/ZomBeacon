@@ -36,7 +36,6 @@
 
 - (IBAction)openInMaps;
 - (IBAction)joinGame;
-
 - (IBAction)shareViaEmail;
 - (IBAction)shareViaTwitter;
 - (IBAction)shareViaFacebook;
