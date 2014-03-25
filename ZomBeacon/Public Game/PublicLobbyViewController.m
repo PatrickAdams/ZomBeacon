@@ -27,10 +27,22 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"joinedPublic" equalTo:@"YES"];
+    [query whereKey:@"publicStatus" equalTo:@"zombie"];
+    NSArray *theZombies = [query findObjects];
+    self.totalZombiesGlobally.text = [NSString stringWithFormat:@"%lu", (unsigned long)theZombies.count];
+    
+    PFQuery *query2 = [PFUser query];
+    [query2 whereKey:@"joinedPublic" equalTo:@"YES"];
+    [query2 whereKey:@"publicStatus" equalTo:@"survivor"];
+    NSArray *theSurvivors = [query2 findObjects];
+    self.totalSurvivorsGlobally.text = [NSString stringWithFormat:@"%lu", (unsigned long)theSurvivors.count];
 }
 
 - (void)viewDidAppear:(BOOL)animated
-{    
+{
     [self refreshList];
 }
 
