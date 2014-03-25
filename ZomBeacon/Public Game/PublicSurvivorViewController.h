@@ -19,6 +19,8 @@
 {
     NSTimer *timer;
     PFUser *currentUser;
+    BOOL locationActive;
+    BOOL compassActive;
 }
 
 @property (nonatomic, strong) CLBeaconRegion *beaconRegion;
@@ -30,6 +32,8 @@
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, weak) IBOutlet UIButton *headshotButton;
+@property (nonatomic, weak) IBOutlet UIButton *locationButton;
+@property (nonatomic, weak) IBOutlet UIButton *compassButton;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 

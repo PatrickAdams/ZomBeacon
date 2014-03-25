@@ -89,11 +89,11 @@
     
     if ([player[@"publicStatus"] isEqualToString:@"zombie"])
     {
-        cell.nameLabel.textColor = [UIColor colorWithRed:0 green:0.79 blue:0.49 alpha:1];
+        cell.nameLabel.textColor = [UIColor colorWithRed:0.99 green:0.33 blue:0.16 alpha:1];
     }
     else if ([player[@"publicStatus"] isEqualToString:@"survivor"])
     {
-        cell.nameLabel.textColor = [UIColor colorWithRed:1 green:0.74 blue:0.27 alpha:1];
+        cell.nameLabel.textColor = [UIColor colorWithRed:0.13 green:0.79 blue:0.5 alpha:1];
     }
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
