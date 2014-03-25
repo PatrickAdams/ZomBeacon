@@ -67,6 +67,7 @@
             UILocalNotification *notification = [[UILocalNotification alloc] init];
             notification.alertBody = @"PUBLIC GAME: You've entered a quarantine zone. You've been cured. You are now a Survivor.";
             notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 1;
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         }
     }
@@ -342,6 +343,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 }
 
 #pragma mark - Application State Methods

@@ -258,7 +258,7 @@
             
             if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
             }
@@ -267,6 +267,7 @@
                 UILocalNotification *notification = [[UILocalNotification alloc] init];
                 notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
                 notification.soundName = UILocalNotificationDefaultSoundName;
+                notification.applicationIconBadgeNumber = 1;
                 [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
             }
             

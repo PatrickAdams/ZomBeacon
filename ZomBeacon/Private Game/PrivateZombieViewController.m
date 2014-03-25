@@ -204,7 +204,7 @@
             
             if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:@"You just got headshotted by %@. You are dead!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
             }

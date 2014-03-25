@@ -253,7 +253,7 @@
         
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You just got headshotted by %@. You are dead!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
             [alert show];
         }
@@ -262,6 +262,7 @@
             UILocalNotification *notification = [[UILocalNotification alloc] init];
             notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
             notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 1;
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         }
         

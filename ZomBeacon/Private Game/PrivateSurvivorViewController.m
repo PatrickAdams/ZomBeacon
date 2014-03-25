@@ -258,7 +258,7 @@
             
             if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
             }
