@@ -90,11 +90,8 @@
             NSNumber *publicScore = theUserScore[@"publicScore"];
             NSNumber *privateScore = theUserScore[@"privateScore"];
             NSNumber *scoreTotal = [NSNumber numberWithFloat:([publicScore floatValue] + [privateScore floatValue])];
-            NSLog(@"%@", scoreTotal);
             
             [self.theScores addObject:scoreTotal];
-            
-            NSLog(@"%@", self.theScores);
         }
     }
     
