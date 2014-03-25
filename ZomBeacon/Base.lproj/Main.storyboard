@@ -190,7 +190,7 @@
             </objects>
             <point key="canvasLocation" x="2755" y="982"/>
         </scene>
-        <!--Public Zombie View Controller - Public Game-->
+        <!--Public Zombie View Controller - Global Game-->
         <scene sceneID="riS-2O-UHS">
             <objects>
                 <viewController storyboardIdentifier="publicZombie" id="it5-Tg-ZWA" customClass="PublicZombieViewController" sceneMemberID="viewController">
@@ -322,7 +322,7 @@
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Public Game" id="c9M-7b-1VW">
+                    <navigationItem key="navigationItem" title="Global Game" id="c9M-7b-1VW">
                         <barButtonItem key="rightBarButtonItem" image="users.png" id="QJg-ZS-VIs">
                             <connections>
                                 <segue destination="Zzc-PN-9nm" kind="push" id="xhs-QU-DpM"/>
@@ -1553,7 +1553,7 @@
             </objects>
             <point key="canvasLocation" x="2755" y="324"/>
         </scene>
-        <!--Public Survivor View Controller - Public Game-->
+        <!--Public Survivor View Controller - Global Game-->
         <scene sceneID="Z4f-gx-E22">
             <objects>
                 <viewController storyboardIdentifier="publicSurvivor" id="5w5-oG-fwH" customClass="PublicSurvivorViewController" sceneMemberID="viewController">
@@ -1684,7 +1684,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Public Game" id="Axl-g2-NZc">
+                    <navigationItem key="navigationItem" title="Global Game" id="Axl-g2-NZc">
                         <barButtonItem key="rightBarButtonItem" image="users.png" id="aGe-Kc-8Ry">
                             <connections>
                                 <segue destination="Zzc-PN-9nm" kind="push" id="2tQ-oh-ysy"/>
@@ -2732,7 +2732,7 @@
             </objects>
             <point key="canvasLocation" x="2171" y="-499"/>
         </scene>
-        <!--Public Lobby View Controller - Public Lobby-->
+        <!--Public Lobby View Controller - Players-->
         <scene sceneID="c18-Og-QJX">
             <objects>
                 <viewController storyboardIdentifier="publicLobby" id="Zzc-PN-9nm" customClass="PublicLobbyViewController" sceneMemberID="viewController">
@@ -2896,7 +2896,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Public Lobby" id="3lh-jw-lwf"/>
+                    <navigationItem key="navigationItem" title="Players" id="3lh-jw-lwf"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="er8-bw-UCx" id="3Jp-zK-2Bw"/>
