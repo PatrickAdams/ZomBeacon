@@ -202,11 +202,19 @@
             [userQuery whereKey:@"major" equalTo:beacon.major];
             PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
             
-            // present local notification
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@!", userThatInfected.username];
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:@"You just got headshotted by %@. You are dead!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
+            }
+            else
+            {
+                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
+                notification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            }
             
             PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
             [query whereKey:@"user" equalTo:currentUser];

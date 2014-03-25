@@ -256,11 +256,19 @@
             [userQuery whereKey:@"major" equalTo:beacon.major];
             PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
             
-            //Presents the local notification
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
+            }
+            else
+            {
+                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
+                notification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            }
             
             [currentUser setObject:@"zombie" forKey:@"publicStatus"];
             [currentUser saveInBackground];

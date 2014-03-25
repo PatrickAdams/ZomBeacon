@@ -56,10 +56,19 @@
         UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
         [navCon pushViewController:vc animated:NO];
         
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"PUBLIC GAME: You've entered a quarantine zone. You've been cured. You are now a Survivor.";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've entered a quarantine zone. You've been cured. You are now a Survivor." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
+        else
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = @"PUBLIC GAME: You've entered a quarantine zone. You've been cured. You are now a Survivor.";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        }
     }
 }
 
@@ -70,10 +79,19 @@
     
     if ([userStatus isEqualToString:@"survivor"])
     {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"You've left the quarantine zone. If you become infected come back to this spot to be cured.";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've left the quarantine zone. If you become infected come back to this spot to be cured." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
+        else
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = @"You've left the quarantine zone. If you become infected come back to this spot to be cured.";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        }
     }
 }
 
@@ -86,17 +104,36 @@
     
     if ([userStatus isEqualToString:@"zombie"])
     {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"PUBLIC GAME: A survivor is nearby, bite them!";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"A survivor is nearby, bite them!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
+        else
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = @"PUBLIC GAME: A survivor is nearby, bite them!";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        }
     }
     else if ([userStatus isEqualToString:@"survivor"])
     {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"PUBLIC GAME: A zombie is nearby, headshot them!";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"A zombie is nearby, headshot them!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
+        else
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = @"PUBLIC GAME: A zombie is nearby, headshot them!";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+
+        }
     }
 }
 
