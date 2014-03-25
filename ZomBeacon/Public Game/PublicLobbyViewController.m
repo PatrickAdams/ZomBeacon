@@ -65,9 +65,10 @@
 }
 
 //Method to get players in game and add them to an array
-- (NSMutableArray *)getPlayersInCurrentGame
+- (NSArray *)getPlayersInCurrentGame
 {
     self.thePlayers = nil;
+    self.theScores  = [[NSMutableArray alloc] init];
     
     if (currentUser[@"location"])
     {
@@ -77,7 +78,24 @@
         [query whereKey:@"publicStatus" notEqualTo:@"dead"];
         [query whereKey:@"objectId" notEqualTo:currentUser.objectId];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
-        self.thePlayers = [[query findObjects] mutableCopy];
+        self.thePlayers = [query findObjects];
+        
+        for (int i = 0; i < self.thePlayers.count; i++)
+        {
+            PFUser *user = [self.thePlayers objectAtIndex:i];
+            PFQuery *scoreQuery = [PFQuery queryWithClassName:@"UserScore"];
+            [scoreQuery whereKey:@"user" equalTo:user];
+            PFObject *theUserScore = [scoreQuery getFirstObject];
+            
+            NSNumber *publicScore = theUserScore[@"publicScore"];
+            NSNumber *privateScore = theUserScore[@"privateScore"];
+            NSNumber *scoreTotal = [NSNumber numberWithFloat:([publicScore floatValue] + [privateScore floatValue])];
+            NSLog(@"%@", scoreTotal);
+            
+            [self.theScores addObject:scoreTotal];
+            
+            NSLog(@"%@", self.theScores);
+        }
     }
     
     return self.thePlayers;
@@ -107,6 +125,9 @@
     {
         cell.nameLabel.textColor = [UIColor colorWithRed:0.13 green:0.79 blue:0.5 alpha:1];
     }
+    
+    NSString *theScore = [NSString stringWithFormat:@"%@ pts.", [self.theScores objectAtIndex:indexPath.row]];
+    cell.scoreLabel.text = theScore;
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     [query whereKey:@"user" equalTo:player];

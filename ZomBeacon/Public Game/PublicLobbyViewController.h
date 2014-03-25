@@ -22,12 +22,13 @@
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *thePlayers;
+@property (nonatomic, strong) NSArray *thePlayers;
+@property (nonatomic, strong) NSMutableArray *theScores;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 @property (nonatomic, weak) IBOutlet UILabel *totalZombiesGlobally;
 @property (nonatomic, weak) IBOutlet UILabel *totalSurvivorsGlobally;
 
-- (NSMutableArray *)getPlayersInCurrentGame;
+- (NSArray *)getPlayersInCurrentGame;
 
 @end
