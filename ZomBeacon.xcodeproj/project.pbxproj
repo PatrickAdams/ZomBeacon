@@ -77,6 +77,8 @@
 		E70B558C18E1DCFD000A02A8 /* uv_heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E70B558118E1DCFC000A02A8 /* uv_heart@2x.png */; };
 		E70B558D18E1DCFD000A02A8 /* uv_idea.png in Resources */ = {isa = PBXBuildFile; fileRef = E70B558218E1DCFC000A02A8 /* uv_idea.png */; };
 		E70B558E18E1DCFD000A02A8 /* uv_idea@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E70B558318E1DCFC000A02A8 /* uv_idea@2x.png */; };
+		E70B559118E205E6000A02A8 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70B559018E205E6000A02A8 /* TutorialViewController.m */; };
+		E70B559318E20933000A02A8 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E70B559218E20933000A02A8 /* close_button@2x.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
@@ -272,6 +274,9 @@
 		E70B558418E1DCFC000A02A8 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/UserVoice.strings; sourceTree = "<group>"; };
 		E70B558518E1DCFC000A02A8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UserVoice.strings"; sourceTree = "<group>"; };
 		E70B558618E1DCFC000A02A8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/UserVoice.strings"; sourceTree = "<group>"; };
+		E70B558F18E205E6000A02A8 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialViewController.h; path = "Login:Sign Up/TutorialViewController.h"; sourceTree = "<group>"; };
+		E70B559018E205E6000A02A8 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialViewController.m; path = "Login:Sign Up/TutorialViewController.m"; sourceTree = "<group>"; };
+		E70B559218E20933000A02A8 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close_button@2x.png"; path = "Images/close_button@2x.png"; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -413,6 +418,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E70B559218E20933000A02A8 /* close_button@2x.png */,
 				E7023DF518E1D523003FA5F4 /* key@2x.png */,
 				E7023DEF18E1C33B003FA5F4 /* user@2x.png */,
 				E7023DF018E1C33B003FA5F4 /* users@2x.png */,
@@ -633,6 +639,8 @@
 				E705AA0118AE72DA00CFE7B6 /* SignUpViewController.m */,
 				E7F9C0AD18C194DE0023D10F /* BluetoothViewController.h */,
 				E7F9C0AE18C194DE0023D10F /* BluetoothViewController.m */,
+				E70B558F18E205E6000A02A8 /* TutorialViewController.h */,
+				E70B559018E205E6000A02A8 /* TutorialViewController.m */,
 			);
 			name = "Login/Sign Up";
 			sourceTree = "<group>";
@@ -848,6 +856,7 @@
 				E7023DDE18E0886D003FA5F4 /* weblinc_logo@2x.png in Resources */,
 				E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */,
 				CD6FA4D518C793FA00510581 /* bite_wave@2x.png in Resources */,
+				E70B559318E20933000A02A8 /* close_button@2x.png in Resources */,
 				E7023DF618E1D523003FA5F4 /* key@2x.png in Resources */,
 				E70B558D18E1DCFD000A02A8 /* uv_idea.png in Resources */,
 				E7023DE018E0C5AD003FA5F4 /* weblinc_nav_item@2x.png in Resources */,
@@ -882,6 +891,7 @@
 				E751E4951858BF15004E8874 /* AppDelegate.m in Sources */,
 				E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */,
 				E705AA0218AE72DA00CFE7B6 /* LoginViewController.m in Sources */,
+				E70B559118E205E6000A02A8 /* TutorialViewController.m in Sources */,
 				E705AA2318AE739000CFE7B6 /* PublicLobbyViewController.m in Sources */,
 				E705AA1918AE735600CFE7B6 /* CreateViewController.m in Sources */,
 				E705AA3718AE73C400CFE7B6 /* UserLobbyCell.m in Sources */,

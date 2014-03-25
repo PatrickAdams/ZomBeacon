@@ -77,6 +77,7 @@
                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                  });
                  
+                 [self performSegueWithIdentifier:@"tutorial" sender:self];
                  [self performSegueWithIdentifier:@"mainmenu" sender:self];
                  
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -126,6 +127,7 @@
              }
              else if (user.isNew)
              {
+                 [self performSegueWithIdentifier:@"tutorial" sender:self];
                  [self performSegueWithIdentifier:@"mainmenu" sender:self];
                  
                  dispatch_async(dispatch_get_main_queue(), ^{
@@ -205,6 +207,7 @@
             }
             else if(user.isNew)
             {
+                [self performSegueWithIdentifier:@"tutorial" sender:self];
                 [self performSegueWithIdentifier:@"mainmenu" sender:self];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
