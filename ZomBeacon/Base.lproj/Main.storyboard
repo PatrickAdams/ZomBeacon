@@ -46,8 +46,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3So-LL-9MD" userLabel="Compass Button">
-                                <rect key="frame" x="1" y="248" width="40" height="40"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3So-LL-9MD" userLabel="Compass Button">
+                                <rect key="frame" x="278" y="242" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" red="0.42581562950000001" green="0.25466537410000001" blue="0.69567340349999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,6 +153,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="biteButton" destination="pnf-jb-R9t" id="wuk-Em-CgM"/>
+                        <outlet property="compassButton" destination="3So-LL-9MD" id="bny-M5-tZt"/>
+                        <outlet property="locationButton" destination="Drv-W1-9cQ" id="j7F-ad-PAp"/>
                         <outlet property="mapView" destination="bDp-Aq-bB1" id="WlZ-jm-ZAY"/>
                         <outlet property="survivorCount" destination="gWo-lI-RTa" id="Vt6-zL-2qo"/>
                         <outlet property="zombieCount" destination="536-cC-MKi" id="0Zn-2W-xrb"/>
@@ -220,8 +222,8 @@
                                     <action selector="centerMapOnLocation" destination="it5-Tg-ZWA" eventType="touchUpInside" id="9vR-j4-nOV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wjv-t7-BxU" userLabel="Compass Button">
-                                <rect key="frame" x="2" y="245" width="40" height="40"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wjv-t7-BxU" userLabel="Compass Button">
+                                <rect key="frame" x="278" y="243" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" red="0.42581562950000001" green="0.25466537410000001" blue="0.69567340349999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -298,6 +300,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="biteButton" destination="vK1-Bk-qtU" id="2Ol-ud-hbp"/>
+                        <outlet property="compassButton" destination="Wjv-t7-BxU" id="aBw-4g-uvp"/>
+                        <outlet property="locationButton" destination="4Ft-z6-jrW" id="qKu-6a-WEo"/>
                         <outlet property="mapView" destination="6wc-Qr-BpL" id="lVi-I7-56f"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="LQw-Rq-3ST" id="vCN-gn-inJ"/>
                         <outletCollection property="titilliumRegularFonts" destination="HG9-s2-Fac" id="Ju4-rt-8Q7"/>
@@ -344,8 +348,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f6u-8O-Yus" userLabel="Compass Button">
-                                <rect key="frame" x="0.0" y="245" width="40" height="40"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f6u-8O-Yus" userLabel="Compass Button">
+                                <rect key="frame" x="278" y="243" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" red="0.42581562950000001" green="0.25466537410000001" blue="0.69567340349999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -358,7 +362,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bju-md-Ehe" userLabel="Center Button">
-                                <rect key="frame" x="280" y="245" width="40" height="40"/>
+                                <rect key="frame" x="278" y="243" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="locate.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -447,6 +451,8 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Private Game" id="nQN-Qs-QFj"/>
                     <connections>
+                        <outlet property="compassButton" destination="f6u-8O-Yus" id="WRC-g3-mog"/>
+                        <outlet property="locationButton" destination="Bju-md-Ehe" id="6Rm-fM-47y"/>
                         <outlet property="mapView" destination="H2L-r1-eYf" id="4AQ-XQ-b7o"/>
                         <outlet property="survivorCount" destination="VqQ-JP-IQQ" id="wp7-tl-c5s"/>
                         <outlet property="zombieCount" destination="PU6-Qb-7n1" id="Dtq-wr-nXL"/>
@@ -1357,8 +1363,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gnn-pj-d1B" userLabel="Compass Button">
-                                <rect key="frame" x="0.0" y="246" width="40" height="40"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gnn-pj-d1B" userLabel="Compass Button">
+                                <rect key="frame" x="278" y="244" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" red="0.42581562950000001" green="0.25466537410000001" blue="0.69567340349999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1464,7 +1470,9 @@
                     <navigationItem key="navigationItem" title="Private Game" id="hqh-gY-YiN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="compassButton" destination="gnn-pj-d1B" id="APd-69-piZ"/>
                         <outlet property="headshotButton" destination="drL-fN-zDn" id="TwS-UU-3Jt"/>
+                        <outlet property="locationButton" destination="ui6-Cn-aAu" id="i7Z-Vf-zwp"/>
                         <outlet property="mapView" destination="ebe-ZE-inA" id="Lxy-ez-ALW"/>
                         <outlet property="survivorCount" destination="D2y-Xi-jdw" id="3kn-8S-maL"/>
                         <outlet property="zombieCount" destination="xoR-Fb-OA3" id="yz6-qC-yQu"/>
@@ -3109,9 +3117,9 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="kx5-jM-uCj"/>
-        <segue reference="2tQ-oh-ysy"/>
-        <segue reference="rQe-am-agg"/>
+        <segue reference="xhs-QU-DpM"/>
         <segue reference="dNx-FP-4rN"/>
+        <segue reference="rQe-am-agg"/>
         <segue reference="uzd-0d-SvP"/>
     </inferredMetricsTieBreakers>
 </document>

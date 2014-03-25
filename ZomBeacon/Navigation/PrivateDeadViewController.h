@@ -22,6 +22,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *survivorCount;
 @property (nonatomic, weak) IBOutlet UILabel *zombieCount;
 @property (nonatomic, strong) NSString *gameIdString;
+@property (nonatomic, weak) IBOutlet UIButton *locationButton;
+@property (nonatomic, weak) IBOutlet UIButton *compassButton;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

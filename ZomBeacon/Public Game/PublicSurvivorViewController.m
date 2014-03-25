@@ -194,24 +194,22 @@
 - (IBAction)trackMyOrientation
 {
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading];
-    [self.locationButton setHidden:NO];
-    [self.compassButton setHidden:YES];
-//    [UIView animateWithDuration:0.1 animations:^{self.locationButton.alpha = 1.0;}];
-//    [UIView animateWithDuration:0.1 animations:^{self.compassButton.alpha = 0.0;}];
+    [UIView animateWithDuration:0.5 animations:^{self.locationButton.alpha = 1.0;}];
+    [UIView animateWithDuration:0.5 animations:^{self.compassButton.alpha = 0.0;}];
 }
 
 //For the crosshairs button on the map
 - (IBAction)centerMapOnLocation
 {
     [self zoomToUserLocation:self.mapView.userLocation];
-    [UIView animateWithDuration:0.1 animations:^{self.locationButton.alpha = 0.0;}];
-    [UIView animateWithDuration:0.1 animations:^{self.compassButton.alpha = 1.0;}];
+    [UIView animateWithDuration:0.5 animations:^{self.locationButton.alpha = 0.0;}];
+    [UIView animateWithDuration:0.5 animations:^{self.compassButton.alpha = 1.0;}];
 }
 
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
-    [UIView animateWithDuration:0.1 animations:^{self.locationButton.alpha = 1.0;}];
-    [UIView animateWithDuration:0.1 animations:^{self.compassButton.alpha = 0.0;}];
+    [UIView animateWithDuration:0.5 animations:^{self.locationButton.alpha = 1.0;}];
+    [UIView animateWithDuration:0.5 animations:^{self.compassButton.alpha = 0.0;}];
 }
 
 #pragma mark - Beacon Management

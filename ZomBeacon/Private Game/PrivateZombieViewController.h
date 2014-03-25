@@ -30,6 +30,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *survivorCount;
 @property (nonatomic, weak) IBOutlet UILabel *zombieCount;
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;
+@property (nonatomic, weak) IBOutlet UIButton *locationButton;
+@property (nonatomic, weak) IBOutlet UIButton *compassButton;
 @property (nonatomic, strong) NSString *gameIdString;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;

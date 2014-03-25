@@ -28,6 +28,8 @@
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSTimer *queryTimer;
 @property (nonatomic, weak) IBOutlet UIButton *biteButton;
+@property (nonatomic, weak) IBOutlet UIButton *locationButton;
+@property (nonatomic, weak) IBOutlet UIButton *compassButton;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 
