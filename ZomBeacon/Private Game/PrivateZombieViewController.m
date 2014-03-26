@@ -30,6 +30,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = 1.3f;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     [self.locationManager startUpdatingLocation];
     
     //Grabs UUID from game so that the iBeacon is unique to the game

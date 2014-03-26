@@ -31,6 +31,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = 1.3f;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     [self.locationManager startUpdatingLocation];
     
     //Initializing beacon region to range for zombies
