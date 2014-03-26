@@ -93,15 +93,37 @@
                      [userScore setObject:user forKey:@"user"];
                      [userScore saveInBackground];
                      
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!" message:@"You will receive an email to confirm your account." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                     
-                     [alert show];
-                     
                      dispatch_async(dispatch_get_main_queue(), ^{
                          [MBProgressHUD hideHUDForView:self.view animated:YES];
                      });
                      
-                     [self dismissViewControllerAnimated:YES completion:nil];
+                     [PFUser logInWithUsernameInBackground:user.username password:user.password block:^(PFUser *user, NSError *error)
+                      {
+                          if (user)
+                          {
+                              dispatch_async(dispatch_get_main_queue(), ^{
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              });
+                              
+                              [self performSegueWithIdentifier:@"tutorial" sender:self];
+                              [self performSegueWithIdentifier:@"mainmenu" sender:self];
+                              
+                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                              
+                              [alert show];
+                          }
+                          else
+                          {
+                              dispatch_async(dispatch_get_main_queue(), ^{
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                              });
+                              
+                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", [error userInfo][@"error"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                              
+                              [alert show];
+                          }
+                      }];
+
                  }
                  else
                  {

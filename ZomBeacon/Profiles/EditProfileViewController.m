@@ -53,18 +53,36 @@
 
 - (IBAction)saveProfileChanges
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Changes Saved!" message:@"The changes you've made have been saved." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    [alert show];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    currentUser[@"name"] = self.nameField.text;
-    currentUser.username = self.usernameField.text;
-    currentUser.email = self.emailField.text;
-    currentUser[@"bio"] = self.bioField.text;
-    
-    [currentUser saveInBackground];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        
+        currentUser[@"name"] = self.nameField.text;
+        currentUser.username = self.usernameField.text;
+        currentUser.email = self.emailField.text;
+        currentUser[@"bio"] = self.bioField.text;
+        
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error)
+            {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Changes Saved!" message:@"The changes you've made have been saved." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", [error userInfo][@"error"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                });
+                
+            }
+        }];
+    });
 }
 
 - (void)didReceiveMemoryWarning

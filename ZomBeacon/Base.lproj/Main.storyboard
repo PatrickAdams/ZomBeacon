@@ -614,7 +614,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="gYI-9p-ec8" kind="modal" id="sWU-QD-cs4"/>
+                                            <segue destination="gYI-9p-ec8" kind="push" id="sWU-QD-cs4"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2UB-Mo-J6w">
@@ -813,7 +813,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ze3-Kb-QEY">
-                                        <rect key="frame" x="280" y="18" width="25" height="25"/>
+                                        <rect key="frame" x="275" y="20" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="close_button.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -832,6 +832,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outletCollection property="titilliumSemiBoldFonts" destination="sQU-ho-hIG" id="I24-1m-Vhc"/>
@@ -854,7 +855,7 @@
             <objects>
                 <viewController storyboardIdentifier="signup" id="gYI-9p-ec8" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TK2-iY-rvv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="dIJ-Kx-SgO">
@@ -870,7 +871,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="gvR-6J-COj">
                                         <rect key="frame" x="35" y="154" width="250" height="30"/>
@@ -938,7 +939,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="pAw-oL-IcX">
                                         <rect key="frame" x="35" y="376" width="250" height="30"/>
@@ -1015,6 +1016,8 @@
                         <outletCollection property="textFieldSpacers" destination="BE3-vo-WgD" id="6CZ-yI-9wO"/>
                         <outletCollection property="textFieldSpacers" destination="bUi-xX-IpM" id="LJU-gr-lrL"/>
                         <outletCollection property="textFieldSpacers" destination="pAw-oL-IcX" id="kvT-NY-Fek"/>
+                        <segue destination="csk-fv-kRg" kind="modal" identifier="tutorial" id="Ajr-Yc-gHs"/>
+                        <segue destination="NGH-f2-ute" kind="push" identifier="mainmenu" id="9Ea-F4-kFd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8I-pr-4sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2063,7 +2066,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="YDv-Jp-Agy">
                                         <rect key="frame" x="35" y="138" width="250" height="30"/>
@@ -2118,7 +2121,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="tGH-JC-E1F">
                                         <rect key="frame" x="35" y="360" width="250" height="30"/>
@@ -2551,7 +2554,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qag-oe-wI8">
-                                <rect key="frame" x="280" y="18" width="25" height="25"/>
+                                <rect key="frame" x="275" y="20" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="close_button.png">
                                     <color key="titleColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
@@ -2565,6 +2568,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="About Us" id="dLL-D5-K0S"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outletCollection property="titilliumSemiBoldFonts" destination="OG6-Ba-hSn" id="L6A-Zv-dwE"/>
                         <outletCollection property="titilliumRegularFonts" destination="DrI-Qj-Ng5" id="eDO-2Y-NzZ"/>
@@ -3341,10 +3345,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="nKY-JK-UEu"/>
-        <segue reference="rQe-am-agg"/>
-        <segue reference="dNx-FP-4rN"/>
-        <segue reference="xhs-QU-DpM"/>
+        <segue reference="9Ea-F4-kFd"/>
+        <segue reference="Ajr-Yc-gHs"/>
         <segue reference="Qrh-1m-sYU"/>
+        <segue reference="dNx-FP-4rN"/>
+        <segue reference="rQe-am-agg"/>
+        <segue reference="xhs-QU-DpM"/>
     </inferredMetricsTieBreakers>
 </document>
