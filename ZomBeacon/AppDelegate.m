@@ -32,6 +32,9 @@
     //Bluetooth Peripheral Manager
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     
+    //Bluetooth Central Manager
+    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    
     //Proximity Kit
     self.proximityKitManager = [PKManager managerWithDelegate:self];
     [self.proximityKitManager start];
@@ -103,7 +106,9 @@
 {
     NSString *userStatus = [PFUser currentUser][@"publicStatus"];
     
-    if ([userStatus isEqualToString:@"zombie"])
+    NSLog(@"Discovered %@ with RSSI of %@", [[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0], RSSI);
+    
+    if ([userStatus isEqualToString:@"zombie"] && [[[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0] isEqualToString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"])
     {
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
@@ -119,7 +124,7 @@
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         }
     }
-    else if ([userStatus isEqualToString:@"survivor"])
+    else if ([userStatus isEqualToString:@"survivor"] && [[[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0] isEqualToString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"])
     {
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
@@ -333,9 +338,6 @@
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = 1.3f;
     [self.locationManager startUpdatingLocation];
-    
-    //Bluetooth Central Manager
-    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"didEnterBackground" object:nil userInfo:nil];
 }
