@@ -29,9 +29,6 @@
     [PFTwitterUtils initializeWithConsumerKey:@"4Oj2HtCnI9e8ALYhApmEyg"
                                consumerSecret:@"q0wXLhwm6qSdEiM1BmnPEcfYYJ36HbASJ62WENgEBo"];
     
-    //Bluetooth Peripheral Manager
-    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-    
     //Bluetooth Central Manager
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
@@ -44,123 +41,61 @@
 
 #pragma mark - ProximityKit delegate methods
 
-////Gets called when user enters any of the geo-fence locations
-//- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
-//{
-//    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
-//    
-//    if ([userStatus isEqualToString:@"zombie"])
-//    {
-//        [[PFUser currentUser] setObject:@"survivor" forKey:@"publicStatus"];
-//        [[PFUser currentUser] saveInBackground];
-//        
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-//        UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
-//        [navCon pushViewController:vc animated:NO];
-//        
-//        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-//        {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've entered a quarantine zone. You've been cured. You are now a Survivor." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//            
-//            [alert show];
-//        }
-//        else
-//        {
-//            UILocalNotification *notification = [[UILocalNotification alloc] init];
-//            notification.alertBody = @"PUBLIC GAME: You've entered a quarantine zone. You've been cured. You are now a Survivor.";
-//            notification.soundName = UILocalNotificationDefaultSoundName;
-//            notification.applicationIconBadgeNumber = 1;
-//            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-//        }
-//    }
-//}
-//
-////Gets called when user exits any of the geo-fence locations
-//- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
-//{
-//    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
-//    
-//    if ([userStatus isEqualToString:@"survivor"])
-//    {
-//        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-//        {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've left the quarantine zone. If you become infected come back to this spot to be cured." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//            
-//            [alert show];
-//        }
-//        else
-//        {
-//            UILocalNotification *notification = [[UILocalNotification alloc] init];
-//            notification.alertBody = @"You've left the quarantine zone. If you become infected come back to this spot to be cured.";
-//            notification.soundName = UILocalNotificationDefaultSoundName;
-//            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-//        }
-//    }
-//}
-//
-#pragma mark - Core Bluetooth
-
-//Method that gets called when a bluetooth peripheral is detected
-- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+//Gets called when user enters any of the geo-fence locations
+- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
 {
     NSString *userStatus = [PFUser currentUser][@"publicStatus"];
     
-    NSLog(@"Discovered %@ with RSSI of %@", [[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0], RSSI);
-    
-    NSString *UUID = [NSString stringWithFormat:@"%@", [[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0]];
-    
-    if ([userStatus isEqualToString:@"zombie"] && [UUID isEqualToString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"])
+    if ([userStatus isEqualToString:@"zombie"])
     {
-        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"A survivor is nearby, bite them!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [alert show];
-        }
-        else
-        {
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = @"PUBLIC GAME: A survivor is nearby, bite them!";
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-        }
-    }
-    else if ([userStatus isEqualToString:@"survivor"] && [UUID isEqualToString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"])
-    {
-        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"A zombie is nearby, headshot them!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [alert show];
-        }
-        else
-        {
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = @"PUBLIC GAME: A zombie is nearby, headshot them!";
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-
-        }
-    }
-}
-
-- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
-{
-    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
-    {
-        NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+        [[PFUser currentUser] setObject:@"survivor" forKey:@"publicStatus"];
+        [[PFUser currentUser] saveInBackground];
         
-        if ([userStatus isEqualToString:@"survivor"])
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
+        UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+        [navCon pushViewController:vc animated:NO];
+        
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
-            [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]]}];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've entered a quarantine zone. You've been cured. You are now a Survivor." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
         }
-        else if ([userStatus isEqualToString:@"zombie"])
+        else
         {
-            [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"]]}];
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = @"PUBLIC GAME: You've entered a quarantine zone. You've been cured. You are now a Survivor.";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 1;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         }
     }
 }
+
+//Gets called when user exits any of the geo-fence locations
+- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
+{
+    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+    
+    if ([userStatus isEqualToString:@"survivor"])
+    {
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've left the quarantine zone. If you become infected come back to this spot to be cured." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
+        else
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = @"You've left the quarantine zone. If you become infected come back to this spot to be cured.";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        }
+    }
+}
+
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
@@ -175,17 +110,6 @@
     if (central.state == CBCentralManagerStatePoweredOn)
     {
         [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-        
-        NSString *userStatus = [PFUser currentUser][@"publicStatus"];
-        
-        if ([userStatus isEqualToString:@"survivor"])
-        {
-            [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"]] options:nil];
-        }
-        else if ([userStatus isEqualToString:@"zombie"])
-        {
-            [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"]] options:nil];
-        }
     }
 }
 
@@ -366,7 +290,6 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [self.locationTimer invalidate];
-    [self.queryEnemiesTimer invalidate];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

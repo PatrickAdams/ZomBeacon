@@ -14,19 +14,13 @@
 #import "FindGameViewController.h"
 #import "MainMenuViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, CBPeripheralManagerDelegate, CBPeripheralDelegate, PKManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, PKManagerDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CBPeripheralManager *peripheralManager;
-@property (nonatomic, strong) CBPeripheral *thePeripheral;
-@property (nonatomic, strong) CBMutableCharacteristic *peripheralCharacteristic;
-@property (nonatomic, strong) CBMutableService *peripheralService;
 @property (nonatomic, strong) PFGeoPoint *point;
 @property (nonatomic, strong) NSTimer *locationTimer;
-@property (nonatomic, strong) NSTimer *queryEnemiesTimer;
-@property (nonatomic, strong) NSMutableArray *peripheralsArray;
 @property (nonatomic, strong) PKManager *proximityKitManager;
 
 @end
