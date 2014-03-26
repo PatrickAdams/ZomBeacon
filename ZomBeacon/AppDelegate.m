@@ -108,7 +108,9 @@
     
     NSLog(@"Discovered %@ with RSSI of %@", [[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0], RSSI);
     
-    if ([userStatus isEqualToString:@"zombie"] && [[[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0] isEqualToString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"])
+    NSString *UUID = [NSString stringWithFormat:@"%@", [[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0]];
+    
+    if ([userStatus isEqualToString:@"zombie"] && [UUID isEqualToString:@"A609D670-B7FF-4098-89CF-D5E67720CEC2"])
     {
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
@@ -124,7 +126,7 @@
             [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         }
     }
-    else if ([userStatus isEqualToString:@"survivor"] && [[[advertisementData objectForKey:@"kCBAdvDataServiceUUIDs"] objectAtIndex:0] isEqualToString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"])
+    else if ([userStatus isEqualToString:@"survivor"] && [UUID isEqualToString:@"307D9B00-053B-4849-8222-47E4BD3AB0B7"])
     {
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
