@@ -21,6 +21,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *gameNameTextField;
 @property (nonatomic, weak) IBOutlet UITextField *dateTimeTextField;
 @property (nonatomic, weak) IBOutlet MKMapView *mapView;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) UserAnnotations *droppedPin;
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UIPickerView *pickerView;

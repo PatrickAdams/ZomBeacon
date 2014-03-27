@@ -2292,11 +2292,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="320" height="750"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="eRH-Rg-Pcf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
@@ -2310,6 +2305,7 @@
                         <outlet property="dateTimeTextField" destination="Lg3-2F-wSI" id="r8g-Wu-XXS"/>
                         <outlet property="gameNameTextField" destination="Wyy-rq-oJm" id="dM8-f8-3fR"/>
                         <outlet property="mapView" destination="N1e-0F-yLn" id="YwU-fx-4Cz"/>
+                        <outlet property="scrollView" destination="gFz-Jv-Wup" id="aex-vF-AZZ"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="OIv-bd-u2W" id="qHZ-wp-A0e"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="wJL-uB-0G1" id="6NN-zh-HZ0"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="7Kd-gc-mAD" id="ShJ-ap-Izu"/>

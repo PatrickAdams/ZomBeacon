@@ -42,6 +42,15 @@
         [textField setLeftViewMode:UITextFieldViewModeAlways];
         [textField setLeftView:spacerView];
     }
+    
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 925);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 850);
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
