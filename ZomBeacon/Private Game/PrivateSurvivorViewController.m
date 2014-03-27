@@ -262,6 +262,15 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
+                
+                //Set up push to send to person that bit you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
+                [push sendPush:nil];
             }
             else
             {
@@ -269,6 +278,15 @@
                 notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
                 notification.soundName = UILocalNotificationDefaultSoundName;
                 [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+                
+                //Set up push to send to person that bit you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
+                [push sendPush:nil];
             }
             
             PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];

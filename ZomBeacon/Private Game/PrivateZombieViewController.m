@@ -208,6 +208,15 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
+                
+                //Set up push to send to person that shot you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+                [push sendPush:nil];
             }
             else
             {
@@ -215,6 +224,15 @@
                 notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
                 notification.soundName = UILocalNotificationDefaultSoundName;
                 [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+                
+                //Set up push to send to person that shot you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+                [push sendPush:nil];
             }
             
             PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];

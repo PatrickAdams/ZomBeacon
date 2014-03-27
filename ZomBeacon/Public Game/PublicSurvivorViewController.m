@@ -259,17 +259,35 @@
             
             if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@. You are now a zombie!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
+                
+                //Set up push to send to person that bit you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
+                [push sendPushInBackground];
             }
             else
             {
                 UILocalNotification *notification = [[UILocalNotification alloc] init];
-                notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
+                notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@. You are now a zombie!", userThatInfected.username];
                 notification.soundName = UILocalNotificationDefaultSoundName;
                 notification.applicationIconBadgeNumber = 1;
                 [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+                
+                //Set up push to send to person that bit you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
+                [push sendPush:nil];
             }
             
             [currentUser setObject:@"zombie" forKey:@"publicStatus"];

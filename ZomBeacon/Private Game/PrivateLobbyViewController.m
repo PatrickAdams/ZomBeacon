@@ -205,6 +205,15 @@
                     
                     [theStatus save];
                 }
+                
+                //Set up push to send to person that bit you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:player];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": @"The host has assigned teams. You may now start the game."}];
+                [push sendPush:nil];
             }
         }
         
