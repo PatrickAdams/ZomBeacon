@@ -991,7 +991,7 @@
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
-                                        <size key="value" width="320" height="850"/>
+                                        <size key="value" width="320" height="925"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
@@ -1000,6 +1000,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="SIGN UP" id="cXT-kr-8Xs"/>
+                    <size key="freeformSize" width="320" height="613"/>
                     <connections>
                         <outlet property="bioField" destination="pAw-oL-IcX" id="RUL-xG-LJR"/>
                         <outlet property="emailField" destination="BE3-vo-WgD" id="rha-1o-6Go"/>

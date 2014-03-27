@@ -148,7 +148,7 @@
 
 - (IBAction)dismissView
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //Method that chooses a random number
