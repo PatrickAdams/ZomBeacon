@@ -79,6 +79,8 @@
 		E70B558E18E1DCFD000A02A8 /* uv_idea@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E70B558318E1DCFC000A02A8 /* uv_idea@2x.png */; };
 		E70B559118E205E6000A02A8 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70B559018E205E6000A02A8 /* TutorialViewController.m */; };
 		E70B559318E20933000A02A8 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E70B559218E20933000A02A8 /* close_button@2x.png */; };
+		E70CC35E18E4B36D00402453 /* app_icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = E70CC35C18E4B36D00402453 /* app_icon_58.png */; };
+		E70CC35F18E4B36D00402453 /* app_icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = E70CC35D18E4B36D00402453 /* app_icon_80.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
 		E751E4851858BF15004E8874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4841858BF15004E8874 /* Foundation.framework */; };
 		E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E751E4861858BF15004E8874 /* CoreGraphics.framework */; };
@@ -277,6 +279,8 @@
 		E70B558F18E205E6000A02A8 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialViewController.h; path = "Login:Sign Up/TutorialViewController.h"; sourceTree = "<group>"; };
 		E70B559018E205E6000A02A8 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialViewController.m; path = "Login:Sign Up/TutorialViewController.m"; sourceTree = "<group>"; };
 		E70B559218E20933000A02A8 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close_button@2x.png"; path = "Images/close_button@2x.png"; sourceTree = "<group>"; };
+		E70CC35C18E4B36D00402453 /* app_icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_58.png; path = Images/app_icon_58.png; sourceTree = "<group>"; };
+		E70CC35D18E4B36D00402453 /* app_icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_80.png; path = Images/app_icon_80.png; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E751E4841858BF15004E8874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E751E4861858BF15004E8874 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -438,6 +442,8 @@
 				CD6FA4E018C7A33C00510581 /* survivor_annotation@2x.png */,
 				CD6FA4DE18C7A33700510581 /* zombie_annotation@2x.png */,
 				E7B4FBF718D8962C0036B5D7 /* user_annotation@2x.png */,
+				E70CC35C18E4B36D00402453 /* app_icon_58.png */,
+				E70CC35D18E4B36D00402453 /* app_icon_80.png */,
 				CD6FA4D818C79F9400510581 /* app_icon_large.png */,
 				CD6FA4D918C79F9400510581 /* app_icon_medium.png */,
 				CD6FA4DA18C79F9400510581 /* app_icon_small.png */,
@@ -805,7 +811,9 @@
 				CDFBBFB818CF83AA005763C8 /* tape@2x.png in Resources */,
 				E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */,
 				E786A2C418C0FB4B00942576 /* findgame_button2@2x.png in Resources */,
+				E70CC35E18E4B36D00402453 /* app_icon_58.png in Resources */,
 				E7B8907518D762B5002082F8 /* bg_green@2x.png in Resources */,
+				E70CC35F18E4B36D00402453 /* app_icon_80.png in Resources */,
 				E786A2C018C0F7D900942576 /* bg_mainmenu@2x.png in Resources */,
 				E786A2D818C11CC400942576 /* assignteams_button@2x.png in Resources */,
 				E751E48F1858BF15004E8874 /* InfoPlist.strings in Resources */,
