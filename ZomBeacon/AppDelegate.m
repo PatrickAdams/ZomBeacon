@@ -55,64 +55,65 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [PFPush handlePush:userInfo];
+    NSLog(@"%@", userInfo);
 }
 
-#pragma mark - ProximityKit delegate methods
-
-//Gets called when user enters any of the geo-fence locations
-- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
-{
-    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
-    
-    if ([userStatus isEqualToString:@"zombie"])
-    {
-        [[PFUser currentUser] setObject:@"survivor" forKey:@"publicStatus"];
-        [[PFUser currentUser] saveInBackground];
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-        UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
-        [navCon pushViewController:vc animated:NO];
-        
-        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've entered a quarantine zone. You've been cured. You are now a Survivor." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [alert show];
-        }
-        else
-        {
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = @"PUBLIC GAME: You've entered a quarantine zone. You've been cured. You are now a Survivor.";
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            notification.applicationIconBadgeNumber = 1;
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-        }
-    }
-}
-
-//Gets called when user exits any of the geo-fence locations
-- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
-{
-    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
-    
-    if ([userStatus isEqualToString:@"survivor"])
-    {
-        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've left the quarantine zone. If you become infected come back to this spot to be cured." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [alert show];
-        }
-        else
-        {
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = @"You've left the quarantine zone. If you become infected come back to this spot to be cured.";
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-        }
-    }
-}
+//#pragma mark - ProximityKit delegate methods
+//
+////Gets called when user enters any of the geo-fence locations
+//- (void)proximityKit:(PKManager *)manager didEnter:(PKRegion *)region
+//{
+//    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+//    
+//    if ([userStatus isEqualToString:@"zombie"])
+//    {
+//        [[PFUser currentUser] setObject:@"survivor" forKey:@"publicStatus"];
+//        [[PFUser currentUser] saveInBackground];
+//        
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        PublicSurvivorViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
+//        UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+//        [navCon pushViewController:vc animated:NO];
+//        
+//        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+//        {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've entered a quarantine zone. You've been cured. You are now a Survivor." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            
+//            [alert show];
+//        }
+//        else
+//        {
+//            UILocalNotification *notification = [[UILocalNotification alloc] init];
+//            notification.alertBody = @"PUBLIC GAME: You've entered a quarantine zone. You've been cured. You are now a Survivor.";
+//            notification.soundName = UILocalNotificationDefaultSoundName;
+//            notification.applicationIconBadgeNumber = 1;
+//            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+//        }
+//    }
+//}
+//
+////Gets called when user exits any of the geo-fence locations
+//- (void)proximityKit:(PKManager *)manager didExit:(PKRegion *)region
+//{
+//    NSString *userStatus = [PFUser currentUser][@"publicStatus"];
+//    
+//    if ([userStatus isEqualToString:@"survivor"])
+//    {
+//        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+//        {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:@"You've left the quarantine zone. If you become infected come back to this spot to be cured." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            
+//            [alert show];
+//        }
+//        else
+//        {
+//            UILocalNotification *notification = [[UILocalNotification alloc] init];
+//            notification.alertBody = @"You've left the quarantine zone. If you become infected come back to this spot to be cured.";
+//            notification.soundName = UILocalNotificationDefaultSoundName;
+//            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+//        }
+//    }
+//}
 
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
