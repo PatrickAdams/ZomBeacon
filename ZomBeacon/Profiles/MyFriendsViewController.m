@@ -119,10 +119,13 @@
     FriendProfileViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friendprofile"];
     
     NSObject *friend = [self.friendsArray objectAtIndex:[indexPath row]];
+    
+    NSString *theScore = [NSString stringWithFormat:@"%@ pts", [[friend valueForKey:@"score"] stringValue]];
 
     vc.realNameString = [friend valueForKey:@"name"];
     vc.userNameString = [friend valueForKey:@"username"];
     vc.shortBioString = [friend valueForKey:@"bio"];
+    vc.userScoreString = theScore;
     vc.myFriend = [friend valueForKey:@"pointer"];
     
     [self.navigationController pushViewController:vc animated:YES];

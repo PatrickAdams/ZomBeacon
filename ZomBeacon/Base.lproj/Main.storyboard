@@ -1415,14 +1415,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GAMES HOSTING:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D2j-wA-G1A">
-                                <rect key="frame" x="18" y="199" width="167" height="21"/>
+                                <rect key="frame" x="18" y="226" width="167" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="22" sectionFooterHeight="22" id="r9c-tt-xfk">
-                                <rect key="frame" x="0.0" y="228" width="320" height="276"/>
+                                <rect key="frame" x="0.0" y="255" width="320" height="249"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1486,6 +1486,20 @@
                                     <outlet property="delegate" destination="WzA-Tt-CCQ" id="EbP-oE-JHp"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IZt-AW-vra">
+                                <rect key="frame" x="64" y="190" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vc6-Ah-dwi">
+                                <rect key="frame" x="149" y="187" width="146" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.2218008668" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1498,12 +1512,15 @@
                         <outlet property="shortBio" destination="XXI-xl-WTB" id="42h-FK-eG8"/>
                         <outlet property="tableView" destination="r9c-tt-xfk" id="faG-jg-4f2"/>
                         <outlet property="userName" destination="uJs-Lt-7KB" id="01D-W1-5rQ"/>
+                        <outlet property="userScore" destination="vc6-Ah-dwi" id="vFe-bT-wUg"/>
                         <outletCollection property="titilliumRegularFonts" destination="pSk-db-BvR" id="UW3-z4-y8M"/>
                         <outletCollection property="titilliumRegularFonts" destination="XXI-xl-WTB" id="uuq-dx-mjo"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="uJs-Lt-7KB" id="0f0-Pv-ZTT"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="FxB-pH-Zv7" id="hOU-j0-U5Z"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="5El-gO-gY8" id="WaE-ft-a0C"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="D2j-wA-G1A" id="ACr-Ii-1o0"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="IZt-AW-vra" id="wMp-Vh-noY"/>
+                        <outletCollection property="titilliumRegularFonts" destination="vc6-Ah-dwi" id="mem-0g-UhU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aor-YC-9l1" userLabel="First Responder" sceneMemberID="firstResponder"/>

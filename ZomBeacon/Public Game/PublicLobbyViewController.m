@@ -142,11 +142,14 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FriendProfileViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"friendprofile"];
     
+    NSString *theScore = [NSString stringWithFormat:@"%@ pts", [self.theScores objectAtIndex:indexPath.row]];
+    
     PFUser *player = self.thePlayers[indexPath.row];
     vc.realNameString = player[@"name"];
     vc.userNameString = player[@"username"];
     vc.shortBioString = player[@"bio"];
     vc.currentGameString = player[@"currentGame"];
+    vc.userScoreString = theScore;
     vc.myFriend = player;
     
     [self.navigationController pushViewController:vc animated:YES];

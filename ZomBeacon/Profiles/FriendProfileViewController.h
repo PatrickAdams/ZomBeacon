@@ -17,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *userName;
 @property (nonatomic, weak) IBOutlet UILabel *realName;
 @property (nonatomic, weak) IBOutlet UILabel *shortBio;
+@property (nonatomic, weak) IBOutlet UILabel *userScore;
 @property (nonatomic, weak) IBOutlet PFImageView *profileImage;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIButton *addAsFriendButton;
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) NSString *realNameString;
 @property (nonatomic, strong) NSString *shortBioString;
 @property (nonatomic, strong) NSString *currentGameString;
+@property (nonatomic, strong) NSString *userScoreString;
 @property (nonatomic, strong) PFUser *myFriend;
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSMutableArray *privateGames;

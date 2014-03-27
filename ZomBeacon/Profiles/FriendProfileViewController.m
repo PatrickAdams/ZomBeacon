@@ -32,6 +32,7 @@
     self.realName.text = self.realNameString;
     self.userName.text = self.userNameString;
     self.shortBio.text = self.shortBioString;
+    self.userScore.text = self.userScoreString;
     
     for (UILabel * label in self.titilliumSemiBoldFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
