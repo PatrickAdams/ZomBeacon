@@ -1074,9 +1074,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIVATE GAMES CREATED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3de-z0-7yN">
-                                <rect key="frame" x="26" y="258" width="232" height="21"/>
+                                <rect key="frame" x="26" y="260" width="232" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1113,7 +1113,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="1tz-Cy-jbl">
-                                <rect key="frame" x="0.0" y="293" width="320" height="199"/>
+                                <rect key="frame" x="0.0" y="298" width="320" height="194"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1225,10 +1225,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Swipe to delete)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yQc-vV-cVz">
-                                <rect key="frame" x="26" y="274" width="113" height="21"/>
+                                <rect key="frame" x="26" y="274" width="101" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                                <color key="textColor" red="0.76086956520000004" green="0.76086956520000004" blue="0.76086956520000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1237,7 +1237,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Item" id="OqS-VK-sar"/>
                     <navigationItem key="navigationItem" title="My Profile" id="QpK-1R-D6p">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hF8-Ba-60z">
+                        <barButtonItem key="rightBarButtonItem" image="edit_user.png" id="hF8-Ba-60z">
                             <connections>
                                 <segue destination="ovM-FO-Wqw" kind="modal" id="cyK-UW-VgD"/>
                             </connections>
@@ -3317,6 +3317,7 @@
         <image name="creategame_button.png" width="180" height="181"/>
         <image name="creategame_button2.png" width="250" height="40"/>
         <image name="default_profile.png" width="181" height="181"/>
+        <image name="edit_user.png" width="25" height="25"/>
         <image name="findgame_button.png" width="122" height="123"/>
         <image name="findgame_button2.png" width="230" height="40"/>
         <image name="follow_button.png" width="91" height="29"/>
@@ -3359,11 +3360,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="xhs-QU-DpM"/>
+        <segue reference="PsZ-ht-oAZ"/>
         <segue reference="9Ea-F4-kFd"/>
         <segue reference="Ajr-Yc-gHs"/>
+        <segue reference="CM6-mk-yUd"/>
         <segue reference="Qrh-1m-sYU"/>
-        <segue reference="dNx-FP-4rN"/>
-        <segue reference="rQe-am-agg"/>
-        <segue reference="xhs-QU-DpM"/>
     </inferredMetricsTieBreakers>
 </document>
