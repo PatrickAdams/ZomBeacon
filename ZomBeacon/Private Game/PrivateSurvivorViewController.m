@@ -58,6 +58,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
@@ -225,94 +226,90 @@
 {
     CLBeacon *beacon = [beacons lastObject];
     
-    if (beacon != nil)
+    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         [manager stopRangingBeaconsInRegion:region];
+        PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+        [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+        PFObject *currentGame = [countsQuery getFirstObject];
+        int survivorCount = [currentGame[@"survivorCount"] intValue];
+        int zombieCount = [currentGame[@"zombieCount"] intValue];
         
-        if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        [userQuery whereKey:@"major" equalTo:beacon.major];
+        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+        
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
-            PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
-            [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
-            PFObject *currentGame = [countsQuery getFirstObject];
-            int survivorCount = [currentGame[@"survivorCount"] intValue];
-            int zombieCount = [currentGame[@"zombieCount"] intValue];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
-            PFQuery *userQuery = [PFUser query];
-            [userQuery whereKey:@"minor" equalTo:beacon.minor];
-            [userQuery whereKey:@"major" equalTo:beacon.major];
-            PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+            [alert show];
             
-            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+            //Set up push to send to person that bit you.
+            PFQuery *pushQuery = [PFInstallation query];
+            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+            
+            PFPush *push = [PFPush new];
+            [push setQuery:pushQuery];
+            [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
+            [push sendPush:nil];
+        }
+        else
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            
+            //Set up push to send to person that bit you.
+            PFQuery *pushQuery = [PFInstallation query];
+            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+            
+            PFPush *push = [PFPush new];
+            [push setQuery:pushQuery];
+            [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
+            [push sendPush:nil];
+        }
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+        [query whereKey:@"user" equalTo:currentUser];
+        PFObject *theStatus = [query getFirstObject];
+        [theStatus setObject:@"zombie" forKey:@"status"];
+        [theStatus saveInBackground];
+        
+        //Adds 250 pts to the user's publicScore for a bite
+        PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
+        [query2 whereKey:@"user" equalTo:userThatInfected];
+        PFObject *theUserScore = [query2 getFirstObject];
+        float score = [theUserScore[@"privateScore"] floatValue];
+        float points = 100.0f;
+        NSNumber *sum = [NSNumber numberWithFloat:score + points];
+        [theUserScore setObject:sum forKey:@"privateScore"];
+        [theUserScore saveInBackground];
+        
+        survivorCount--;
+        zombieCount++;
+        
+        currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
+        currentGame[@"zombieCount"] = [NSNumber numberWithInt:zombieCount];
+        [currentGame save];
+        
+        if (survivorCount < 1)
+        {
+            [self performSegueWithIdentifier:@"endGamePrivateSurvivor" sender:self];
+            for (UIViewController *controller in [self.navigationController viewControllers])
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                
-                [alert show];
-                
-                //Set up push to send to person that bit you.
-                PFQuery *pushQuery = [PFInstallation query];
-                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-                
-                PFPush *push = [PFPush new];
-                [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
-                [push sendPush:nil];
-            }
-            else
-            {
-                UILocalNotification *notification = [[UILocalNotification alloc] init];
-                notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You've been bitten by user: %@, you are now infected. Go find some Survivors!", userThatInfected.username];
-                notification.soundName = UILocalNotificationDefaultSoundName;
-                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                
-                //Set up push to send to person that bit you.
-                PFQuery *pushQuery = [PFInstallation query];
-                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-                
-                PFPush *push = [PFPush new];
-                [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
-                [push sendPush:nil];
-            }
-            
-            PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
-            [query whereKey:@"user" equalTo:currentUser];
-            PFObject *theStatus = [query getFirstObject];
-            [theStatus setObject:@"zombie" forKey:@"status"];
-            [theStatus saveInBackground];
-            
-            //Adds 250 pts to the user's publicScore for a bite
-            PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
-            [query2 whereKey:@"user" equalTo:userThatInfected];
-            PFObject *theUserScore = [query2 getFirstObject];
-            float score = [theUserScore[@"privateScore"] floatValue];
-            float points = 100.0f;
-            NSNumber *sum = [NSNumber numberWithFloat:score + points];
-            [theUserScore setObject:sum forKey:@"privateScore"];
-            [theUserScore saveInBackground];
-            
-            survivorCount--;
-            zombieCount++;
-            
-            currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
-            currentGame[@"zombieCount"] = [NSNumber numberWithInt:zombieCount];
-            [currentGame save];
-            
-            if (survivorCount < 1)
-            {
-                [self performSegueWithIdentifier:@"endGamePrivateSurvivor" sender:self];
-                for (UIViewController *controller in [self.navigationController viewControllers])
+                if ([controller isKindOfClass:[PrivateLobbyViewController class]])
                 {
-                    if ([controller isKindOfClass:[PrivateLobbyViewController class]])
-                    {
-                        [self.navigationController popToViewController:controller animated:YES];
-                        break;
-                    }
+                    [self.navigationController popToViewController:controller animated:YES];
+                    break;
                 }
             }
-            else
-            {
-                [self performSegueWithIdentifier:@"privateZombie" sender:self];
-            }
+        }
+        else
+        {
+            [self performSegueWithIdentifier:@"privateZombie" sender:self];
         }
     }
 }

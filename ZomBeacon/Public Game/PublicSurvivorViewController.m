@@ -79,6 +79,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
@@ -228,67 +229,61 @@
 {
     CLBeacon *beacon = [beacons lastObject];
     
-    if (beacon != nil)
+    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         [manager stopRangingBeaconsInRegion:region];
+        [self performSegueWithIdentifier:@"publicZombie" sender:self];
         
-        if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        [userQuery whereKey:@"major" equalTo:beacon.major];
+        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+        
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
-            [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
-            [self performSegueWithIdentifier:@"publicZombie" sender:self];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@. You are now a zombie!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
-            PFQuery *userQuery = [PFUser query];
-            [userQuery whereKey:@"minor" equalTo:beacon.minor];
-            [userQuery whereKey:@"major" equalTo:beacon.major];
-            PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+            [alert show];
             
-            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-            {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:[NSString stringWithFormat:@"You've been bitten by user: %@. You are now a zombie!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                
-                [alert show];
-                
-                //Set up push to send to person that bit you.
-                PFQuery *pushQuery = [PFInstallation query];
-                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-                
-                PFPush *push = [PFPush new];
-                [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
-                [push sendPushInBackground];
-            }
-            else
-            {
-                UILocalNotification *notification = [[UILocalNotification alloc] init];
-                notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@. You are now a zombie!", userThatInfected.username];
-                notification.soundName = UILocalNotificationDefaultSoundName;
-                notification.applicationIconBadgeNumber = 1;
-                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                
-                //Set up push to send to person that bit you.
-                PFQuery *pushQuery = [PFInstallation query];
-                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-
-                PFPush *push = [PFPush new];
-                [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
-                [push sendPush:nil];
-            }
+            //Set up push to send to person that bit you.
+            PFQuery *pushQuery = [PFInstallation query];
+            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
             
-            [currentUser setObject:@"zombie" forKey:@"publicStatus"];
-            [currentUser saveInBackground];
+            PFPush *push = [PFPush new];
+            [push setQuery:pushQuery];
+            [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
+            [push sendPushInBackground];
+        }
+        else
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You've been bitten by user: %@. You are now a zombie!", userThatInfected.username];
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            notification.applicationIconBadgeNumber = 1;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
             
-            //Adds 250 pts to the user's publicScore for a bite
-            PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
-            [query whereKey:@"user" equalTo:userThatInfected];
-            PFObject *theUserScore = [query getFirstObject];
-            float score = [theUserScore[@"publicScore"] floatValue];
-            float points = 250.0f;
-            NSNumber *sum = [NSNumber numberWithFloat:score + points];
-            [theUserScore setObject:sum forKey:@"publicScore"];
-            [theUserScore saveInBackground];
+            //Set up push to send to person that bit you.
+            PFQuery *pushQuery = [PFInstallation query];
+            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+            
+            PFPush *push = [PFPush new];
+            [push setQuery:pushQuery];
+            [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", currentUser.username] }];
+            [push sendPush:nil];
         }
         
+        [currentUser setObject:@"zombie" forKey:@"publicStatus"];
+        [currentUser saveInBackground];
+        
+        //Adds 250 pts to the user's publicScore for a bite
+        PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
+        [query whereKey:@"user" equalTo:userThatInfected];
+        PFObject *theUserScore = [query getFirstObject];
+        float score = [theUserScore[@"publicScore"] floatValue];
+        float points = 250.0f;
+        NSNumber *sum = [NSNumber numberWithFloat:score + points];
+        [theUserScore setObject:sum forKey:@"publicScore"];
+        [theUserScore saveInBackground];
     }
 }
 

@@ -58,6 +58,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
@@ -171,92 +172,88 @@
 {
     CLBeacon *beacon = [beacons lastObject];
     
-    if (beacon != nil)
+    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         [manager stopRangingBeaconsInRegion:region];
+        PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
+        [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+        PFObject *currentGame = [countsQuery getFirstObject];
+        int survivorCount = [currentGame[@"survivorCount"] intValue];
+        int zombieCount = [currentGame[@"zombieCount"] intValue];
         
-        if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+        PFQuery *userQuery = [PFUser query];
+        [userQuery whereKey:@"minor" equalTo:beacon.minor];
+        [userQuery whereKey:@"major" equalTo:beacon.major];
+        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+        
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
-            PFQuery *countsQuery = [PFQuery queryWithClassName:@"PrivateGames"];
-            [countsQuery whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
-            PFObject *currentGame = [countsQuery getFirstObject];
-            int survivorCount = [currentGame[@"survivorCount"] intValue];
-            int zombieCount = [currentGame[@"zombieCount"] intValue];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
-            PFQuery *userQuery = [PFUser query];
-            [userQuery whereKey:@"minor" equalTo:beacon.minor];
-            [userQuery whereKey:@"major" equalTo:beacon.major];
-            PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+            [alert show];
             
-            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+            //Set up push to send to person that shot you.
+            PFQuery *pushQuery = [PFInstallation query];
+            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+            
+            PFPush *push = [PFPush new];
+            [push setQuery:pushQuery];
+            [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+            [push sendPush:nil];
+        }
+        else
+        {
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            
+            //Set up push to send to person that shot you.
+            PFQuery *pushQuery = [PFInstallation query];
+            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+            
+            PFPush *push = [PFPush new];
+            [push setQuery:pushQuery];
+            [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+            [push sendPush:nil];
+        }
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+        [query whereKey:@"user" equalTo:currentUser];
+        PFObject *theStatus = [query getFirstObject];
+        [theStatus setObject:@"dead" forKey:@"status"];
+        [theStatus saveInBackground];
+        
+        PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
+        [query2 whereKey:@"user" equalTo:userThatInfected];
+        PFObject *theUserScore = [query2 getFirstObject];
+        float score = [theUserScore[@"publicScore"] floatValue];
+        float points = 200.0f;
+        NSNumber *sum = [NSNumber numberWithFloat:score + points];
+        [theUserScore setObject:sum forKey:@"publicScore"];
+        [theUserScore saveInBackground];
+        
+        zombieCount--;
+        
+        currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
+        currentGame[@"zombieCount"] = [NSNumber numberWithInt:zombieCount];
+        [currentGame save];
+        
+        if (zombieCount < 1)
+        {
+            [self performSegueWithIdentifier:@"endGamePrivateZombie" sender:self];
+            for (UIViewController *controller in [self.navigationController viewControllers])
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                
-                [alert show];
-                
-                //Set up push to send to person that shot you.
-                PFQuery *pushQuery = [PFInstallation query];
-                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-                
-                PFPush *push = [PFPush new];
-                [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
-                [push sendPush:nil];
-            }
-            else
-            {
-                UILocalNotification *notification = [[UILocalNotification alloc] init];
-                notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
-                notification.soundName = UILocalNotificationDefaultSoundName;
-                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-                
-                //Set up push to send to person that shot you.
-                PFQuery *pushQuery = [PFInstallation query];
-                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-                
-                PFPush *push = [PFPush new];
-                [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
-                [push sendPush:nil];
-            }
-            
-            PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
-            [query whereKey:@"user" equalTo:currentUser];
-            PFObject *theStatus = [query getFirstObject];
-            [theStatus setObject:@"dead" forKey:@"status"];
-            [theStatus saveInBackground];
-            
-            PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
-            [query2 whereKey:@"user" equalTo:userThatInfected];
-            PFObject *theUserScore = [query2 getFirstObject];
-            float score = [theUserScore[@"publicScore"] floatValue];
-            float points = 200.0f;
-            NSNumber *sum = [NSNumber numberWithFloat:score + points];
-            [theUserScore setObject:sum forKey:@"publicScore"];
-            [theUserScore saveInBackground];
-            
-            zombieCount--;
-            
-            currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
-            currentGame[@"zombieCount"] = [NSNumber numberWithInt:zombieCount];
-            [currentGame save];
-            
-            if (zombieCount < 1)
-            {
-                [self performSegueWithIdentifier:@"endGamePrivateZombie" sender:self];
-                for (UIViewController *controller in [self.navigationController viewControllers])
+                if ([controller isKindOfClass:[PrivateLobbyViewController class]])
                 {
-                    if ([controller isKindOfClass:[PrivateLobbyViewController class]])
-                    {
-                        [self.navigationController popToViewController:controller animated:YES];
-                        break;
-                    }
+                    [self.navigationController popToViewController:controller animated:YES];
+                    break;
                 }
             }
-            else
-            {
-                [self performSegueWithIdentifier:@"privateDead" sender:self];
-            }
+        }
+        else
+        {
+            [self performSegueWithIdentifier:@"privateDead" sender:self];
         }
     }
 }

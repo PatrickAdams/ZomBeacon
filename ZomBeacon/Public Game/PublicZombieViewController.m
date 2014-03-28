@@ -76,6 +76,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Zoom to user location once
@@ -222,7 +223,7 @@
         
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
-        [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+        [manager stopRangingBeaconsInRegion:region];
         for (UIViewController *controller in [self.navigationController viewControllers])
         {
             if ([controller isKindOfClass:[MainMenuViewController class]])
