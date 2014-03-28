@@ -224,6 +224,7 @@
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
         [manager stopRangingBeaconsInRegion:region];
+        [self performSegueWithIdentifier:@"publicDead" sender:self];
         for (UIViewController *controller in [self.navigationController viewControllers])
         {
             if ([controller isKindOfClass:[MainMenuViewController class]])
@@ -232,7 +233,6 @@
                 break;
             }
         }
-        [self performSegueWithIdentifier:@"publicDead" sender:self];
         
         PFQuery *userQuery = [PFUser query];
         [userQuery whereKey:@"minor" equalTo:beacon.minor];
