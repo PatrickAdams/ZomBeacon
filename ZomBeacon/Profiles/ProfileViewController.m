@@ -45,9 +45,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //GameCenter user authentication
-    [self authenticateLocalUser];
-    
     [self refreshImage];
     [self setProfileValues];
 }
