@@ -29,9 +29,6 @@
     //MapView Stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = 1.3f;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-    [self.locationManager startUpdatingLocation];
     
     //Initializing beacon region to send to survivors
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
@@ -96,18 +93,6 @@
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    [self saveLocation];
-}
-
-- (void)saveLocation
-{
-    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
-    [currentUser setObject:point forKey:@"location"];
-    [currentUser saveInBackground];
-}
 
 //Queries all nearby users and adds them to the mapView
 - (void)queryNearbyUsers

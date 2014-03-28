@@ -28,13 +28,6 @@
     
     mapKeyShowing = NO;
     
-    //MapView Stuff
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = 1.3f;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-    [self.locationManager startUpdatingLocation];
-    
     for (UILabel * label in self.titilliumSemiBoldFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
@@ -58,18 +51,6 @@
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    [self saveLocation];
-}
-
-- (void)saveLocation
-{
-    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
-    [currentUser setObject:point forKey:@"location"];
-    [currentUser saveInBackground];
-}
 
 //Queries all nearby users and adds them to the mapView
 - (void)queryNearbyUsers
