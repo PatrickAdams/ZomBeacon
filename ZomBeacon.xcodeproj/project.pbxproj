@@ -118,6 +118,7 @@
 		E786A2D418C112C400942576 /* savechanges_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2D318C112C400942576 /* savechanges_button@2x.png */; };
 		E786A2D818C11CC400942576 /* assignteams_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2D718C11CC400942576 /* assignteams_button@2x.png */; };
 		E786A2DA18C11CCC00942576 /* startgame_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2D918C11CCC00942576 /* startgame_button@2x.png */; };
+		E798C67918E61478009F0C9E /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E798C67818E61478009F0C9E /* BeaconManager.m */; };
 		E7AB10D018C4D59C00A54850 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10CE18C4D59C00A54850 /* sms.png */; };
 		E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10CF18C4D59C00A54850 /* sms@2x.png */; };
 		E7AB10DD18C4F08D00A54850 /* map_overlay_green.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10DC18C4F08D00A54850 /* map_overlay_green.png */; };
@@ -321,6 +322,8 @@
 		E786A2D318C112C400942576 /* savechanges_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "savechanges_button@2x.png"; path = "Images/savechanges_button@2x.png"; sourceTree = "<group>"; };
 		E786A2D718C11CC400942576 /* assignteams_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "assignteams_button@2x.png"; path = "Images/assignteams_button@2x.png"; sourceTree = "<group>"; };
 		E786A2D918C11CCC00942576 /* startgame_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "startgame_button@2x.png"; path = "Images/startgame_button@2x.png"; sourceTree = "<group>"; };
+		E798C67718E61478009F0C9E /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconManager.h; path = "Custom Objects/BeaconManager.h"; sourceTree = "<group>"; };
+		E798C67818E61478009F0C9E /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconManager.m; path = "Custom Objects/BeaconManager.m"; sourceTree = "<group>"; };
 		E7AB10CE18C4D59C00A54850 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sms.png; path = Images/sms.png; sourceTree = "<group>"; };
 		E7AB10CF18C4D59C00A54850 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sms@2x.png"; path = "Images/sms@2x.png"; sourceTree = "<group>"; };
 		E7AB10DC18C4F08D00A54850 /* map_overlay_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_overlay_green.png; path = Images/map_overlay_green.png; sourceTree = "<group>"; };
@@ -513,6 +516,8 @@
 				E705AA3218AE73C400CFE7B6 /* UserAnnotations.m */,
 				E705AA3318AE73C400CFE7B6 /* UserLobbyCell.h */,
 				E705AA3418AE73C400CFE7B6 /* UserLobbyCell.m */,
+				E798C67718E61478009F0C9E /* BeaconManager.h */,
+				E798C67818E61478009F0C9E /* BeaconManager.m */,
 			);
 			name = "Custom Objects";
 			sourceTree = "<group>";
@@ -910,6 +915,7 @@
 				E70028C118BBE4AA00036E1B /* PublicDeadViewController.m in Sources */,
 				E705AA1C18AE735600CFE7B6 /* MainMenuViewController.m in Sources */,
 				E705AA2E18AE739900CFE7B6 /* PrivateZombieViewController.m in Sources */,
+				E798C67918E61478009F0C9E /* BeaconManager.m in Sources */,
 				E705AA0318AE72DA00CFE7B6 /* PasswordResetViewController.m in Sources */,
 				E705AA3618AE73C400CFE7B6 /* UserAnnotations.m in Sources */,
 				E705AA0418AE72DA00CFE7B6 /* SignUpViewController.m in Sources */,
