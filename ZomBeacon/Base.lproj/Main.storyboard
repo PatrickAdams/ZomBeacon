@@ -809,7 +809,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ze3-Kb-QEY">
-                                        <rect key="frame" x="275" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="286" y="12" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="close_button.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2553,7 +2553,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qag-oe-wI8">
-                                <rect key="frame" x="275" y="20" width="25" height="25"/>
+                                <rect key="frame" x="288" y="29" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="close_button.png">
                                     <color key="titleColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
@@ -3002,7 +3002,13 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Players" id="3lh-jw-lwf"/>
+                    <navigationItem key="navigationItem" title="Players" id="3lh-jw-lwf">
+                        <barButtonItem key="rightBarButtonItem" image="user.png" id="MQl-Un-7VZ">
+                            <connections>
+                                <segue destination="KmB-En-GMb" kind="push" id="9aP-O6-Fre"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="er8-bw-UCx" id="3Jp-zK-2Bw"/>
@@ -3018,7 +3024,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Kg-K7-C4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3653" y="649"/>
+            <point key="canvasLocation" x="3653" y="673"/>
         </scene>
         <!--Private Lobby View Controller - Private Lobby-->
         <scene sceneID="c0x-kO-imF">
@@ -3350,6 +3356,7 @@
         <segue reference="CM6-mk-yUd"/>
         <segue reference="PsZ-ht-oAZ"/>
         <segue reference="xhs-QU-DpM"/>
+        <segue reference="9aP-O6-Fre"/>
         <segue reference="Qrh-1m-sYU"/>
     </inferredMetricsTieBreakers>
 </document>
