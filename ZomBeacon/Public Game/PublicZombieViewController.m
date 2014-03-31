@@ -8,7 +8,7 @@
 
 #import "PublicZombieViewController.h"
 
-@interface PublicZombieViewController ()
+@interface PublicZombieViewController ()<BeaconManagerDelegate>
 
 @end
 
@@ -30,18 +30,14 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
+    self.beaconManager = [BeaconManager sharedManager];
+    
     //Initializing beacon region to send to survivors
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
     CLBeaconMajorValue major = [currentUser[@"major"] unsignedShortValue];
     CLBeaconMajorValue minor = [currentUser[@"minor"] unsignedShortValue];
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:major minor:minor identifier:@"com.zombeacon.publicRegion"];
-    
-    //Initializing beacon region to range for headshots
-    NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
-    self.beaconRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 identifier:@"com.zombeacon.publicRegion"];
-    [self.locationManager startMonitoringForRegion:self.beaconRegion2];
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
-    
+
     for (UILabel * label in self.titilliumSemiBoldFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
     }
@@ -60,6 +56,19 @@
                                              selector: @selector(invalidateTimer)
                                                  name: @"didEnterBackground"
                                                object: nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"isZombie" object:nil userInfo:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(rangedBeacons)
+                                                 name: @"didRangeBeacons"
+                                               object: nil];
+}
+
+- (void)dataDownloaded:(NSNotification *)notification
+{
+    NSDictionary *dict = notification.userInfo;
+    self.foundBeacons = [dict objectForKey:@"foundBeacons"];
 }
 
 - (void)backHome
@@ -217,13 +226,13 @@
 
 #pragma mark - Beacon Management
 
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
+- (void)rangedBeacons
 {
-    CLBeacon *beacon = [beacons lastObject];
+    CLBeacon *beacon = [self.foundBeacons lastObject];
         
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
-        [manager stopRangingBeaconsInRegion:region];
+        [self.beaconManager stopBeaconMonitoring];
         [self performSegueWithIdentifier:@"publicDead" sender:self];
         for (UIViewController *controller in [self.navigationController viewControllers])
         {
@@ -289,7 +298,7 @@
 //Method that starts the transmission of the beacon
 - (IBAction)startInfecting:(id)sender
 {
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+    [self.beaconManager stopBeaconMonitoring];
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.biteButton setEnabled:NO];
@@ -300,7 +309,7 @@
 - (void)stopInfecting
 {
     [self.peripheralManager stopAdvertising];
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
+    [self.beaconManager startBeaconMonitoring:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
 }
 
 - (void)enableBite

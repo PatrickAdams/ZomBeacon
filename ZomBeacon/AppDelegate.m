@@ -35,6 +35,10 @@
     //Bluetooth Central Manager
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
+    //Start the beacon region monitoring when the controller loads
+    self.beaconManager = [BeaconManager sharedManager];
+    self.beaconManager.delegate = self;
+    
     //Proximity Kit
     self.proximityKitManager = [PKManager managerWithDelegate:self];
     [self.proximityKitManager start];
@@ -66,7 +70,36 @@
         [self.locationManager startUpdatingLocation];
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(startRangingForSurvivors)
+                                                 name: @"isZombie"
+                                               object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(startRangingForZombies)
+                                                 name: @"isSurvivor"
+                                               object: nil];
+    
     return YES;
+}
+
+- (void)startRangingForSurvivors
+{
+    [self.beaconManager startBeaconMonitoring:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
+}
+
+- (void)startRangingForZombies
+{
+    [self.beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
+}
+
+- (void)beaconManager:(BeaconManager *)beaconManager didRangeBeacons:(NSArray *)beacons
+{
+    if (beacons.count > 0)
+    {
+        NSDictionary *foundBeacons = [NSDictionary dictionaryWithObjectsAndKeys:beacons,@"foundBeacons", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"didRangeBeacons" object:nil userInfo:foundBeacons];
+    }
 }
 
 #pragma mark - Push Notifications

@@ -17,9 +17,9 @@
 @property (nonatomic, strong) NSArray *beacons;
 @property (nonatomic, assign) id<BeaconManagerDelegate> delegate;
 
-+ (id)sharedInstance;
++ (id)sharedManager;
 
-- (void)startBeaconMonitoring;
+- (void)startBeaconMonitoring:(NSString*)forUUID;
 - (void)stopBeaconMonitoring;
 
 @end
@@ -27,5 +27,6 @@
 @protocol BeaconManagerDelegate <NSObject>
 
 - (void)beaconManager:(BeaconManager*)beaconManager didRangeBeacons:(NSArray*)beacons;
+
 
 @end

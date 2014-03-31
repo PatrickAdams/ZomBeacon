@@ -8,7 +8,7 @@
 
 #import "PublicSurvivorViewController.h"
 
-@interface PublicSurvivorViewController ()
+@interface PublicSurvivorViewController ()<BeaconManagerDelegate>
 
 @end
 
@@ -31,11 +31,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    //Initializing beacon region to range for zombies
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.zombeacon.publicRegion"];
-    [self.locationManager startMonitoringForRegion:self.beaconRegion];
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    self.beaconManager = [BeaconManager sharedManager];
     
     //Setting up beacon for sending headshots
     NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
@@ -63,6 +59,19 @@
                                              selector: @selector(invalidateTimer)
                                                  name: @"didEnterBackground"
                                                object: nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"isSurvivor" object:nil userInfo:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(rangedBeacons)
+                                                 name: @"didRangeBeacons"
+                                               object: nil];
+}
+
+- (void)dataDownloaded:(NSNotification *)notification
+{
+    NSDictionary *dict = notification.userInfo;
+    self.foundBeacons = [dict objectForKey:@"foundBeacons"];
 }
 
 - (void)backHome
@@ -225,13 +234,13 @@
 
 #pragma mark - Beacon Management
 
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
+- (void)rangedBeacons
 {
-    CLBeacon *beacon = [beacons lastObject];
+    CLBeacon *beacon = [self.foundBeacons lastObject];
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
-        [manager stopRangingBeaconsInRegion:region];
+        [self.beaconManager stopBeaconMonitoring];
         [self performSegueWithIdentifier:@"publicZombie" sender:self];
         
         PFQuery *userQuery = [PFUser query];
@@ -290,7 +299,7 @@
 //Method that starts advertising the headshot
 - (IBAction)headshotTheZombie:(id)sender
 {
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    [self.beaconManager stopBeaconMonitoring];
     self.beaconPeripheralData = [self.beaconRegion2 peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.headshotButton setEnabled:NO];
@@ -302,7 +311,7 @@
 - (void)stopTheHeadshot
 {
     [self.peripheralManager stopAdvertising];
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    [self.beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
 }
 
 - (void)enableHeadshot

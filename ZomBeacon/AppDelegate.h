@@ -13,12 +13,14 @@
 #import "PublicZombieViewController.h"
 #import "FindGameViewController.h"
 #import "MainMenuViewController.h"
+#import "BeaconManager.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, PKManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, PKManagerDelegate, BeaconManagerDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) BeaconManager *beaconManager;
 @property (nonatomic, strong) PFGeoPoint *point;
 @property (nonatomic, strong) PKManager *proximityKitManager;
 
