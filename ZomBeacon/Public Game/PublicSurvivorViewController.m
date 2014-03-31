@@ -16,21 +16,21 @@
 
 - (void)viewDidLoad
 {
+    currentUser = [PFUser currentUser];
+    [self queryNearbyUsers];
+    
     [super viewDidLoad];
     
-    currentUser = [PFUser currentUser];
-    
-    self.mapView.delegate = self;
     self.navigationItem.hidesBackButton = YES;
+    self.mapView.delegate = self;
     
     mapKeyShowing = NO;
-    
-    [self queryNearbyUsers];
     
     //Beacon & MapView stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
+    //Custom Beacon Manager
     self.beaconManager = [BeaconManager sharedManager];
     
     //Setting up beacon for sending headshots
@@ -54,7 +54,10 @@
     self.navigationItem.leftBarButtonItem = backButton;
     
     //NSNotificationCenter
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(invalidateTimer) name: @"didEnterBackground" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(invalidateTimer) name:UIApplicationDidEnterBackgroundNotification object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(validateTimer) name:UIApplicationDidBecomeActiveNotification object: nil];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"isSurvivor" object:nil userInfo:nil];
 }
 
@@ -87,6 +90,12 @@
 - (void)invalidateTimer
 {
     [self.queryTimer invalidate];
+}
+
+- (void)validateTimer
+{
+    [self queryNearbyUsers];
+    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations

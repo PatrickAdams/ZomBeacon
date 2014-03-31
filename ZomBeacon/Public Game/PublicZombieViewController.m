@@ -17,8 +17,8 @@
 - (void)viewDidLoad
 {
     currentUser = [PFUser currentUser];
-    
     [self queryNearbyUsers];
+    
     [super viewDidLoad];
     
     self.navigationItem.hidesBackButton = YES;
@@ -30,6 +30,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
+    //Custom Beacon Manager
     self.beaconManager = [BeaconManager sharedManager];
     
     //Initializing beacon region to send to survivors
@@ -52,7 +53,9 @@
     
     self.navigationItem.leftBarButtonItem = backButton;
     
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(invalidateTimer) name: @"didEnterBackground" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(invalidateTimer) name:UIApplicationDidEnterBackgroundNotification object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(validateTimer) name:UIApplicationDidBecomeActiveNotification object: nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"isZombie" object:nil userInfo:nil];
 }
@@ -86,6 +89,12 @@
 - (void)invalidateTimer
 {
     [self.queryTimer invalidate];
+}
+
+- (void)validateTimer
+{
+    [self queryNearbyUsers];
+    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
