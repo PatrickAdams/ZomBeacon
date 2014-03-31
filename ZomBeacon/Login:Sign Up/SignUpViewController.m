@@ -30,6 +30,29 @@
     }
     
     self.bioField.delegate = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
+    
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 690);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 600);
+    }
+}
+
+- (void)keyboardDidShow
+{
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 900);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 810);
+    }
 }
 
 - (BOOL)fieldsAreValid
