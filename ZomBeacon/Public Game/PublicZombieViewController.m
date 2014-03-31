@@ -220,80 +220,80 @@
 
 #pragma mark - Beacon Management
 
-- (void)rangedBeacons:(NSNotification *)notification
-{
-    if ([notification.name isEqualToString:@"didRangeBeacons"])
-    {
-        NSDictionary *dict = notification.userInfo;
-        self.foundBeacons = [dict objectForKey:@"foundBeacons"];
-    }
-    
-    CLBeacon *beacon = [self.foundBeacons lastObject];
-        
-    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
-    {
-        [self.beaconManager stopBeaconMonitoring];
-        [self performSegueWithIdentifier:@"publicDead" sender:self];
-        for (UIViewController *controller in [self.navigationController viewControllers])
-        {
-            if ([controller isKindOfClass:[MainMenuViewController class]])
-            {
-                [self.navigationController popToViewController:controller animated:YES];
-                break;
-            }
-        }
-        
-        PFQuery *userQuery = [PFUser query];
-        [userQuery whereKey:@"minor" equalTo:beacon.minor];
-        [userQuery whereKey:@"major" equalTo:beacon.major];
-        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
-        
-        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [alert show];
-            
-            //Set up push to send to person that shot you.
-            PFQuery *pushQuery = [PFInstallation query];
-            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-            
-            PFPush *push = [PFPush new];
-            [push setQuery:pushQuery];
-            [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
-            [push sendPush:nil];
-        }
-        else
-        {
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            notification.applicationIconBadgeNumber = 1;
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-            
-            //Set up push to send to person that shot you.
-            PFQuery *pushQuery = [PFInstallation query];
-            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-            
-            PFPush *push = [PFPush new];
-            [push setQuery:pushQuery];
-            [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
-            [push sendPush:nil];
-        }
-        
-        [currentUser setObject:@"dead" forKey:@"publicStatus"];
-        [currentUser saveInBackground];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
-        [query whereKey:@"user" equalTo:userThatInfected];
-        PFObject *theUserScore = [query getFirstObject];
-        float score = [theUserScore[@"publicScore"] floatValue];
-        float points = 500.0f;
-        NSNumber *sum = [NSNumber numberWithFloat:score + points];
-        [theUserScore setObject:sum forKey:@"publicScore"];
-        [theUserScore saveInBackground];
-    }
-}
+//- (void)rangedBeacons:(NSNotification *)notification
+//{
+//    if ([notification.name isEqualToString:@"didRangeBeacons"])
+//    {
+//        NSDictionary *dict = notification.userInfo;
+//        self.foundBeacons = [dict objectForKey:@"foundBeacons"];
+//    }
+//    
+//    CLBeacon *beacon = [self.foundBeacons lastObject];
+//        
+//    if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
+//    {
+//        [self.beaconManager stopBeaconMonitoring];
+//        [self performSegueWithIdentifier:@"publicDead" sender:self];
+//        for (UIViewController *controller in [self.navigationController viewControllers])
+//        {
+//            if ([controller isKindOfClass:[MainMenuViewController class]])
+//            {
+//                [self.navigationController popToViewController:controller animated:YES];
+//                break;
+//            }
+//        }
+//        
+//        PFQuery *userQuery = [PFUser query];
+//        [userQuery whereKey:@"minor" equalTo:beacon.minor];
+//        [userQuery whereKey:@"major" equalTo:beacon.major];
+//        PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
+//        
+//        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+//        {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PUBLIC GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            
+//            [alert show];
+//            
+//            //Set up push to send to person that shot you.
+//            PFQuery *pushQuery = [PFInstallation query];
+//            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+//            
+//            PFPush *push = [PFPush new];
+//            [push setQuery:pushQuery];
+//            [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+//            [push sendPush:nil];
+//        }
+//        else
+//        {
+//            UILocalNotification *notification = [[UILocalNotification alloc] init];
+//            notification.alertBody = [NSString stringWithFormat:@"PUBLIC GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
+//            notification.soundName = UILocalNotificationDefaultSoundName;
+//            notification.applicationIconBadgeNumber = 1;
+//            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+//            
+//            //Set up push to send to person that shot you.
+//            PFQuery *pushQuery = [PFInstallation query];
+//            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+//            
+//            PFPush *push = [PFPush new];
+//            [push setQuery:pushQuery];
+//            [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+//            [push sendPush:nil];
+//        }
+//        
+//        [currentUser setObject:@"dead" forKey:@"publicStatus"];
+//        [currentUser saveInBackground];
+//        
+//        PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
+//        [query whereKey:@"user" equalTo:userThatInfected];
+//        PFObject *theUserScore = [query getFirstObject];
+//        float score = [theUserScore[@"publicScore"] floatValue];
+//        float points = 500.0f;
+//        NSNumber *sum = [NSNumber numberWithFloat:score + points];
+//        [theUserScore setObject:sum forKey:@"publicScore"];
+//        [theUserScore saveInBackground];
+//    }
+//}
 
 //Method that starts the transmission of the beacon
 - (IBAction)startInfecting:(id)sender

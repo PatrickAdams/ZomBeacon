@@ -7,6 +7,7 @@
 //
 
 #import "BeaconManager.h"
+#import "AppDelegate.h"
 
 @interface BeaconManager()<CLLocationManagerDelegate>
 
@@ -64,6 +65,11 @@
     if(self.delegate != nil) {
         [self.delegate beaconManager:self didRangeBeacons:self.beacons];
     }
+    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    [appDelegate.window.rootViewController.navigationController pushViewController:vc animated:YES];
 }
 
 @end
