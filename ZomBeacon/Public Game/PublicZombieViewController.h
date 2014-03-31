@@ -16,7 +16,7 @@
 #import <ProximityKit/ProximityKit.h>
 #import "BeaconManager.h"
 
-@interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate, BeaconManagerDelegate>
+@interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
     PFUser *currentUser;
     BOOL mapKeyShowing;
@@ -33,7 +33,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *locationButton;
 @property (nonatomic, weak) IBOutlet UIButton *compassButton;
 @property (nonatomic, weak) IBOutlet UIView *mapKeyView;
-@property (nonatomic, strong) NSMutableArray *foundBeacons;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
 @property (nonatomic, strong) BeaconManager *beaconManager;
@@ -42,6 +41,5 @@
 - (IBAction)centerMapOnLocation;
 - (IBAction)startInfecting:(id)sender;
 - (IBAction)showMapKey;
-- (void)rangedBeacons:(NSNotification *)notification;
 
 @end
