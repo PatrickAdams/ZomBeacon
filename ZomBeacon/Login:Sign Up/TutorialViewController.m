@@ -25,6 +25,15 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 650);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 500);
+    }
 }
 
 - (IBAction)helpDocs

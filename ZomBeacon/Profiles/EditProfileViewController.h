@@ -21,6 +21,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *bioField;
 @property (nonatomic, weak) IBOutlet UIButton *facebookButton;
 @property (nonatomic, weak) IBOutlet UIButton *twitterButton;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UITextField)NSArray *textFieldSpacers;
 

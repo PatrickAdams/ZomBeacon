@@ -43,13 +43,41 @@
         [textField setLeftView:spacerView];
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide) name:UIKeyboardDidHideNotification object:nil];
+    
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 725);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 568);
+    }
+}
+
+- (void)keyboardDidHide
+{
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 725);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 568);
+    }
+}
+
+- (void)keyboardDidShow
+{
     if (IS_IPHONE4S)
     {
         self.scrollView.contentSize = CGSizeMake(320, 925);
     }
     else
     {
-        self.scrollView.contentSize = CGSizeMake(320, 850);
+        self.scrollView.contentSize = CGSizeMake(320, 870);
     }
 }
 

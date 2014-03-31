@@ -44,6 +44,29 @@
         [textField setLeftViewMode:UITextFieldViewModeAlways];
         [textField setLeftView:spacerView];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
+    
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 615);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 500);
+    }
+}
+
+- (void)keyboardDidShow
+{
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 825);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 740);
+    }
 }
 
 - (IBAction)dismissView

@@ -49,6 +49,29 @@
       NSFontAttributeName, [UIColor colorWithRed:0.13 green:0.13 blue:0.13 alpha:1], NSForegroundColorAttributeName, nil]];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
+    
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 480);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 400);
+    }
+}
+
+- (void)keyboardDidShow
+{
+    if (IS_IPHONE4S)
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 700);
+    }
+    else
+    {
+        self.scrollView.contentSize = CGSizeMake(320, 625);
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
