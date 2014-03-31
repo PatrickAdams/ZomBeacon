@@ -43,21 +43,9 @@
     self.proximityKitManager = [PKManager managerWithDelegate:self];
     [self.proximityKitManager start];
     
-    UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
-    if (types & UIRemoteNotificationTypeAlert)
-    {
-        //nothing
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Push Notifications Disabled" message:@"ZomBeacon uses push notifications to give you feedback during the game, please enable them to get the full experience!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [alert show];
-    }
-    
     if (![CLLocationManager locationServicesEnabled])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled" message:@"You currently have all location services for this device disabled. To get the full ZomBeacon experience we recommend you enable location services for this application." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled" message:@"You currently have all location services for this device disabled. ZomBeacon relies on location services to give you the best experience possible. Please enable them!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
     }
@@ -446,6 +434,18 @@
 {
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
+    UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+    if (types & UIRemoteNotificationTypeAlert)
+    {
+        //nothing
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Push Notifications Disabled" message:@"ZomBeacon uses push notifications to give you feedback during the game, please enable them to get the full experience!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 #pragma mark - Application State Methods

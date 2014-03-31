@@ -34,7 +34,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *gameHostLabel;
 @property (nonatomic, weak) IBOutlet UIButton *assignTeamsButton;
 @property (nonatomic, weak) IBOutlet UIButton *startGameButton;
-@property (nonatomic, weak) IBOutlet UIButton *openInMapsButton;
 @property (nonatomic, strong) NSString *gameNameString;
 @property (nonatomic, strong) NSString *gameDateString;
 @property (nonatomic, strong) NSString *gameHostString;

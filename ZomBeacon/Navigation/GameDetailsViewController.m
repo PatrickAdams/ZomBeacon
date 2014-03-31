@@ -99,8 +99,7 @@
     {
         // Create an MKMapItem to pass to the Maps app
         CLLocationCoordinate2D coordinate = self.gameLocationCoord;
-        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
-                                                       addressDictionary:nil];
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
         MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
         [mapItem setName:[NSString stringWithFormat:@"ZomBeacon: %@", self.gameNameString]];
         // Pass the map item to the Maps app

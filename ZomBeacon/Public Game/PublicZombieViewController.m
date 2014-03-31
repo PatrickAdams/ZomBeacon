@@ -74,7 +74,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Zoom to user location once
@@ -93,7 +92,6 @@
 
 - (void)validateTimer
 {
-    [self queryNearbyUsers];
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
 }
 

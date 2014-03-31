@@ -40,6 +40,7 @@
 - (IBAction)shareViaTwitter;
 - (IBAction)shareViaFacebook;
 - (IBAction)shareViaSMS;
+- (IBAction)openInMaps;
 
 
 @end

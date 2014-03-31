@@ -54,6 +54,8 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(validateTimer) name:UIApplicationDidBecomeActiveNotification object: nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -68,6 +70,11 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.queryTimer invalidate];
+}
+
+- (void)validateTimer
+{
+    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations

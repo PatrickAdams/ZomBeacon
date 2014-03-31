@@ -2444,6 +2444,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d4m-Pb-rgi">
+                                <rect key="frame" x="115" y="130" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="Open in Maps">
+                                    <color key="titleColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openInMaps" destination="o9z-do-yd5" eventType="touchUpInside" id="Ssy-hb-Cne"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -2786,9 +2798,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JcJ-Zz-ww0">
-                                <rect key="frame" x="93" y="131" width="104" height="30"/>
+                                <rect key="frame" x="108" y="131" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="Open in Maps">
                                     <color key="titleColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3071,9 +3083,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rt9-aS-jiF">
-                                <rect key="frame" x="106" y="131" width="97" height="30"/>
+                                <rect key="frame" x="114" y="131" width="106" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="Open in Maps">
                                     <color key="titleColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3273,7 +3285,6 @@
                         <outlet property="gameDateLabel" destination="0Fv-bR-cNf" id="ju5-Vh-H0Q"/>
                         <outlet property="gameHostLabel" destination="GD0-fR-yDa" id="bFH-J4-sc8"/>
                         <outlet property="gameNameLabel" destination="lL6-hu-HAd" id="no1-LJ-XzN"/>
-                        <outlet property="openInMapsButton" destination="Rt9-aS-jiF" id="ot9-62-OvE"/>
                         <outlet property="shareView" destination="PWm-X5-soA" id="5KV-G7-Xln"/>
                         <outlet property="startGameButton" destination="8hr-Ps-nOG" id="FTA-8z-Oyv"/>
                         <outlet property="tableView" destination="XXs-5h-c35" id="bVL-Q2-qC9"/>
@@ -3351,12 +3362,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9Ea-F4-kFd"/>
-        <segue reference="Ajr-Yc-gHs"/>
+        <segue reference="kx5-jM-uCj"/>
         <segue reference="CM6-mk-yUd"/>
         <segue reference="PsZ-ht-oAZ"/>
         <segue reference="xhs-QU-DpM"/>
         <segue reference="9aP-O6-Fre"/>
         <segue reference="Qrh-1m-sYU"/>
+        <segue reference="Ajr-Yc-gHs"/>
     </inferredMetricsTieBreakers>
 </document>
