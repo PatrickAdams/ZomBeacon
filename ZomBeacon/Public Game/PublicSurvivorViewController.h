@@ -44,5 +44,6 @@
 - (IBAction)centerMapOnLocation;
 - (IBAction)headshotTheZombie:(id)sender;
 - (IBAction)showMapKey;
+- (void)rangedBeacons:(NSNotification *)notification;
 
 @end

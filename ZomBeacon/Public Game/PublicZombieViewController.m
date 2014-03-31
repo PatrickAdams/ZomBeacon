@@ -60,15 +60,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"isZombie" object:nil userInfo:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(rangedBeacons)
+                                             selector: @selector(rangedBeacons:)
                                                  name: @"didRangeBeacons"
                                                object: nil];
-}
-
-- (void)dataDownloaded:(NSNotification *)notification
-{
-    NSDictionary *dict = notification.userInfo;
-    self.foundBeacons = [dict objectForKey:@"foundBeacons"];
 }
 
 - (void)backHome
@@ -226,8 +220,14 @@
 
 #pragma mark - Beacon Management
 
-- (void)rangedBeacons
+- (void)rangedBeacons:(NSNotification *)notification
 {
+    if ([notification.name isEqualToString:@"didRangeBeacons"])
+    {
+        NSDictionary *dict = notification.userInfo;
+        self.foundBeacons = [dict objectForKey:@"foundBeacons"];
+    }
+    
     CLBeacon *beacon = [self.foundBeacons lastObject];
         
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)

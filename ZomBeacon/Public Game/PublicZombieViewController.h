@@ -42,5 +42,6 @@
 - (IBAction)centerMapOnLocation;
 - (IBAction)startInfecting:(id)sender;
 - (IBAction)showMapKey;
+- (void)rangedBeacons:(NSNotification *)notification;
 
 @end
