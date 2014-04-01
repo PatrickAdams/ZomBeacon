@@ -130,6 +130,7 @@
     [query whereKey:@"user" equalTo:player];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         PFFile *file = object[@"imageFile"];
+        cell.profileImage.file = nil;
         cell.profileImage.file = file;
         [cell.profileImage loadInBackground];
     }];

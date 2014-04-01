@@ -351,9 +351,12 @@
     static NSString *CellIdentifier = @"userCell";
     UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    PFObject *player = self.thePlayers[indexPath.row];
+    PFUser *player = self.thePlayers[indexPath.row];
     NSString *playerName = player[@"name"];
     cell.nameLabel.text = playerName;
+    
+    cell.profileImage.image = nil;
+    cell.profileImage.file = nil;
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     [query whereKey:@"user" equalTo:player];
