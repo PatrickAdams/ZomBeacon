@@ -324,7 +324,7 @@
     {
         [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
     }
-    if ([urlString rangeOfString:@"zombeacon://"].location != NSNotFound)
+    if ([urlString rangeOfString:@"ZomBeacon://"].location != NSNotFound || [urlString rangeOfString:@"zombeacon://"].location != NSNotFound)
     {
         NSDictionary *dict = [self parseQueryString:[url query]];
         
