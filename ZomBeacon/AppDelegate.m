@@ -61,6 +61,10 @@
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForSurvivors) name: @"isZombie" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForZombies) name: @"isSurvivor" object: nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(shieldFromHeadshot) name: @"shieldFromHeadshot" object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(shieldFromBite) name: @"shieldFromBite" object: nil];
+    
     return YES;
 }
 
@@ -72,6 +76,16 @@
 - (void)startRangingForZombies
 {
     [self.beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
+}
+
+- (void)shieldFromHeadshot
+{
+    [self.beaconManager stopBeaconMonitoring];
+}
+
+- (void)shieldFromBite
+{
+    [self.beaconManager stopBeaconMonitoring];
 }
 
 - (void)beaconManager:(BeaconManager *)beaconManager didRangeBeacons:(NSArray *)beacons

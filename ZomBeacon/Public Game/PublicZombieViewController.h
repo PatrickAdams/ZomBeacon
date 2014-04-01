@@ -14,7 +14,6 @@
 #import "UserAnnotations.h"
 #import "PublicDeadViewController.h"
 #import <ProximityKit/ProximityKit.h>
-#import "BeaconManager.h"
 
 @interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
@@ -35,7 +34,6 @@
 @property (nonatomic, weak) IBOutlet UIView *mapKeyView;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
-@property (nonatomic, strong) BeaconManager *beaconManager;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;

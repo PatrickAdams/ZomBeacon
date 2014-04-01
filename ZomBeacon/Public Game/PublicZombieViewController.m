@@ -30,9 +30,6 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    //Custom Beacon Manager
-    self.beaconManager = [BeaconManager sharedManager];
-    
     //Initializing beacon region to send to survivors
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
     CLBeaconMajorValue major = [currentUser[@"major"] unsignedShortValue];
@@ -223,7 +220,7 @@
 //Method that starts the transmission of the beacon
 - (IBAction)startInfecting:(id)sender
 {
-    [self.beaconManager stopBeaconMonitoring];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"shieldFromHeadshot" object:nil userInfo:nil];
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.biteButton setEnabled:NO];
@@ -234,7 +231,7 @@
 - (void)stopInfecting
 {
     [self.peripheralManager stopAdvertising];
-    [self.beaconManager startBeaconMonitoring:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"isZombie" object:nil userInfo:nil];
 }
 
 - (void)enableBite

@@ -30,9 +30,6 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    //Custom Beacon Manager
-    self.beaconManager = [BeaconManager sharedManager];
-    
     //Setting up beacon for sending headshots
     NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
     CLBeaconMajorValue major = [currentUser[@"major"] unsignedShortValue];
@@ -228,7 +225,7 @@
 //Method that starts advertising the headshot
 - (IBAction)headshotTheZombie:(id)sender
 {
-    [self.beaconManager stopBeaconMonitoring];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"shieldFromBite" object:nil userInfo:nil];
     self.beaconPeripheralData = [self.beaconRegion2 peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.headshotButton setEnabled:NO];
@@ -240,7 +237,7 @@
 - (void)stopTheHeadshot
 {
     [self.peripheralManager stopAdvertising];
-    [self.beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"isSurvivor" object:nil userInfo:nil];
 }
 
 - (void)enableHeadshot
