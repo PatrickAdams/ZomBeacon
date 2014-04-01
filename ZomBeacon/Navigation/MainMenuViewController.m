@@ -94,6 +94,38 @@
     }
 }
 
+- (IBAction)startPrivateGame
+{
+    if ([currentUser[@"currentGame"] isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NO PRIVATE GAME" message:@"You have not joined any private games yet!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    else
+    {
+        PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+        [query whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+        [query includeKey:@"hostUser"];
+        PFObject *privateGame = [query getFirstObject];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
+        
+        vc.gameDateString = privateGame[@"dateTime"];
+        vc.gameNameString = privateGame[@"gameName"];
+        PFGeoPoint *gameLocation = privateGame[@"location"];
+        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+        vc.gameLocationCoord = gameLocationCoords;
+        vc.gameIdString = privateGame.objectId;
+        
+        PFObject *hostUser = privateGame[@"hostUser"];
+        vc.gameHostString = hostUser[@"name"];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1)

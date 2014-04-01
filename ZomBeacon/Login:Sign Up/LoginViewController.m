@@ -179,6 +179,7 @@
                           currentUser[@"bio"] = userData[@"bio"];
                           currentUser[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
                           currentUser[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+                          currentUser[@"currentGame"] = @"";
                           
                           //Create the UserScore row for the currentUser
                           PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
@@ -258,6 +259,7 @@
                     currentUser[@"bio"] = [result objectForKey:@"description"];
                     currentUser[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
                     currentUser[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+                    currentUser[@"currentGame"] = @"";
                     
                     //Create the UserScore row for the currentUser
                     PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];

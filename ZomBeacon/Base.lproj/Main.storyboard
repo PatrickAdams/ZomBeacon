@@ -1988,7 +1988,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J0F-7N-lF8">
-                                <rect key="frame" x="122" y="259" width="192" height="192"/>
+                                <rect key="frame" x="34" y="361" width="135" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" image="creategame_button.png">
@@ -2000,7 +2000,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vr0-vd-YDs">
-                                <rect key="frame" x="4" y="25" width="260" height="257"/>
+                                <rect key="frame" x="7" y="28" width="260" height="257"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <state key="normal" image="publicgame_button.png">
@@ -2011,16 +2011,14 @@
                                     <action selector="startPublicGame" destination="NGH-f2-ute" eventType="touchUpInside" id="Ywe-k8-IJC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g4z-Gj-hMp">
-                                <rect key="frame" x="30" y="365" width="142" height="142"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UZm-41-pyO">
+                                <rect key="frame" x="125" y="250" width="181" height="188"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" image="findgame_button.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="current_game.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mtJ-S4-uvy" kind="push" id="ZLe-sA-NLQ"/>
+                                    <action selector="startPrivateGame" destination="NGH-f2-ute" eventType="touchUpInside" id="9HA-3g-mWp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2041,7 +2039,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createPrivateGameButton" destination="J0F-7N-lF8" id="Oxt-2W-QLT"/>
-                        <outlet property="findPrivateGameButton" destination="g4z-Gj-hMp" id="Ybd-vK-bZv"/>
                         <outlet property="startPublicGameButton" destination="vr0-vd-YDs" id="f6i-Av-ux6"/>
                         <segue destination="5w5-oG-fwH" kind="push" identifier="publicSurvivor" id="CM6-mk-yUd"/>
                         <segue destination="it5-Tg-ZWA" kind="push" identifier="publicZombie" id="PsZ-ht-oAZ"/>
@@ -3316,11 +3313,11 @@
         <image name="bite_button.png" width="285" height="52"/>
         <image name="close_button.png" width="25" height="25"/>
         <image name="compass.png" width="24" height="24"/>
-        <image name="creategame_button.png" width="180" height="181"/>
+        <image name="creategame_button.png" width="122" height="123"/>
         <image name="creategame_button2.png" width="250" height="40"/>
+        <image name="current_game.png" width="180" height="181"/>
         <image name="default_profile.png" width="181" height="181"/>
         <image name="edit_user.png" width="25" height="25"/>
-        <image name="findgame_button.png" width="122" height="123"/>
         <image name="findgame_button2.png" width="230" height="40"/>
         <image name="follow_button.png" width="91" height="29"/>
         <image name="friends_button.png" width="91" height="29"/>
@@ -3362,12 +3359,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="XAd-uo-p02"/>
         <segue reference="kx5-jM-uCj"/>
-        <segue reference="CM6-mk-yUd"/>
         <segue reference="PsZ-ht-oAZ"/>
+        <segue reference="CM6-mk-yUd"/>
         <segue reference="xhs-QU-DpM"/>
-        <segue reference="9aP-O6-Fre"/>
-        <segue reference="Qrh-1m-sYU"/>
         <segue reference="Ajr-Yc-gHs"/>
+        <segue reference="Qrh-1m-sYU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -92,6 +92,7 @@
 		E76B2C1318BE82E700B5E45D /* splash_long.png in Resources */ = {isa = PBXBuildFile; fileRef = E76B2C1218BE82E700B5E45D /* splash_long.png */; };
 		E76B2C1518BE83F300B5E45D /* splash_short.png in Resources */ = {isa = PBXBuildFile; fileRef = E76B2C1418BE83F300B5E45D /* splash_short.png */; };
 		E7771BCE18B7DD560040EFCF /* 04B_19__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E7771BCD18B7DD560040EFCF /* 04B_19__.TTF */; };
+		E7786A2D18EB51F300817377 /* current_game@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7786A2C18EB51F300817377 /* current_game@2x.png */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
 		E78107DA1860CB1300B19DB9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107D91860CB1300B19DB9 /* AudioToolbox.framework */; };
@@ -296,6 +297,7 @@
 		E76B2C1218BE82E700B5E45D /* splash_long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_long.png; path = Images/splash_long.png; sourceTree = "<group>"; };
 		E76B2C1418BE83F300B5E45D /* splash_short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash_short.png; path = Images/splash_short.png; sourceTree = "<group>"; };
 		E7771BCD18B7DD560040EFCF /* 04B_19__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04B_19__.TTF; path = Fonts/04B_19__.TTF; sourceTree = "<group>"; };
+		E7786A2C18EB51F300817377 /* current_game@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "current_game@2x.png"; path = "Images/current_game@2x.png"; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E78107D91860CB1300B19DB9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -427,6 +429,7 @@
 		E7446985185B81E9007F6817 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E7786A2C18EB51F300817377 /* current_game@2x.png */,
 				E7443F2B18E5C5D8009156F1 /* edit_user@2x.png */,
 				E7443F2918E5C5CE009156F1 /* user@2x.png */,
 				E70B559218E20933000A02A8 /* close_button@2x.png */,
@@ -817,6 +820,7 @@
 				E786A2B818C0F36E00942576 /* login_twitter@2x.png in Resources */,
 				CDFBBFB818CF83AA005763C8 /* tape@2x.png in Resources */,
 				E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */,
+				E7786A2D18EB51F300817377 /* current_game@2x.png in Resources */,
 				E786A2C418C0FB4B00942576 /* findgame_button2@2x.png in Resources */,
 				E70CC35E18E4B36D00402453 /* app_icon_58.png in Resources */,
 				E7B8907518D762B5002082F8 /* bg_green@2x.png in Resources */,
