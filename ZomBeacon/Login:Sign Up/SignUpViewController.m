@@ -35,11 +35,11 @@
     
     if (IS_IPHONE4S)
     {
-        self.scrollView.contentSize = CGSizeMake(320, 690);
+        self.scrollView.contentSize = CGSizeMake(320, 665);
     }
     else
     {
-        self.scrollView.contentSize = CGSizeMake(320, 600);
+        self.scrollView.contentSize = CGSizeMake(320, 560);
     }
 }
 
@@ -47,11 +47,11 @@
 {
     if (IS_IPHONE4S)
     {
-        self.scrollView.contentSize = CGSizeMake(320, 900);
+        self.scrollView.contentSize = CGSizeMake(320, 880);
     }
     else
     {
-        self.scrollView.contentSize = CGSizeMake(320, 810);
+        self.scrollView.contentSize = CGSizeMake(320, 790);
     }
 }
 
@@ -91,7 +91,8 @@
 //User sign up method using the Parse framework
 - (IBAction)signUpNewUser
 {
-    if ([self fieldsAreValid] && [self noWhiteSpaceInUsername]) {
+    if ([self fieldsAreValid] && [self noWhiteSpaceInUsername])
+    {
         [self.bioField resignFirstResponder];
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -168,11 +169,6 @@
 {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     return (newLength > 100) ? NO : YES;
-}
-
-- (IBAction)dismissView
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //Method that chooses a random number
