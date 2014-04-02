@@ -230,7 +230,7 @@
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.headshotButton setEnabled:NO];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
-    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(enableHeadshotButton) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableHeadshotButton) userInfo:nil repeats:NO];
 }
 
 //Method that stops advertising the headshot beacon
@@ -242,11 +242,19 @@
 - (void)enableHeadshotButton
 {
     [self.headshotButton setEnabled:YES];
+    [self playReloadSound];
 }
 
 - (void)playHeadshotSound
 {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"gun_shot" withExtension: @"wav"];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [self.audioPlayer play];
+}
+
+- (void)playReloadSound
+{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"reload" withExtension: @"wav"];
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     [self.audioPlayer play];
 }

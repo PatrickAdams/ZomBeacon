@@ -96,6 +96,7 @@
 		E7786A3518EC41B400817377 /* zombie_bite.wav in Resources */ = {isa = PBXBuildFile; fileRef = E7786A3318EC41B400817377 /* zombie_bite.wav */; };
 		E7786A3618EC41B400817377 /* gun_shot.wav in Resources */ = {isa = PBXBuildFile; fileRef = E7786A3418EC41B400817377 /* gun_shot.wav */; };
 		E7786A3818EC44B900817377 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7786A3718EC44B900817377 /* AVFoundation.framework */; };
+		E7786A3A18EC62C000817377 /* reload.wav in Resources */ = {isa = PBXBuildFile; fileRef = E7786A3918EC62C000817377 /* reload.wav */; };
 		E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFB91858F735002871A6 /* CoreBluetooth.framework */; };
 		E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77BFFBB1858F73E002871A6 /* CoreLocation.framework */; };
 		E78107DA1860CB1300B19DB9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78107D91860CB1300B19DB9 /* AudioToolbox.framework */; };
@@ -304,6 +305,7 @@
 		E7786A3318EC41B400817377 /* zombie_bite.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = zombie_bite.wav; path = Audio/zombie_bite.wav; sourceTree = "<group>"; };
 		E7786A3418EC41B400817377 /* gun_shot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = gun_shot.wav; path = Audio/gun_shot.wav; sourceTree = "<group>"; };
 		E7786A3718EC44B900817377 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E7786A3918EC62C000817377 /* reload.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = reload.wav; path = Audio/reload.wav; sourceTree = "<group>"; };
 		E77BFFB91858F735002871A6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		E77BFFBB1858F73E002871A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E78107D91860CB1300B19DB9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -615,6 +617,7 @@
 		E7786A2E18EC414C00817377 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				E7786A3918EC62C000817377 /* reload.wav */,
 				E7786A3318EC41B400817377 /* zombie_bite.wav */,
 				E7786A3418EC41B400817377 /* gun_shot.wav */,
 			);
@@ -875,6 +878,7 @@
 				E7B0380F18DCE048003FB291 /* contact@2x.png in Resources */,
 				E7B8908118D77574002082F8 /* bg_gray@2x.png in Resources */,
 				CD6FA4E318C7BA3F00510581 /* splash_short_yellow.png in Resources */,
+				E7786A3A18EC62C000817377 /* reload.wav in Resources */,
 				E7023DD618E085B2003FA5F4 /* share_ideas_button@2x.png in Resources */,
 				E703935918C51724005B0E84 /* share_twitter@2x.png in Resources */,
 				E786A2BA18C0F6C000942576 /* publicgame_button@2x.png in Resources */,

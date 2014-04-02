@@ -339,11 +339,19 @@
 - (void)enableHeadshot
 {
     [self.headshotButton setEnabled:YES];
+    [self playReloadSound];
 }
 
 - (void)playHeadshotSound
 {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"gun_shot" withExtension: @"wav"];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [self.audioPlayer play];
+}
+
+- (void)playReloadSound
+{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"reload" withExtension: @"wav"];
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     [self.audioPlayer play];
 }
