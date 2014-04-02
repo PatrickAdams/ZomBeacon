@@ -49,6 +49,8 @@
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setObject:currentUser forKey:@"owner"];
     [currentInstallation saveInBackground];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"getLocation" object:nil userInfo:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -109,20 +111,30 @@
         [query includeKey:@"hostUser"];
         PFObject *privateGame = [query getFirstObject];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
-        
-        vc.gameDateString = privateGame[@"dateTime"];
-        vc.gameNameString = privateGame[@"gameName"];
-        PFGeoPoint *gameLocation = privateGame[@"location"];
-        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
-        vc.gameLocationCoord = gameLocationCoords;
-        vc.gameIdString = privateGame.objectId;
-        
-        PFObject *hostUser = privateGame[@"hostUser"];
-        vc.gameHostString = hostUser[@"name"];
-        
-        [self.navigationController pushViewController:vc animated:YES];
+        if (privateGame != nil)
+        {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            PrivateLobbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"privateLobby"];
+            
+            vc.gameDateString = privateGame[@"dateTime"];
+            vc.gameNameString = privateGame[@"gameName"];
+            PFGeoPoint *gameLocation = privateGame[@"location"];
+            CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+            vc.gameLocationCoord = gameLocationCoords;
+            vc.gameIdString = privateGame.objectId;
+            
+            PFObject *hostUser = privateGame[@"hostUser"];
+            vc.gameHostString = hostUser[@"name"];
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else
+        {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"GAME DELETED" message:@"This game no longer exists!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            [alert show];
+        }
     }
 }
 

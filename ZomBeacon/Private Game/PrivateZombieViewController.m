@@ -20,15 +20,16 @@
     self.navigationItem.hidesBackButton = YES;
     
     [self queryNearbyUsers];
+    
     [super viewDidLoad];
-    
-    self.mapView.delegate = self;
-    
-    mapKeyShowing = NO;
     
     //MapView Stuff
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    
+    self.mapView.delegate = self;
+    
+    mapKeyShowing = NO;
     
     //Grabs UUID from game so that the iBeacon is unique to the game
     PFQuery *uuidQuery = [PFQuery queryWithClassName:@"PrivateGames"];
@@ -61,10 +62,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self queryNearbyUsers];
-    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
-    [self zoomToUserLocation:self.mapView.userLocation];
+    [self zoomToUserLocation:self.locationManager.location];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -74,7 +75,7 @@
 
 - (void)validateTimer
 {
-    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
 }
 
 #pragma mark - Parse: Nearby User Querying with Custom Annotations
@@ -193,38 +194,6 @@
         [userQuery whereKey:@"major" equalTo:beacon.major];
         PFUser *userThatInfected = (PFUser *)[userQuery getFirstObject];
         
-        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [alert show];
-            
-            //Set up push to send to person that shot you.
-            PFQuery *pushQuery = [PFInstallation query];
-            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-            
-            PFPush *push = [PFPush new];
-            [push setQuery:pushQuery];
-            [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
-            [push sendPush:nil];
-        }
-        else
-        {
-            UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
-            notification.soundName = UILocalNotificationDefaultSoundName;
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-            
-            //Set up push to send to person that shot you.
-            PFQuery *pushQuery = [PFInstallation query];
-            [pushQuery whereKey:@"owner" equalTo:userThatInfected];
-            
-            PFPush *push = [PFPush new];
-            [push setQuery:pushQuery];
-            [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
-            [push sendPush:nil];
-        }
-        
         PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
         [query whereKey:@"user" equalTo:currentUser];
         PFObject *theStatus = [query getFirstObject];
@@ -248,6 +217,38 @@
         
         if (zombieCount < 1)
         {
+            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. GAME OVER!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
+                
+                //Set up push to send to person that shot you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@ to win the game!", currentUser.username] }];
+                [push sendPush:nil];
+            }
+            else
+            {
+                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@. GAME OVER!", userThatInfected.username];
+                notification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+                
+                //Set up push to send to person that shot you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@ to win the game!", currentUser.username] }];
+                [push sendPush:nil];
+            }
+
             [self performSegueWithIdentifier:@"endGamePrivateZombie" sender:self];
             for (UIViewController *controller in [self.navigationController viewControllers])
             {
@@ -260,6 +261,38 @@
         }
         else
         {
+            if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME" message:[NSString stringWithFormat:@"You just got headshotted by %@. You are dead!", userThatInfected.username] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                
+                [alert show];
+                
+                //Set up push to send to person that shot you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+                [push sendPush:nil];
+            }
+            else
+            {
+                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                notification.alertBody = [NSString stringWithFormat:@"PRIVATE GAME: You just got headshotted by %@. You are dead!", userThatInfected.username];
+                notification.soundName = UILocalNotificationDefaultSoundName;
+                [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+                
+                //Set up push to send to person that shot you.
+                PFQuery *pushQuery = [PFInstallation query];
+                [pushQuery whereKey:@"owner" equalTo:userThatInfected];
+                
+                PFPush *push = [PFPush new];
+                [push setQuery:pushQuery];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+                [push sendPush:nil];
+            }
+
             [self performSegueWithIdentifier:@"privateDead" sender:self];
         }
     }
@@ -268,13 +301,13 @@
 #pragma mark - Location Management
 
 //Method to zoom to the user location
-- (void)zoomToUserLocation:(MKUserLocation *)userLocation
+- (void)zoomToUserLocation:(CLLocation *)userLocation
 {
     if (!userLocation)
         return;
     
     MKCoordinateRegion region;
-    region.center = userLocation.location.coordinate;
+    region.center = userLocation.coordinate;
     region.span = MKCoordinateSpanMake(0.002, 0.002); //Zoom distance
     region = [self.mapView regionThatFits:region];
     [self.mapView setRegion:region animated:YES];
@@ -291,7 +324,7 @@
 //For the crosshairs button on the map
 - (IBAction)centerMapOnLocation
 {
-    [self zoomToUserLocation:self.mapView.userLocation];
+    [self zoomToUserLocation:self.locationManager.location];
     [UIView animateWithDuration:0.5 animations:^{self.locationButton.alpha = 0.0;}];
     [UIView animateWithDuration:0.5 animations:^{self.compassButton.alpha = 1.0;}];
 }

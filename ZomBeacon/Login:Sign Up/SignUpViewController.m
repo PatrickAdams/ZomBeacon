@@ -101,7 +101,7 @@
             PFUser *user = [PFUser user];
             
             user.username = self.usernameField.text;
-            user.password = self.passwordField.text;
+            user.password = [self.passwordField.text lowercaseString];
             user.email = self.emailField.text;
             user[@"name"] = self.nameField.text;
             user[@"bio"] = self.bioField.text;

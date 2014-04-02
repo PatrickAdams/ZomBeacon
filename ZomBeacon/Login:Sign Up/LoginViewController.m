@@ -174,7 +174,7 @@
                           
                           PFUser *currentUser = [PFUser currentUser];
                           currentUser.username = userData[@"username"];
-                          currentUser.email = userData[@"email"];
+                          currentUser.email = [userData[@"email"] lowercaseString];
                           currentUser[@"name"] = userData[@"name"];
                           currentUser[@"bio"] = userData[@"bio"];
                           currentUser[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];

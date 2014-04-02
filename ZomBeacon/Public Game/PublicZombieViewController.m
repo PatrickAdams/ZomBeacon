@@ -21,14 +21,14 @@
     
     [super viewDidLoad];
     
+    //MapView Stuff
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
     self.navigationItem.hidesBackButton = YES;
     self.mapView.delegate = self;
     
     mapKeyShowing = NO;
-    
-    //MapView Stuff
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
     
     //Initializing beacon region to send to survivors
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
@@ -74,7 +74,7 @@
     self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //Zoom to user location once
-    [self zoomToUserLocation:self.mapView.userLocation];
+    [self zoomToUserLocation:self.locationManager.location];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -163,7 +163,7 @@
 #pragma mark - Location Management
 
 //Method to zoom to the user location
-- (void)zoomToUserLocation:(MKUserLocation *)userLocation
+- (void)zoomToUserLocation:(CLLocation *)userLocation
 {
     double miles = 0.5;
     double scalingFactor = ABS( (cos(2 * M_PI * userLocation.coordinate.latitude / 360.0) ));
@@ -189,7 +189,7 @@
 //For the crosshairs button on the map
 - (IBAction)centerMapOnLocation
 {
-    [self zoomToUserLocation:self.mapView.userLocation];
+    [self zoomToUserLocation:self.locationManager.location];
     [UIView animateWithDuration:0.5 animations:^{self.locationButton.alpha = 0.0;}];
     [UIView animateWithDuration:0.5 animations:^{self.compassButton.alpha = 1.0;}];
 }

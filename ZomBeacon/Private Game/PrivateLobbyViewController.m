@@ -362,7 +362,13 @@
     [query whereKey:@"user" equalTo:player];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         PFFile *file = object[@"imageFile"];
-        cell.profileImage.file = file;
+        if (file != nil)
+        {
+            cell.profileImage.file = file;
+        }
+        else
+            cell.profileImage.image = [UIImage imageNamed:@"default_profile"];
+        
         [cell.profileImage loadInBackground];
     }];
     

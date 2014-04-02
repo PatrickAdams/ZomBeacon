@@ -43,6 +43,16 @@
     self.proximityKitManager = [PKManager managerWithDelegate:self];
     [self.proximityKitManager start];
     
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForSurvivors) name: @"isZombie" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForZombies) name: @"isSurvivor" object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(getLocation) name: @"getLocation" object: nil];
+    
+    return YES;
+}
+
+- (void)getLocation
+{
     if (![CLLocationManager locationServicesEnabled])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled" message:@"You currently have all location services for this device disabled. ZomBeacon relies on location services to give you the best experience possible. Please enable them!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -57,11 +67,6 @@
         self.locationManager.distanceFilter = 2.0f;
         [self.locationManager startUpdatingLocation];
     }
-    
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForSurvivors) name: @"isZombie" object: nil];
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForZombies) name: @"isSurvivor" object: nil];
-    
-    return YES;
 }
 
 - (void)startRangingForSurvivors
@@ -72,16 +77,6 @@
 - (void)startRangingForZombies
 {
     [self.beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
-}
-
-- (void)shieldFromHeadshot
-{
-    [self.beaconManager stopBeaconMonitoring];
-}
-
-- (void)shieldFromBite
-{
-    [self.beaconManager stopBeaconMonitoring];
 }
 
 - (void)beaconManager:(BeaconManager *)beaconManager didRangeBeacons:(NSArray *)beacons
@@ -473,16 +468,9 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    if ([PFUser currentUser] != nil)
-    {
-        PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
-        [[PFUser currentUser] setObject:point forKey:@"location"];
-        [[PFUser currentUser] saveInBackground];
-    }
-    else
-    {
-        return;
-    }
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude];
+    [[PFUser currentUser] setObject:point forKey:@"location"];
+    [[PFUser currentUser] saveInBackground];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

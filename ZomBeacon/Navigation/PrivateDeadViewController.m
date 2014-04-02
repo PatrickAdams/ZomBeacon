@@ -39,10 +39,10 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
+    self.queryTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(queryNearbyUsers) userInfo:nil repeats:YES];
     
     //MapView stuff
-    [self zoomToUserLocation:self.mapView.userLocation];
+    [self zoomToUserLocation:self.locationManager.location];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -151,13 +151,13 @@
 #pragma mark - Location Management
 
 //Method to zoom to the user location
-- (void)zoomToUserLocation:(MKUserLocation *)userLocation
+- (void)zoomToUserLocation:(CLLocation *)userLocation
 {
     if (!userLocation)
         return;
     
     MKCoordinateRegion region;
-    region.center = userLocation.location.coordinate;
+    region.center = userLocation.coordinate;
     region.span = MKCoordinateSpanMake(0.002, 0.002); //Zoom distance
     region = [self.mapView regionThatFits:region];
     [self.mapView setRegion:region animated:YES];
@@ -174,7 +174,7 @@
 //For the crosshairs button on the map
 - (IBAction)centerMapOnLocation
 {
-    [self zoomToUserLocation:self.mapView.userLocation];
+    [self zoomToUserLocation:self.locationManager.location];
     [UIView animateWithDuration:0.5 animations:^{self.locationButton.alpha = 0.0;}];
     [UIView animateWithDuration:0.5 animations:^{self.compassButton.alpha = 1.0;}];
 }
