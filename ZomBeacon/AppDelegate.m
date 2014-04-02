@@ -61,10 +61,6 @@
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForSurvivors) name: @"isZombie" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForZombies) name: @"isSurvivor" object: nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(shieldFromHeadshot) name: @"shieldFromHeadshot" object: nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(shieldFromBite) name: @"shieldFromBite" object: nil];
-    
     return YES;
 }
 

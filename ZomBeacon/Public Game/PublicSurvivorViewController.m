@@ -225,24 +225,30 @@
 //Method that starts advertising the headshot
 - (IBAction)headshotTheZombie:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"shieldFromBite" object:nil userInfo:nil];
+    [self playHeadshotSound];
     self.beaconPeripheralData = [self.beaconRegion2 peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.headshotButton setEnabled:NO];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
-    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(enableHeadshotButton) userInfo:nil repeats:NO];
 }
 
 //Method that stops advertising the headshot beacon
 - (void)stopTheHeadshot
 {
     [self.peripheralManager stopAdvertising];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"isSurvivor" object:nil userInfo:nil];
 }
 
-- (void)enableHeadshot
+- (void)enableHeadshotButton
 {
     [self.headshotButton setEnabled:YES];
+}
+
+- (void)playHeadshotSound
+{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"gun_shot" withExtension: @"wav"];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [self.audioPlayer play];
 }
 
 //Method that tracks the beacon activity

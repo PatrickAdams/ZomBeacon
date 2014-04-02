@@ -323,7 +323,7 @@
 //Method that starts the transmission of the headshot
 - (IBAction)headshotTheZombie:(id)sender
 {
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    [self playHeadshotSound];
     self.beaconPeripheralData = [self.beaconRegion2 peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.headshotButton setEnabled:NO];
@@ -334,12 +334,18 @@
 - (void)stopTheHeadshot
 {
     [self.peripheralManager stopAdvertising];
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
 }
 
 - (void)enableHeadshot
 {
     [self.headshotButton setEnabled:YES];
+}
+
+- (void)playHeadshotSound
+{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"gun_shot" withExtension: @"wav"];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [self.audioPlayer play];
 }
 
 //Method that tracks the beacon activity

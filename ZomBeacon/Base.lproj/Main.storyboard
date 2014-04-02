@@ -2039,6 +2039,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createPrivateGameButton" destination="J0F-7N-lF8" id="Oxt-2W-QLT"/>
+                        <outlet property="startPrivateGameButton" destination="UZm-41-pyO" id="9LA-Sr-vly"/>
                         <outlet property="startPublicGameButton" destination="vr0-vd-YDs" id="f6i-Av-ux6"/>
                         <segue destination="5w5-oG-fwH" kind="push" identifier="publicSurvivor" id="CM6-mk-yUd"/>
                         <segue destination="it5-Tg-ZWA" kind="push" identifier="publicZombie" id="PsZ-ht-oAZ"/>

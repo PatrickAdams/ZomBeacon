@@ -322,23 +322,23 @@
 //Method that starts the transmission of the beacon
 - (IBAction)startInfecting:(id)sender
 {
-    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion2];
+    [self playBiteSound];
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.biteButton setEnabled:NO];
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableBite) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
 }
 
 - (void)stopInfecting
 {
     [self.peripheralManager stopAdvertising];
-    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion2];
 }
 
-- (void)enableBite
+- (void)playBiteSound
 {
-    [self.biteButton setEnabled:YES];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"zombie_bite" withExtension: @"wav"];
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [self.audioPlayer play];
 }
 
 //Method that tracks the beacon activity

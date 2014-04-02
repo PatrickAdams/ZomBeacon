@@ -21,7 +21,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UIButton *startPublicGameButton;
 @property (nonatomic, weak) IBOutlet UIButton *createPrivateGameButton;
-@property (nonatomic, weak) IBOutlet UIButton *findPrivateGameButton;
+@property (nonatomic, weak) IBOutlet UIButton *startPrivateGameButton;
 
 - (IBAction)startPublicGame;
 

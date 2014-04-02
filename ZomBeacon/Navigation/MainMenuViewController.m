@@ -24,17 +24,17 @@
         self.startPublicGameButton.frame = frame;
         self.startPublicGameButton.center = CGPointMake(121, 135);
         
-        CGRect frame2 = self.createPrivateGameButton.frame;
+        CGRect frame2 = self.startPrivateGameButton.frame;
         frame2.size.width = 154;
         frame2.size.height = 154;
-        self.createPrivateGameButton.frame = frame2;
-        self.createPrivateGameButton.center = CGPointMake(232, 289);
+        self.startPrivateGameButton.frame = frame2;
+        self.startPrivateGameButton.center = CGPointMake(232, 289);
         
-        CGRect frame3 = self.findPrivateGameButton.frame;
+        CGRect frame3 = self.createPrivateGameButton.frame;
         frame3.size.width = 107;
         frame3.size.height = 107;
-        self.findPrivateGameButton.frame = frame3;
-        self.findPrivateGameButton.center = CGPointMake(128, 352);
+        self.createPrivateGameButton.frame = frame3;
+        self.createPrivateGameButton.center = CGPointMake(128, 352);
     }
     
     [super viewDidLoad];

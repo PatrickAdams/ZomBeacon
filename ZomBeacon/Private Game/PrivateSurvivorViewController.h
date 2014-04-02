@@ -14,6 +14,7 @@
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
 #import "ProfileViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface PrivateSurvivorViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>
 {
@@ -40,6 +41,7 @@
 @property (nonatomic, weak) IBOutlet UIView *mapKeyView;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumRegularFonts;
+@property (nonatomic, retain) AVAudioPlayer *audioPlayer;
 
 - (IBAction)trackMyOrientation;
 - (IBAction)centerMapOnLocation;
