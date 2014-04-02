@@ -41,8 +41,7 @@
 
 - (void)startBeaconMonitoring:(NSString*)forUUID
 {
-    NSString * uuidString = forUUID;
-    NSUUID * uuid = [[NSUUID alloc] initWithUUIDString:uuidString];
+    NSUUID * uuid = [[NSUUID alloc] initWithUUIDString:forUUID];
     
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"com.zombeacon.publicRegion"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
@@ -65,11 +64,6 @@
     if(self.delegate != nil) {
         [self.delegate beaconManager:self didRangeBeacons:self.beacons];
     }
-    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicSurvivor"];
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    [appDelegate.window.rootViewController.navigationController pushViewController:vc animated:YES];
 }
 
 @end
