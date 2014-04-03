@@ -358,7 +358,6 @@
     [self playBiteSound];
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-    [self.biteButton setEnabled:NO];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopInfecting) userInfo:nil repeats:NO];
 }
 

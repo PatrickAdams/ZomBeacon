@@ -361,7 +361,7 @@
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     [self.headshotButton setEnabled:NO];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(stopTheHeadshot) userInfo:nil repeats:NO];
-    [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(enableHeadshot) userInfo:nil repeats:NO];
 }
 
 - (void)stopTheHeadshot

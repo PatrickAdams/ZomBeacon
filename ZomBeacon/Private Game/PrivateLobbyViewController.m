@@ -135,7 +135,7 @@
     PFGeoPoint *userGeoPoint = currentUser[@"location"];
     PFQuery *query = [PFUser query];
     [query whereKey:@"currentGame" equalTo:currentUser[@"currentGame"]];
-    [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.5];
+    [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.125];
     self.thePlayers = [query findObjects];
     
     return self.thePlayers;
