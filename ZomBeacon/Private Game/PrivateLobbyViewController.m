@@ -177,21 +177,19 @@
                 
                 PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
                 [query whereKey:@"user" equalTo:player];
+                [query whereKey:@"privateGame" equalTo:self.gameIdString];
                 PFObject *theStatus = [query getFirstObject];
-                
-                if ([theStatus[@"status"] isEqualToString:@""])
+
+                if (i < totalZombies)
                 {
-                    if (i < totalZombies)
-                    {
-                        [theStatus setObject:@"zombie" forKey:@"status"];
-                    }
-                    else
-                    {
-                        [theStatus setObject:@"survivor" forKey:@"status"];
-                    }
-                    
-                    [theStatus save];
+                    [theStatus setObject:@"zombie" forKey:@"status"];
                 }
+                else
+                {
+                    [theStatus setObject:@"survivor" forKey:@"status"];
+                }
+                
+                [theStatus save];
                 
                 //Set up push to send to person that bit you.
                 PFQuery *pushQuery = [PFInstallation query];
