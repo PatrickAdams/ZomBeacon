@@ -99,6 +99,7 @@
                     
                     PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
                     [privateStatusQuery whereKey:@"user" equalTo:users[i]];
+                    [privateStatusQuery whereKey:@"privateGame" equalTo:self.gameIdString];
                     PFObject *privateStatus = [privateStatusQuery getFirstObject];
                     
                     NSString *statusOfNearbyUser = privateStatus[@"status"];

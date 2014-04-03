@@ -125,6 +125,7 @@
                     
                     PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
                     [privateStatusQuery whereKey:@"user" equalTo:users[i]];
+                    [privateStatusQuery whereKey:@"privateGame" equalTo:self.gameIdString];
                     PFObject *privateStatus = [privateStatusQuery getFirstObject];
                     
                     NSString *statusOfNearbyUser = privateStatus[@"status"];
@@ -249,6 +250,7 @@
         
         PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
         [query whereKey:@"user" equalTo:currentUser];
+        [query whereKey:@"privateGame" equalTo:self.gameIdString];
         PFObject *theStatus = [query getFirstObject];
         [theStatus setObject:@"zombie" forKey:@"status"];
         [theStatus saveInBackground];

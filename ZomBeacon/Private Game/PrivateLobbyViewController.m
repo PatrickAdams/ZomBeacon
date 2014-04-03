@@ -222,6 +222,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
     [query whereKey:@"user" equalTo:currentUser];
+    [query whereKey:@"privateGame" equalTo:self.gameIdString];
     PFObject *privateStatus = [query getFirstObject];
     
     if ([privateStatus[@"status"] isEqualToString:@"dead"])
@@ -301,6 +302,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
     [query whereKey:@"user" equalTo:currentUser];
+    [query whereKey:@"privateGame" equalTo:self.gameIdString];
     PFObject *privateStatus = [query getFirstObject];
     
     if ([privateStatus[@"status"] isEqualToString:@"zombie"])
