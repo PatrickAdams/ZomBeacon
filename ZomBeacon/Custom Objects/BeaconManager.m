@@ -20,9 +20,9 @@
 
 + (id)sharedManager
 {
-    static dispatch_once_t pred = 0;
-    __strong static id sharedBeaconManager = nil;
-    dispatch_once(&pred, ^{
+    static BeaconManager *sharedBeaconManager = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
         sharedBeaconManager = [[self alloc] init];
     });
     return sharedBeaconManager;

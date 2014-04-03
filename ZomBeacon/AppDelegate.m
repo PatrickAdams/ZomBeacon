@@ -36,8 +36,8 @@
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
     //Start the beacon region monitoring when the controller loads
-    self.beaconManager = [BeaconManager sharedManager];
-    self.beaconManager.delegate = self;
+    BeaconManager *beaconManager = [BeaconManager sharedManager];
+    beaconManager.delegate = self;
     
     //Proximity Kit
     self.proximityKitManager = [PKManager managerWithDelegate:self];
@@ -71,21 +71,25 @@
 
 - (void)startRangingForSurvivors
 {
-    [self.beaconManager startBeaconMonitoring:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
+    BeaconManager *beaconManager = [BeaconManager sharedManager];
+    [beaconManager startBeaconMonitoring:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
 }
 
 - (void)startRangingForZombies
 {
-    [self.beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
+    BeaconManager *beaconManager = [BeaconManager sharedManager];
+    [beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
 }
 
 - (void)beaconManager:(BeaconManager *)beaconManager didRangeBeacons:(NSArray *)beacons
 {
+    NSLog(@"ranging");
     CLBeacon *beacon = [beacons lastObject];
+    NSLog(@"%@", beacon);
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
-        [self.beaconManager stopBeaconMonitoring];
+        [beaconManager stopBeaconMonitoring];
         
         NSString *publicStatus = [PFUser currentUser][@"publicStatus"];
         if ([publicStatus isEqualToString:@"survivor"])

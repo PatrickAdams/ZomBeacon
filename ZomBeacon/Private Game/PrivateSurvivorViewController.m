@@ -231,7 +231,9 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
+    NSLog(@"ranging2");
     CLBeacon *beacon = [beacons lastObject];
+    NSLog(@"%@2", beacon);
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {

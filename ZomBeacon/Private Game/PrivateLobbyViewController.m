@@ -352,7 +352,7 @@
     UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     PFUser *player = self.thePlayers[indexPath.row];
-    NSString *playerName = player[@"name"];
+    NSString *playerName = player.username;
     cell.nameLabel.text = playerName;
     
     cell.profileImage.image = nil;
