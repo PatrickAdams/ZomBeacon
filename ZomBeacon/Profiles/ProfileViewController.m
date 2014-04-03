@@ -288,6 +288,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
+        
         PFObject *gameToBeDeleted = [self.privateGames objectAtIndex:indexPath.row];
         [gameToBeDeleted deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (succeeded) {

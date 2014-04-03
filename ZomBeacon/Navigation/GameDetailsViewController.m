@@ -109,16 +109,16 @@
 
 - (IBAction)joinGame
 {
-    currentUser[@"currentGame"] = self.gameIdString;
-    [currentUser saveInBackground];
-    
     //Save value in PrivateStatus table as well
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
     [query whereKey:@"user" equalTo:currentUser];
-    [query whereKey:@"privateGame" equalTo:self.gameIdString];
     PFObject *theStatus = [query getFirstObject];
     if (theStatus != nil)
     {
+        theStatus[@"status"] = @"";
+        theStatus[@"privateGame"] = self.gameIdString;
+        [theStatus saveInBackground];
+        
         currentUser[@"currentGame"] = self.gameIdString;
         [currentUser saveInBackground];
     }

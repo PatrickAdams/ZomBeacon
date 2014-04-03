@@ -57,6 +57,8 @@
     }
     
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(validateTimer) name:UIApplicationDidBecomeActiveNotification object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(removeUser) name:UIApplicationWillTerminateNotification object: nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -127,7 +129,6 @@
                     
                     PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
                     [privateStatusQuery whereKey:@"user" equalTo:users[i]];
-                    [privateStatusQuery whereKey:@"privateGame" equalTo:self.gameIdString];
                     PFObject *privateStatus = [privateStatusQuery getFirstObject];
                     
                     NSString *statusOfNearbyUser = privateStatus[@"status"];
@@ -197,7 +198,6 @@
         
         PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
         [query whereKey:@"user" equalTo:currentUser];
-        [query whereKey:@"privateGame" equalTo:self.gameIdString];
         PFObject *theStatus = [query getFirstObject];
         [theStatus setObject:@"dead" forKey:@"status"];
         [theStatus saveInBackground];
@@ -298,6 +298,36 @@
             [self performSegueWithIdentifier:@"privateDead" sender:self];
         }
     }
+}
+
+- (void)removeUser
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    PFObject *theStatus = [query getFirstObject];
+    NSString *privateStatus = theStatus[@"status"];
+    
+    PFQuery *privateGame = [PFQuery queryWithClassName:@"PrivateGames"];
+    [privateGame whereKey:@"objectId" equalTo:currentUser[@"currentGame"]];
+    PFObject *currentGame = [privateGame getFirstObject];
+    int survivorCount = [currentGame[@"survivorCount"] intValue];
+    int zombieCount = [currentGame[@"zombieCount"] intValue];
+    
+    if ([privateStatus isEqualToString:@"survivor"])
+    {
+        survivorCount--;
+    }
+    else if ([privateStatus isEqualToString:@"zombie"])
+    {
+        zombieCount--;
+    }
+    
+    currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
+    currentGame[@"zombieCount"] = [NSNumber numberWithInt:zombieCount];
+    [currentGame save];
+    
+    [theStatus setObject:@"" forKey:@"status"];
+    [theStatus saveInBackground];
 }
 
 #pragma mark - Location Management

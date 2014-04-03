@@ -34,7 +34,6 @@
     //Deletes user's private status when game is over
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateStatus"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
-    [query whereKey:@"privateGame" equalTo:[PFUser currentUser][@"currentGame"]];
     PFObject *theStatus = [query getFirstObject];
     [theStatus setObject:@"" forKey:@"status"];
     [theStatus saveInBackground];
