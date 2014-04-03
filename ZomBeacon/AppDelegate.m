@@ -83,9 +83,7 @@
 
 - (void)beaconManager:(BeaconManager *)beaconManager didRangeBeacons:(NSArray *)beacons
 {
-    NSLog(@"ranging");
     CLBeacon *beacon = [beacons lastObject];
-    NSLog(@"%@", beacon);
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
     {
@@ -97,7 +95,15 @@
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             PublicZombieViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicZombie"];
             UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
-            [navCon pushViewController:vc animated:YES];
+            
+            if ([navCon.topViewController isKindOfClass:[PrivateSurvivorViewController class]] || [navCon.topViewController isKindOfClass:[PrivateZombieViewController class]])
+            {
+                //Do nothing
+            }
+            else
+            {
+               [navCon pushViewController:vc animated:YES];
+            }
             
             PFQuery *userQuery = [PFUser query];
             [userQuery whereKey:@"minor" equalTo:beacon.minor];
@@ -155,17 +161,25 @@
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             PublicDeadViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"publicDead"];
             UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
-            [navCon presentViewController:vc animated:YES completion:nil];
             
-            for (UIViewController *controller in [navCon viewControllers])
+            if ([navCon.topViewController isKindOfClass:[PrivateSurvivorViewController class]] || [navCon.topViewController isKindOfClass:[PrivateZombieViewController class]])
             {
-                if ([controller isKindOfClass:[MainMenuViewController class]])
+                //Do nothing
+            }
+            else
+            {
+                [navCon presentViewController:vc animated:YES completion:nil];
+                
+                for (UIViewController *controller in [navCon viewControllers])
                 {
-                    [navCon popToViewController:controller animated:YES];
-                    break;
+                    if ([controller isKindOfClass:[MainMenuViewController class]])
+                    {
+                        [navCon popToViewController:controller animated:YES];
+                        break;
+                    }
                 }
             }
-            
+
             PFQuery *userQuery = [PFUser query];
             [userQuery whereKey:@"minor" equalTo:beacon.minor];
             [userQuery whereKey:@"major" equalTo:beacon.major];

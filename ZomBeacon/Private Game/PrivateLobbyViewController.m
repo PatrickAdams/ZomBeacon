@@ -43,18 +43,6 @@
         }
     }];
     
-    PFQuery *privateStatusQuery = [PFQuery queryWithClassName:@"PrivateStatus"];
-    [privateStatusQuery whereKey:@"user" equalTo:currentUser];
-    PFObject *userStatus = [privateStatusQuery getFirstObject];
-    
-    if (userStatus == nil)
-    {
-        PFObject *privateStatus = [PFObject objectWithClassName:@"PrivateStatus"];
-        [privateStatus setObject:currentUser forKey:@"user"];
-        [privateStatus setObject:@"" forKey:@"status"];
-        [privateStatus saveInBackground];
-    }
-    
     //Checks if you are the host of the current game or not
     NSString *currentGame = currentUser[@"currentGame"];
     PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];

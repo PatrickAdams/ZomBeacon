@@ -97,7 +97,7 @@
     UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
     NSObject *friend = [self.friendsArray objectAtIndex:[indexPath row]];
-    cell.nameLabel.text = [friend valueForKey:@"name"];
+    cell.nameLabel.text = [friend valueForKey:@"username"];
     NSString *theScore = [NSString stringWithFormat:@"%@ pts", [[friend valueForKey:@"score"] stringValue]];
     cell.scoreLabel.text = theScore;
     
