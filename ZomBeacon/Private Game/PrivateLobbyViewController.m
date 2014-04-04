@@ -442,6 +442,11 @@
     [self presentViewController:tweetComposer animated:YES completion:nil];
 }
 
+- (IBAction)shareToUsersNearby
+{
+    [self performSegueWithIdentifier:@"usersNearby" sender:self];
+}
+
 - (IBAction)shareViaFacebook
 {
     FBShareDialogParams *params = [[FBShareDialogParams alloc] init];

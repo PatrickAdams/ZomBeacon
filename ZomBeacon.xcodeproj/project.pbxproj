@@ -80,6 +80,7 @@
 		E70B559318E20933000A02A8 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E70B559218E20933000A02A8 /* close_button@2x.png */; };
 		E70CC35E18E4B36D00402453 /* app_icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = E70CC35C18E4B36D00402453 /* app_icon_58.png */; };
 		E70CC35F18E4B36D00402453 /* app_icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = E70CC35D18E4B36D00402453 /* app_icon_80.png */; };
+		E72AF06D18EF450400F59285 /* UsersNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72AF06C18EF450400F59285 /* UsersNearbyViewController.m */; };
 		E7443F2A18E5C5CE009156F1 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7443F2918E5C5CE009156F1 /* user@2x.png */; };
 		E7443F2C18E5C5D8009156F1 /* edit_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7443F2B18E5C5D8009156F1 /* edit_user@2x.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
@@ -287,6 +288,8 @@
 		E70B559218E20933000A02A8 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close_button@2x.png"; path = "Images/close_button@2x.png"; sourceTree = "<group>"; };
 		E70CC35C18E4B36D00402453 /* app_icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_58.png; path = Images/app_icon_58.png; sourceTree = "<group>"; };
 		E70CC35D18E4B36D00402453 /* app_icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_80.png; path = Images/app_icon_80.png; sourceTree = "<group>"; };
+		E72AF06B18EF450400F59285 /* UsersNearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersNearbyViewController.h; path = Navigation/UsersNearbyViewController.h; sourceTree = "<group>"; };
+		E72AF06C18EF450400F59285 /* UsersNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersNearbyViewController.m; path = Navigation/UsersNearbyViewController.m; sourceTree = "<group>"; };
 		E7443F2918E5C5CE009156F1 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@2x.png"; path = "Images/user@2x.png"; sourceTree = "<group>"; };
 		E7443F2B18E5C5D8009156F1 /* edit_user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "edit_user@2x.png"; path = "Images/edit_user@2x.png"; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -713,6 +716,8 @@
 				E705AA1318AE735600CFE7B6 /* FindGameViewController.m */,
 				E705AA1418AE735600CFE7B6 /* GameDetailsViewController.h */,
 				E705AA1518AE735600CFE7B6 /* GameDetailsViewController.m */,
+				E72AF06B18EF450400F59285 /* UsersNearbyViewController.h */,
+				E72AF06C18EF450400F59285 /* UsersNearbyViewController.m */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -930,6 +935,7 @@
 				CD013BFE18D0A2DD0020FF5C /* EndGameViewController.m in Sources */,
 				E705AA2D18AE739900CFE7B6 /* PrivateSurvivorViewController.m in Sources */,
 				E705AA2418AE739000CFE7B6 /* PublicSurvivorViewController.m in Sources */,
+				E72AF06D18EF450400F59285 /* UsersNearbyViewController.m in Sources */,
 				E7B037D118DCDF83003FB291 /* MBProgressHUD.m in Sources */,
 				E7F9C0AF18C194DE0023D10F /* BluetoothViewController.m in Sources */,
 				E7DE48BE18DCB2F80007F9E1 /* AboutViewController.m in Sources */,
