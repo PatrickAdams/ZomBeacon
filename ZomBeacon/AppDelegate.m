@@ -122,8 +122,11 @@
                 
                 PFPush *push = [PFPush new];
                 [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", [PFUser currentUser].username] }];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINSSS! You bit user %@ for +250 pts!", [PFUser currentUser].username] }];
                 [push sendPushInBackground];
+                
+                //Adds 100 pts to the user's publicScore for a bite
+                [self assignPointsFor:userThatInfected pointTotal:250.0f];
             }
             else
             {
@@ -139,22 +142,15 @@
                 
                 PFPush *push = [PFPush new];
                 [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINS!! You bit user: %@", [PFUser currentUser].username] }];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"BRAINSSS! You bit user %@ for +250 pts!", [PFUser currentUser].username] }];
                 [push sendPush:nil];
+                
+                //Adds 100 pts to the user's publicScore for a bite
+                [self assignPointsFor:userThatInfected pointTotal:250.0f];
             }
             
             [[PFUser currentUser] setObject:@"zombie" forKey:@"publicStatus"];
             [[PFUser currentUser] saveInBackground];
-            
-            //Adds 250 pts to the user's publicScore for a bite
-            PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
-            [query whereKey:@"user" equalTo:userThatInfected];
-            PFObject *theUserScore = [query getFirstObject];
-            float score = [theUserScore[@"publicScore"] floatValue];
-            float points = 250.0f;
-            NSNumber *sum = [NSNumber numberWithFloat:score + points];
-            [theUserScore setObject:sum forKey:@"publicScore"];
-            [theUserScore saveInBackground];
         }
         else if ([publicStatus isEqualToString:@"zombie"])
         {
@@ -197,8 +193,11 @@
                 
                 PFPush *push = [PFPush new];
                 [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", [PFUser currentUser].username] }];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user %@ for +500 pts!", [PFUser currentUser].username] }];
                 [push sendPush:nil];
+                
+                //Adds 100 pts to the user's publicScore for a bite
+                [self assignPointsFor:userThatInfected pointTotal:500.0f];
             }
             else
             {
@@ -214,23 +213,28 @@
                 
                 PFPush *push = [PFPush new];
                 [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", [PFUser currentUser].username] }];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user %@ for +500 pts!", [PFUser currentUser].username] }];
                 [push sendPush:nil];
+                
+                //Adds 100 pts to the user's publicScore for a bite
+                [self assignPointsFor:userThatInfected pointTotal:500.0f];
             }
             
             [[PFUser currentUser] setObject:@"dead" forKey:@"publicStatus"];
             [[PFUser currentUser] saveInBackground];
-            
-            PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
-            [query whereKey:@"user" equalTo:userThatInfected];
-            PFObject *theUserScore = [query getFirstObject];
-            float score = [theUserScore[@"publicScore"] floatValue];
-            float points = 500.0f;
-            NSNumber *sum = [NSNumber numberWithFloat:score + points];
-            [theUserScore setObject:sum forKey:@"publicScore"];
-            [theUserScore saveInBackground];
         }
     }
+}
+
+- (void)assignPointsFor:(PFUser *)userThatInfected pointTotal:(float)points
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
+    [query whereKey:@"user" equalTo:userThatInfected];
+    PFObject *theUserScore = [query getFirstObject];
+    float score = [theUserScore[@"publicScore"] floatValue];
+    NSNumber *sum = [NSNumber numberWithFloat:score + points];
+    [theUserScore setObject:sum forKey:@"publicScore"];
+    [theUserScore saveInBackground];
 }
 
 #pragma mark - Push Notifications
@@ -315,11 +319,16 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"bluetooth"];
         [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
+        
+        [self.locationManager stopUpdatingLocation];
+        [[PFUser currentUser] setObject:[NSNull null] forKey:@"location"];
+        [[PFUser currentUser] saveInBackground];
     }
     
     if (central.state == CBCentralManagerStatePoweredOn)
     {
         [self.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+        [self.locationManager startUpdatingLocation];
     }
 }
 
@@ -499,16 +508,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    //Deletes users location whenever the app is terminated
-    if ([PFUser currentUser] != nil)
-    {
-        [[PFUser currentUser] setObject:[NSNull null] forKey:@"location"];
-        [[PFUser currentUser] save];
-    }
-    else
-    {
-        return;
-    }
+    [[PFUser currentUser] setObject:[NSNull null] forKey:@"location"];
+    [[PFUser currentUser] save];
 }
 
 @end

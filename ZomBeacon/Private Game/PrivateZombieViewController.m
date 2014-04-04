@@ -202,15 +202,6 @@
         [theStatus setObject:@"dead" forKey:@"status"];
         [theStatus saveInBackground];
         
-        PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
-        [query2 whereKey:@"user" equalTo:userThatInfected];
-        PFObject *theUserScore = [query2 getFirstObject];
-        float score = [theUserScore[@"publicScore"] floatValue];
-        float points = 200.0f;
-        NSNumber *sum = [NSNumber numberWithFloat:score + points];
-        [theUserScore setObject:sum forKey:@"publicScore"];
-        [theUserScore saveInBackground];
-        
         zombieCount--;
         
         currentGame[@"survivorCount"] = [NSNumber numberWithInt:survivorCount];
@@ -231,8 +222,12 @@
                 
                 PFPush *push = [PFPush new];
                 [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@ to win the game!", currentUser.username] }];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@ to win the game! +400 pts", currentUser.username] }];
                 [push sendPush:nil];
+                
+                //Adds 400 pts to the user's publicScore for a bite
+                [self assignPointsFor:userThatInfected pointTotal:400.0f];
+
             }
             else
             {
@@ -247,8 +242,12 @@
                 
                 PFPush *push = [PFPush new];
                 [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@ to win the game!", currentUser.username] }];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@ to win the game! +400 pts", currentUser.username] }];
                 [push sendPush:nil];
+                
+                //Adds 400 pts to the user's publicScore for a bite
+                [self assignPointsFor:userThatInfected pointTotal:400.0f];
+
             }
 
             [self performSegueWithIdentifier:@"endGamePrivateZombie" sender:self];
@@ -275,8 +274,12 @@
                 
                 PFPush *push = [PFPush new];
                 [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user %@ for +200 pts!", currentUser.username] }];
                 [push sendPush:nil];
+                
+                //Adds 200 pts to the user's publicScore for a bite
+                [self assignPointsFor:userThatInfected pointTotal:200.0f];
+
             }
             else
             {
@@ -291,13 +294,28 @@
                 
                 PFPush *push = [PFPush new];
                 [push setQuery:pushQuery];
-                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user: %@", currentUser.username] }];
+                [push setData:@{ @"alert": [NSString stringWithFormat:@"Nice! You headshotted user %@ for +200 pts!", currentUser.username] }];
                 [push sendPush:nil];
+                
+                //Adds 100 pts to the user's publicScore for a bite
+                [self assignPointsFor:userThatInfected pointTotal:200.0f];
             }
 
             [self performSegueWithIdentifier:@"privateDead" sender:self];
         }
     }
+}
+
+- (void)assignPointsFor:(PFUser *)userThatInfected pointTotal:(float)points
+{
+    //Adds 100 pts to the user's publicScore for a bite
+    PFQuery *query2 = [PFQuery queryWithClassName:@"UserScore"];
+    [query2 whereKey:@"user" equalTo:userThatInfected];
+    PFObject *theUserScore = [query2 getFirstObject];
+    float score = [theUserScore[@"privateScore"] floatValue];
+    NSNumber *sum = [NSNumber numberWithFloat:score + points];
+    [theUserScore setObject:sum forKey:@"privateScore"];
+    [theUserScore saveInBackground];
 }
 
 - (void)removeUser
