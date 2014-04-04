@@ -124,8 +124,6 @@
 - (IBAction)logInWithFacebook
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
- 
-    __weak typeof(self) weakSelf = self;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         // The permissions requested from the user
