@@ -133,6 +133,10 @@
         vc.gameIdString = privateGame.objectId;
         
         [self.navigationController pushViewController:vc animated:YES];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"This game has been added to your profile." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
     }
     else if (gameLocation.latitude == 0)
     {
@@ -147,6 +151,7 @@
         [alert show];
     }
 }
+
 
 #pragma mark - UIDatePicker Methods
 
