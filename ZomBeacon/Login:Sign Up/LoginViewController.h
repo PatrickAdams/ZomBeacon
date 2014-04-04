@@ -20,6 +20,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *forgotPasswordButton;
 @property (nonatomic, weak) IBOutlet UIButton *signUpButton;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) NSDictionary *userData;
+@property (nonatomic, strong) NSURL *pictureURL;
 @property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 @property (nonatomic, strong) IBOutletCollection (UITextField)NSArray *textFieldSpacers;
 

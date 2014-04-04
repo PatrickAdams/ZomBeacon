@@ -456,6 +456,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
     UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];

@@ -124,9 +124,12 @@
 - (IBAction)logInWithFacebook
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+ 
+    __weak typeof(self) weakSelf = self;
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         // The permissions requested from the user
-        NSArray *permissionsArray = @[ @"user_about_me", @"email"];
+        NSArray *permissionsArray = @[@"user_about_me", @"email"];
         
         // Login PFUser using Facebook
         [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error)
@@ -164,34 +167,32 @@
                  // Create request for user's Facebook data
                  FBRequest *request = [FBRequest requestForMe];
                  
+                 
                  // Send request to Facebook
                  [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error)
                   {
                       if (!error)
                       {
                           // result is a dictionary with the user's Facebook data
-                          NSDictionary *userData = (NSDictionary *)result;
+                          self.userData = (NSDictionary *)result;
                           
-                          PFUser *currentUser = [PFUser currentUser];
-                          currentUser.username = userData[@"username"];
-                          currentUser.email = [userData[@"email"] lowercaseString];
-                          currentUser[@"name"] = userData[@"name"];
-                          currentUser[@"bio"] = userData[@"bio"];
-                          currentUser[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
-                          currentUser[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
-                          currentUser[@"currentGame"] = @"";
+                          user.username = self.userData[@"username"];
+                          user.email = [self.userData[@"email"] lowercaseString];
+                          user[@"name"] = self.userData[@"name"];
+                          user[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+                          user[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+                          user[@"currentGame"] = @"";
+                          [user save];
                           
                           //Create the UserScore row for the currentUser
                           PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
-                          [userScore setObject:currentUser forKey:@"user"];
+                          [userScore setObject:user forKey:@"user"];
                           [userScore saveInBackground];
-                          
-                          [currentUser saveInBackground];
                           
                           // Download the user's facebook profile picture
                           self.imageData = [[NSMutableData alloc] init];
                           
-                          NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
+                          NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", self.userData[@"id"]]];
                           
                           NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:2.0f];
                           
@@ -253,20 +254,19 @@
                 {
                     NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
                     
-                    PFUser *currentUser = [PFUser currentUser];
-                    currentUser.username = [result objectForKey:@"screen_name"];
-                    currentUser[@"name"] = [result objectForKey:@"name"];
-                    currentUser[@"bio"] = [result objectForKey:@"description"];
-                    currentUser[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
-                    currentUser[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
-                    currentUser[@"currentGame"] = @"";
+                    user.username = [result objectForKey:@"screen_name"];
+                    user[@"name"] = [result objectForKey:@"name"];
+                    user[@"bio"] = [result objectForKey:@"description"];
+                    user[@"minor"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+                    user[@"major"] = [NSNumber numberWithInt:[self getRandomNumberBetween:0 to:65535]];
+                    user[@"currentGame"] = @"";
                     
                     //Create the UserScore row for the currentUser
                     PFObject *userScore = [PFObject objectWithClassName:@"UserScore"];
-                    [userScore setObject:currentUser forKey:@"user"];
+                    [userScore setObject:user forKey:@"user"];
                     [userScore saveInBackground];
                     
-                    [currentUser saveInBackground];
+                    [user saveInBackground];
                     
                     // Download the user's twitter profile picture
                     self.imageData = [[NSMutableData alloc] init];
