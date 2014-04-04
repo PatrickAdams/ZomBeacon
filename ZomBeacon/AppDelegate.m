@@ -475,7 +475,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Push Notifications Disabled" message:@"ZomBeacon uses push notifications to give you feedback during the game, please enable them to get the full experience!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Push Notifications Disabled" message:@"ZomBeacon uses push notifications to give you feedback during the game, please enable them to get the full experience." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
     }

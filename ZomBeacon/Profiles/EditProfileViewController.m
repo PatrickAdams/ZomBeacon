@@ -124,7 +124,7 @@
         [PFFacebookUtils linkUser:currentUser permissions:nil block:^(BOOL succeeded, NSError *error) {
             if (!error)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Facebook!" message:@"You have successfully linked your ZomBeacon account with Facebook" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked" message:@"You have successfully linked your ZomBeacon account with Facebook." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
                 
@@ -161,7 +161,7 @@
         [PFTwitterUtils linkUser:currentUser block:^(BOOL succeeded, NSError *error) {
             if ([PFTwitterUtils isLinkedWithUser:currentUser])
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked With Twitter!" message:@"You have successfully linked your ZomBeacon account with Twitter" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Linked" message:@"You have successfully linked your ZomBeacon account with Twitter." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [alert show];
                 

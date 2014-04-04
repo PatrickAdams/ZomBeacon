@@ -134,9 +134,15 @@
         
         [self.navigationController pushViewController:vc animated:YES];
     }
+    else if (gameLocation.latitude == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"You must drop a pin for the location of the game." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"All fields are required!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"All fields are required." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
     }

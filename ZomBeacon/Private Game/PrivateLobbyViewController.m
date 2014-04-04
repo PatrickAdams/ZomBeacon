@@ -162,7 +162,7 @@
         
         if (playersArray.count < 2)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need at least two players to start a game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need at least two players to start a game." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
             [alert show];
             
@@ -225,7 +225,7 @@
     
     if ([privateStatus[@"status"] isEqualToString:@"dead"])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"You cannot rejoin this game!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"You cannot rejoin this game." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
     }
