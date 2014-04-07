@@ -159,12 +159,14 @@
         [push setData:@{ @"alert": @"You've been invited to a game of ZomBeacon.", @"code": [NSString stringWithFormat:@"%@", self.gameIdString]}];
         [push sendPush:nil];
         
-        self.selectedCells = nil;
-        [self.tableView reloadData];
+        [self.selectedCells removeAllObjects];
+        [self refreshList];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"INVITES SENT" message:@"Invites successfully sent." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
+        
+        [self dismissView];
     }
  
 }
