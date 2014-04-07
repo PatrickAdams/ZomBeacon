@@ -83,6 +83,7 @@
 		E72AF06D18EF450400F59285 /* UsersNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72AF06C18EF450400F59285 /* UsersNearbyViewController.m */; };
 		E72AF06F18F2FA5900F59285 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E72AF06E18F2FA5900F59285 /* checkmark@2x.png */; };
 		E72AF07118F3182E00F59285 /* share_nearby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E72AF07018F3182E00F59285 /* share_nearby@2x.png */; };
+		E72AF07318F3277C00F59285 /* send_invite_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E72AF07218F3277C00F59285 /* send_invite_button@2x.png */; };
 		E7443F2A18E5C5CE009156F1 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7443F2918E5C5CE009156F1 /* user@2x.png */; };
 		E7443F2C18E5C5D8009156F1 /* edit_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7443F2B18E5C5D8009156F1 /* edit_user@2x.png */; };
 		E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7496A68187DF40F003E4B8A /* MapKit.framework */; };
@@ -294,6 +295,7 @@
 		E72AF06C18EF450400F59285 /* UsersNearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersNearbyViewController.m; path = Navigation/UsersNearbyViewController.m; sourceTree = "<group>"; };
 		E72AF06E18F2FA5900F59285 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkmark@2x.png"; path = "Images/checkmark@2x.png"; sourceTree = "<group>"; };
 		E72AF07018F3182E00F59285 /* share_nearby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_nearby@2x.png"; path = "Images/share_nearby@2x.png"; sourceTree = "<group>"; };
+		E72AF07218F3277C00F59285 /* send_invite_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "send_invite_button@2x.png"; path = "Images/send_invite_button@2x.png"; sourceTree = "<group>"; };
 		E7443F2918E5C5CE009156F1 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user@2x.png"; path = "Images/user@2x.png"; sourceTree = "<group>"; };
 		E7443F2B18E5C5D8009156F1 /* edit_user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "edit_user@2x.png"; path = "Images/edit_user@2x.png"; sourceTree = "<group>"; };
 		E7496A68187DF40F003E4B8A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -479,6 +481,7 @@
 				CD6FA4D018C77FB000510581 /* default_profile.png */,
 				CDB2533F18C6607100F49FC3 /* addasfriend_button@2x.png */,
 				CDB2533D18C6538000F49FC3 /* friends_button@2x.png */,
+				E72AF07218F3277C00F59285 /* send_invite_button@2x.png */,
 				CDB2533B18C6533E00F49FC3 /* gamecenter_button@2x.png */,
 				E703935C18C517CF005B0E84 /* share_facebook@2x.png */,
 				E703935A18C5177C005B0E84 /* share_email@2x.png */,
@@ -903,6 +906,7 @@
 				E7B037D718DCDFDF003FB291 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				E70B558B18E1DCFD000A02A8 /* uv_heart.png in Resources */,
 				E751E4981858BF15004E8874 /* Main.storyboard in Resources */,
+				E72AF07318F3277C00F59285 /* send_invite_button@2x.png in Resources */,
 				E786A2BE18C0F79E00942576 /* findgame_button@2x.png in Resources */,
 				E7023DF218E1C33B003FA5F4 /* users@2x.png in Resources */,
 				E7AB10D018C4D59C00A54850 /* sms.png in Resources */,
