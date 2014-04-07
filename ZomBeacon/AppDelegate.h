@@ -21,7 +21,7 @@
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) PFGeoPoint *point;
-@property (nonatomic, strong) PKManager *proximityKitManager;
+//@property (nonatomic, strong) PKManager *proximityKitManager;
 @property (nonatomic, strong) NSString *gameIdString;
 
 @end
