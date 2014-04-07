@@ -1536,7 +1536,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile.png" id="EVT-11-g47" customClass="PFImageView">
                                                     <rect key="frame" x="31" y="8" width="25" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0ai-H1-FCw">
                                                     <rect key="frame" x="67" y="10" width="228" height="21"/>
@@ -1545,17 +1545,12 @@
                                                     <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="FqA-DH-sK3">
-                                                    <rect key="frame" x="208" y="8" width="34" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="22" minY="0.0" maxX="22" maxY="0.0"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="0ai-H1-FCw" id="No3-CW-ujY"/>
-                                            <outlet property="profileI" destination="FqA-DH-sK3" id="1f9-F2-0Bn"/>
                                             <outlet property="profileImage" destination="EVT-11-g47" id="WTE-q2-5qS"/>
                                             <outletCollection property="titilliumRegularFonts" destination="0ai-H1-FCw" id="OKH-j0-5XI"/>
                                         </connections>

@@ -116,7 +116,7 @@
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         
         PFFile *file = object[@"imageFile"];
-        cell.profileImage.file = nil;
+        cell.profileImage.image = [UIImage imageNamed:@"default_profile"];
         cell.profileImage.file = file;
         [cell.profileImage loadInBackground];
     }];
