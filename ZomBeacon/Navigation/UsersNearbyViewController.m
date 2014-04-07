@@ -98,7 +98,7 @@
         cell = [[UserLobbyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    if(1)//[self.selectedCells containsObject:[self.thePlayers objectAtIndex:indexPath.row]])
+    if([self.selectedCells containsObject:[self.thePlayers objectAtIndex:indexPath.row]])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
@@ -141,6 +141,24 @@
     NSLog(@"%@", [self.selectedCells valueForKey:@"username"]);
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (IBAction)sendInvite
+{
+    for (int i = 0; i < self.selectedCells.count; i++)
+    {
+        PFUser *player = self.selectedCells[i];
+        
+        //Set up push to send to person that bit you.
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"owner" equalTo:player];
+        
+        PFPush *push = [PFPush new];
+        [push setQuery:pushQuery];
+        [push setData:@{ @"alert": @"You've been invited to a game of ZomBeacon."}];
+        [push sendPush:nil];
+    }
+ 
 }
 
 
