@@ -23,8 +23,6 @@
 {
     [super layoutSubviews];
     
-    self.profileImage.highlighted = NO;
-    
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height /2;
     self.profileImage.layer.masksToBounds = YES;
     self.profileImage.layer.borderWidth = 1.0f;

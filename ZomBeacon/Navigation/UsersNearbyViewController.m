@@ -100,11 +100,11 @@
     
     if([self.selectedCells containsObject:[self.thePlayers objectAtIndex:indexPath.row]])
     {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark"]];
     }
     else
     {
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryView = nil;
     }
     
     PFObject *player = self.thePlayers[indexPath.row];
@@ -128,14 +128,14 @@
 {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if ([selectedCell accessoryType] == UITableViewCellAccessoryNone)
+    if ([selectedCell accessoryView] == nil)
     {
-        [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        selectedCell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark"]];
         [self.selectedCells addObject:[self.thePlayers objectAtIndex:indexPath.row]];
     }
     else
     {
-        [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
+        selectedCell.accessoryView = nil;
         [self.selectedCells removeObject:[self.thePlayers objectAtIndex:indexPath.row]];
     }
     
@@ -158,6 +158,13 @@
         [push setQuery:pushQuery];
         [push setData:@{ @"alert": @"You've been invited to a game of ZomBeacon.", @"code": [NSString stringWithFormat:@"%@", self.gameIdString]}];
         [push sendPush:nil];
+        
+        self.selectedCells = nil;
+        [self.tableView reloadData];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"INVITES SENT" message:@"Invites successfully sent." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
     }
  
 }

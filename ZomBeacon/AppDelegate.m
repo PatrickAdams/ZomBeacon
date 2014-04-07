@@ -54,32 +54,55 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
     
     // Create a pointer to the Photo object
-    NSString *gameIdString = [userInfo objectForKey:@"code"];
+    self.gameIdString = [userInfo objectForKey:@"code"];
     
-    if (gameIdString != nil)
+    if (self.gameIdString != nil)
     {
-        PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
-        [query whereKey:@"objectId" equalTo:gameIdString];
-        [query includeKey:@"hostUser"];
-        PFObject *privateGame = [query getFirstObject];
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        GameDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamedetails"];
-        UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
-        
-        vc.gameDateString = privateGame[@"dateTime"];
-        vc.gameNameString = privateGame[@"gameName"];
-        PFGeoPoint *gameLocation = privateGame[@"location"];
-        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
-        vc.gameLocationCoord = gameLocationCoords;
-        vc.gameIdString = privateGame.objectId;
-        
-        PFObject *hostUser = privateGame[@"hostUser"];
-        vc.gameHostString = hostUser[@"name"];
-        
-        [navCon pushViewController:vc animated:YES];
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME INVITE" message:@"You've been invited to a private game of ZomBeacon." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"View Details", nil];
+            
+            [alert show];
+        }
+        else
+        {
+            [self openGameDetailsView:self.gameIdString];
+        }
     }
 }
+
+- (void)openGameDetailsView:(NSString *)forGame
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+    [query whereKey:@"objectId" equalTo:forGame];
+    [query includeKey:@"hostUser"];
+    PFObject *privateGame = [query getFirstObject];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GameDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamedetails"];
+    UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+    
+    vc.gameDateString = privateGame[@"dateTime"];
+    vc.gameNameString = privateGame[@"gameName"];
+    PFGeoPoint *gameLocation = privateGame[@"location"];
+    CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+    vc.gameLocationCoord = gameLocationCoords;
+    vc.gameIdString = privateGame.objectId;
+    
+    PFObject *hostUser = privateGame[@"hostUser"];
+    vc.gameHostString = hostUser[@"name"];
+    
+    [navCon pushViewController:vc animated:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        [self openGameDetailsView:self.gameIdString];
+    }
+}
+
 
 - (void)getLocation
 {
