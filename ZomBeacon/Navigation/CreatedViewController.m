@@ -176,6 +176,16 @@
     [self presentViewController:tweetComposer animated:YES completion:nil];
 }
 
+- (IBAction)shareToUsersNearby
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UsersNearbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"usersNearby"];
+    
+    vc.gameIdString = self.gameIdString;
+    
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+}
+
 - (IBAction)shareViaFacebook
 {
     FBShareDialogParams *params = [[FBShareDialogParams alloc] init];

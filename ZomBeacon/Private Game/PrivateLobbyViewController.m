@@ -444,7 +444,6 @@
 
 - (IBAction)shareToUsersNearby
 {
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UsersNearbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"usersNearby"];
     

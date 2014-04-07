@@ -14,6 +14,7 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 #import <Social/Social.h>
 #import <GameKit/GameKit.h>
+#import "UsersNearbyViewController.h"
 
 @interface CreatedViewController : UIViewController <MKMapViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
@@ -41,6 +42,7 @@
 - (IBAction)shareViaFacebook;
 - (IBAction)shareViaSMS;
 - (IBAction)openInMaps;
+- (IBAction)shareToUsersNearby;
 
 
 @end

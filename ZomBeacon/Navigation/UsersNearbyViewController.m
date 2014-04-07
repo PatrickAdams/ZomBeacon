@@ -73,7 +73,7 @@
     {
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
-        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
+        [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.125];
         [query whereKey:@"objectId" notEqualTo:currentUser.objectId];
         self.thePlayers = [query findObjects];
     }

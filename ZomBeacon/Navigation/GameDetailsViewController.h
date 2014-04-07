@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
 #import "PrivateLobbyViewController.h"
+#import "UsersNearbyViewController.h"
 
 @interface GameDetailsViewController : UIViewController <MKMapViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 {
@@ -41,6 +42,7 @@
 - (IBAction)shareViaFacebook;
 - (IBAction)shareViaSMS;
 - (IBAction)inviteFriends;
+- (IBAction)shareToUsersNearby;
 
 
 @end
