@@ -51,6 +51,36 @@
     return YES;
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
+    
+    // Create a pointer to the Photo object
+    NSString *gameIdString = [userInfo objectForKey:@"code"];
+    
+    if (gameIdString != nil)
+    {
+        PFQuery *query = [PFQuery queryWithClassName:@"PrivateGames"];
+        [query whereKey:@"objectId" equalTo:gameIdString];
+        [query includeKey:@"hostUser"];
+        PFObject *privateGame = [query getFirstObject];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        GameDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"gamedetails"];
+        UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+        
+        vc.gameDateString = privateGame[@"dateTime"];
+        vc.gameNameString = privateGame[@"gameName"];
+        PFGeoPoint *gameLocation = privateGame[@"location"];
+        CLLocationCoordinate2D gameLocationCoords = CLLocationCoordinate2DMake(gameLocation.latitude, gameLocation.longitude);
+        vc.gameLocationCoord = gameLocationCoords;
+        vc.gameIdString = privateGame.objectId;
+        
+        PFObject *hostUser = privateGame[@"hostUser"];
+        vc.gameHostString = hostUser[@"name"];
+        
+        [navCon pushViewController:vc animated:YES];
+    }
+}
+
 - (void)getLocation
 {
     if (![CLLocationManager locationServicesEnabled])

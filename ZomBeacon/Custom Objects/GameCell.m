@@ -21,6 +21,8 @@
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
+    
     for (UILabel * label in self.titilliumSemiBoldFonts)
     {
         label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];

@@ -444,7 +444,13 @@
 
 - (IBAction)shareToUsersNearby
 {
-    [self performSegueWithIdentifier:@"usersNearby" sender:self];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UsersNearbyViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"usersNearby"];
+    
+    vc.gameIdString = self.gameIdString;
+    
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)shareViaFacebook

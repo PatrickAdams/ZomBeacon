@@ -114,6 +114,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
     [query whereKey:@"user" equalTo:player];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
         PFFile *file = object[@"imageFile"];
         cell.profileImage.file = nil;
         cell.profileImage.file = file;
@@ -155,7 +156,7 @@
         
         PFPush *push = [PFPush new];
         [push setQuery:pushQuery];
-        [push setData:@{ @"alert": @"You've been invited to a game of ZomBeacon."}];
+        [push setData:@{ @"alert": @"You've been invited to a game of ZomBeacon.", @"code": [NSString stringWithFormat:@"%@", self.gameIdString]}];
         [push sendPush:nil];
     }
  

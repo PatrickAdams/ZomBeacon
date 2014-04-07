@@ -17,6 +17,7 @@
 #import <Social/Social.h>
 #import "PrivateZombieViewController.h"
 #import "PrivateSurvivorViewController.h"
+#import "UsersNearbyViewController.h"
 
 @interface PrivateLobbyViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MBProgressHUDDelegate, UIActionSheetDelegate>
 {
