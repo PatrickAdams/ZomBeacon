@@ -1171,14 +1171,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zQV-ZZ-H20">
-                                <rect key="frame" x="67" y="181" width="79" height="21"/>
+                                <rect key="frame" x="67" y="179" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nTn-xJ-p12">
-                                <rect key="frame" x="151" y="178" width="152" height="27"/>
+                                <rect key="frame" x="151" y="176" width="152" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -3442,12 +3442,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XAd-uo-p02"/>
-        <segue reference="nKY-JK-UEu"/>
-        <segue reference="UAe-l8-iEQ"/>
-        <segue reference="PsZ-ht-oAZ"/>
-        <segue reference="CM6-mk-yUd"/>
-        <segue reference="xhs-QU-DpM"/>
         <segue reference="Qrh-1m-sYU"/>
+        <segue reference="UAe-l8-iEQ"/>
+        <segue reference="nKY-JK-UEu"/>
+        <segue reference="CM6-mk-yUd"/>
+        <segue reference="XAd-uo-p02"/>
+        <segue reference="2tQ-oh-ysy"/>
+        <segue reference="dNx-FP-4rN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -39,9 +39,9 @@
     BeaconManager *beaconManager = [BeaconManager sharedManager];
     beaconManager.delegate = self;
     
-    //Proximity Kit
-    self.proximityKitManager = [PKManager managerWithDelegate:self];
-    [self.proximityKitManager start];
+//    //Proximity Kit
+//    self.proximityKitManager = [PKManager managerWithDelegate:self];
+//    [self.proximityKitManager start];
     
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForSurvivors) name: @"isZombie" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForZombies) name: @"isSurvivor" object: nil];
