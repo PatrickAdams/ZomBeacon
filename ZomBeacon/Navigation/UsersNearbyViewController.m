@@ -27,6 +27,8 @@
     for (UILabel * label in self.titilliumRegularFonts) {
         label.font = [UIFont fontWithName:@"TitilliumWeb-Regular" size:label.font.pointSize];
     }
+    
+    self.selectedCells = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,6 +74,7 @@
         PFGeoPoint *userGeoPoint = currentUser[@"location"];
         PFQuery *query = [PFUser query];
         [query whereKey:@"location" nearGeoPoint:userGeoPoint withinMiles:0.25];
+        [query whereKey:@"objectId" notEqualTo:currentUser.objectId];
         self.thePlayers = [query findObjects];
     }
     
@@ -88,7 +91,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"userCell";
-    UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UserLobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UserLobbyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    if(1)//[self.selectedCells containsObject:[self.thePlayers objectAtIndex:indexPath.row]])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     PFObject *player = self.thePlayers[indexPath.row];
     NSString *playerName = player[@"username"];
@@ -113,11 +130,15 @@
     if ([selectedCell accessoryType] == UITableViewCellAccessoryNone)
     {
         [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        [self.selectedCells addObject:[self.thePlayers objectAtIndex:indexPath.row]];
     }
     else
     {
         [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
+        [self.selectedCells removeObject:[self.thePlayers objectAtIndex:indexPath.row]];
     }
+    
+    NSLog(@"%@", [self.selectedCells valueForKey:@"username"]);
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
