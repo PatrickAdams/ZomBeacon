@@ -69,6 +69,12 @@
     }
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    [[PFUser currentUser] setObject:[NSNull null] forKey:@"location"];
+    [[PFUser currentUser] saveInBackground];
+}
+
 - (void)startRangingForSurvivors
 {
     BeaconManager *beaconManager = [BeaconManager sharedManager];
