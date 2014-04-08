@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_red.png" id="o4t-mC-WKf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green.png" id="o4t-mC-WKf">
                                 <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="26" y="287" width="269" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <color key="textColor" red="0.87450987099999999" green="0.29803922770000002" blue="0.22352942819999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BITE THE SURVIVORS!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xpt-qT-jRZ">
@@ -37,51 +37,6 @@
                                     <outlet property="delegate" destination="TdW-6R-T4x" id="mDX-j2-d85"/>
                                 </connections>
                             </mapView>
-                            <view alpha="0.0" contentMode="scaleToFill" id="HgT-bu-Ogq" userLabel="Key View">
-                                <rect key="frame" x="50" y="19" width="219" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" id="Ec2-Td-4mw" userLabel="Key View BG">
-                                        <rect key="frame" x="-0.5" y="0.5" width="219" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zombie_annotation.png" id="bFa-Km-L4E">
-                                        <rect key="frame" x="90" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zombies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZMw-qp-rvZ">
-                                        <rect key="frame" x="108" y="2.5" width="61" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_annotation.png" id="lOR-lj-DLJ">
-                                        <rect key="frame" x="165" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vBJ-zg-Kcq">
-                                        <rect key="frame" x="183" y="2" width="25" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survivors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14d-bn-qAd">
-                                        <rect key="frame" x="29" y="2.5" width="62" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="survivor_annotation.png" id="9e3-PC-nkE">
-                                        <rect key="frame" x="11" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="Lm1-sr-I2p">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -153,16 +108,6 @@
                                     <action selector="startInfecting:" destination="WSR-Ds-yNc" eventType="touchUpInside" id="8DV-3d-oMl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Huk-XJ-xsD">
-                                <rect key="frame" x="0.0" y="21" width="42" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="key.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showMapKey" destination="WSR-Ds-yNc" eventType="touchUpInside" id="247-dx-kyN"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -172,7 +117,6 @@
                         <outlet property="biteButton" destination="pnf-jb-R9t" id="wuk-Em-CgM"/>
                         <outlet property="compassButton" destination="3So-LL-9MD" id="bny-M5-tZt"/>
                         <outlet property="locationButton" destination="Drv-W1-9cQ" id="j7F-ad-PAp"/>
-                        <outlet property="mapKeyView" destination="HgT-bu-Ogq" id="apc-Vj-3Xy"/>
                         <outlet property="mapView" destination="bDp-Aq-bB1" id="WlZ-jm-ZAY"/>
                         <outlet property="survivorCount" destination="gWo-lI-RTa" id="Vt6-zL-2qo"/>
                         <outlet property="zombieCount" destination="536-cC-MKi" id="0Zn-2W-xrb"/>
@@ -182,9 +126,6 @@
                         <outletCollection property="titilliumRegularFonts" destination="xpt-qT-jRZ" id="mYy-pq-s7W"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="gWo-lI-RTa" id="bW8-zt-6cI"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="536-cC-MKi" id="zgv-UY-vnU"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="vBJ-zg-Kcq" id="6hT-tt-EPT"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="ZMw-qp-rvZ" id="Tnr-4E-IX3"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="14d-bn-qAd" id="K6Y-YR-ltz"/>
                         <segue destination="ma0-pm-TZg" kind="modal" identifier="endGamePrivateZombie" id="IYc-0s-nDh"/>
                         <segue destination="9s2-k5-xEA" kind="push" identifier="privateDead" id="cd9-h2-hA0"/>
                     </connections>
@@ -201,7 +142,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_red.png" id="Uui-dc-gza">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green.png" id="Uui-dc-gza">
                                 <rect key="frame" x="0.0" y="-66" width="320" height="570"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -216,7 +157,7 @@
                                 <rect key="frame" x="27" y="288" width="266" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <color key="textColor" red="0.87450987099999999" green="0.29803922770000002" blue="0.22352942819999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="6wc-Qr-BpL">
@@ -226,51 +167,6 @@
                                     <outlet property="delegate" destination="9hW-4k-Fw5" id="P53-nQ-sPT"/>
                                 </connections>
                             </mapView>
-                            <view alpha="0.0" contentMode="scaleToFill" id="RAK-Em-Kj0" userLabel="Key View">
-                                <rect key="frame" x="50" y="19" width="219" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" id="SPy-d0-uPu" userLabel="Key View BG">
-                                        <rect key="frame" x="-0.5" y="0.5" width="219" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zombie_annotation.png" id="SbB-Ct-TBs">
-                                        <rect key="frame" x="90" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zombies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l5k-gf-TXA">
-                                        <rect key="frame" x="108" y="2.5" width="61" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_annotation.png" id="BPX-SX-qiB">
-                                        <rect key="frame" x="165" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UHX-F8-rXw">
-                                        <rect key="frame" x="183" y="2" width="25" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survivors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ub7-y7-JGi">
-                                        <rect key="frame" x="29" y="2.5" width="62" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="survivor_annotation.png" id="4U2-7B-YEm">
-                                        <rect key="frame" x="11" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="zgH-5b-9IZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -312,16 +208,6 @@
                                     <action selector="startInfecting:" destination="it5-Tg-ZWA" eventType="touchUpInside" id="5w7-lR-xAD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="13v-Nj-zm7">
-                                <rect key="frame" x="0.0" y="20" width="42" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="key.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showMapKey" destination="it5-Tg-ZWA" eventType="touchUpInside" id="vsA-lY-0IB"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -337,13 +223,9 @@
                         <outlet property="biteButton" destination="vK1-Bk-qtU" id="2Ol-ud-hbp"/>
                         <outlet property="compassButton" destination="Wjv-t7-BxU" id="aBw-4g-uvp"/>
                         <outlet property="locationButton" destination="4Ft-z6-jrW" id="qKu-6a-WEo"/>
-                        <outlet property="mapKeyView" destination="RAK-Em-Kj0" id="cHf-k9-Ce2"/>
                         <outlet property="mapView" destination="6wc-Qr-BpL" id="lVi-I7-56f"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="LQw-Rq-3ST" id="vCN-gn-inJ"/>
                         <outletCollection property="titilliumRegularFonts" destination="HG9-s2-Fac" id="Ju4-rt-8Q7"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="UHX-F8-rXw" id="ftN-0g-0oo"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="l5k-gf-TXA" id="Z1U-qE-iVc"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="ub7-y7-JGi" id="SNM-ed-Md6"/>
                         <segue destination="5w5-oG-fwH" kind="push" identifier="publicSurvivor" id="rQe-am-agg"/>
                         <segue destination="brW-n8-4WY" kind="modal" identifier="publicDead" id="p62-S6-Ehq"/>
                     </connections>
@@ -360,7 +242,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_yellow.png" id="EeJ-6K-wzb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_red.png" id="EeJ-6K-wzb">
                                 <rect key="frame" x="0.0" y="-32" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -368,58 +250,13 @@
                                 <rect key="frame" x="42" y="293" width="236" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.98039221759999995" green="0.33725491169999999" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="H2L-r1-eYf">
                                 <rect key="frame" x="0.0" y="20" width="320" height="265"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <view alpha="0.0" contentMode="scaleToFill" id="T8X-CA-KuP" userLabel="Key View">
-                                <rect key="frame" x="50" y="19" width="219" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" id="fUz-gf-bnc" userLabel="Key View BG">
-                                        <rect key="frame" x="-0.5" y="0.5" width="219" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zombie_annotation.png" id="lV0-nE-E3Q">
-                                        <rect key="frame" x="90" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zombies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ldB-CW-JGG">
-                                        <rect key="frame" x="108" y="2.5" width="61" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_annotation.png" id="P3J-oN-CQf">
-                                        <rect key="frame" x="165" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cvx-QY-wYN">
-                                        <rect key="frame" x="183" y="2" width="25" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survivors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CyE-KB-bdM">
-                                        <rect key="frame" x="29" y="2.5" width="62" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="survivor_annotation.png" id="ucB-KK-j5F">
-                                        <rect key="frame" x="11" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="sq8-GW-jkz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -488,16 +325,6 @@
                                 <color key="textColor" red="0.82589285710000004" green="0.82589285710000004" blue="0.82589285710000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d0M-1c-nhy">
-                                <rect key="frame" x="0.0" y="20" width="42" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="key.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showMapKey" destination="9s2-k5-xEA" eventType="touchUpInside" id="X5i-wn-UoF"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -506,7 +333,6 @@
                     <connections>
                         <outlet property="compassButton" destination="f6u-8O-Yus" id="WRC-g3-mog"/>
                         <outlet property="locationButton" destination="Bju-md-Ehe" id="6Rm-fM-47y"/>
-                        <outlet property="mapKeyView" destination="T8X-CA-KuP" id="8hw-Pk-u4P"/>
                         <outlet property="mapView" destination="H2L-r1-eYf" id="4AQ-XQ-b7o"/>
                         <outlet property="survivorCount" destination="VqQ-JP-IQQ" id="wp7-tl-c5s"/>
                         <outlet property="zombieCount" destination="PU6-Qb-7n1" id="Dtq-wr-nXL"/>
@@ -516,9 +342,6 @@
                         <outletCollection property="titilliumRegularFonts" destination="Gly-eV-QQb" id="4e9-6w-jOL"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="VqQ-JP-IQQ" id="Cgo-Ub-rDg"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="PU6-Qb-7n1" id="40o-7J-Glf"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="cvx-QY-wYN" id="ryh-i4-gui"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="ldB-CW-JGG" id="g5e-ZT-Qmb"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="CyE-KB-bdM" id="ddG-fd-w7R"/>
                         <segue destination="ma0-pm-TZg" kind="modal" identifier="endGamePrivateDead" id="Qrh-1m-sYU"/>
                     </connections>
                 </viewController>
@@ -1252,11 +1075,11 @@
             <objects>
                 <viewController storyboardIdentifier="friendslist" id="23z-qn-eLr" customClass="MyFriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yDK-0q-2Vo">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="MwB-lQ-zvb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="553"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="617"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="4TA-2t-wqs">
@@ -1264,7 +1087,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tva-A8-jfM">
-                                <rect key="frame" x="0.0" y="20" width="320" height="484"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1608,7 +1431,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green.png" id="NU9-AA-udO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_yellow.png" id="NU9-AA-udO">
                                 <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1616,7 +1439,7 @@
                                 <rect key="frame" x="18" y="293" width="285" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <color key="textColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOOT THE ZOMBIES!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="84e-7y-KJH">
@@ -1633,51 +1456,6 @@
                                     <outlet property="delegate" destination="oQp-cf-XeN" id="1fA-4F-5x0"/>
                                 </connections>
                             </mapView>
-                            <view alpha="0.0" contentMode="scaleToFill" id="uIe-zV-WNy" userLabel="Key View">
-                                <rect key="frame" x="50" y="19" width="219" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" id="iYp-rI-tOn" userLabel="Key View BG">
-                                        <rect key="frame" x="-0.5" y="0.5" width="219" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zombie_annotation.png" id="izW-1D-YEL">
-                                        <rect key="frame" x="90" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zombies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iCd-jo-dnM">
-                                        <rect key="frame" x="108" y="2.5" width="61" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_annotation.png" id="Qof-bM-Kfj">
-                                        <rect key="frame" x="165" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kES-N9-mry">
-                                        <rect key="frame" x="183" y="2" width="25" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survivors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HpX-G4-zKO">
-                                        <rect key="frame" x="29" y="2.5" width="62" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="survivor_annotation.png" id="pE0-rp-W0A">
-                                        <rect key="frame" x="11" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="Bcp-jh-qFA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1750,16 +1528,6 @@
                                     <action selector="headshotTheZombie:" destination="SOP-YH-psb" eventType="touchUpInside" id="Res-Px-5Nh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lgd-qW-T9K">
-                                <rect key="frame" x="0.0" y="20" width="42" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="key.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showMapKey" destination="SOP-YH-psb" eventType="touchUpInside" id="bCp-fW-6f8"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -1769,7 +1537,6 @@
                         <outlet property="compassButton" destination="gnn-pj-d1B" id="APd-69-piZ"/>
                         <outlet property="headshotButton" destination="drL-fN-zDn" id="TwS-UU-3Jt"/>
                         <outlet property="locationButton" destination="ui6-Cn-aAu" id="i7Z-Vf-zwp"/>
-                        <outlet property="mapKeyView" destination="uIe-zV-WNy" id="AXu-nj-91q"/>
                         <outlet property="mapView" destination="ebe-ZE-inA" id="Lxy-ez-ALW"/>
                         <outlet property="survivorCount" destination="D2y-Xi-jdw" id="3kn-8S-maL"/>
                         <outlet property="zombieCount" destination="xoR-Fb-OA3" id="yz6-qC-yQu"/>
@@ -1779,9 +1546,6 @@
                         <outletCollection property="titilliumRegularFonts" destination="84e-7y-KJH" id="aso-IC-7yj"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="xoR-Fb-OA3" id="VzW-3P-NJz"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="D2y-Xi-jdw" id="Gg6-S8-ZeG"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="HpX-G4-zKO" id="iuu-z8-OqZ"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="iCd-jo-dnM" id="M6c-wi-8HX"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="kES-N9-mry" id="G1o-wz-UpT"/>
                         <segue destination="ma0-pm-TZg" kind="modal" identifier="endGamePrivateSurvivor" id="uzd-0d-SvP"/>
                         <segue destination="WSR-Ds-yNc" kind="push" identifier="privateZombie" id="AGh-p7-CAG"/>
                     </connections>
@@ -1798,7 +1562,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green.png" id="Q0C-HE-PJe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_yellow.png" id="Q0C-HE-PJe">
                                 <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1813,7 +1577,7 @@
                                 <rect key="frame" x="5" y="288" width="310" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <color key="textColor" red="0.0039215688589999999" green="0.79215693470000004" blue="0.49019610879999997" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="xDg-3Q-xuF">
@@ -1823,51 +1587,6 @@
                                     <outlet property="delegate" destination="VIT-vd-SFm" id="neb-Nv-1RW"/>
                                 </connections>
                             </mapView>
-                            <view alpha="0.0" contentMode="scaleToFill" id="RCk-Tv-ePQ" userLabel="Key View">
-                                <rect key="frame" x="50" y="19" width="219" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view alpha="0.39999999999999997" contentMode="scaleToFill" id="MoC-ua-aAf" userLabel="Key View BG">
-                                        <rect key="frame" x="-0.5" y="0.5" width="219" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.15686275059999999" green="0.16862745579999999" blue="0.18431372939999999" alpha="1" colorSpace="deviceRGB"/>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zombie_annotation.png" id="9em-0b-OiJ">
-                                        <rect key="frame" x="90" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zombies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S9U-U3-OpF">
-                                        <rect key="frame" x="108" y="1.5" width="61" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_annotation.png" id="i9x-lS-a0c">
-                                        <rect key="frame" x="165" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kTg-BA-cPt">
-                                        <rect key="frame" x="183" y="1" width="25" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survivors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Loj-ur-FHR">
-                                        <rect key="frame" x="29" y="1.5" width="62" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="survivor_annotation.png" id="WHV-vl-dpK">
-                                        <rect key="frame" x="11" y="5" width="15" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="4Fi-dK-Wys">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1907,16 +1626,6 @@
                                     <action selector="trackMyOrientation" destination="5w5-oG-fwH" eventType="touchUpInside" id="Fy5-wO-7i9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VmD-NK-72g">
-                                <rect key="frame" x="0.0" y="20" width="42" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="key.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showMapKey" destination="5w5-oG-fwH" eventType="touchUpInside" id="Sc0-1c-1Zp"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -1933,13 +1642,9 @@
                         <outlet property="compassButton" destination="tLn-5p-wfJ" id="z01-mZ-BMd"/>
                         <outlet property="headshotButton" destination="ZMf-Bm-plI" id="dl0-HL-q3o"/>
                         <outlet property="locationButton" destination="gQ2-JW-XQH" id="4RM-mz-tp1"/>
-                        <outlet property="mapKeyView" destination="RCk-Tv-ePQ" id="uMU-Th-Xzl"/>
                         <outlet property="mapView" destination="xDg-3Q-xuF" id="ffq-ed-36x"/>
                         <outletCollection property="titilliumSemiBoldFonts" destination="obf-o5-UCI" id="fox-gb-yOq"/>
                         <outletCollection property="titilliumRegularFonts" destination="4Tq-fE-cjn" id="FRC-B1-LbQ"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="S9U-U3-OpF" id="SUm-nc-tYx"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="kTg-BA-cPt" id="xZG-I8-9Ox"/>
-                        <outletCollection property="titilliumSemiBoldFonts" destination="Loj-ur-FHR" id="Gj3-Vh-cAY"/>
                         <segue destination="it5-Tg-ZWA" kind="push" identifier="publicZombie" id="dNx-FP-4rN"/>
                     </connections>
                 </viewController>
@@ -1963,7 +1668,7 @@
                                 <rect key="frame" x="29" y="172" width="262" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" red="1" green="0.74901962280000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.98039221759999995" green="0.33725491169999999" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rdv-kM-IMx">
@@ -3404,7 +3109,6 @@
         <image name="help_button.png" width="250" height="40"/>
         <image name="home_button.png" width="271" height="40"/>
         <image name="joingame_button.png" width="271" height="40"/>
-        <image name="key.png" width="20" height="20"/>
         <image name="locate.png" width="24" height="24"/>
         <image name="login_button.png" width="231" height="40"/>
         <image name="login_facebook.png" width="55" height="55"/>
@@ -3423,14 +3127,11 @@
         <image name="share_sms.png" width="33" height="33"/>
         <image name="signmeup_button.png" width="250" height="40"/>
         <image name="startgame_button.png" width="128" height="40"/>
-        <image name="survivor_annotation.png" width="20" height="20"/>
         <image name="tape.png" width="320" height="20"/>
         <image name="user.png" width="25" height="25"/>
-        <image name="user_annotation.png" width="20" height="20"/>
         <image name="users.png" width="25" height="25"/>
         <image name="weblinc_logo.png" width="252" height="45"/>
         <image name="weblinc_nav_item.png" width="23" height="20"/>
-        <image name="zombie_annotation.png" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -3438,12 +3139,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kx5-jM-uCj"/>
-        <segue reference="CM6-mk-yUd"/>
-        <segue reference="XAd-uo-p02"/>
-        <segue reference="dNx-FP-4rN"/>
-        <segue reference="2tQ-oh-ysy"/>
-        <segue reference="Qrh-1m-sYU"/>
         <segue reference="UAe-l8-iEQ"/>
+        <segue reference="XAd-uo-p02"/>
+        <segue reference="INN-uV-51U"/>
+        <segue reference="dNx-FP-4rN"/>
+        <segue reference="rQe-am-agg"/>
+        <segue reference="2tQ-oh-ysy"/>
+        <segue reference="uzd-0d-SvP"/>
     </inferredMetricsTieBreakers>
 </document>

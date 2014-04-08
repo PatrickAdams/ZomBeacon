@@ -144,7 +144,7 @@
                     }
                     else if ([statusOfNearbyUser isEqualToString:@"zombie"])
                     {
-                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"zombie_annotation"]];
+                        newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"zb_annotation"]];
                     }
                     
                     [self.mapView addAnnotation:newAnnotation];
