@@ -35,40 +35,16 @@
     //Bluetooth Central Manager
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
-    //Start the beacon region monitoring when the controller loads
-    BeaconManager *beaconManager = [BeaconManager sharedManager];
-    beaconManager.delegate = self;
-    
 //    //Proximity Kit
 //    self.proximityKitManager = [PKManager managerWithDelegate:self];
 //    [self.proximityKitManager start];
     
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForSurvivors) name: @"isZombie" object: nil];
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(startRangingForZombies) name: @"isSurvivor" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startRangingForSurvivors) name:@"isZombie" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startRangingForZombies) name:@"isSurvivor" object: nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(getLocation) name: @"getLocation" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getLocation) name:@"getLocation" object: nil];
     
     return YES;
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
-    
-    // Create a pointer to the Photo object
-    self.gameIdString = [userInfo objectForKey:@"code"];
-    
-    if (self.gameIdString != nil)
-    {
-        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME INVITE" message:@"You've been invited to a private game of ZomBeacon." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"View Details", nil];
-            
-            [alert show];
-        }
-        else
-        {
-            [self openGameDetailsView:self.gameIdString];
-        }
-    }
 }
 
 - (void)openGameDetailsView:(NSString *)forGame
@@ -130,18 +106,23 @@
 
 - (void)startRangingForSurvivors
 {
+    //Start the beacon region monitoring when the controller loads
     BeaconManager *beaconManager = [BeaconManager sharedManager];
+    beaconManager.delegate = self;
     [beaconManager startBeaconMonitoring:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
 }
 
 - (void)startRangingForZombies
 {
+    //Start the beacon region monitoring when the controller loads
     BeaconManager *beaconManager = [BeaconManager sharedManager];
+    beaconManager.delegate = self;
     [beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
 }
 
 - (void)beaconManager:(BeaconManager *)beaconManager didRangeBeacons:(NSArray *)beacons
 {
+    NSLog(@"ranging");
     CLBeacon *beacon = [beacons lastObject];
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
@@ -306,10 +287,29 @@
     [currentInstallation saveInBackground];
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    [PFPush handlePush:userInfo];
-    NSLog(@"%@", userInfo);
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
+    
+    // Create a pointer to the Photo object
+    self.gameIdString = [userInfo objectForKey:@"code"];
+    
+    if (self.gameIdString != nil)
+    {
+        if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME INVITE" message:@"You've been invited to a private game of ZomBeacon." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"View Details", nil];
+            
+            [alert show];
+        }
+        else
+        {
+            [self openGameDetailsView:self.gameIdString];
+        }
+    }
+    else
+    {
+        [PFPush handlePush:userInfo];
+        NSLog(@"%@", userInfo);
+    }
 }
 
 //#pragma mark - ProximityKit delegate methods
