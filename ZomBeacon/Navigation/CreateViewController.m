@@ -134,19 +134,19 @@
         
         [self.navigationController pushViewController:vc animated:YES];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SUCCESS" message:@"This game has been added to your profile." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"This game has been added to your profile." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
     }
     else if (gameLocation.latitude == 0)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"You must drop a pin for the location of the game." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must drop a pin for the location of the game." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"All fields are required." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"All fields are required." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
     }

@@ -8,20 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import <ProximityKit/ProximityKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "PublicZombieViewController.h"
 #import "FindGameViewController.h"
 #import "MainMenuViewController.h"
 #import "BeaconManager.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, PKManagerDelegate, BeaconManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, BeaconManagerDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) PFGeoPoint *point;
-//@property (nonatomic, strong) PKManager *proximityKitManager;
 @property (nonatomic, strong) NSString *gameIdString;
 
 @end

@@ -162,7 +162,7 @@
         [self.selectedCells removeAllObjects];
         [self refreshList];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"INVITES SENT" message:@"Invites successfully sent." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invites Sent" message:@"Invites successfully sent." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
         

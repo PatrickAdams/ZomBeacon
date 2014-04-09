@@ -66,4 +66,11 @@
     }
 }
 
+- (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error
+{
+    if(self.delegate != nil) {
+        [self.delegate beaconManager:self didFailToRangeBeacons:error];
+    }
+}
+
 @end

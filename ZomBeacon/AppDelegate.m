@@ -35,14 +35,17 @@
     //Bluetooth Central Manager
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
-//    //Proximity Kit
-//    self.proximityKitManager = [PKManager managerWithDelegate:self];
-//    [self.proximityKitManager start];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startRangingForSurvivors) name:@"isZombie" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startRangingForZombies) name:@"isSurvivor" object: nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getLocation) name:@"getLocation" object: nil];
+    
+    if ([CLLocationManager isRangingAvailable] == NO)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Device Not Supported" message:@"Only iPhone 4s' and up will work with this app." delegate:nil cancelButtonTitle:@"Not cool!" otherButtonTitles:nil];
+        
+        [alert show];
+    }
     
     return YES;
 }
@@ -78,7 +81,6 @@
         [self openGameDetailsView:self.gameIdString];
     }
 }
-
 
 - (void)getLocation
 {
@@ -122,7 +124,6 @@
 
 - (void)beaconManager:(BeaconManager *)beaconManager didRangeBeacons:(NSArray *)beacons
 {
-    NSLog(@"ranging");
     CLBeacon *beacon = [beacons lastObject];
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
@@ -266,6 +267,25 @@
     }
 }
 
+- (void)beaconManager:(BeaconManager *)beaconManager didFailToRangeBeacons:(NSError *)withError
+{
+    NSLog(@"%@", withError);
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bluetooth Error" message:@"Please reset your device and make sure bluetooth is turned on to fix the issue. Thank you!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    else
+    {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"Bluetooth Error: Please reset your device and make sure bluetooth is turned on to fix the issue. Thank you!";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.applicationIconBadgeNumber = 1;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
+}
+
 - (void)assignPointsFor:(PFUser *)userThatInfected pointTotal:(float)points
 {
     PFQuery *query = [PFQuery queryWithClassName:@"UserScore"];
@@ -296,7 +316,7 @@
     {
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PRIVATE GAME INVITE" message:@"You've been invited to a private game of ZomBeacon." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"View Details", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Private Game Invite" message:@"You've been invited to a private game of ZomBeacon." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"View Details", nil];
             
             [alert show];
         }

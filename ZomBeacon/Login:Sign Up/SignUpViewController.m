@@ -63,7 +63,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account creation is not complete." message:@"You cannot leave any of the following fields blank: username, password, email, or name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account Creation Not Complete" message:@"You cannot leave any of the following fields blank: username, password, email, or name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
         
@@ -133,7 +133,7 @@
                               [self performSegueWithIdentifier:@"tutorial" sender:self];
                               [self performSegueWithIdentifier:@"mainmenu" sender:self];
                               
-                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful!" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Successful" message:@"You are now logged in." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                               
                               [alert show];
                           }

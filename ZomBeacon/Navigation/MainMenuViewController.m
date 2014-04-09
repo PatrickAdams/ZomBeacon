@@ -71,7 +71,7 @@
     }
     else if ([currentUser[@"publicStatus"] isEqualToString:@"dead"])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YOU ARE DEAD" message:@"Do you want to rejoin this game for -1,000 points?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You Are Dead" message:@"Do you want to rejoin this game for -1,000 points?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
         
         [alert show];
     }
@@ -100,7 +100,7 @@
 {
     if ([currentUser[@"currentGame"] isEqualToString:@""])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NO PRIVATE GAME" message:@"You have not joined any private games yet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Private Game" message:@"You have not joined any private games yet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alert show];
     }
@@ -131,7 +131,7 @@
         else
         {
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"GAME DELETED" message:@"This game no longer exists." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Deleted" message:@"This game no longer exists." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             
             [alert show];
         }
