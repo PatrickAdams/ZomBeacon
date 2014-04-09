@@ -116,11 +116,11 @@
     
     if ([player[@"publicStatus"] isEqualToString:@"zombie"])
     {
-        cell.nameLabel.textColor = [UIColor colorWithRed:0.99 green:0.33 blue:0.16 alpha:1];
+        cell.nameLabel.textColor = [UIColor colorWithRed:0.1 green:0.76 blue:0.42 alpha:1];
     }
     else if ([player[@"publicStatus"] isEqualToString:@"survivor"])
     {
-        cell.nameLabel.textColor = [UIColor colorWithRed:0.13 green:0.79 blue:0.5 alpha:1];
+        cell.nameLabel.textColor = [UIColor colorWithRed:0.96 green:0.73 blue:0.25 alpha:1];
     }
     
     NSString *theScore = [NSString stringWithFormat:@"%@ pts.", [self.theScores objectAtIndex:indexPath.row]];
