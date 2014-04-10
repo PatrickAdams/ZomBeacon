@@ -13,7 +13,6 @@
 #import <Parse/Parse.h>
 #import "UserAnnotations.h"
 #import "PublicDeadViewController.h"
-#import <ProximityKit/ProximityKit.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface PublicZombieViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate, MKMapViewDelegate>

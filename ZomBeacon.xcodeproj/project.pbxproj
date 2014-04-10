@@ -140,7 +140,6 @@
 		E7B037D618DCDFDF003FB291 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7B037D418DCDFDF003FB291 /* TitilliumWeb-Regular.ttf */; };
 		E7B037D718DCDFDF003FB291 /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7B037D518DCDFDF003FB291 /* TitilliumWeb-SemiBold.ttf */; };
 		E7B0380F18DCE048003FB291 /* contact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7B0380E18DCE048003FB291 /* contact@2x.png */; };
-		E7B0381118DCE058003FB291 /* ProximityKit.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7B0381018DCE058003FB291 /* ProximityKit.plist */; };
 		E7B4FBF818D8962C0036B5D7 /* user_annotation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7B4FBF718D8962C0036B5D7 /* user_annotation@2x.png */; };
 		E7B8907518D762B5002082F8 /* bg_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7B8907418D762B5002082F8 /* bg_green@2x.png */; };
 		E7B8907718D762BB002082F8 /* bg_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7B8907618D762BB002082F8 /* bg_yellow@2x.png */; };
@@ -154,7 +153,6 @@
 		E7C8653F18B6594F00D80BD1 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */; };
 		E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */; };
 		E7DE48BE18DCB2F80007F9E1 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE48BD18DCB2F80007F9E1 /* AboutViewController.m */; };
-		E7EBC23318B66007005D8AA6 /* ProximityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EBC23218B66007005D8AA6 /* ProximityKit.framework */; };
 		E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF88918A12CF400DEE521 /* GameKit.framework */; };
 		E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EFF89718A136E900DEE521 /* Social.framework */; };
 		E7F9C0AC18C12B240023D10F /* logout_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7F9C0AB18C12B240023D10F /* logout_button@2x.png */; };
@@ -360,7 +358,6 @@
 		E7B037D418DCDFDF003FB291 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-Regular.ttf"; path = "Fonts/TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		E7B037D518DCDFDF003FB291 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitilliumWeb-SemiBold.ttf"; path = "Fonts/TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
 		E7B0380E18DCE048003FB291 /* contact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "contact@2x.png"; path = "Images/contact@2x.png"; sourceTree = "<group>"; };
-		E7B0381018DCE058003FB291 /* ProximityKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ProximityKit.plist; path = "Supporting Files/ProximityKit.plist"; sourceTree = "<group>"; };
 		E7B4FBF718D8962C0036B5D7 /* user_annotation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user_annotation@2x.png"; path = "Images/user_annotation@2x.png"; sourceTree = "<group>"; };
 		E7B8907418D762B5002082F8 /* bg_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_green@2x.png"; path = "Images/bg_green@2x.png"; sourceTree = "<group>"; };
 		E7B8907618D762BB002082F8 /* bg_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_yellow@2x.png"; path = "Images/bg_yellow@2x.png"; sourceTree = "<group>"; };
@@ -380,7 +377,6 @@
 		E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = Profiles/ProfileViewController.m; sourceTree = "<group>"; };
 		E7DE48BC18DCB2F80007F9E1 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Navigation/AboutViewController.h; sourceTree = "<group>"; };
 		E7DE48BD18DCB2F80007F9E1 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Navigation/AboutViewController.m; sourceTree = "<group>"; };
-		E7EBC23218B66007005D8AA6 /* ProximityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProximityKit.framework; path = ZomBeacon/Frameworks/ProximityKit.framework; sourceTree = "<group>"; };
 		E7EFF88918A12CF400DEE521 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E7EFF89718A136E900DEE521 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		E7F9C0AB18C12B240023D10F /* logout_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logout_button@2x.png"; path = "Images/logout_button@2x.png"; sourceTree = "<group>"; };
@@ -400,7 +396,6 @@
 				E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */,
 				E78107E21860CB4500B19DB9 /* QuartzCore.framework in Frameworks */,
 				E78107E01860CB3F00B19DB9 /* MobileCoreServices.framework in Frameworks */,
-				E7EBC23318B66007005D8AA6 /* ProximityKit.framework in Frameworks */,
 				E78107DE1860CB3300B19DB9 /* libz.1.1.3.dylib in Frameworks */,
 				E705AA3B18AE740200CFE7B6 /* FacebookSDK.framework in Frameworks */,
 				E78107DC1860CB1800B19DB9 /* CFNetwork.framework in Frameworks */,
@@ -579,7 +574,6 @@
 			children = (
 				E7B99D1918F6E8AB00921947 /* Parse.framework */,
 				E7786A3718EC44B900817377 /* AVFoundation.framework */,
-				E7EBC23218B66007005D8AA6 /* ProximityKit.framework */,
 				E705AA3A18AE740200CFE7B6 /* FacebookSDK.framework */,
 				E7EFF89718A136E900DEE521 /* Social.framework */,
 				E7EFF88918A12CF400DEE521 /* GameKit.framework */,
@@ -629,7 +623,6 @@
 				E7D596A518B7CC4100E8844E /* Fonts */,
 				E7446985185B81E9007F6817 /* Images */,
 				E74E2D0C18898FCA0080D5A3 /* MBProgressHUD */,
-				E7B0381018DCE058003FB291 /* ProximityKit.plist */,
 				E705AA3F18AE744500CFE7B6 /* main.m */,
 				E705AA4118AE744500CFE7B6 /* ZomBeacon-Info.plist */,
 				E705AA4218AE744500CFE7B6 /* ZomBeacon-Prefix.pch */,
@@ -916,7 +909,6 @@
 				E72AF07118F3182E00F59285 /* share_nearby@2x.png in Resources */,
 				E7023DD418E081E9003FA5F4 /* share_app_button@2x.png in Resources */,
 				CD43810118C8CE30009A8D5F /* arrow@2x.png in Resources */,
-				E7B0381118DCE058003FB291 /* ProximityKit.plist in Resources */,
 				E7B0380F18DCE048003FB291 /* contact@2x.png in Resources */,
 				E7B8908118D77574002082F8 /* bg_gray@2x.png in Resources */,
 				CD6FA4E318C7BA3F00510581 /* splash_short_yellow.png in Resources */,
