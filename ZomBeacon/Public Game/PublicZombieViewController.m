@@ -123,7 +123,7 @@
                 
                 if ([statusOfNearbyUser isEqualToString:@"survivor"])
                 {
-                    newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"survivor_annotation"]];
+                    newAnnotation = [[UserAnnotations alloc] initWithTitle:nameOfNearbyUser andCoordinate:location andImage:[UIImage imageNamed:@"survivor_annotation2"]];
                 }
                 else if ([statusOfNearbyUser isEqualToString:@"zombie"])
                 {
