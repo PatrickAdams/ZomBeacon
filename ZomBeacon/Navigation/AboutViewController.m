@@ -59,14 +59,14 @@
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     if  ([buttonTitle isEqualToString:@"Email"])
     {
-        [self displayComposerSheet:[NSString stringWithFormat:@"You've been invited to download the ZomBeacon. ZomBeacon allows you to create your own Zombie apocalypse right in your own neighborhood. Become a zombie and infect your friends. Become a survivor and eliminate the zombies. To download the app visit this link <a href='http://bit.ly/zombeacon'>http://bit.ly/zombeacon</a>."]];
+        [self displayComposerSheet:[NSString stringWithFormat:@"ZomBeacon is a zombie apocalypse right in your own neighborhood. Become a zombie and infect your friends. Become a survivor and eliminate the zombies. To download the app visit this link <a href='https://itunes.apple.com/app/id825793215'>https://itunes.apple.com/app/id825793215</a>."]];
     }
     if ([buttonTitle isEqualToString:@"SMS"])
     {
         MFMessageComposeViewController *vc = [[MFMessageComposeViewController alloc] init];
         if([MFMessageComposeViewController canSendText])
         {
-            vc.body = [NSString stringWithFormat:@"You've been invited to try out ZomBeacon: A zombie apocalypse right in your own neighborhood. Available now for iOS! Download now - http://bit.ly/zombeacon"];
+            vc.body = [NSString stringWithFormat:@"You've been invited to try out ZomBeacon: A zombie apocalypse right in your own neighborhood. Available now for iOS! Download now - https://itunes.apple.com/app/id825793215"];
             vc.messageComposeDelegate = self;
             [self presentViewController:vc animated:YES completion:nil];
         }
@@ -74,7 +74,7 @@
     if ([buttonTitle isEqualToString:@"Facebook"])
     {
         FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
-        params.link = [NSURL URLWithString:@"http://bit.ly/zombeacon"];
+        params.link = [NSURL URLWithString:@"https://itunes.apple.com/app/id825793215"];
         params.name = @"ZomBeacon: A zombie apocalypse right in your own neighborhood. Available now for iOS!";
         params.description = @"Become a Zombie and Infect Your Friends";
         params.picture = [NSURL URLWithString:@"http://i.imgur.com/SadmerX.png"];
@@ -105,7 +105,7 @@
             NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                            @"ZomBeacon: A zombie apocalypse right in your own neighborhood. Available now for iOS!", @"name",
                                            @"Become a Zombie and Infect Your Friends", @"description",
-                                           @"http://bit.ly/zombeacon", @"link",
+                                           @"https://itunes.apple.com/app/id825793215", @"link",
                                            @"http://i.imgur.com/SadmerX.png", @"picture",
                                            nil];
             
@@ -155,7 +155,7 @@
         };
         
         [tweetComposer setInitialText:@"ZomBeacon: A zombie apocalypse right in your own neighborhood. Available now for iOS! #ZomBeacon"];
-        [tweetComposer addURL:[NSURL URLWithString:@"http://bit.ly/zombeacon"]];
+        [tweetComposer addURL:[NSURL URLWithString:@"https://itunes.apple.com/app/id825793215"]];
         
         [self presentViewController:tweetComposer animated:YES completion:nil];
         
@@ -183,7 +183,7 @@
     if ([MFMailComposeViewController canSendMail])
     {
         mailComposerView.mailComposeDelegate = self;
-        [mailComposerView setSubject:@"You've Been Invited to a ZomBeacon Game!"];
+        [mailComposerView setSubject:@"You've Been Invited to Download ZomBeacon!"];
         [mailComposerView setMessageBody:body isHTML:YES];
         
         [self presentViewController:mailComposerView animated:YES completion:nil];
