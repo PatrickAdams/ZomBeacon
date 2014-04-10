@@ -85,7 +85,7 @@
         currentUser[@"bio"] = self.bioField.text;
         
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error)
+            if (succeeded)
             {
                 [self dismissViewControllerAnimated:YES completion:nil];
                 
