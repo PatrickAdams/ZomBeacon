@@ -158,7 +158,7 @@
         }
         
         NSUInteger totalPlayers = playersArray.count;
-        NSUInteger totalZombies = ceil(totalPlayers * 0.2);
+        NSUInteger totalZombies = ceil(totalPlayers * 0.5);
         
         if (playersArray.count < 2)
         {

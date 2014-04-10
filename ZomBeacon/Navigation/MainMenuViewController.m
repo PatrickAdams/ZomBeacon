@@ -98,7 +98,7 @@
     {
         int randomNumber = [self getRandomNumberBetween:1 to:100];
         
-        if (randomNumber < 35)
+        if (randomNumber < 40)
         {
             [self performSegueWithIdentifier: @"publicZombie" sender: self];
             [currentUser setObject:@"zombie" forKey:@"publicStatus"];
