@@ -40,13 +40,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getLocation) name:@"getLocation" object: nil];
     
-    if ([CLLocationManager isRangingAvailable] == NO)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Device Not Supported" message:@"Only iPhone 4s and up will work with this app." delegate:nil cancelButtonTitle:@"Not cool!" otherButtonTitles:nil];
-        
-        [alert show];
-    }
-    
     presentedView = NO;
     
     Reachability* reachability = [Reachability reachabilityForInternetConnection];

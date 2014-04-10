@@ -833,7 +833,7 @@
             <objects>
                 <viewController storyboardIdentifier="profile" id="KmB-En-GMb" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sse-aS-leA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="hW4-zG-2NL">
@@ -916,7 +916,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="1tz-Cy-jbl">
-                                <rect key="frame" x="0.0" y="298" width="320" height="258"/>
+                                <rect key="frame" x="0.0" y="298" width="320" height="194"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1046,6 +1046,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="emailAddress" destination="gLy-cz-rgA" id="zgA-sP-OYH"/>
                         <outlet property="profileImage" destination="Ez3-cu-ngS" id="BNB-Vd-jWk"/>
@@ -1075,11 +1076,11 @@
             <objects>
                 <viewController storyboardIdentifier="friendslist" id="23z-qn-eLr" customClass="MyFriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yDK-0q-2Vo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="MwB-lQ-zvb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="617"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="553"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tape.png" id="4TA-2t-wqs">
@@ -1087,7 +1088,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="Tva-A8-jfM">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="484"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1145,6 +1146,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Item" id="Gw2-Xc-dk9"/>
                     <navigationItem key="navigationItem" title="Friends" id="Vru-e2-MRu"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="Tva-A8-jfM" id="xON-dd-6kH"/>
                     </connections>
@@ -1803,7 +1805,7 @@
             <objects>
                 <viewController storyboardIdentifier="mainmenu" id="NGH-f2-ute" customClass="MainMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ncy-Yl-BE7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_mainmenu.png" id="tbM-2P-kv5">
@@ -1848,6 +1850,23 @@
                                     <action selector="startPrivateGame" destination="NGH-f2-ute" eventType="touchUpInside" id="9HA-3g-mWp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Qh-YN-VXD">
+                                <rect key="frame" x="269" y="472" width="26" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signatureAppear" destination="NGH-f2-ute" eventType="touchUpInside" id="xUo-hu-wcU"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created By: Patrick Adams" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iox-DO-xvk">
+                                <rect key="frame" x="169" y="479" width="164" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -1864,10 +1883,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="createPrivateGameButton" destination="J0F-7N-lF8" id="Oxt-2W-QLT"/>
+                        <outlet property="signature" destination="iox-DO-xvk" id="sM4-eU-aDX"/>
                         <outlet property="startPrivateGameButton" destination="UZm-41-pyO" id="9LA-Sr-vly"/>
                         <outlet property="startPublicGameButton" destination="vr0-vd-YDs" id="f6i-Av-ux6"/>
+                        <outletCollection property="titilliumSemiBoldFonts" destination="iox-DO-xvk" id="bwa-ft-qNo"/>
                         <segue destination="5w5-oG-fwH" kind="push" identifier="publicSurvivor" id="CM6-mk-yUd"/>
                         <segue destination="it5-Tg-ZWA" kind="push" identifier="publicZombie" id="PsZ-ht-oAZ"/>
                     </connections>
@@ -2032,7 +2054,7 @@
             <objects>
                 <viewController storyboardIdentifier="creategame" id="jIF-Br-8W4" customClass="CreateViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ap-xW-4Dg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_gray.png" id="w9X-uc-na2">
@@ -2110,6 +2132,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Create A Game" id="cdw-MK-pBg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="dateTimeTextField" destination="Lg3-2F-wSI" id="r8g-Wu-XXS"/>
@@ -3177,12 +3200,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UAe-l8-iEQ"/>
-        <segue reference="XAd-uo-p02"/>
+        <segue reference="PsZ-ht-oAZ"/>
         <segue reference="INN-uV-51U"/>
-        <segue reference="dNx-FP-4rN"/>
-        <segue reference="rQe-am-agg"/>
+        <segue reference="CM6-mk-yUd"/>
+        <segue reference="XAd-uo-p02"/>
         <segue reference="2tQ-oh-ysy"/>
+        <segue reference="UAe-l8-iEQ"/>
         <segue reference="uzd-0d-SvP"/>
     </inferredMetricsTieBreakers>
 </document>

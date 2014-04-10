@@ -16,6 +16,7 @@
 @interface MainMenuViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 {
     PFUser *currentUser;
+    int count;
 }
 
 @property (nonatomic, strong) PFGeoPoint *point;
@@ -23,7 +24,10 @@
 @property (nonatomic, weak) IBOutlet UIButton *startPublicGameButton;
 @property (nonatomic, weak) IBOutlet UIButton *createPrivateGameButton;
 @property (nonatomic, weak) IBOutlet UIButton *startPrivateGameButton;
+@property (nonatomic, weak) IBOutlet UILabel *signature;
+@property (nonatomic, strong) IBOutletCollection (UILabel)NSArray *titilliumSemiBoldFonts;
 
 - (IBAction)startPublicGame;
+- (IBAction)signatureAppear;
 
 @end

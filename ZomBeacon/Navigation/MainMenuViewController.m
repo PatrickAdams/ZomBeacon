@@ -51,6 +51,25 @@
     [currentInstallation saveInBackground];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"getLocation" object:nil userInfo:nil];
+    
+    for (UILabel * label in self.titilliumSemiBoldFonts) {
+        label.font = [UIFont fontWithName:@"TitilliumWeb-SemiBold" size:label.font.pointSize];
+    }
+    
+    count = 0;
+}
+
+- (IBAction)signatureAppear
+{
+    count ++;
+    if (count == 10)
+    {
+      [self.signature setHidden:NO];
+    }
+    else
+    {
+       [self.signature setHidden:YES];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
