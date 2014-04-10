@@ -69,7 +69,6 @@
 
 - (void)setProfileValues
 {
-    [currentUser refresh];
     self.userName.text = currentUser.username;
     self.realName.text = currentUser[@"name"];
     self.emailAddress.text = currentUser.email;

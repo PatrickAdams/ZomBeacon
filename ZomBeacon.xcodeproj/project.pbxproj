@@ -10,7 +10,6 @@
 		CD013BFE18D0A2DD0020FF5C /* EndGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD013BFD18D0A2DD0020FF5C /* EndGameViewController.m */; };
 		CD4380FF18C8CCA1009A8D5F /* share_sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */; };
 		CD43810118C8CE30009A8D5F /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD43810018C8CE2F009A8D5F /* arrow@2x.png */; };
-		CD53842118B7142100780EE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53842018B7142100780EE6 /* Parse.framework */; };
 		CD6BF18E18C8E067006CC73F /* rejoingame_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6BF18D18C8E067006CC73F /* rejoingame_button@2x.png */; };
 		CD6BF19018C8E2F7006CC73F /* zombiehead.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6BF18F18C8E2F7006CC73F /* zombiehead.png */; };
 		CD6FA4D118C77FB000510581 /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6FA4D018C77FB000510581 /* default_profile.png */; };
@@ -148,6 +147,7 @@
 		E7B8907F18D76E44002082F8 /* bg_gray2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7B8907E18D76E44002082F8 /* bg_gray2@2x.png */; };
 		E7B8908118D77574002082F8 /* bg_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7B8908018D77574002082F8 /* bg_gray@2x.png */; };
 		E7B8908318D77964002082F8 /* bg_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7B8908218D77964002082F8 /* bg_red@2x.png */; };
+		E7B99D1A18F6E8AB00921947 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B99D1918F6E8AB00921947 /* Parse.framework */; };
 		E7C8653E18B6594F00D80BD1 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */; };
 		E7C8653F18B6594F00D80BD1 /* FriendProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653B18B6594F00D80BD1 /* FriendProfileViewController.m */; };
 		E7C8654018B6594F00D80BD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C8653D18B6594F00D80BD1 /* ProfileViewController.m */; };
@@ -164,7 +164,6 @@
 		CD013BFD18D0A2DD0020FF5C /* EndGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EndGameViewController.m; path = "Private Game/EndGameViewController.m"; sourceTree = "<group>"; };
 		CD4380FE18C8CCA1009A8D5F /* share_sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_sms@2x.png"; path = "Images/share_sms@2x.png"; sourceTree = "<group>"; };
 		CD43810018C8CE2F009A8D5F /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow@2x.png"; path = "Images/arrow@2x.png"; sourceTree = "<group>"; };
-		CD53842018B7142100780EE6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		CD6BF18D18C8E067006CC73F /* rejoingame_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rejoingame_button@2x.png"; path = "Images/rejoingame_button@2x.png"; sourceTree = "<group>"; };
 		CD6BF18F18C8E2F7006CC73F /* zombiehead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zombiehead.png; path = Images/zombiehead.png; sourceTree = "<group>"; };
 		CD6FA4D018C77FB000510581 /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default_profile.png; path = Images/default_profile.png; sourceTree = "<group>"; };
@@ -366,6 +365,7 @@
 		E7B8907E18D76E44002082F8 /* bg_gray2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_gray2@2x.png"; path = "Images/bg_gray2@2x.png"; sourceTree = "<group>"; };
 		E7B8908018D77574002082F8 /* bg_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_gray@2x.png"; path = "Images/bg_gray@2x.png"; sourceTree = "<group>"; };
 		E7B8908218D77964002082F8 /* bg_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_red@2x.png"; path = "Images/bg_red@2x.png"; sourceTree = "<group>"; };
+		E7B99D1918F6E8AB00921947 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ZomBeacon/Frameworks/Parse.framework; sourceTree = "<group>"; };
 		E7C8653818B6594F00D80BD1 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileViewController.h; path = Profiles/EditProfileViewController.h; sourceTree = "<group>"; };
 		E7C8653918B6594F00D80BD1 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileViewController.m; path = Profiles/EditProfileViewController.m; sourceTree = "<group>"; };
 		E7C8653A18B6594F00D80BD1 /* FriendProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendProfileViewController.h; path = Profiles/FriendProfileViewController.h; sourceTree = "<group>"; };
@@ -400,8 +400,8 @@
 				E78107DC1860CB1800B19DB9 /* CFNetwork.framework in Frameworks */,
 				E78107DA1860CB1300B19DB9 /* AudioToolbox.framework in Frameworks */,
 				E7EFF88A18A12CF400DEE521 /* GameKit.framework in Frameworks */,
-				CD53842118B7142100780EE6 /* Parse.framework in Frameworks */,
 				E77BFFBC1858F73E002871A6 /* CoreLocation.framework in Frameworks */,
+				E7B99D1A18F6E8AB00921947 /* Parse.framework in Frameworks */,
 				E77BFFBA1858F735002871A6 /* CoreBluetooth.framework in Frameworks */,
 				E751E4871858BF15004E8874 /* CoreGraphics.framework in Frameworks */,
 				E751E4891858BF15004E8874 /* UIKit.framework in Frameworks */,
@@ -571,8 +571,8 @@
 		E751E4831858BF15004E8874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7B99D1918F6E8AB00921947 /* Parse.framework */,
 				E7786A3718EC44B900817377 /* AVFoundation.framework */,
-				CD53842018B7142100780EE6 /* Parse.framework */,
 				E7EBC23218B66007005D8AA6 /* ProximityKit.framework */,
 				E705AA3A18AE740200CFE7B6 /* FacebookSDK.framework */,
 				E7EFF89718A136E900DEE521 /* Social.framework */,
@@ -1127,6 +1127,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/ZomBeacon/Frameworks",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ZomBeacon/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/Supporting Files/ZomBeacon-Prefix.pch";
@@ -1160,6 +1162,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/ZomBeacon/Frameworks",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ZomBeacon/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZomBeacon/Supporting Files/ZomBeacon-Prefix.pch";
