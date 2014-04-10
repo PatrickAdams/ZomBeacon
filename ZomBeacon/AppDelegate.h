@@ -21,5 +21,6 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) PFGeoPoint *point;
 @property (nonatomic, strong) NSString *gameIdString;
+@property (nonatomic, strong) NSTimer *didRangeBeaconsTimer;
 
 @end

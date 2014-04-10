@@ -27,7 +27,6 @@
 @protocol BeaconManagerDelegate <NSObject>
 
 - (void)beaconManager:(BeaconManager*)beaconManager didRangeBeacons:(NSArray*)beacons;
-- (void)beaconManager:(BeaconManager*)beaconManager didFailToRangeBeacons:(NSError*)withError;
 
 
 @end

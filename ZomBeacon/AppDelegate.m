@@ -42,7 +42,7 @@
     
     if ([CLLocationManager isRangingAvailable] == NO)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Device Not Supported" message:@"Only iPhone 4s' and up will work with this app." delegate:nil cancelButtonTitle:@"Not cool!" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Device Not Supported" message:@"Only iPhone 4s and up will work with this app." delegate:nil cancelButtonTitle:@"Not cool!" otherButtonTitles:nil];
         
         [alert show];
     }
@@ -112,6 +112,9 @@
     BeaconManager *beaconManager = [BeaconManager sharedManager];
     beaconManager.delegate = self;
     [beaconManager startBeaconMonitoring:@"6170CEEF-4D17-4741-8068-850A601E32F0"];
+    
+    //Timer to check if didRangeBeacons ever gets called
+    self.didRangeBeaconsTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(showAlert) userInfo:nil repeats:NO];
 }
 
 - (void)startRangingForZombies
@@ -120,10 +123,33 @@
     BeaconManager *beaconManager = [BeaconManager sharedManager];
     beaconManager.delegate = self;
     [beaconManager startBeaconMonitoring:@"1DC4825D-7457-474D-BE7B-B4C9B2D1C763"];
+    
+    //Timer to check if didRangeBeacons ever gets called
+    self.didRangeBeaconsTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(showAlert) userInfo:nil repeats:NO];
+}
+
+//This method is to check if didRangeBeacons ever gets called, this is a known bug in 7.1
+- (void)showAlert
+{
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bluetooth Error" message:@"Your bluetooth is not functioning properly. Please reset your device to fix the issue. Thank you!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+    else
+    {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"Bluetooth Error: Your bluetooth is not functioning properly. Please reset your device to fix the issue. Thank you!";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 }
 
 - (void)beaconManager:(BeaconManager *)beaconManager didRangeBeacons:(NSArray *)beacons
 {
+    [self.didRangeBeaconsTimer invalidate];
+    
     CLBeacon *beacon = [beacons lastObject];
     
     if (beacon.proximity == CLProximityNear || beacon.proximity == CLProximityImmediate)
@@ -264,25 +290,6 @@
             [[PFUser currentUser] setObject:@"dead" forKey:@"publicStatus"];
             [[PFUser currentUser] saveInBackground];
         }
-    }
-}
-
-- (void)beaconManager:(BeaconManager *)beaconManager didFailToRangeBeacons:(NSError *)withError
-{
-    NSLog(@"%@", withError);
-    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bluetooth Error" message:@"Please reset your device and make sure bluetooth is turned on to fix the issue. Thank you!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-        [alert show];
-    }
-    else
-    {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"Bluetooth Error: Please reset your device and make sure bluetooth is turned on to fix the issue. Thank you!";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        notification.applicationIconBadgeNumber = 1;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
 }
 
