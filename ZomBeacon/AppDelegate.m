@@ -47,7 +47,34 @@
         [alert show];
     }
     
+    presentedView = NO;
+    
+    Reachability* reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
     return YES;
+}
+
+- (void)reachabilityChanged:(NSNotification*)notification
+{
+	Reachability* reachability = notification.object;
+    
+    UINavigationController *navCon = (UINavigationController*)self.window.rootViewController;
+    
+	if(reachability.currentReachabilityStatus == NotReachable)
+    {
+		UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        NetworkViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"network"];
+        [navCon presentViewController:vc animated:NO completion:nil];
+        presentedView= YES;
+    }
+	else if(reachability.currentReachabilityStatus != NotReachable && presentedView == YES)
+    {
+		[navCon dismissViewControllerAnimated:NO completion:nil];
+        presentedView = NO;
+    }
 }
 
 - (void)openGameDetailsView:(NSString *)forGame

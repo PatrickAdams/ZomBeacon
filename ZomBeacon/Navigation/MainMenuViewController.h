@@ -11,6 +11,7 @@
 #import "PublicLobbyViewController.h"
 #import "MBProgressHUD.h"
 #import "LoginViewController.h"
+#import "Reachability.h"
 
 @interface MainMenuViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 {

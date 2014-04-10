@@ -13,8 +13,13 @@
 #import "FindGameViewController.h"
 #import "MainMenuViewController.h"
 #import "BeaconManager.h"
+#import "Reachability.h"
+#import "NetworkViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, BeaconManagerDelegate>
+{
+    BOOL presentedView;
+}
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) CBCentralManager *centralManager;
