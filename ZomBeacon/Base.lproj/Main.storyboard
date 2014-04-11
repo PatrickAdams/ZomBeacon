@@ -1861,7 +1861,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created By: Patrick Adams" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iox-DO-xvk">
-                                <rect key="frame" x="170" y="480" width="164" height="23"/>
+                                <rect key="frame" x="176" y="480" width="164" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="0.75740907369999999" blue="0.18900734999999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -3200,12 +3200,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PsZ-ht-oAZ"/>
+        <segue reference="uzd-0d-SvP"/>
+        <segue reference="XAd-uo-p02"/>
         <segue reference="INN-uV-51U"/>
+        <segue reference="PsZ-ht-oAZ"/>
         <segue reference="CM6-mk-yUd"/>
         <segue reference="2tQ-oh-ysy"/>
-        <segue reference="9aP-O6-Fre"/>
         <segue reference="UAe-l8-iEQ"/>
-        <segue reference="uzd-0d-SvP"/>
     </inferredMetricsTieBreakers>
 </document>
