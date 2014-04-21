@@ -170,7 +170,7 @@
 {
     if (userLocation)
     {
-        double miles = 0.5;
+        double miles = 0.25;
         double scalingFactor = ABS( (cos(2 * M_PI * userLocation.coordinate.latitude / 360.0) ));
         
         MKCoordinateSpan span;

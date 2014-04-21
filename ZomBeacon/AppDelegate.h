@@ -15,6 +15,7 @@
 #import "BeaconManager.h"
 #import "Reachability.h"
 #import "NetworkViewController.h"
+#import "GAI.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CBCentralManagerDelegate, CLLocationManagerDelegate, BeaconManagerDelegate>
 {

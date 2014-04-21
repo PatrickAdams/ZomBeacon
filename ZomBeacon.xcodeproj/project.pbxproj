@@ -125,6 +125,12 @@
 		E786A2D818C11CC400942576 /* assignteams_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2D718C11CC400942576 /* assignteams_button@2x.png */; };
 		E786A2DA18C11CCC00942576 /* startgame_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E786A2D918C11CCC00942576 /* startgame_button@2x.png */; };
 		E798C67918E61478009F0C9E /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E798C67818E61478009F0C9E /* BeaconManager.m */; };
+		E79D7A6E190590D300BEE42E /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E79D7A6D190590D300BEE42E /* libGoogleAnalyticsServices.a */; };
+		E79D7A70190590EE00BEE42E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79D7A6F190590EE00BEE42E /* AdSupport.framework */; };
+		E79D7A72190590F900BEE42E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79D7A71190590F900BEE42E /* CoreData.framework */; };
+		E79D7A741905910600BEE42E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E79D7A731905910600BEE42E /* libz.dylib */; };
+		E79D7A761905925600BEE42E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E79D7A751905925600BEE42E /* libsqlite3.dylib */; };
+		E79D7A781905929B00BEE42E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E79D7A771905929B00BEE42E /* libsqlite3.0.dylib */; };
 		E7AB10D018C4D59C00A54850 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10CE18C4D59C00A54850 /* sms.png */; };
 		E7AB10D118C4D59C00A54850 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10CF18C4D59C00A54850 /* sms@2x.png */; };
 		E7AB10E118C4F59F00A54850 /* bite_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7AB10E018C4F59F00A54850 /* bite_button@2x.png */; };
@@ -340,6 +346,18 @@
 		E786A2D918C11CCC00942576 /* startgame_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "startgame_button@2x.png"; path = "Images/startgame_button@2x.png"; sourceTree = "<group>"; };
 		E798C67718E61478009F0C9E /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconManager.h; path = "Custom Objects/BeaconManager.h"; sourceTree = "<group>"; };
 		E798C67818E61478009F0C9E /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconManager.m; path = "Custom Objects/BeaconManager.m"; sourceTree = "<group>"; };
+		E79D7A67190590CC00BEE42E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		E79D7A68190590CC00BEE42E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		E79D7A69190590CC00BEE42E /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		E79D7A6A190590CC00BEE42E /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		E79D7A6B190590CC00BEE42E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		E79D7A6C190590CC00BEE42E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		E79D7A6D190590D300BEE42E /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = ZomBeacon/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		E79D7A6F190590EE00BEE42E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		E79D7A71190590F900BEE42E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E79D7A731905910600BEE42E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		E79D7A751905925600BEE42E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		E79D7A771905929B00BEE42E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E7AB10CE18C4D59C00A54850 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sms.png; path = Images/sms.png; sourceTree = "<group>"; };
 		E7AB10CF18C4D59C00A54850 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sms@2x.png"; path = "Images/sms@2x.png"; sourceTree = "<group>"; };
 		E7AB10E018C4F59F00A54850 /* bite_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bite_button@2x.png"; path = "Images/bite_button@2x.png"; sourceTree = "<group>"; };
@@ -385,9 +403,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79D7A781905929B00BEE42E /* libsqlite3.0.dylib in Frameworks */,
+				E79D7A761905925600BEE42E /* libsqlite3.dylib in Frameworks */,
+				E79D7A741905910600BEE42E /* libz.dylib in Frameworks */,
+				E79D7A72190590F900BEE42E /* CoreData.framework in Frameworks */,
+				E79D7A70190590EE00BEE42E /* AdSupport.framework in Frameworks */,
 				E7786A3818EC44B900817377 /* AVFoundation.framework in Frameworks */,
 				E7EFF89818A136E900DEE521 /* Social.framework in Frameworks */,
 				E7496A69187DF40F003E4B8A /* MapKit.framework in Frameworks */,
+				E79D7A6E190590D300BEE42E /* libGoogleAnalyticsServices.a in Frameworks */,
 				E78107E81860CB6000B19DB9 /* SystemConfiguration.framework in Frameworks */,
 				E78107E41860CB4E00B19DB9 /* Security.framework in Frameworks */,
 				E78107E21860CB4500B19DB9 /* QuartzCore.framework in Frameworks */,
@@ -559,6 +583,8 @@
 		E751E4781858BF15004E8874 = {
 			isa = PBXGroup;
 			children = (
+				E79D7A771905929B00BEE42E /* libsqlite3.0.dylib */,
+				E79D7A751905925600BEE42E /* libsqlite3.dylib */,
 				E751E48A1858BF15004E8874 /* ZomBeacon */,
 			);
 			sourceTree = "<group>";
@@ -566,6 +592,10 @@
 		E751E4831858BF15004E8874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E79D7A6D190590D300BEE42E /* libGoogleAnalyticsServices.a */,
+				E79D7A71190590F900BEE42E /* CoreData.framework */,
+				E79D7A6F190590EE00BEE42E /* AdSupport.framework */,
+				E79D7A731905910600BEE42E /* libz.dylib */,
 				E7B99D1918F6E8AB00921947 /* Parse.framework */,
 				E7786A3718EC44B900817377 /* AVFoundation.framework */,
 				E705AA3A18AE740200CFE7B6 /* FacebookSDK.framework */,
@@ -611,6 +641,7 @@
 		E751E48B1858BF15004E8874 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E79D7A66190590A700BEE42E /* Google Analytics */,
 				E7B99D1B18F6F25200921947 /* Reachability */,
 				E7786A2E18EC414C00817377 /* Audio */,
 				E70B555818E1DCFC000A02A8 /* UserVoice */,
@@ -634,6 +665,19 @@
 				E7786A3418EC41B400817377 /* gun_shot.wav */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		E79D7A66190590A700BEE42E /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				E79D7A67190590CC00BEE42E /* GAI.h */,
+				E79D7A68190590CC00BEE42E /* GAIDictionaryBuilder.h */,
+				E79D7A69190590CC00BEE42E /* GAIFields.h */,
+				E79D7A6A190590CC00BEE42E /* GAILogger.h */,
+				E79D7A6B190590CC00BEE42E /* GAITrackedViewController.h */,
+				E79D7A6C190590CC00BEE42E /* GAITracker.h */,
+			);
+			name = "Google Analytics";
 			sourceTree = "<group>";
 		};
 		E7B99D1B18F6F25200921947 /* Reachability */ = {
@@ -1146,6 +1190,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/ZomBeacon",
 					"$(PROJECT_DIR)/ZomBeacon/UserVoice",
+					"$(PROJECT_DIR)/ZomBeacon",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1181,6 +1226,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/ZomBeacon",
 					"$(PROJECT_DIR)/ZomBeacon/UserVoice",
+					"$(PROJECT_DIR)/ZomBeacon",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
